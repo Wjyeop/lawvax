@@ -1,4 +1,5 @@
 import MainSection from "./MainSection";
+import NewsLetterSection from "./NewLetterSection";
 import NewsSection from "./NewSection";
 
 const LandingPage = () => {
@@ -6,6 +7,7 @@ const LandingPage = () => {
     <div>
       <MainSection />
       <NewsSection />
+      <NewsLetterSection />
     </div>
   );
 };

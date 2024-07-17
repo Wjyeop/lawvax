@@ -339,3 +339,87 @@
   text-decoration: underline;
   padding: 0;
 }
+
+.newsletter-section {
+  margin: 100px;
+  text-align: center;
+}
+
+.newsletter-section .title {
+  text-align: left;
+}
+
+.newsletter-section .title p {
+  font-size: 1.5em;
+  font-family: "Times New Roman", Times, serif;
+  margin: 0px;
+  line-height: 0.8;
+}
+
+.newsletter-section .title .more {
+  border: none;
+  background: none;
+  padding-left: 30px;
+}
+
+.newsletter-section .title .more img {
+  width: 50px;
+}
+
+.newsletter-section .swiper {
+}
+
+.newsletter-section .swiper-container {
+  padding: 50px 0;
+}
+
+.newsletter-section .swiper-wrapper {
+  padding: 80px;
+  padding-right: 200px;
+}
+
+.newsletter-section .swiper-slide {
+  border: 4px solid #d9d9d9;
+  border-radius: 5px;
+}
+
+.newsletter-section .swiper-scrollbar {
+}
+
+.newsletter-section .newsletter-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 30px;
+}
+.newsletter-section .newsletter-content .mark {
+  flex: 2;
+  text-align: left;
+  margin-top: 30px;
+}
+
+.newsletter-section .newsletter-content .mark span {
+  background-color: #1876bc;
+  color: white;
+  width: 100%;
+  padding: 5px 10px;
+}
+
+.newsletter-section .newsletter-content .title {
+  flex: 6;
+  font-weight: bold;
+  text-align: left;
+  font-size: 2em;
+}
+
+.newsletter-section .newsletter-content .bottom {
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2em;
+  color: #888;
+}
+
+.newsletter-section .newsletter-content .bottom .more {
+  text-decoration: underline;
+}
