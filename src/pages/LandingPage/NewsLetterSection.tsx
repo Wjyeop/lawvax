@@ -26,10 +26,11 @@ const NewsLetterSection = () => {
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           navigation
-          spaceBetween={10}
           slidesPerView={4}
           scrollbar={{ draggable: true }}
-          slidesOffsetAfter={200}
+          spaceBetween={10}
+          slidesOffsetBefore={50}
+          slidesOffsetAfter={50}
         >
           <SwiperSlide>
             <div className="newsletter-content">

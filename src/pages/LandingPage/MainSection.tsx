@@ -3,7 +3,7 @@ import CenterSide from "../../components/CenterSide";
 
 const MainSection = () => {
   return (
-    <div className="landing-page">
+    <div className="main-section">
       <CenterSide />
 
       <div className="main-content">
