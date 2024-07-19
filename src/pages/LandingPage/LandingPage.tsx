@@ -1,7 +1,8 @@
-import HiredLawyerSection from "./HiredLawyerSection";
 import MainSection from "./MainSection";
-import NewsLetterSection from "./NewsLetterSection";
 import NewsSection from "./NewsSection";
+import NewsLetterSection from "./NewsLetterSection";
+import HiredLawyerSection from "./HiredLawyerSection";
+import LawvaxMap from "./LawvaxMap";
 
 const LandingPage = () => {
   return (
@@ -10,6 +11,7 @@ const LandingPage = () => {
       <NewsSection />
       <NewsLetterSection />
       <HiredLawyerSection />
+      <LawvaxMap />
     </div>
   );
 };

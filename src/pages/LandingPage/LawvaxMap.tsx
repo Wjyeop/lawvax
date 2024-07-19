@@ -1,0 +1,61 @@
+import search from "../../assets/images/icons/searchIcon.png";
+import blueBus from "../../assets/images/icons/blueBus.png";
+import greenBus from "../../assets/images/icons/greenBus.png";
+import threeLine from "../../assets/images/icons/threeLine.png";
+
+const LawvaxMap = () => {
+  return (
+    <section className="lawvax-map-section">
+      <div className="title">
+        <div>
+          <p style={{ fontSize: "2.5em" }}>
+            <span className="blue" style={{ fontSize: "2em" }}>
+              M
+            </span>
+            AP
+          </p>
+        </div>
+      </div>
+      <div className="content">
+        <div className="text-section">
+          <div className="route">
+            <p className="sub-title">경로탐색</p>
+            <div className="search-bar">
+              <img src={search} alt="" />
+              <input type="text" placeholder="출발지를 입력해주세요." />
+              <button className="search-button">X</button>
+            </div>
+          </div>
+          <div className="sub-wrap adress">
+            <p className="sub-title">주소</p>
+            <p className="gray">지번:서울특별시 서초구 서초동 1596-3</p>
+            <p>서울특별시 서초구 사임당로 18 석오빌딩 3층, 9층</p>
+          </div>
+          <div className="sub-wrap call">
+            <p className="sub-title">연락처</p>
+            <span>대표번호 02-583-6300</span>
+            <span> 팩스 02-583-6303</span>
+          </div>
+          <div className="sub-wrap traffic">
+            <p className="sub-title">대중교통</p>
+            <p>
+              <img src={blueBus} alt="" />
+              350, 742 서울교대사거리 정류장 22160
+            </p>
+            <p>
+              <img src={greenBus} alt="" />
+              서초21청호나이스 정류장 22935
+            </p>
+            <p>
+              <img src={threeLine} alt="" />
+              남부터미널역 6번 출구 하차
+            </p>
+          </div>
+        </div>
+        <div className="map-section"></div>
+      </div>
+    </section>
+  );
+};
+
+export default LawvaxMap;

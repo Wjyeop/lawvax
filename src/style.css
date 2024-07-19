@@ -2,6 +2,10 @@
   color: #1676bc;
 }
 
+.gray {
+  color: #ccc;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -531,4 +535,72 @@
 
 .hired-section .content .text-wrap .class {
   font-size: 0.5em;
+}
+
+.lawvax-map-section {
+  text-align: center;
+  margin: 10%;
+}
+
+.lawvax-map-section .title {
+  text-align: left;
+}
+
+.lawvax-map-section .title p {
+  font-size: 1.5em;
+  font-family: "Times New Roman", Times, serif;
+  margin: 0px;
+  line-height: 0.8;
+}
+
+.lawvax-map-section .content {
+  display: flex;
+}
+
+.lawvax-map-section .content .text-section {
+  flex: 40%;
+  text-align: left;
+}
+
+.lawvax-map-section .content .search-bar {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.lawvax-map-section .content .search-bar img {
+  width: 20px;
+}
+
+.lawvax-map-section .content .search-bar input {
+  border: none;
+  padding: 10px;
+  width: 100%;
+  outline: none;
+}
+
+.lawvax-map-section .content .search-bar button {
+  border: none;
+  background: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.lawvax-map-section .content .sub-wrap {
+  padding: 20px 0;
+}
+
+.lawvax-map-section .content .sub-title {
+  font-weight: bold;
+}
+
+.lawvax-map-section .content p {
+  margin: 5px 0;
+}
+
+.lawvax-map-section .content .map-section {
+  flex: 60%;
 }
