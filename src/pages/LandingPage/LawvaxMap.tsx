@@ -1,7 +1,10 @@
 import search from "../../assets/images/icons/searchIcon.png";
+import phone from "../../assets/images/icons/phone.png";
+import fax from "../../assets/images/icons/fax.png";
 import blueBus from "../../assets/images/icons/blueBus.png";
 import greenBus from "../../assets/images/icons/greenBus.png";
 import threeLine from "../../assets/images/icons/threeLine.png";
+import map from "../../assets/images/mapSample.png";
 
 const LawvaxMap = () => {
   return (
@@ -33,17 +36,21 @@ const LawvaxMap = () => {
           </div>
           <div className="sub-wrap call">
             <p className="sub-title">연락처</p>
-            <span>대표번호 02-583-6300</span>
-            <span> 팩스 02-583-6303</span>
+            <span>
+              <img src={phone} alt="" />
+              대표번호 02-583-6300
+              <img src={fax} alt="" style={{ marginLeft: "5px" }} />
+              팩스 02-583-6303
+            </span>
           </div>
           <div className="sub-wrap traffic">
             <p className="sub-title">대중교통</p>
             <p>
-              <img src={blueBus} alt="" />
+              <img src={blueBus} alt="" style={{ marginLeft: "2px" }} />
               350, 742 서울교대사거리 정류장 22160
             </p>
             <p>
-              <img src={greenBus} alt="" />
+              <img src={greenBus} alt="" style={{ marginLeft: "2px" }} />
               서초21청호나이스 정류장 22935
             </p>
             <p>
@@ -52,7 +59,9 @@ const LawvaxMap = () => {
             </p>
           </div>
         </div>
-        <div className="map-section"></div>
+        <div className="map-section">
+          <img src={map} alt="" />
+        </div>
       </div>
     </section>
   );
