@@ -694,3 +694,40 @@
   padding-right: 10px;
   padding-top: 3px;
 }
+
+.members-page .hired-title {
+  margin: 5% 10% 2% 10%;
+}
+
+.members-page .hired-title span {
+  font-size: 1.5em;
+}
+
+.members-page .swiper-wrapper {
+  padding: 5% 10%;
+}
+
+.members-page .hired {
+  background-color: #f9f9f9;
+}
+
+.members-page .swiper-slide > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.members-page .swiper-slide > div .img-wrap {
+  flex: 3;
+}
+
+.members-page .swiper-slide > div .img-wrap img {
+  max-width: 80%;
+}
+
+.members-page .swiper-slide > div .text-wrap {
+  flex: 7;
+  text-align: left;
+  padding: 20px;
+}
