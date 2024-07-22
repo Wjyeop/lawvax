@@ -216,89 +216,89 @@
   color: #333; /* 마우스 오버 시 색상 변경 */
 }
 
-.news-section {
+.landing-page .news-section {
   margin: 10%;
   text-align: center;
 }
 
-.news-section .title {
+.landing-page .news-section .title {
   text-align: left;
 }
 
-.news-section .title p {
+.landing-page .news-section .title p {
   font-size: 1.5em;
   font-family: "Times New Roman", Times, serif;
   margin: 0px;
 }
 
-.news-section img {
+.landing-page .news-section img {
   width: 100%;
 }
 
-.news-section .title .more {
+.landing-page .news-section .title .more {
   border: none;
   background: none;
   padding-left: 30px;
 }
 
-.news-section .title .more img {
+.landing-page .news-section .title .more img {
   width: 50px;
 }
 
-.news-section .theme-seclect {
+.landing-page .news-section .theme-seclect {
   margin: 50px;
 }
 
-.news-section .content {
+.landing-page .news-section .content {
   display: flex;
   margin: 20px 100px;
 }
 
-.news-section .content .img-section {
+.landing-page .news-section .content .img-section {
   flex: 60%;
   padding: 10px;
 }
 
-.news-section .content .text-section {
+.landing-page .news-section .content .text-section {
   flex: 40%;
   text-align: left;
   padding: 20px 30px;
 }
 
-.news-section .content .text-section .title {
+.landing-page .news-section .content .text-section .title {
   font-weight: bold;
 }
 
-.news-section .content .text-section .nav {
+.landing-page .news-section .content .text-section .nav {
   width: 50%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.news-section .content .text-section .nav button {
+.landing-page .news-section .content .text-section .nav button {
   background: none;
   border: none;
   cursor: pointer;
   margin: 10px;
 }
 
-.news-section .content .text-section .nav img {
+.landing-page .news-section .content .text-section .nav img {
   width: 10px;
 }
 
-.news-section .content .text-section .nav span {
+.landing-page .news-section .content .text-section .nav span {
   font-size: 1em;
   color: #1676bc;
 }
 
-.news-section .theme-select {
+.landing-page .news-section .theme-select {
   align-items: center;
   width: 100%;
   padding: 20px 0;
 }
 
-.news-section .theme-select button {
+.landing-page .news-section .theme-select button {
   background: none;
   border: none;
   font-size: 1em;
@@ -309,13 +309,13 @@
   margin: 10px;
 }
 
-.news-section .theme-select button.active {
+.landing-page .news-section .theme-select button.active {
   font-weight: bold;
   color: black; /* 활성화된 버튼의 글자색 */
   border-bottom: 1px solid #ddd; /* 하단에 구분선을 추가 */
 }
 
-.news-section .theme-select button.active::after {
+.landing-page .news-section .theme-select button.active::after {
   border-bottom: 1px solid #ddd; /* 하단에 구분선을 추가 */
   content: "";
   display: block;
@@ -327,13 +327,13 @@
   left: 0;
 }
 
-.news-section .theme-select button:hover {
+.landing-page .news-section .theme-select button:hover {
   color: black; /* 마우스를 올렸을 때 글자색 변경 */
   border-bottom: 1px solid #ddd; /* 하단에 구분선을 추가 */
   font-weight: bold;
 }
 
-.news-section .content .text-section .more {
+.landing-page .news-section .content .text-section .more {
   border: none;
   background: none;
   color: #888;
@@ -341,86 +341,86 @@
   padding: 0;
 }
 
-.newsletter-section {
+.landing-page .newsletter-section {
   text-align: center;
   margin: 10%;
 }
 
-.newsletter-section .title {
+.landing-page .newsletter-section .title {
   text-align: left;
 }
 
-.newsletter-section .title p {
+.landing-page .newsletter-section .title p {
   font-size: 1.5em;
   font-family: "Times New Roman", Times, serif;
   margin: 0px;
   line-height: 0.8;
 }
 
-.newsletter-section .title .more {
+.landing-page .newsletter-section .title .more {
   border: none;
   background: none;
   padding-left: 30px;
 }
 
-.newsletter-section .title .more img {
+.landing-page .newsletter-section .title .more img {
   width: 50px;
 }
 
-.newsletter-section .swiper {
+.landing-page .newsletter-section .swiper {
 }
 
-.newsletter-section .swiper-container {
+.landing-page .newsletter-section .swiper-container {
   padding: 50px 0;
 }
 
-.newsletter-section .swiper-wrapper {
+.landing-page .newsletter-section .swiper-wrapper {
   padding: 20px 0;
 }
 
-.newsletter-section .swiper-slide {
+.landing-page .newsletter-section .swiper-slide {
   border: 2px solid #d9d9d9;
   border-radius: 5px;
   max-width: 20.5%;
   padding: 20px 10px;
 }
 
-.newsletter-section .swiper-scrollbar {
+.landing-page .newsletter-section .swiper-scrollbar {
 }
 
-.newsletter-section .swiper-button-prev {
+.landing-page .newsletter-section .swiper-button-prev {
 }
 
-.newsletter-section .swiper-scrollbar-drag {
+.landing-page .newsletter-section .swiper-scrollbar-drag {
   background: #1676bc;
 }
 
-.newsletter-section .newsletter-content {
+.landing-page .newsletter-section .newsletter-content {
   display: flex;
   flex-direction: column;
   min-height: 300px;
   min-width: 100%;
 }
-.newsletter-section .newsletter-content .mark {
+.landing-page .newsletter-section .newsletter-content .mark {
   flex: 2;
   text-align: left;
 }
 
-.newsletter-section .newsletter-content .mark span {
+.landing-page .newsletter-section .newsletter-content .mark span {
   background-color: #1676bc;
   color: white;
   width: 100%;
   padding: 5px 10px;
 }
 
-.newsletter-section .newsletter-content .title {
+.landing-page .newsletter-section .newsletter-content .title {
   flex: 6;
   font-weight: bold;
   text-align: left;
   font-size: 1em;
 }
 
-.newsletter-section .newsletter-content .bottom {
+.landing-page .newsletter-section .newsletter-content .bottom {
   flex: 2;
   display: flex;
   justify-content: space-between;
@@ -428,82 +428,82 @@
   color: #888;
 }
 
-.newsletter-section .newsletter-content .bottom .more {
+.landing-page .newsletter-section .newsletter-content .bottom .more {
   text-decoration: underline;
 }
 
-.hired-section {
+.landing-page .hired-section {
   text-align: center;
   margin: 10%;
 }
 
-.hired-section .title {
+.landing-page .hired-section .title {
   text-align: left;
 }
 
-.hired-section .title p {
+.landing-page .hired-section .title p {
   font-size: 1.5em;
   font-family: "Times New Roman", Times, serif;
   margin: 0px;
   line-height: 0.8;
 }
 
-.hired-section .title .more {
+.landing-page .hired-section .title .more {
   border: none;
   background: none;
   padding-left: 30px;
 }
 
-.hired-section .title .more img {
+.landing-page .hired-section .title .more img {
   width: 50px;
 }
 
-.hired-section .swiper {
+.landing-page .hired-section .swiper {
   width: 100%;
 }
 
-.hired-section .swiper-container {
+.landing-page .hired-section .swiper-container {
   padding: 5% 0;
 }
 
-.hired-section .swiper-wrapper {
+.landing-page .hired-section .swiper-wrapper {
   padding: 5% 0;
 }
 
-.hired-section .swiper-slide {
+.landing-page .hired-section .swiper-slide {
   width: 300px;
   height: 100%;
 }
 
-.hired-section .swiper-scrollbar-drag {
+.landing-page .hired-section .swiper-scrollbar-drag {
   background: #1676bc;
 }
 
-.hired-section .content {
+.landing-page .hired-section .content {
   position: relative;
 }
 
-.hired-section .content .img-wrap {
+.landing-page .hired-section .content .img-wrap {
 }
 
-.hired-section .content img {
+.landing-page .hired-section .content img {
   width: 50%;
   filter: grayscale(100%);
 }
 
-.hired-section .swiper .swiper-slide-active .img-wrap img {
+.landing-page .hired-section .swiper .swiper-slide-active .img-wrap img {
   filter: grayscale(0%);
 }
 
-.hired-section .swiper .swiper-slide-active {
+.landing-page .hired-section .swiper .swiper-slide-active {
   transform: scale(1.5);
 }
 
-.hired-section .swiper .swiper-slide-active .text-wrap {
+.landing-page .hired-section .swiper .swiper-slide-active .text-wrap {
   display: block;
 }
 
-.hired-section .content .text-wrap {
+.landing-page .hired-section .content .text-wrap {
   display: none;
   position: absolute;
   top: 0;
@@ -511,50 +511,50 @@
   text-align: left;
 }
 
-.hired-section .content .text-wrap p {
+.landing-page .hired-section .content .text-wrap p {
   margin: 0px;
 }
 
-.hired-section .content .text-wrap .job {
+.landing-page .hired-section .content .text-wrap .job {
   font-size: 0.5em;
 }
 
-.hired-section .content .text-wrap .name {
+.landing-page .hired-section .content .text-wrap .name {
   font-size: 1.5em;
   color: #1676bc;
   font-weight: bold;
 }
 
-.hired-section .content .text-wrap .class {
+.landing-page .hired-section .content .text-wrap .class {
   font-size: 0.5em;
 }
 
-.lawvax-map-section {
+.landing-page .lawvax-map-section {
   text-align: center;
   margin: 10%;
 }
 
-.lawvax-map-section .title {
+.landing-page .lawvax-map-section .title {
   text-align: left;
 }
 
-.lawvax-map-section .title p {
+.landing-page .lawvax-map-section .title p {
   font-size: 1.5em;
   font-family: "Times New Roman", Times, serif;
   margin: 0px;
   line-height: 0.8;
 }
 
-.lawvax-map-section .content {
+.landing-page .lawvax-map-section .content {
   display: flex;
 }
 
-.lawvax-map-section .content .text-section {
+.landing-page .lawvax-map-section .content .text-section {
   flex: 40%;
   text-align: left;
 }
 
-.lawvax-map-section .content .search-bar {
+.landing-page .lawvax-map-section .content .search-bar {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   padding: 10px;
@@ -563,66 +563,66 @@
   align-items: center;
 }
 
-.lawvax-map-section .content .search-bar img {
+.landing-page .lawvax-map-section .content .search-bar img {
   width: 20px;
 }
 
-.lawvax-map-section .content .search-bar input {
+.landing-page .lawvax-map-section .content .search-bar input {
   border: none;
   padding: 10px;
   width: 100%;
   outline: none;
 }
 
-.lawvax-map-section .content .search-bar button {
+.landing-page .lawvax-map-section .content .search-bar button {
   border: none;
   background: none;
   padding: 10px;
   cursor: pointer;
 }
 
-.lawvax-map-section .content .sub-wrap {
+.landing-page .lawvax-map-section .content .sub-wrap {
   padding: 20px 0;
 }
 
-.lawvax-map-section .content .sub-title {
+.landing-page .lawvax-map-section .content .sub-title {
   font-weight: bold;
 }
 
-.lawvax-map-section .content p {
+.landing-page .lawvax-map-section .content p {
   margin: 5px 0;
 }
 
-.lawvax-map-section .content .map-section {
+.landing-page .lawvax-map-section .content .map-section {
   flex: 60%;
 }
 
-.lawvax-map-section .call span {
+.landing-page .lawvax-map-section .call span {
   display: flex;
   align-items: center;
 }
 
-.lawvax-map-section .call img {
+.landing-page .lawvax-map-section .call img {
   height: 20px;
   padding-right: 10px;
 }
 
-.lawvax-map-section .traffic p {
+.landing-page .lawvax-map-section .traffic p {
   display: flex;
   align-items: center;
 }
 
-.lawvax-map-section .traffic img {
+.landing-page .lawvax-map-section .traffic img {
   height: 20px;
   padding-right: 10px;
 }
 
-.lawvax-map-section .map-section {
+.landing-page .lawvax-map-section .map-section {
   align-items: center;
   display: flex;
 }
 
-.lawvax-map-section .map-section img {
+.landing-page .lawvax-map-section .map-section img {
   margin: 50px;
   width: 100%;
   height: 100%;
@@ -703,7 +703,7 @@
   font-size: 1.5em;
 }
 
-.members-page .swiper-wrapper {
+.members-page .hired-section .swiper-wrapper {
   padding: 5% 10%;
 }
 
@@ -711,23 +711,142 @@
   background-color: #f9f9f9;
 }
 
-.members-page .swiper-slide > div {
+.members-page .hired-section .swiper-slide > div {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
+  position: relative;
 }
 
-.members-page .swiper-slide > div .img-wrap {
+.members-page .hired-section .swiper-slide > div .img-wrap {
   flex: 3;
 }
 
-.members-page .swiper-slide > div .img-wrap img {
+.members-page .hired-section .swiper-slide > div .img-wrap img {
   max-width: 80%;
 }
 
-.members-page .swiper-slide > div .text-wrap {
-  flex: 7;
+.members-page .hired-section .swiper-slide > div .text-wrap {
+  flex: 3;
   text-align: left;
   padding: 20px;
+}
+
+.members-page .hired-section .swiper-slide > div .text-wrap .job {
+  margin: 0px;
+  font-weight: bold;
+}
+
+.members-page .hired-section .swiper-slide > div .text-wrap .name {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #1676bc;
+}
+
+.members-page .hired-section .swiper-slide > div .text-wrap .name-2 {
+  padding-left: 10px;
+  font-size: 1.2em;
+  color: #888;
+}
+
+.members-page .hired-section .swiper-slide > div .text-wrap .pre {
+  font-weight: bold;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+}
+
+.members-page .hired-section .swiper-slide > div .text-wrap .pre img {
+  width: 20px;
+  padding-right: 5px;
+}
+
+.members-page .hired-section .swiper-slide > div .text-wrap .viewmore img {
+  width: 108px;
+  cursor: pointer;
+}
+
+.members-page .hired-section .swiper-slide > div .gap {
+  flex: 4;
+}
+
+.members-page .hired-section .swiper-slide > div .back {
+  position: absolute;
+  bottom: 0;
+  right: 30%;
+  color: white;
+  font-size: 15em;
+  font-weight: bold;
+  z-index: -1;
+}
+
+.members-page .lawyer-section {
+  margin: 5% 10%;
+  text-align: center;
+}
+
+.members-page .lawyer-section .lawyer-title {
+  text-align: left;
+}
+
+.members-page .lawyer-section .lawyer-title span {
+  font-size: 1.5em;
+}
+
+.members-page .lawyer-section .swiper-wrapper {
+  padding: 5% 0;
+}
+
+.members-page .lawyer-section .swiper-slide {
+}
+
+.members-page .lawyer-section .swiper-scrollbar-drag {
+  background: #1676bc;
+}
+
+.members-page .lawyer-section .content {
+  position: relative;
+}
+.members-page .lawyer-section .content img {
+  width: 50%;
+  filter: grayscale(100%);
+}
+
+.members-page .lawyer-section .swiper .swiper-slide-active .img-wrap img {
+  filter: grayscale(0%);
+}
+
+.members-page .lawyer-section .swiper .swiper-slide-active {
+  transform: scale(1.5);
+}
+
+.members-page .lawyer-section .swiper .swiper-slide-active .text-wrap {
+  display: block;
+}
+
+.members-page .lawyer-section .content .text-wrap {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: left;
+}
+
+.members-page .lawyer-section .content .text-wrap p {
+  margin: 0px;
+}
+
+.members-page .lawyer-section .content .text-wrap .job {
+  font-size: 0.5em;
+}
+
+.members-page .lawyer-section .content .text-wrap .name {
+  font-size: 1.5em;
+  color: #1676bc;
+  font-weight: bold;
+}
+
+.members-page .lawyer-section .content .text-wrap .class {
+  font-size: 0.5em;
 }
