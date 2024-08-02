@@ -139,7 +139,7 @@
 }
 
 .landing-page .main-section .side-button:hover {
-  background-color: #1876bc;
+  background-color: #ccc;
 }
 
 .landing-page .main-section .main-content {
@@ -645,6 +645,10 @@
   padding-left: 15px;
 }
 
+.members-page .process .search {
+  display: none;
+}
+
 .members-page .title-section .sub-title {
   margin: 5% 10%;
 }
@@ -849,4 +853,259 @@
 
 .members-page .lawyer-section .content .text-wrap .class {
   font-size: 0.5em;
+}
+
+.member-search-page .process {
+  display: flex;
+  align-items: center;
+  margin: 5% 10%;
+}
+
+.member-search-page .process img {
+  width: 24px;
+}
+
+.member-search-page .process span {
+  padding-left: 15px;
+}
+
+.member-search-page .title-section .process .search {
+  display: block;
+}
+
+.member-search-page .title-section .sub-title {
+  margin: 5% 10%;
+}
+
+.member-search-page .search-bar-wrap {
+  background-color: #f9f9f9;
+  padding: 5% 25%;
+}
+
+.member-search-page .search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ccc;
+  background-color: white;
+}
+
+.member-search-page .search-bar .category-select {
+  width: 110px;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: #333;
+  padding: 10px;
+  outline: none;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.member-search-page .search-bar .category-select {
+  flex: 3;
+  font-size: 0.8em;
+}
+
+.member-search-page .search-bar input {
+  flex: 6;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  outline: none;
+  background: transparent;
+}
+
+.member-search-page .search-bar img {
+  flex: 1;
+  height: 20px;
+  padding-right: 10px;
+  padding-top: 3px;
+  cursor: pointer;
+}
+
+.member-search-page .search-list-section {
+  margin: 5% 10% 10% 10%;
+}
+
+.member-search-page .search-list-section .search-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+}
+
+.member-search-page .search-list-section .lawyer {
+  flex: 0 1 18%;
+}
+
+.member-search-page .search-list-section .lawyer img {
+  width: 100%;
+  background-color: #f9f9f9;
+}
+
+.member-search-page .search-list-section .lawyer .text-wrap p {
+  margin: 0px;
+}
+
+.member-search-page .search-list-section .lawyer .text-wrap .name {
+  font-size: 1.5em;
+}
+
+.member-search-page .search-list-section .lawyer .text-wrap .name > span {
+  font-size: 0.7em;
+  color: #888;
+  padding-left: 10px;
+}
+
+.member-search-page .search-list-section .lawyer .text-wrap .job {
+  color: #888;
+  margin: 10px 0;
+}
+
+.member-search-page .search-list-section .lawyer .text-wrap .phone > span {
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.member-search-page .search-list-section .lawyer .text-wrap .email > span {
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.member-search-page .search-list-section .pagination {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.member-search-page .search-list-section .page-number {
+  margin: 0 5px;
+  cursor: pointer;
+  color: #555;
+}
+
+.member-search-page .search-list-section .page-number.active {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.member-search-page .search-list-section .separator {
+  margin: 0 5px;
+  color: #bbb;
+}
+
+.member-profile-page .process {
+  display: flex;
+  align-items: center;
+  margin: 5% 10%;
+}
+
+.member-profile-page .process img {
+  width: 24px;
+}
+
+.member-profile-page .process span {
+  padding-left: 15px;
+}
+
+.member-profile-page .profile-main {
+  margin: 5% 10%;
+}
+
+.member-profile-page .profile-main .content-wrap {
+  margin: 0 5%;
+  display: flex;
+}
+
+.member-profile-page .profile-main .text-wrap {
+  flex: 3;
+}
+
+.member-profile-page .profile-main .text-wrap .job {
+  color: #888;
+}
+
+.member-profile-page .profile-main .text-wrap .name {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.member-profile-page .profile-main .text-wrap .name > span {
+  font-size: 0.7em;
+  color: #888;
+  padding-left: 10px;
+  font-weight: normal;
+}
+
+.member-profile-page .profile-main .text-wrap .phone {
+  color: #888;
+}
+
+.member-profile-page .profile-main .text-wrap .phone > span {
+  color: black;
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.member-profile-page .profile-main .text-wrap .email {
+  color: #888;
+}
+
+.member-profile-page .profile-main .text-wrap .email > span {
+  color: black;
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.member-profile-page .profile-main .img-wrap {
+  flex: 3;
+}
+
+.member-profile-page .profile-main .img-wrap img {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: -5px;
+}
+
+.member-profile-page .profile-main .ment {
+  border-top: 3px solid #7e7e7e;
+  padding: 5% 0;
+  margin: 0;
+}
+
+.member-profile-page .fold-section {
+  margin: 5% 10%;
+  padding-bottom: 5%;
+}
+
+.member-profile-page .fold-section > div {
+  padding-bottom: 5%;
+
+  border-bottom: 1px solid #ccc;
+}
+
+.member-profile-page .fold-section > div .title {
+  font-size: 1.5em;
+  font-weight: bold;
+  border-left: #1676bc 10px solid;
+}
+
+.member-profile-page .fold-section > div .title p {
+  padding-left: 20px;
+}
+
+.member-profile-page .fold-section > div .content {
+  margin: 0 3%;
+}
+
+.member-profile-page .fold-section > div .content > div {
+  margin: 20px 0;
+  text-align: left;
+  color: #666666;
+}
+
+.member-profile-page .fold-section > div .content .year {
+  display: inline-block;
+  color: #888;
+  width: 150px;
 }

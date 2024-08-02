@@ -1,7 +1,22 @@
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import home from "../../assets/images/icons/home.png";
 import searchIcon from "../../assets/images/LandingPageSearchIcon.png";
 
 const TitleSection = () => {
+  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearch = () => {
+    navigate(`/memberSearch?query=${searchTerm}`);
+  };
+
+  const handleKeyPress = (event: any) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  };
+
   return (
     <section className="title-section">
       <div className="process">
@@ -9,6 +24,8 @@ const TitleSection = () => {
         <span>HOME</span>
         <span>{">"}</span>
         <span>구성원</span>
+        <span className="search">{">"}</span>
+        <span className="search">인물검색</span>
       </div>
       <div className="sub-title">
         <p className="roman-title" style={{ fontSize: "2.5em" }}>
@@ -30,6 +47,9 @@ const TitleSection = () => {
             type="text"
             placeholder="성함을 입력해주세요."
             className="search-input"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyPress={handleKeyPress}
           />
           <div>
             <img className="search-icon" src={searchIcon} alt="search-icon" />

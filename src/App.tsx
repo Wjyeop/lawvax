@@ -7,6 +7,8 @@ import Footer from "./components/Footer";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MembersPage from "./pages/MembersPage/MembersPage";
+import MemberSearchPage from "./pages/MemberSearchPage/MemberSearchPage";
+import MemberProfilePage from "./pages/MemberProfilePage/MemberProfilePage";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/members" element={<MembersPage />} />
+          <Route path="/memberSearch" element={<MemberSearchPage />} />
+          <Route path="/profile" element={<MemberProfilePage />} />
         </Routes>
         <Footer />
       </BrowserRouter>
