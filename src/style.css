@@ -595,6 +595,7 @@
 
 .landing-page .lawvax-map-section .content .map-section {
   flex: 60%;
+  padding: 0 5%;
 }
 
 .landing-page .lawvax-map-section .call span {

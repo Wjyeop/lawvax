@@ -1,12 +1,45 @@
+import React, { useState } from "react";
 import search from "../../assets/images/icons/searchIcon.png";
 import phone from "../../assets/images/icons/phone.png";
 import fax from "../../assets/images/icons/fax.png";
 import blueBus from "../../assets/images/icons/blueBus.png";
 import greenBus from "../../assets/images/icons/greenBus.png";
 import threeLine from "../../assets/images/icons/threeLine.png";
-import map from "../../assets/images/mapSample.png";
+import Kakaomap from "./KakaoMap";
 
-const LawvaxMap = () => {
+declare global {
+  interface Window {
+    kakao: any;
+  }
+}
+
+const LawvaxMap: React.FC = () => {
+  const [departure, setDeparture] = useState<string>("");
+  const [departureCoords] = useState<{
+    lat: number;
+    lng: number;
+  }>({ lat: 37.5665, lng: 126.978 }); // 서울 기본 좌표
+  // const destinationName = "로백스";
+  const destinationCoords = {
+    lat: 37.4874330809783,
+    lng: 127.012219208568,
+  };
+
+  function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setDeparture(e.target.value);
+  }
+
+  const handleFindDirection = () => {
+    const kakaoUrl = `https://map.kakao.com/link/from/${departureCoords.lat},${departureCoords.lng}/to/로백스,${destinationCoords.lat},${destinationCoords.lng}`;
+    window.open(kakaoUrl, "_blank");
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleFindDirection();
+    }
+  };
+
   return (
     <section className="lawvax-map-section">
       <div className="title">
@@ -24,8 +57,14 @@ const LawvaxMap = () => {
           <div className="route">
             <p className="sub-title">경로탐색</p>
             <div className="search-bar">
-              <img src={search} alt="" />
-              <input type="text" placeholder="출발지를 입력해주세요." />
+              <img src={search} alt="" onClick={handleFindDirection} />
+              <input
+                type="text"
+                placeholder="출발지를 입력해주세요."
+                value={departure}
+                onChange={handleInputChange}
+                onKeyPress={handleKeyPress}
+              />
               <button className="search-button">X</button>
             </div>
           </div>
@@ -60,7 +99,7 @@ const LawvaxMap = () => {
           </div>
         </div>
         <div className="map-section">
-          <img src={map} alt="" />
+          <Kakaomap />
         </div>
       </div>
     </section>
