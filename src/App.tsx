@@ -9,6 +9,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MembersPage from "./pages/MembersPage/MembersPage";
 import MemberSearchPage from "./pages/MemberSearchPage/MemberSearchPage";
 import MemberProfilePage from "./pages/MemberProfilePage/MemberProfilePage";
+import NewsPage from "./pages/NewsPage/NewsPage";
+import PostPage from "./pages/PostPage/PostPage";
 
 function App() {
   return (
@@ -20,6 +22,9 @@ function App() {
           <Route path="/members" element={<MembersPage />} />
           <Route path="/memberSearch" element={<MemberSearchPage />} />
           <Route path="/profile" element={<MemberProfilePage />} />
+
+          <Route path="/news" element={<NewsPage />} />
+          <Route path="/news/post" element={<PostPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>

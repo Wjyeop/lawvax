@@ -594,8 +594,12 @@
 }
 
 .landing-page .lawvax-map-section .content .map-section {
-  flex: 60%;
+  flex: 50%;
   padding: 0 5%;
+}
+
+.landing-page .lawvax-map-section .content .map-section .kakaomap-wrap {
+  width: 100%;
 }
 
 .landing-page .lawvax-map-section .call span {
@@ -644,6 +648,7 @@
 
 .members-page .process span {
   padding-left: 15px;
+  color: #999999;
 }
 
 .members-page .process .search {
@@ -868,6 +873,7 @@
 
 .member-search-page .process span {
   padding-left: 15px;
+  color: #999999;
 }
 
 .member-search-page .title-section .process .search {
@@ -1007,6 +1013,7 @@
 
 .member-profile-page .process span {
   padding-left: 15px;
+  color: #999999;
 }
 
 .member-profile-page .profile-main {
@@ -1109,4 +1116,220 @@
   display: inline-block;
   color: #888;
   width: 150px;
+}
+
+/* 법인소식 */
+
+.news-page {
+  text-align: center;
+}
+
+.news-page .process {
+  display: flex;
+  align-items: center;
+  margin: 5% 10%;
+}
+
+.news-page .process img {
+  width: 24px;
+}
+
+.news-page .process span {
+  padding-left: 15px;
+  color: #999999;
+}
+
+.news-page .title {
+  margin: 5% 10%;
+  font-family: "Times New Roman", Times, serif;
+  text-align: left;
+}
+
+.news-page .title .about {
+  font-size: 1.5em;
+  margin: 0px;
+  color: #1676bc;
+}
+
+.news-page .title p {
+  font-size: 1.5em;
+  margin: 0px;
+}
+
+.news-page .theme-select {
+  margin: 5% 10%;
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.news-page .theme-select button {
+  background: none;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+  color: #888;
+  position: relative;
+  padding: 5px;
+  margin: 10px;
+}
+
+.news-page .theme-select button.active {
+  font-weight: bold;
+  color: black; /* 활성화된 버튼의 글자색 */
+  border-bottom: 1px solid #ddd; /* 하단에 구분선을 추가 */
+}
+
+.news-page .theme-select button.active::after {
+  border-bottom: 1px solid #ddd; /* 하단에 구분선을 추가 */
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: black; /* 밑줄 색상 */
+  position: absolute;
+  bottom: -5px; /* 밑줄의 위치 */
+  left: 0;
+}
+
+.news-page .news-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 10%;
+  justify-content: center;
+}
+
+.news-page .news-item {
+  width: 30%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.news-page .news-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.news-page .news-content {
+  padding: 10px;
+}
+
+.news-page .news-title {
+  font-size: 1.1em;
+  margin-bottom: 5px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.news-page .bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.news-page .news-date {
+  color: #ccc;
+  font-size: 0.9em;
+}
+
+.news-page .more > a {
+  font-size: 0.9em;
+  color: #ccc;
+  text-decoration: underline;
+}
+
+.news-page .pagination {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 10% 0;
+}
+
+.news-page .pagination .page-number {
+  margin: 0 5px;
+  cursor: pointer;
+  color: #555;
+}
+
+.news-page .pagination .page-number.active {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.post-page {
+  text-align: center;
+}
+
+.post-page .process {
+  display: flex;
+  align-items: center;
+  margin: 5% 10%;
+}
+
+.post-page .process img {
+  width: 24px;
+}
+
+.post-page .process span {
+  padding-left: 15px;
+  color: #999999;
+}
+
+.post-page .title {
+  margin: 5% 10%;
+  text-align: left;
+}
+
+.post-page .section1 {
+  margin: 5% 10%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+  color: #888;
+}
+
+.post-page .section1 div {
+  display: flex;
+  align-items: center;
+  color: #666666;
+}
+
+.post-page .section1 img {
+  width: 20px;
+  padding: 0 10px 0 20px;
+}
+
+.post-page .content {
+  margin: 5% 10%;
+  text-align: center;
+}
+
+.post-page .content img {
+  width: 100%;
+}
+
+.post-page .content .sub-title {
+  font-size: 0.9em;
+  color: #666666;
+  font-weight: bold;
+}
+
+.post-page .content p {
+  text-align: left;
+  font-size: 0.8em;
+}
+
+.post-page .related-news {
+  margin: 5% 10%;
+  text-align: left;
+  border-top: 2px solid #ddd;
+}
+
+.post-page .related-news .list {
+  text-align: right;
+  font-size: 0.8em;
 }
