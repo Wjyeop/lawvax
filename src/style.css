@@ -270,7 +270,7 @@
 }
 
 .landing-page .news-section .content .text-section .nav {
-  width: 50%;
+  width: 80%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1332,4 +1332,173 @@
 .post-page .related-news .list {
   text-align: right;
   font-size: 0.8em;
+  color: #888;
+  display: flex;
+  justify-content: right;
+  padding-top: 5px;
+}
+
+.post-page .related-news .list img {
+  width: 20px;
+  padding: 0 10px 0 20px;
+}
+
+.post-page .swiper {
+  margin: 5%;
+  padding: 0 5%;
+}
+
+.post-page .swiper-slide {
+  width: 300px;
+  height: 250px;
+  border: 1px solid #ddd;
+}
+
+.post-page .swiper-slide img {
+  width: 100%;
+}
+
+.post-page .swiper-slide .related-news__item > div {
+  padding: 10px;
+}
+
+.post-page .swiper-slide .related-news__item > div > h3 {
+  height: 80px;
+  text-align: left;
+  margin-top: 0;
+}
+
+.post-page .swiper-slide .related-news__item > div > div {
+  display: flex;
+  font-size: 0.8em;
+  color: #888;
+  justify-content: space-between;
+}
+
+.post-page .swiper-slide .related-news__item > div > div .more {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* 뉴스레터 */
+
+.newsletter-page {
+  margin: 5% 10%;
+}
+
+.newsletter-page .process {
+  display: flex;
+  align-items: center;
+}
+
+.newsletter-page .process img {
+  width: 24px;
+}
+
+.newsletter-page .process span {
+  padding-left: 15px;
+  color: #999999;
+}
+
+.newsletter-page .title {
+  margin: 5% 0;
+  text-align: left;
+}
+
+.newsletter-page .card-wrap {
+  display: flex;
+  gap: 20px;
+}
+
+.newsletter-page .newsletter-content {
+  border: 2px solid #d9d9d9;
+  border-radius: 5px;
+  max-width: 20.5%;
+  padding: 20px 10px;
+}
+
+.newsletter-page .newsletter-content .mark {
+  height: 40px;
+}
+
+.newsletter-page .newsletter-content .mark span {
+  background-color: #1676bc;
+  color: white;
+  padding: 2px 5px;
+  font-size: 0.8em;
+}
+
+.newsletter-page .newsletter-content .title {
+  font-weight: bold;
+  text-align: left;
+  font-size: 1em;
+  height: 120px;
+}
+
+.newsletter-page .newsletter-content .bottom {
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+  color: #888;
+}
+
+.newsletter-page .newsletter-content .bottom a {
+  text-decoration: underline;
+  color: #888;
+}
+
+.newsletter-page .list-wrap {
+  margin-top: 50px;
+  padding: 20px 0;
+  border-top: 1px solid #d9d9d9;
+}
+
+.newsletter-page .list-wrap .list {
+  padding: 20px 0;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.newsletter-page .list-wrap .list .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.newsletter-page .list-wrap .list .top .mark {
+  background-color: #1676bc;
+  color: white;
+  padding: 2px 5px;
+  font-size: 0.5em;
+}
+
+.newsletter-page .list-wrap .list .bottom span {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.newsletter-page .list-wrap .list .bottom {
+  margin: 5px 0;
+}
+
+.newsletter-page .pagination {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 10% 0;
+}
+
+.newsletter-page .pagination .page-number {
+  margin: 0 5px;
+  cursor: pointer;
+  color: #555;
+}
+
+.newsletter-page .pagination .page-number.active {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.newsletter-page .pagination .separator {
+  margin: 0 5px;
+  color: #bbb;
 }

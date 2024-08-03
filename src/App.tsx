@@ -11,6 +11,7 @@ import MemberSearchPage from "./pages/MemberSearchPage/MemberSearchPage";
 import MemberProfilePage from "./pages/MemberProfilePage/MemberProfilePage";
 import NewsPage from "./pages/NewsPage/NewsPage";
 import PostPage from "./pages/PostPage/PostPage";
+import NewsLetterPage from "./pages/NewsLetterPage/NewsLetterPage";
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
 
           <Route path="/news" element={<NewsPage />} />
           <Route path="/news/post" element={<PostPage />} />
+
+          <Route path="/newsletter" element={<NewsLetterPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>

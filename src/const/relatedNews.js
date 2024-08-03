@@ -21,4 +21,16 @@ export const relatedNews = [
     date: "2024.05.04",
     image: relatedImage3,
   },
+  {
+    id: 3,
+    title: "칼럼: 제3차 과학 기술 발전 계획",
+    date: "2024.05.04",
+    image: relatedImage1,
+  },
+  {
+    id: 3,
+    title: "칼럼: 제3차 과학 기술 발전 계획",
+    date: "2024.05.04",
+    image: relatedImage2,
+  },
 ];

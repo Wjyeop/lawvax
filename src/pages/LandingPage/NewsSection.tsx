@@ -2,6 +2,7 @@ import newsImg from "../../assets/images/news1.png";
 import more from "../../assets/images/more.png";
 import left from "../../assets/images/ArrowLeft.png";
 import right from "../../assets/images/ArrowRight.png";
+import { Link } from "react-router-dom";
 
 const NewsSection = () => {
   return (
@@ -14,9 +15,11 @@ const NewsSection = () => {
               N
             </span>
             EWS
-            <button className="more">
-              <img src={more} alt="" />
-            </button>
+            <Link to="/news">
+              <button className="more">
+                <img src={more} alt="" />
+              </button>
+            </Link>
           </p>
         </div>
       </div>

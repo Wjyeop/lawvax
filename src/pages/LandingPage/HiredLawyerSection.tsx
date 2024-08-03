@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import lawyer1 from "../../assets/images/hiredSample.png";
+import { Link } from "react-router-dom";
 
 const HiredLawyerSection = () => {
   const swiperRef = useRef(null);
@@ -26,9 +27,11 @@ const HiredLawyerSection = () => {
             </span>
             IRED & <br />
             LAWYER
-            <button className="more">
-              <img src={more} alt="" />
-            </button>
+            <Link to="/members">
+              <button className="more">
+                <img src={more} alt="" />
+              </button>
+            </Link>
           </p>
         </div>
       </div>

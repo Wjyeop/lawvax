@@ -2,7 +2,14 @@ import home from "../../assets/images/icons/home.png";
 import share from "../../assets/images/icons/share.png";
 import print from "../../assets/images/icons/print.png";
 import newsBig from "../../assets/images/newsBig1.png";
+import list from "../../assets/images/icons/list.png";
 import { relatedNews } from "../../const/relatedNews";
+import { Link } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/scrollbar";
 
 const PostPage = () => {
   return (
@@ -49,22 +56,41 @@ const PostPage = () => {
         </p>
       </div>
       <div className="related-news">
-        <div className="list">목록보기</div>
-        <h3>관련된 소식</h3>
-        {relatedNews.map((news) => (
-          <div key={news.id} className="related-news__item">
-            <img
-              src={news.image}
-              alt={news.title}
-              className="related-news__image"
-            />
-            <div>
-              <h3 className="related-news__title">{news.title}</h3>
-              <span className="related-news__date">{news.date}</span>
-            </div>
+        <Link to="/news">
+          <div className="list">
+            <img src={list} alt="" />
+            <span>목록보기</span>
           </div>
-        ))}
+        </Link>
+        <h3>관련된 소식</h3>
       </div>
+      <Swiper
+        modules={[Navigation, Pagination]}
+        navigation
+        slidesPerView={3}
+        spaceBetween={10}
+        slidesOffsetBefore={50}
+        slidesOffsetAfter={50}
+      >
+        {relatedNews.map((news) => (
+          <SwiperSlide>
+            <div key={news.id} className="related-news__item">
+              <img
+                src={news.image}
+                alt={news.title}
+                className="related-news__image"
+              />
+              <div>
+                <h3 className="related-news__title">{news.title}</h3>
+                <div>
+                  <span className="related-news__date">{news.date}</span>
+                  <span className="more">자세히보기</span>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 };
