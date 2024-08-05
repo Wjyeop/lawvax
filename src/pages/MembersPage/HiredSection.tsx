@@ -6,6 +6,7 @@ import "swiper/css/scrollbar";
 import lawyer from "../../assets/images/lawyer1.png";
 import pre from "../../assets/images/icons/pre.png";
 import viewMore from "../../assets/images/viewMore.png";
+import { Link } from "react-router-dom";
 
 const HiredSection = () => {
   return (
@@ -72,7 +73,9 @@ const HiredSection = () => {
                   규모있는 활동을 하겠습니다.
                 </p>
                 <div className="viewmore">
-                  <img src={viewMore} alt="" />
+                  <Link to="/profile">
+                    <img src={viewMore} alt="" />
+                  </Link>
                 </div>
               </div>
               <div className="gap"></div>

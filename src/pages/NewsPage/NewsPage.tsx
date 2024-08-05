@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 const NewsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [activeTab, setActiveTab] = useState("소식");
 
   const handleClick = (page: number) => {
     setCurrentPage(page);
@@ -35,10 +36,30 @@ const NewsPage = () => {
         </div>
       </div>
       <div className="theme-select">
-        <button className="active">소식</button>
-        <button>언론보도</button>
-        <button>인재영입</button>
-        <button>수상</button>
+        <button
+          className={activeTab === "소식" ? "active" : ""}
+          onClick={() => setActiveTab("소식")}
+        >
+          소식
+        </button>
+        <button
+          className={activeTab === "언론보도" ? "active" : ""}
+          onClick={() => setActiveTab("언론보도")}
+        >
+          언론보도
+        </button>
+        <button
+          className={activeTab === "인재영입" ? "active" : ""}
+          onClick={() => setActiveTab("인재영입")}
+        >
+          인재영입
+        </button>
+        <button
+          className={activeTab === "수상" ? "active" : ""}
+          onClick={() => setActiveTab("수상")}
+        >
+          수상
+        </button>
       </div>
       <div className="news-grid">
         {currentItems.map((news, index) => (

@@ -16,9 +16,9 @@ const MainSection = () => {
         </p>
         <div className="search-bar">
           <select className="category-select">
-            <option value="category">카테고리</option>
-            <option value="category">카테고리</option>
-            <option value="category">카테고리</option>
+            <option value="category">기업</option>
+            <option value="category">금융</option>
+            <option value="category">첨단</option>
           </select>
           <img className="search-icon" src={searchIcon} alt="search-icon" />
           <input
