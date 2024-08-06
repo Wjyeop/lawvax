@@ -1005,11 +1005,15 @@
   margin: 0 5px;
   color: #bbb;
 }
+.member-profile-page .title-section {
+  display: flex;
+  justify-content: space-between;
+  margin: 5% 10%;
+}
 
 .member-profile-page .process {
   display: flex;
   align-items: center;
-  margin: 5% 10%;
 }
 
 .member-profile-page .process img {
@@ -1019,6 +1023,21 @@
 .member-profile-page .process span {
   padding-left: 15px;
   color: #999999;
+}
+
+.member-profile-page .title-section .save {
+  display: flex;
+  align-items: center;
+}
+
+.member-profile-page .title-section .save img {
+  width: 24px;
+  cursor: pointer;
+}
+
+.member-profile-page .title-section .save span {
+  padding: 0 10px;
+  cursor: pointer;
 }
 
 .member-profile-page .profile-main {
@@ -1093,8 +1112,6 @@
 
 .member-profile-page .fold-section > div {
   padding-bottom: 5%;
-
-  border-bottom: 1px solid #ccc;
 }
 
 .member-profile-page .fold-section > div .title {
@@ -1121,6 +1138,52 @@
   display: inline-block;
   color: #888;
   width: 150px;
+}
+
+.member-profile-page .fold-section button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  color: #ccc;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  position: relative;
+  width: 100%;
+}
+
+.member-profile-page .fold-section button img {
+  width: 20px;
+  margin-left: 10px;
+}
+
+.member-profile-page .fold-section button::before,
+.member-profile-page .fold-section button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
+.member-profile-page .fold-section button::before {
+  left: 0;
+}
+
+.member-profile-page .fold-section button::after {
+  right: 0;
+}
+
+.member-profile-page .fold-section .full-line::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #e0e0e0;
+  margin-top: 10px;
 }
 
 /* 법인소식 */
@@ -1350,7 +1413,6 @@
 
 .post-page .swiper {
   margin: 5%;
-  padding: 0 5%;
 }
 
 .post-page .swiper-slide {

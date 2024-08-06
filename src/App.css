@@ -21,23 +21,3 @@
 a {
   text-decoration: none;
 }
-
-/* 뉴스레터 */
-
-.newsletter-page {
-  margin: 5% 10%;
-}
-
-.newsletter-page .process {
-  display: flex;
-  align-items: center;
-}
-
-.newsletter-page .process img {
-  width: 24px;
-}
-
-.newsletter-page .process span {
-  padding-left: 15px;
-  color: #999999;
-}

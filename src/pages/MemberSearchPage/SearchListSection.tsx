@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { lawyerList } from "../../const/lawyerList";
+import { Link } from "react-router-dom";
 
 const SearchListSection = () => {
   const itemsPerPage = 8; // 페이지당 변호사 수
@@ -22,7 +23,9 @@ const SearchListSection = () => {
           <div key={index} className="lawyer">
             <div className="content">
               <div className="img-wrap">
-                <img src={lawyer.img} alt="" />
+                <Link to="/profile">
+                  <img src={lawyer.img} alt="" />
+                </Link>
               </div>
               <div className="text-wrap">
                 <p className="name">
