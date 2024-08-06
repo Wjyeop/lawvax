@@ -12,6 +12,7 @@ import MemberProfilePage from "./pages/MemberProfilePage/MemberProfilePage";
 import NewsPage from "./pages/NewsPage/NewsPage";
 import PostPage from "./pages/PostPage/PostPage";
 import NewsLetterPage from "./pages/NewsLetterPage/NewsLetterPage";
+import IntroPage from "./pages/IntroPage/IntroPage";
 
 function App() {
   return (
@@ -20,14 +21,17 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/members" element={<MembersPage />} />
-          <Route path="/memberSearch" element={<MemberSearchPage />} />
-          <Route path="/profile" element={<MemberProfilePage />} />
+
+          <Route path="/intro" element={<IntroPage />} />
 
           <Route path="/news" element={<NewsPage />} />
           <Route path="/news/post" element={<PostPage />} />
 
           <Route path="/newsletter" element={<NewsLetterPage />} />
+
+          <Route path="/members" element={<MembersPage />} />
+          <Route path="/memberSearch" element={<MemberSearchPage />} />
+          <Route path="/profile" element={<MemberProfilePage />} />
         </Routes>
         <Footer />
       </BrowserRouter>

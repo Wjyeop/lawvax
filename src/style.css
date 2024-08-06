@@ -638,8 +638,68 @@
   height: 100%;
 }
 
-.members-page {
+/* 로벡스 소개 페이지 */
+
+.intro-page .process {
+  display: flex;
+  align-items: center;
+  margin: 5% 10%;
 }
+
+.intro-page .process img {
+  width: 24px;
+}
+
+.intro-page .process span {
+  padding-left: 15px;
+  color: #999999;
+}
+
+.intro-page .title {
+  margin: 0 10%;
+  font-family: "Times New Roman", Times, serif;
+  text-align: left;
+}
+
+.intro-page .title p {
+  margin: 0;
+}
+
+.intro-page .title .gray {
+  font-size: 5em;
+  color: #f1f0f0;
+  letter-spacing: 5px;
+}
+
+.intro-page .content > div {
+  display: flex;
+  margin: 10%;
+}
+
+.intro-page .content > div .text-wrap {
+  flex: 6;
+  text-align: left;
+  padding: 20px;
+}
+
+.intro-page .content > div .text-wrap .p1 {
+  font-weight: bold;
+}
+
+.intro-page .content > div .text-wrap .p2 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.intro-page .content > div .img-wrap {
+  flex: 4;
+}
+
+.intro-page .content > div .img-wrap img {
+  width: 100%;
+}
+
+/* 구성원 페이지 */
 
 .members-page .process {
   display: flex;

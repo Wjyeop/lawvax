@@ -18,7 +18,7 @@ const Header = () => {
         <nav>
           <ul>
             <li>
-              <Link to="/lawvax">LawVax</Link>
+              <Link to="/intro">LawVax</Link>
             </li>
             <li>
               <Link to="/services">업무분야</Link>
