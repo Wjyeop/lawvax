@@ -13,6 +13,7 @@ import NewsPage from "./pages/NewsPage/NewsPage";
 import PostPage from "./pages/PostPage/PostPage";
 import NewsLetterPage from "./pages/NewsLetterPage/NewsLetterPage";
 import IntroPage from "./pages/IntroPage/IntroPage";
+import ServicePage from "./pages/ServicesPage/Services";
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
           <Route path="/" element={<LandingPage />} />
 
           <Route path="/intro" element={<IntroPage />} />
+
+          <Route path="/services" element={<ServicePage />} />
 
           <Route path="/news" element={<NewsPage />} />
           <Route path="/news/post" element={<PostPage />} />

@@ -699,6 +699,83 @@
   width: 100%;
 }
 
+/* 업무 분야 페이지 */
+.services-page .process {
+  display: flex;
+  align-items: center;
+  margin: 5% 10%;
+}
+
+.services-page .process img {
+  width: 24px;
+}
+
+.services-page .process span {
+  padding-left: 15px;
+  color: #999999;
+}
+
+.services-page > .title {
+  margin: 5% 10%;
+}
+
+.services-page .title p {
+  font-size: 1.5em;
+  font-family: "Times New Roman", Times, serif;
+  line-height: 0.8;
+}
+
+.services-page .content-wrap {
+  margin: 5% 10%;
+}
+
+.services-page .content-wrap > div {
+  padding: 20px;
+  margin: 10px 0;
+  border-top: 2px solid #d9d9d9;
+  border-bottom: 2px solid #d9d9d9;
+}
+
+.services-page .content-wrap > div .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.services-page .content-wrap > div .title span {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.services-page .content-wrap > div .title img {
+  width: 24px;
+}
+
+.services-page .content-wrap > div > .content {
+  border: 1px solid #d9d9d9;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.services-page .content-wrap > div > .content > div > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.services-page .content-wrap > div > .content > div > div > img {
+  width: 24px;
+}
+
+.services-page .content-wrap > div > .content p {
+  margin: 0;
+}
+
+.services-page .content-wrap > div > .content img {
+  width: 100%;
+  margin: 10px 0;
+}
+
 /* 구성원 페이지 */
 
 .members-page .process {
