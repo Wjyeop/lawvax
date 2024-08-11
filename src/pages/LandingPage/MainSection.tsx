@@ -4,8 +4,6 @@ import CenterSide from "../../components/CenterSide";
 const MainSection = () => {
   return (
     <div className="main-section">
-      <CenterSide />
-
       <div className="main-content">
         <h1 className="main-title">
           <span className="highlight">Difference. Experience.</span>

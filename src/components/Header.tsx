@@ -4,9 +4,24 @@ import logo from "../assets/images/HeaderLogo.png";
 import globe from "../assets/images/HeaderGlobe.png";
 import phone from "../assets/images/HeaderPhoneCall.png";
 import map from "../assets/images/HeaderMap.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
+  const location = useLocation();
+  const isCenterPage =
+    location.pathname === "/support-center" ||
+    location.pathname === "/tech-center";
+
+  if (isCenterPage) {
+    return (
+      <header className="center-header">
+        <Link to="/">
+          <img src={logo} alt="Logo" className="logo-image" />
+        </Link>
+      </header>
+    );
+  }
+
   return (
     <header className="header">
       <div className="header-section logo">

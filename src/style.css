@@ -10,7 +10,17 @@
 .header-section {
   display: flex;
   align-items: center;
-  margin: 0 auto;
+}
+
+.center-header {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  margin-left: 10%;
+}
+
+.center-header > a {
+  padding: 20px;
 }
 
 .logo {
@@ -87,6 +97,54 @@
   font-size: 11px;
 }
 
+/* 사이드 버튼 */
+
+.side-button-container {
+  position: fixed;
+  z-index: 1000;
+  left: -245px;
+  top: 200px;
+  transform: translateY(-100%);
+  display: flex;
+  font-weight: 400;
+  font-size: 1em;
+  transition: left 0.3s ease; /* 부드러운 이동 효과 */
+}
+
+.side-button-container .section1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.side-button-container .side-button {
+  background-color: #fff;
+  color: #1676bc;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.side-button-container .side-button a {
+  text-decoration: none;
+  color: #1676bc;
+}
+
+.side-button-container .section2 {
+  border-radius: 0 15px 15px 0;
+  color: #fff;
+  background-color: #1676bc;
+  writing-mode: vertical-rl;
+  text-align: center;
+  padding: 10px;
+}
+
+.side-button:hover {
+  background-color: #ccc;
+}
+
 /* 랜딩페이지 */
 
 .landing-page {
@@ -100,46 +158,6 @@
   height: 100vh;
   background-color: #d9d9d9;
   position: relative;
-}
-
-/* 사이드 버튼 */
-.landing-page .main-section .side-button-container {
-  position: absolute;
-  left: 0px;
-  top: 15%;
-  transform: translateY(-100%);
-  display: flex;
-  font-weight: 400;
-  font-size: 1em;
-}
-
-.landing-page .main-section .side-button-container .section1 {
-  display: flex;
-  flex-direction: column;
-}
-
-.landing-page .main-section .side-button {
-  background-color: #fff;
-  color: #1676bc;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 1em;
-  font-weight: bold;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.landing-page .main-section .side-button-container .section2 {
-  border-radius: 0 15px 15px 0;
-  color: #fff;
-  background-color: #1676bc;
-  writing-mode: vertical-rl;
-  text-align: center;
-  padding: 10px;
-}
-
-.landing-page .main-section .side-button:hover {
-  background-color: #ccc;
 }
 
 .landing-page .main-section .main-content {
@@ -246,10 +264,6 @@
   width: 50px;
 }
 
-.landing-page .news-section .theme-seclect {
-  margin: 50px;
-}
-
 .landing-page .news-section .content {
   display: flex;
   margin: 20px 100px;
@@ -312,25 +326,25 @@
 
 .landing-page .news-section .theme-select button.active {
   font-weight: bold;
-  color: black; /* 활성화된 버튼의 글자색 */
-  border-bottom: 1px solid #ddd; /* 하단에 구분선을 추가 */
+  color: black;
+  border-bottom: 1px solid #ddd;
 }
 
 .landing-page .news-section .theme-select button.active::after {
-  border-bottom: 1px solid #ddd; /* 하단에 구분선을 추가 */
+  border-bottom: 1px solid #ddd;
   content: "";
   display: block;
   width: 100%;
   height: 2px;
-  background-color: black; /* 밑줄 색상 */
+  background-color: black;
   position: absolute;
-  bottom: -5px; /* 밑줄의 위치 */
+  bottom: -5px;
   left: 0;
 }
 
 .landing-page .news-section .theme-select button:hover {
-  color: black; /* 마우스를 올렸을 때 글자색 변경 */
-  border-bottom: 1px solid #ddd; /* 하단에 구분선을 추가 */
+  color: black;
+  border-bottom: 1px solid #ddd;
   font-weight: bold;
 }
 
@@ -680,6 +694,9 @@
   flex: 6;
   text-align: left;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .intro-page .content > div .text-wrap .p1 {
@@ -693,6 +710,8 @@
 
 .intro-page .content > div .img-wrap {
   flex: 4;
+  display: flex;
+  justify-content: center;
 }
 
 .intro-page .content > div .img-wrap img {
@@ -1703,6 +1722,247 @@
 }
 
 .newsletter-page .pagination .separator {
+  margin: 0 5px;
+  color: #bbb;
+}
+
+/* 센터페이지 기업감사/내부통제 지원센터 */
+
+.support-center-page {
+  position: relative;
+  text-align: center;
+}
+
+.support-center-page .main {
+  position: relative;
+}
+
+.support-center-page .main .img-wrap {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.support-center-page .main .img-wrap img {
+  width: 100%;
+  height: auto;
+}
+
+.support-center-page .main .text-wrap {
+  position: absolute;
+  top: 60%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  z-index: 1000;
+}
+
+.support-center-page .main .text-wrap p {
+  font-size: 0.5em;
+  font-weight: bold;
+}
+
+.support-center-page .main .text-wrap h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0;
+}
+
+.support-center-page .theme-select {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.support-center-page .theme-select button {
+  background: none;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+  color: #888;
+  position: relative;
+  padding: 5px;
+  margin: 10px;
+}
+
+.support-center-page .theme-select button.active {
+  font-weight: bold;
+  color: black;
+  border-bottom: 1px solid #ddd;
+}
+
+.support-center-page .theme-select button.active::after {
+  border-bottom: 1px solid #ddd;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+.support-center-page .theme-select button:hover {
+  color: black;
+  border-bottom: 1px solid #ddd;
+  font-weight: bold;
+}
+
+.support-center-page > .section01 {
+  position: relative;
+}
+
+.support-center-page > .section01 .img-wrap {
+  z-index: 1;
+  margin: 0 10%;
+}
+
+.support-center-page > .section01 img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  text-align: left;
+}
+
+.support-center-page > .section01 .text-wrap {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+}
+
+.support-center-page > .section01 .text-wrap .p1 {
+  font-weight: bold;
+  margin: 0;
+}
+
+.support-center-page > .sub-title {
+  width: 100%;
+  font-size: 3em;
+  margin: 0;
+  color: #eeeeee;
+  font-weight: normal;
+  text-align: center;
+}
+
+.support-center-page .section02 {
+  margin: 5% 10%;
+}
+
+.support-center-page .section02 > div {
+  display: flex;
+  margin: 10%;
+}
+
+.support-center-page .section02 > div .text-wrap .p1 {
+  font-weight: bold;
+  font-size: 0.5em;
+  margin: 0;
+}
+
+.support-center-page .section02 > div .text-wrap .p2 {
+  font-size: 1em;
+  margin: 0;
+  font-weight: bold;
+}
+
+.support-center-page .section02 > div .text-wrap .p3 {
+  font-size: 0.6em;
+}
+
+.support-center-page .section02 > div .text-wrap {
+  flex: 4;
+  text-align: left;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.support-center-page .section02 > div .img-wrap {
+  flex: 6;
+  align-items: center;
+  display: flex;
+}
+
+.support-center-page .section02 > div .img-wrap img {
+  width: 100%;
+}
+
+.support-center-page .search-list-section {
+  margin: 5% 10% 10% 10%;
+}
+
+.support-center-page .search-list-section .search-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+}
+
+.support-center-page .search-list-section .lawyer {
+  flex: 0 1 18%;
+}
+
+.support-center-page .search-list-section .lawyer img {
+  width: 100%;
+  background-color: #f9f9f9;
+}
+
+.support-center-page .search-list-section .lawyer .text-wrap {
+  text-align: left;
+}
+
+.support-center-page .search-list-section .lawyer .text-wrap p {
+  margin: 0px;
+}
+
+.support-center-page .search-list-section .lawyer .text-wrap .name {
+  font-size: 1.5em;
+}
+
+.support-center-page .search-list-section .lawyer .text-wrap .name > span {
+  font-size: 0.7em;
+  color: #888;
+  padding-left: 10px;
+}
+
+.support-center-page .search-list-section .lawyer .text-wrap .job {
+  color: #888;
+  margin: 10px 0;
+}
+
+.support-center-page .search-list-section .lawyer .text-wrap .phone > span {
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.support-center-page .search-list-section .lawyer .text-wrap .email > span {
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.support-center-page .search-list-section .pagination {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.support-center-page .search-list-section .page-number {
+  margin: 0 5px;
+  cursor: pointer;
+  color: #555;
+}
+
+.support-center-page .search-list-section .page-number.active {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.support-center-page .search-list-section .separator {
   margin: 0 5px;
   color: #bbb;
 }

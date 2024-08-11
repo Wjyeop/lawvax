@@ -14,12 +14,17 @@ import PostPage from "./pages/PostPage/PostPage";
 import NewsLetterPage from "./pages/NewsLetterPage/NewsLetterPage";
 import IntroPage from "./pages/IntroPage/IntroPage";
 import ServicePage from "./pages/ServicesPage/Services";
+import CenterSide from "./components/CenterSide";
+import TechCenterPage from "./pages/TechCenterPage/TechCenterPage";
+import SupportCenterPage from "./pages/SupportCenterPage/SupportCenterPage";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Header />
+        <CenterSide />
+
         <Routes>
           <Route path="/" element={<LandingPage />} />
 
@@ -35,8 +40,13 @@ function App() {
           <Route path="/members" element={<MembersPage />} />
           <Route path="/memberSearch" element={<MemberSearchPage />} />
           <Route path="/profile" element={<MemberProfilePage />} />
+
+          <Route path="/support-center" element={<SupportCenterPage />} />
+          <Route path="/tech-center" element={<TechCenterPage />} />
         </Routes>
         <Footer />
+
+        <Routes></Routes>
       </BrowserRouter>
     </div>
   );
