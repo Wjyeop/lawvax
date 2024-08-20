@@ -1,19 +1,18 @@
 .header {
   position: fixed;
   top: 0;
-  right: 0;
   height: 72px;
   width: 100%;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10%;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .header .header-section {
+  padding: 0 5%;
   display: flex;
   align-items: center;
 }
@@ -30,7 +29,6 @@
 }
 
 .header .logo {
-  padding-left: 15%;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -978,6 +976,104 @@
   text-align: center;
 }
 
+.members-page .lawyer-section .grid-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3열 그리드 */
+  grid-auto-rows: minmax(200px, auto); /* 각 행의 높이를 자동 조정 */
+  gap: 40px; /* 각 항목 사이의 간격 */
+  justify-items: center; /* 항목들을 가운데 정렬 */
+}
+
+.members-page .lawyer-section .lawyer-item:first-child {
+  justify-self: center;
+}
+
+.members-page .lawyer-section .lawyer-item {
+  display: flex;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.members-page .lawyer-section .lawyer-item .text-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.members-page .lawyer-section .lawyer-item .text-wrap p {
+  margin: 0;
+  font-size: 0.8em;
+  text-align: left;
+}
+
+.members-page .lawyer-section .lawyer-item .text-wrap .name {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.members-page .lawyer-section .selected {
+  filter: none;
+}
+
+.members-page .lawyer-section .lawyer-item img {
+  width: 100%;
+  max-width: 150px;
+}
+
+.members-page .lawyer-section .toggle-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  color: #999999;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  position: relative;
+  width: 100%;
+  font-weight: bold;
+}
+
+.members-page .lawyer-section .toggle-button img {
+  width: 20px;
+  margin-left: 10px;
+}
+
+.members-page .lawyer-section .toggle-button::before,
+.members-page .lawyer-section .toggle-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
+.members-page .lawyer-section .toggle-button::before {
+  left: 0;
+}
+
+.members-page .lawyer-section .toggle-button::after {
+  right: 0;
+}
+
+.members-page .lawyer-section .toggle-button .full-line::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #e0e0e0;
+  margin-top: 10px;
+}
+
+/* .members-page .lawyer-section {
+  margin: 5% 10%;
+  text-align: center;
+}
+
 .members-page .lawyer-section .lawyer-title {
   text-align: left;
 }
@@ -1041,7 +1137,7 @@
 
 .members-page .lawyer-section .content .text-wrap .class {
   font-size: 0.5em;
-}
+} */
 
 /* 구성원 검색 페이지 */
 

@@ -23,10 +23,8 @@ const HiredLawyerSection = () => {
         <div>
           <p style={{ fontSize: "2.5em" }}>
             <span className="blue" style={{ fontSize: "2em" }}>
-              H
+              P
             </span>
-            IRED & <br />
-            LAWYER
             <Link to="/members">
               <button className="more">
                 <img src={more} alt="" />

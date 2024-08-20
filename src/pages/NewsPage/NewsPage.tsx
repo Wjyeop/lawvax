@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const NewsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [activeTab, setActiveTab] = useState("소식");
+  const [activeTab, setActiveTab] = useState("법인소식");
 
   const handleClick = (page: number) => {
     setCurrentPage(page);
@@ -22,7 +22,7 @@ const NewsPage = () => {
         <span>{">"}</span>
         <span>법인소식</span>
         <span>{">"}</span>
-        <span className="search">소식</span>
+        <span className="search">법인소식</span>
       </div>
       <div className="title">
         <div>
@@ -37,10 +37,10 @@ const NewsPage = () => {
       </div>
       <div className="theme-select">
         <button
-          className={activeTab === "소식" ? "active" : ""}
-          onClick={() => setActiveTab("소식")}
+          className={activeTab === "법인소식" ? "active" : ""}
+          onClick={() => setActiveTab("법인소식")}
         >
-          소식
+          법인소식
         </button>
         <button
           className={activeTab === "언론보도" ? "active" : ""}

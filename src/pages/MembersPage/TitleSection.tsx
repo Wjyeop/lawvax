@@ -30,10 +30,9 @@ const TitleSection = () => {
       <div className="sub-title">
         <p className="roman-title" style={{ fontSize: "2.5em" }}>
           <span className="blue" style={{ fontSize: "2em" }}>
-            H
+            P
           </span>
-          IRED & <br />
-          LAWYER
+          ROFESSIONAL
         </p>
       </div>
       <div className="search-bar-wrap">

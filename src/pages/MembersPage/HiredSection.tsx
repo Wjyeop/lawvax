@@ -12,7 +12,7 @@ const HiredSection = () => {
   return (
     <section className="hired-section">
       <div className="hired-title">
-        <span className="roman-title">HIRED</span>
+        {/* <span className="roman-title">HIRED</span> */}
       </div>
       <div className="hired">
         <Swiper
