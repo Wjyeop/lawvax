@@ -1,71 +1,78 @@
 .header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 72px;
+  width: 100%;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 0 10%;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.header-section {
+.header .header-section {
   display: flex;
   align-items: center;
 }
 
-.center-header {
+.header .center-header {
   height: 72px;
   display: flex;
   align-items: center;
   margin-left: 10%;
 }
 
-.center-header > a {
+.header .center-header > a {
   padding: 20px;
 }
 
-.logo {
+.header .logo {
+  padding-left: 15%;
   display: flex;
   align-items: center;
   cursor: pointer;
 }
 
-.logo-image {
-  height: 40px;
+.header .logo-image {
+  height: 48px;
   margin-right: 10px;
 }
 
-.logo-text {
+.header .logo-text {
   font-size: 1.5em;
   color: #0056b3;
 }
 
-.nav ul {
+.header .nav ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 40px;
   margin: 0;
   padding: 0;
   font-weight: bold;
 }
 
-.nav a {
+.header .nav a {
   text-decoration: none;
   color: #333;
-  font-size: 1em;
+  font-size: 20px;
 }
 
-.nav a:hover {
+.header .nav a:hover {
   color: #0056b3;
 }
 
-.icons {
+.header .icons {
   display: flex;
   gap: 15px;
 }
 
-.icon {
-  font-size: 1.5em;
+.header .icon {
   cursor: pointer;
+  height: 24px;
 }
 
 .footer {
@@ -108,7 +115,7 @@
   display: flex;
   font-weight: 400;
   font-size: 1em;
-  transition: left 0.3s ease; /* 부드러운 이동 효과 */
+  transition: left 0.3s ease;
 }
 
 .side-button-container .section1 {
@@ -148,6 +155,7 @@
 /* 랜딩페이지 */
 
 .landing-page {
+  padding-top: 72px;
 }
 
 .landing-page .main-section {
@@ -172,7 +180,7 @@
 
 .landing-page .main-section .highlight {
   color: #1876bc;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* 2px 오른쪽, 2px 아래, 4px 흐림, 반투명 검정색 */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .landing-page .main-section .main-subtitle {
@@ -201,18 +209,18 @@
   color: #333;
   padding: 10px;
   outline: none;
-  margin-right: 10px; /* 입력 필드와 간격 */
+  margin-right: 10px;
   cursor: pointer;
 }
 
 .landing-page .main-section .search-icon {
   height: 24px;
-  border-left: 1px solid #ccc; /* 오른쪽 테두리 추가 */
+  border-left: 1px solid #ccc;
   padding-left: 10px;
 }
 
 .landing-page .main-section .search-input {
-  flex-grow: 1; /* 남은 공간 채우기 */
+  flex-grow: 1;
   border: none;
   padding: 10px;
   font-size: 16px;
@@ -231,7 +239,7 @@
 }
 
 .landing-page .main-section .search-button:hover {
-  color: #333; /* 마우스 오버 시 색상 변경 */
+  color: #333;
 }
 
 .landing-page .news-section {
@@ -654,6 +662,10 @@
 
 /* 로벡스 소개 페이지 */
 
+.intro-page {
+  padding-top: 72px;
+}
+
 .intro-page .process {
   display: flex;
   align-items: center;
@@ -719,6 +731,11 @@
 }
 
 /* 업무 분야 페이지 */
+
+.services-page {
+  padding-top: 72px;
+}
+
 .services-page .process {
   display: flex;
   align-items: center;
@@ -796,6 +813,10 @@
 }
 
 /* 구성원 페이지 */
+
+.members-page {
+  padding-top: 72px;
+}
 
 .members-page .process {
   display: flex;
@@ -1022,6 +1043,12 @@
   font-size: 0.5em;
 }
 
+/* 구성원 검색 페이지 */
+
+.member-search-page {
+  padding-top: 72px;
+}
+
 .member-search-page .process {
   display: flex;
   align-items: center;
@@ -1161,6 +1188,13 @@
   margin: 0 5px;
   color: #bbb;
 }
+
+/* 구성원 상세 페이지 */
+
+.member-profile-page {
+  padding-top: 72px;
+}
+
 .member-profile-page .title-section {
   display: flex;
   justify-content: space-between;
@@ -1422,6 +1456,7 @@
 /* 법인소식 */
 
 .news-page {
+  padding-top: 72px;
   text-align: center;
 }
 
@@ -1477,19 +1512,19 @@
 
 .news-page .theme-select button.active {
   font-weight: bold;
-  color: black; /* 활성화된 버튼의 글자색 */
-  border-bottom: 1px solid #ddd; /* 하단에 구분선을 추가 */
+  color: black;
+  border-bottom: 1px solid #ddd;
 }
 
 .news-page .theme-select button.active::after {
-  border-bottom: 1px solid #ddd; /* 하단에 구분선을 추가 */
+  border-bottom: 1px solid #ddd;
   content: "";
   display: block;
   width: 100%;
   height: 2px;
-  background-color: black; /* 밑줄 색상 */
+  background-color: black;
   position: absolute;
-  bottom: -5px; /* 밑줄의 위치 */
+  bottom: -5px;
   left: 0;
 }
 
@@ -1561,7 +1596,10 @@
   color: #007bff;
 }
 
+/* 게시글 페이지 */
+
 .post-page {
+  padding-top: 72px;
   text-align: center;
 }
 
@@ -1683,6 +1721,7 @@
 /* 뉴스레터 */
 
 .newsletter-page {
+  padding-top: 72px;
   margin: 5% 10%;
 }
 
@@ -1808,6 +1847,7 @@
 .support-center-page {
   position: relative;
   text-align: center;
+  padding-top: 72px;
 }
 
 .support-center-page .main {
