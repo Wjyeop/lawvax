@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import more from "../../assets/images/more.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
@@ -10,8 +10,11 @@ import { Link } from "react-router-dom";
 
 const HiredLawyerSection = () => {
   const swiperRef = useRef(null);
+  const [activeSlideIndex, setActiveSlideIndex] = useState<number | null>(0);
 
-  const handleSlideClick = (index: Number) => {
+  const handleSlideClick = (index: number) => {
+    setActiveSlideIndex(index);
+
     if (swiperRef.current && (swiperRef.current as any).swiper) {
       (swiperRef.current as any).swiper.slideTo(index);
     }
@@ -25,6 +28,7 @@ const HiredLawyerSection = () => {
             <span className="blue" style={{ fontSize: "2em" }}>
               P
             </span>
+            ROFESSIONAL
             <Link to="/members">
               <button className="more">
                 <img src={more} alt="" />
@@ -39,17 +43,16 @@ const HiredLawyerSection = () => {
           navigation
           slidesPerView={4}
           scrollbar={{ draggable: true }}
-          spaceBetween={10}
+          spaceBetween={0}
           slidesOffsetBefore={50}
           slidesOffsetAfter={50}
           ref={swiperRef}
-          onActiveIndexChange={(swiper: any) =>
-            console.log("active index changed", swiper.activeIndex)
-          }
         >
           {[1, 2, 3, 4, 5, 6, 7].map((_, index) => (
             <SwiperSlide key={index} onClick={() => handleSlideClick(index)}>
-              <div className="content">
+              <div
+                className={`content ${activeSlideIndex === index ? "active" : ""}`}
+              >
                 <div className="img-wrap">
                   <img src={lawyer1} alt={`Slide ${index}`} />
                 </div>

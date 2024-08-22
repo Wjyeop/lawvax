@@ -1,13 +1,14 @@
-import React, { useRef, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/scrollbar";
+// import React, { useRef, useState } from "react";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+// import "swiper/css";
+// import "swiper/css/navigation";
+// import "swiper/css/scrollbar";
 import lawyer1 from "../../assets/images/hiredSample.png";
 import { lawyerList } from "../../const/lawyerList";
 import up from "../../assets/images/icons/up.png";
 import down from "../../assets/images/icons/down.png";
+import { useState } from "react";
 
 const Lawyersection = () => {
   const [selectedLawyerIndex, setSelectedLawyerIndex] = useState<number | null>(

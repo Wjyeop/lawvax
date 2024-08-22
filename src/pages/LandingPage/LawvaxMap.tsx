@@ -5,6 +5,8 @@ import fax from "../../assets/images/icons/fax.png";
 import blueBus from "../../assets/images/icons/blueBus.png";
 import greenBus from "../../assets/images/icons/greenBus.png";
 import threeLine from "../../assets/images/icons/threeLine.png";
+import copy from "../../assets/images/icons/copy.png";
+import share from "../../assets/images/icons/shareBlue.png";
 import Kakaomap from "./KakaoMap";
 
 declare global {
@@ -40,6 +42,30 @@ const LawvaxMap: React.FC = () => {
     }
   };
 
+  const handleCopy = () => {
+    const textToCopy = "서울특별시 서초구 서초동 1596-3";
+    navigator.clipboard
+      .writeText(textToCopy)
+      .then(() => {
+        alert("주소가 복사되었습니다.");
+      })
+      .catch((err) => {
+        console.error("복사 실패:", err);
+      });
+  };
+
+  const handleShare = () => {
+    const textToCopy = "https://kko.to/F1EOjJNSyv";
+    navigator.clipboard
+      .writeText(textToCopy)
+      .then(() => {
+        alert("위치 공유 링크가 복사되었습니다.");
+      })
+      .catch((err) => {
+        console.error("복사 실패:", err);
+      });
+  };
+
   return (
     <section className="lawvax-map-section">
       <div className="title">
@@ -70,7 +96,15 @@ const LawvaxMap: React.FC = () => {
           </div>
           <div className="sub-wrap adress">
             <p className="sub-title">주소</p>
-            <p className="gray">지번:서울특별시 서초구 서초동 1596-3</p>
+            <p className="gray">
+              지번:서울특별시 서초구 서초동 1596-3
+              <img
+                src={copy}
+                alt=""
+                style={{ marginLeft: "5px" }}
+                onClick={handleCopy}
+              />
+            </p>
             <p>서울특별시 서초구 사임당로 18 석오빌딩 3층, 9층</p>
           </div>
           <div className="sub-wrap call">
@@ -100,6 +134,10 @@ const LawvaxMap: React.FC = () => {
         </div>
         <div className="map-section">
           <Kakaomap />
+        </div>
+        <div className="share" onClick={handleShare}>
+          <img src={share} alt="" />
+          공유하기
         </div>
       </div>
     </section>

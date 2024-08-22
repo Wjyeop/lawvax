@@ -191,12 +191,12 @@
   display: flex;
   align-items: center;
   background-color: #f2f2f2;
-  border-radius: 10px;
   padding: 10px;
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .landing-page .main-section .category-select {
@@ -239,6 +239,37 @@
 .landing-page .main-section .search-button:hover {
   color: #333;
 }
+
+.landing-page .main-section .keyword-recommendation {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fff;
+  padding: 10px;
+  align-items: center;
+  gap: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.landing-page .main-section .keyword-item {
+  color: #007bff;
+  border: 1px solid #007bff;
+  padding: 5px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.landing-page .main-section .keyword-item:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* 랜딩페이지 - 뉴스섹션 */
 
 .landing-page .news-section {
   margin: 10%;
@@ -363,13 +394,15 @@
   cursor: pointer;
 }
 
+/* 랜딩페이지 > 뉴스레터섹션 */
+
 .landing-page .newsletter-section {
   text-align: center;
-  margin: 10%;
 }
 
 .landing-page .newsletter-section .title {
   text-align: left;
+  margin: 0 10%;
 }
 
 .landing-page .newsletter-section .title p {
@@ -390,28 +423,25 @@
   width: 50px;
 }
 
-.landing-page .newsletter-section .swiper {
-}
+/* 랜딩페이지 > 뉴스레터 슬라이드 */
 
 .landing-page .newsletter-section .swiper-container {
-  padding: 50px 0;
+  margin: 0 5%;
+  padding: 5% 0;
 }
 
 .landing-page .newsletter-section .swiper-wrapper {
-  padding: 20px 0;
+  padding: 5% 0;
 }
 
 .landing-page .newsletter-section .swiper-slide {
   border: 2px solid #d9d9d9;
   border-radius: 5px;
-  max-width: 20.5%;
   padding: 20px 10px;
 }
 
 .landing-page .newsletter-section .swiper-scrollbar {
-}
-
-.landing-page .newsletter-section .swiper-button-prev {
+  margin: 0 5%;
 }
 
 .landing-page .newsletter-section .swiper-scrollbar-drag {
@@ -421,8 +451,7 @@
 .landing-page .newsletter-section .newsletter-content {
   display: flex;
   flex-direction: column;
-  min-height: 300px;
-  min-width: 100%;
+  min-height: 200px;
 }
 .landing-page .newsletter-section .newsletter-content .mark {
   flex: 2;
@@ -441,6 +470,7 @@
   font-weight: bold;
   text-align: left;
   font-size: 1em;
+  margin: 0;
 }
 
 .landing-page .newsletter-section .newsletter-content .bottom {
@@ -451,18 +481,25 @@
   color: #888;
 }
 
+.landing-page .newsletter-section .newsletter-content .bottom a {
+  text-decoration: none;
+  color: #888;
+}
+
 .landing-page .newsletter-section .newsletter-content .bottom .more {
   text-decoration: underline;
   cursor: pointer;
 }
 
+/* 랜딩페이지 > PROFESSIONAL */
+
 .landing-page .hired-section {
   text-align: center;
-  margin: 10%;
 }
 
 .landing-page .hired-section .title {
   text-align: left;
+  margin: 0 10%;
 }
 
 .landing-page .hired-section .title p {
@@ -483,21 +520,36 @@
   width: 50px;
 }
 
+/* 랜딩페이지 > PROFESSIONAL > 슬라이드 */
+
 .landing-page .hired-section .swiper {
   width: 100%;
 }
 
 .landing-page .hired-section .swiper-container {
-  padding: 5% 0;
+  margin: 0 5%;
 }
 
 .landing-page .hired-section .swiper-wrapper {
-  padding: 5% 0;
+  padding: 10% 0 10% 0;
 }
 
 .landing-page .hired-section .swiper-slide {
   width: 300px;
   height: 100%;
+  display: flex;
+  justify-content: center; /* 수평 가운데 정렬 */
+  justify-content: flex-end;
+}
+
+.landing-page .hired-section .content .img-wrap {
+  display: flex;
+  justify-content: center; /* 이미지가 수평으로 가운데 정렬 */
+  align-items: flex-end; /* 이미지가 수직으로 하단 정렬 */
+}
+
+.landing-page .hired-section .swiper-scrollbar {
+  margin: 0 5%;
 }
 
 .landing-page .hired-section .swiper-scrollbar-drag {
@@ -508,7 +560,24 @@
   position: relative;
 }
 
-.landing-page .hired-section .content .img-wrap {
+.landing-page .hired-section .content img {
+  filter: grayscale(100%);
+}
+
+.landing-page .hired-section .content.active {
+  transform: scale(1.8);
+  filter: grayscale(0%);
+}
+
+.landing-page .hired-section .content.active img {
+  filter: grayscale(0%);
+}
+
+.landing-page .hired-section .content.active .text-wrap {
+  display: block;
+  transform: scale(0.8);
+  position: absolute;
+  right: 20%;
 }
 
 .landing-page .hired-section .content img {
@@ -516,16 +585,8 @@
   filter: grayscale(100%);
 }
 
-.landing-page .hired-section .swiper .swiper-slide-active .img-wrap img {
-  filter: grayscale(0%);
-}
-
-.landing-page .hired-section .swiper .swiper-slide-active {
-  transform: scale(1.5);
-}
-
-.landing-page .hired-section .swiper .swiper-slide-active .text-wrap {
-  display: block;
+.landing-page .hired-section .content .text-wrap {
+  display: none;
 }
 
 .landing-page .hired-section .content .text-wrap {
@@ -545,14 +606,17 @@
 }
 
 .landing-page .hired-section .content .text-wrap .name {
-  font-size: 1.5em;
+  font-size: 1em;
   color: #1676bc;
   font-weight: bold;
+  margin: 0;
 }
 
 .landing-page .hired-section .content .text-wrap .class {
   font-size: 0.5em;
 }
+
+/* 랜딩페이지 > 로백스 맵 */
 
 .landing-page .lawvax-map-section {
   text-align: center;
@@ -572,6 +636,7 @@
 
 .landing-page .lawvax-map-section .content {
   display: flex;
+  position: relative;
 }
 
 .landing-page .lawvax-map-section .content .text-section {
@@ -616,6 +681,14 @@
 
 .landing-page .lawvax-map-section .content p {
   margin: 5px 0;
+  font-size: 0.8em;
+  display: flex;
+  align-items: center;
+}
+
+.landing-page .lawvax-map-section .content p img {
+  width: 18px;
+  cursor: pointer;
 }
 
 .landing-page .lawvax-map-section .content .map-section {
@@ -627,9 +700,28 @@
   width: 100%;
 }
 
+.landing-page .lawvax-map-section .content .share {
+  position: absolute;
+  right: 0;
+  top: 30px;
+  right: 40px;
+  display: flex;
+  align-items: center;
+  color: #0056b3;
+  border: 2px solid #0056b3;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.landing-page .lawvax-map-section .content .share img {
+  width: 24px;
+  padding-right: 5px;
+}
+
 .landing-page .lawvax-map-section .call span {
   display: flex;
   align-items: center;
+  font-size: 0.8em;
 }
 
 .landing-page .lawvax-map-section .call img {
@@ -648,8 +740,9 @@
 }
 
 .landing-page .lawvax-map-section .map-section {
-  align-items: center;
+  align-items: end;
   display: flex;
+  margin-bottom: 20px;
 }
 
 .landing-page .lawvax-map-section .map-section img {
