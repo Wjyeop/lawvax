@@ -12,7 +12,7 @@ import { useState } from "react";
 
 const Lawyersection = () => {
   const [selectedLawyerIndex, setSelectedLawyerIndex] = useState<number | null>(
-    null
+    0
   );
   const [showAll, setShowAll] = useState(false);
   const visibleLawyers = showAll ? lawyerList : lawyerList.slice(0, 6); // 처음엔 6명만 표시

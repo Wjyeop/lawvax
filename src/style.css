@@ -1314,7 +1314,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3열 그리드 */
   grid-auto-rows: minmax(200px, auto); /* 각 행의 높이를 자동 조정 */
-  gap: 40px; /* 각 항목 사이의 간격 */
+  gap: 20px; /* 각 항목 사이의 간격 */
   justify-items: center; /* 항목들을 가운데 정렬 */
 }
 
@@ -1353,7 +1353,7 @@
 
 .members-page .lawyer-section .lawyer-item img {
   width: 100%;
-  max-width: 150px;
+  max-width: 200px;
 }
 
 .members-page .lawyer-section .toggle-button {
