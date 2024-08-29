@@ -13,10 +13,11 @@ import NewsPage from "./pages/NewsPage/NewsPage";
 import PostPage from "./pages/PostPage/PostPage";
 import NewsLetterPage from "./pages/NewsLetterPage/NewsLetterPage";
 import IntroPage from "./pages/IntroPage/IntroPage";
-import ServicePage from "./pages/ServicesPage/Services";
+import ServicesPage from "./pages/ServicesPage/Services";
 import CenterSide from "./components/CenterSide";
 import TechCenterPage from "./pages/TechCenterPage/TechCenterPage";
 import SupportCenterPage from "./pages/SupportCenterPage/SupportCenterPage";
+import ServicesDetail from "./pages/ServicesDetailPage/ServicesDetail";
 
 function App() {
   return (
@@ -30,7 +31,8 @@ function App() {
 
           <Route path="/intro" element={<IntroPage />} />
 
-          <Route path="/services" element={<ServicePage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/services/detail" element={<ServicesDetail />} />
 
           <Route path="/news" element={<NewsPage />} />
           <Route path="/news/post" element={<PostPage />} />
