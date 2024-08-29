@@ -11,8 +11,6 @@ const ServicesPage = () => {
   const [isTechnologyExpanded, setTechnologyExpanded] = useState(false);
   const [isFinanceExpanded, setFinanceExpanded] = useState(false);
 
-  const [isBusiness01Expanded, setBusiness01Expanded] = useState(false);
-
   const toggleExpand = (section: any) => {
     switch (section) {
       case "business":
@@ -58,39 +56,36 @@ const ServicesPage = () => {
               <Link to="/services/detail">
                 <div className="content">
                   <p>업무분야</p>
-                  <img
-                    src={isBusiness01Expanded ? icons.up02 : icons.down02}
-                    alt=""
-                  />
+                  <img src={icons.down} alt="" />
                 </div>
               </Link>
               <div className="content">
                 <p>업무분야</p>
-                <img src={isBusiness01Expanded ? up2 : down2} alt="" />
+                <img src={icons.down} alt="" />
               </div>
               <div className="content">
                 <p>업무분야</p>
-                <img src={isBusiness01Expanded ? up2 : down2} alt="" />
+                <img src={icons.down} alt="" />
               </div>
               <div className="content">
                 <p>업무분야</p>
-                <img src={isBusiness01Expanded ? up2 : down2} alt="" />
+                <img src={icons.down} alt="" />
               </div>
               <div className="content">
                 <p>업무분야</p>
-                <img src={isBusiness01Expanded ? up2 : down2} alt="" />
+                <img src={icons.down} alt="" />
               </div>
               <div className="content">
                 <p>업무분야</p>
-                <img src={isBusiness01Expanded ? up2 : down2} alt="" />
+                <img src={icons.down} alt="" />
               </div>
               <div className="content">
                 <p>업무분야</p>
-                <img src={isBusiness01Expanded ? up2 : down2} alt="" />
+                <img src={icons.down} alt="" />
               </div>
               <div className="content">
                 <p>업무분야</p>
-                <img src={isBusiness01Expanded ? up2 : down2} alt="" />
+                <img src={icons.down} alt="" />
               </div>
             </div>
           )}
@@ -116,6 +111,48 @@ const ServicesPage = () => {
             />
           </div>
           {isTechnologyExpanded && <div />}
+        </div>
+        <div className="content04">
+          <div className="title">
+            <span>업무 분야_4</span>
+            <img src={isTechnologyExpanded ? up01 : down01} alt="" />
+          </div>
+        </div>
+        <div className="content05">
+          <div className="title">
+            <span>업무 분야_5</span>
+            <img src={isTechnologyExpanded ? up01 : down01} alt="" />
+          </div>
+        </div>
+        <div className="content06">
+          <div className="title">
+            <span>업무 분야_6</span>
+            <img src={isTechnologyExpanded ? up01 : down01} alt="" />
+          </div>
+        </div>
+        <div className="content07">
+          <div className="title">
+            <span>업무 분야_7</span>
+            <img src={isTechnologyExpanded ? up01 : down01} alt="" />
+          </div>
+        </div>
+        <div className="content08">
+          <div className="title">
+            <span>업무 분야_8</span>
+            <img src={isTechnologyExpanded ? up01 : down01} alt="" />
+          </div>
+        </div>
+        <div className="content09">
+          <div className="title">
+            <span>업무 분야_9</span>
+            <img src={isTechnologyExpanded ? up01 : down01} alt="" />
+          </div>
+        </div>
+        <div className="content10">
+          <div className="title">
+            <span>업무 분야_10</span>
+            <img src={isTechnologyExpanded ? up01 : down01} alt="" />
+          </div>
         </div>
       </div>
     </div>
