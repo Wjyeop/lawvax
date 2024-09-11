@@ -2,8 +2,6 @@ import { useState } from "react";
 import icons from "../../assets/images/icons/icons";
 import up01 from "../../assets/images/icons/up01.png";
 import down01 from "../../assets/images/icons/down01.png";
-import up2 from "../../assets/images/icons/up.png";
-import down2 from "../../assets/images/icons/down.png";
 import { Link } from "react-router-dom";
 
 const ServicesPage = () => {

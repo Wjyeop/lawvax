@@ -18,6 +18,7 @@ import CenterSide from "./components/CenterSide";
 import TechCenterPage from "./pages/TechCenterPage/TechCenterPage";
 import SupportCenterPage from "./pages/SupportCenterPage/SupportCenterPage";
 import ServicesDetail from "./pages/ServicesDetailPage/ServicesDetail";
+import Topbutton from "./components/TopButton";
 
 function App() {
   //버셀배포테스트
@@ -47,9 +48,8 @@ function App() {
           <Route path="/support-center" element={<SupportCenterPage />} />
           <Route path="/tech-center" element={<TechCenterPage />} />
         </Routes>
+        <Topbutton />
         <Footer />
-
-        <Routes></Routes>
       </BrowserRouter>
     </div>
   );

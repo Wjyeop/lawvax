@@ -5,9 +5,9 @@ import save from "../../assets/images/icons/saveBlue.png";
 import up from "../../assets/images/icons/up.png";
 import down from "../../assets/images/icons/down.png";
 import big from "../../assets/images/icons/big.png";
-import top from "../../assets/images/icons/top.png";
 
 import { profileData } from "../../const/profileData";
+import Topbutton from "../../components/TopButton";
 
 const MemberProfilePage = () => {
   const [isEducationExpanded, setEducationExpanded] = useState(false);
@@ -273,35 +273,6 @@ const MemberProfilePage = () => {
             <div className="full-line" />
           )}
         </div>
-        {/* <div className="etcWorkFields">
-          <div className="title">
-            <p>주요 업무분야</p>
-          </div>
-          {profileData.etcWorkFields
-            .slice(
-              0,
-              isEtcWorkFieldsExpanded ? profileData.etcWorkFields.length : 4
-            )
-            .map((item, index) => (
-              <div key={index} className="content">
-                <div>
-                  <span>{item.content}</span>
-                </div>
-              </div>
-            ))}
-          {profileData.etcWorkFields.length > 4 ? (
-            <button onClick={() => toggleExpand("etcWorkFields")}>
-              {isEtcWorkFieldsExpanded ? "접기" : "펼치기"}
-              {isEtcWorkFieldsExpanded ? (
-                <img src={up} alt="" />
-              ) : (
-                <img src={down} alt="" />
-              )}
-            </button>
-          ) : (
-            <div className="full-line" />
-          )}
-        </div> */}
       </div>
       <div className="info">
         <p className="phone">
@@ -313,9 +284,7 @@ const MemberProfilePage = () => {
           kdong@lawvax.co.kr
         </p>
       </div>
-      <button className="top-btn" onClick={() => window.scrollTo(0, 0)}>
-        <img src={top} alt="" />
-      </button>
+      <Topbutton />
     </div>
   );
 };

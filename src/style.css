@@ -3,6 +3,7 @@
   top: 0;
   height: 72px;
   width: 100%;
+  max-width: 1080px;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
@@ -103,17 +104,22 @@
 }
 
 /* 사이드 버튼 */
-
 .side-button-container {
   position: fixed;
   z-index: 1000;
-  left: -245px;
+  left: 0;
   top: 200px;
   transform: translateY(-100%);
   display: flex;
   font-weight: 400;
   font-size: 1em;
   transition: left 0.3s ease;
+}
+
+@media screen and (min-width: 1080px) {
+  .side-button-container {
+    left: calc(50% - 540px);
+  }
 }
 
 .side-button-container .section1 {
@@ -150,6 +156,24 @@
   background-color: #ccc;
 }
 
+/* 탑버튼 */
+
+.top-btn {
+  width: 48px;
+  height: 48px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+  background-color: transparent;
+}
+
+.top-btn img {
+  width: 100%;
+}
+
 /* 랜딩페이지 */
 
 .landing-page {
@@ -162,7 +186,7 @@
   align-items: center;
   flex-direction: column;
   height: 1080px;
-  background-color: #d9d9d9;
+  background-color: #000000;
   position: relative;
 }
 
@@ -200,7 +224,7 @@
 }
 
 .landing-page .main-section .category-select {
-  width: 110px;
+  width: 160px;
   border: none;
   background: transparent;
   font-size: 16px;
@@ -213,7 +237,7 @@
 
 .landing-page .main-section .search-icon {
   height: 24px;
-  border-left: 1px solid #ccc;
+  /* border-left: 1px solid #ccc; */
   padding-left: 10px;
 }
 
@@ -314,8 +338,6 @@
 .landing-page .news-section .content .text-section {
   flex: 40%;
   text-align: left;
-  margin: 50px;
-  padding: 50px;
 }
 
 .landing-page .news-section .content .text-section .title {
@@ -531,14 +553,14 @@
   width: 300px;
   height: 100%;
   display: flex;
-  justify-content: center; /* 수평 가운데 정렬 */
+  justify-content: center;
   justify-content: flex-end;
 }
 
 .landing-page .hired-section .content .img-wrap {
   display: flex;
-  justify-content: center; /* 이미지가 수평으로 가운데 정렬 */
-  align-items: flex-end; /* 이미지가 수직으로 하단 정렬 */
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .landing-page .hired-section .swiper-scrollbar {
@@ -551,22 +573,26 @@
 
 .landing-page .hired-section .content {
   position: relative;
+  transition: all 0.3s ease;
 }
 
 .landing-page .hired-section .content img {
   filter: grayscale(100%);
 }
 
-.landing-page .hired-section .content.active {
+.landing-page .hired-section .content.active,
+.landing-page .hired-section .content:hover {
   transform: scale(1.8);
   filter: grayscale(0%);
 }
 
-.landing-page .hired-section .content.active img {
+.landing-page .hired-section .content.active img,
+.landing-page .hired-section .content:hover img {
   filter: grayscale(0%);
 }
 
-.landing-page .hired-section .content.active .text-wrap {
+.landing-page .hired-section .content.active .text-wrap,
+.landing-page .hired-section .content:hover .text-wrap {
   display: block;
   transform: scale(0.8);
   position: absolute;
@@ -765,69 +791,84 @@
   color: #999999;
 }
 
-.intro-page .title {
-  margin: 0 10%;
-  font-family: "Times New Roman", Times, serif;
-  text-align: left;
+.intro-page .p2 {
+  font-weight: bold;
+  font-size: 2em;
 }
 
-.intro-page .title p {
-  margin: 0;
-}
-
-.intro-page > .gray {
+.intro-page .section01 {
   text-align: center;
-  font-size: 5em;
-  color: #f1f0f0;
-  letter-spacing: 5px;
-  font-family: "Times New Roman", Times, serif;
-  margin: 20px 0 0 0;
-}
-
-.intro-page .content > div {
-  display: flex;
-  margin: 10%;
-}
-
-.intro-page .content > div .text-wrap {
-  flex: 6;
-  text-align: left;
-  padding: 0 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.intro-page .content > div .text-wrap .p1 {
-  font-weight: bold;
-}
-
-.intro-page .content > div .text-wrap .p2 {
-  font-size: 1.5em;
-  font-weight: bold;
-  margin: 20px 0;
-}
-
-.intro-page .content > div .text-wrap .p3 {
-  margin: 0;
-}
-
-.intro-page .content > div .img-wrap {
-  flex: 4;
-  display: flex;
   justify-content: center;
+  align-items: center;
+  padding: 5%;
 }
 
-.intro-page .content > div .img-wrap img {
+.intro-page .section01 img {
   width: 100%;
 }
 
-.intro-page .content .section04 .img-wrap {
-  padding: 50px;
+.intro-page .section01 .img-wrap {
+  padding: 5%;
+  flex: 3;
 }
 
-.intro-page .content .section04 img {
-  margin: auto;
+.intro-page .section01 .text-wrap {
+  flex: 4;
+  text-align: left;
+}
+
+.intro-page .section01 h1 {
+  font-size: 5em;
+  font-weight: 300;
+  font-family: "Times New Roman", Times, serif;
+  color: #f1f0f0;
+  margin: 5% 0 0 0;
+}
+
+.intro-page .section02 {
+  background-image: url("../src/assets/images/intro01.png");
+  background-size: cover;
+  background-position: center;
+  padding: 5% 40% 5% 10%;
+  height: 50vh;
+}
+
+.intro-page .section03 {
+  padding: 5% 10% 0 10%;
+  display: flex;
+}
+
+.intro-page .section03 .text-wrap {
+  text-align: left;
+  flex: 6;
+}
+
+.intro-page .section03 .img-wrap {
+  padding-left: 5%;
+  flex: 5;
+}
+
+.intro-page .section03 img {
+  width: 100%;
+  height: 100%;
+}
+
+.intro-page .section04 {
+  padding: 0 10% 5% 10%;
+  display: flex;
+}
+
+.intro-page .section04 .text-wrap {
+  margin-top: auto;
+}
+
+.intro-page .section04 .img-wrap {
+  padding-right: 5%;
+}
+
+.intro-page .section04 img {
+  width: 100%;
+  height: 100%;
 }
 
 /* 업무 분야 페이지 */

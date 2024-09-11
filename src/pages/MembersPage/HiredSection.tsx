@@ -11,9 +11,7 @@ import { Link } from "react-router-dom";
 const HiredSection = () => {
   return (
     <section className="hired-section">
-      <div className="hired-title">
-        {/* <span className="roman-title">HIRED</span> */}
-      </div>
+      <div className="hired-title"></div>
       <div className="hired">
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}

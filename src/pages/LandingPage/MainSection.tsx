@@ -53,11 +53,13 @@ const MainSection = () => {
         </p>
         <div className="search-bar">
           <select className="category-select">
-            <option value="category">기업</option>
-            <option value="category">금융</option>
-            <option value="category">첨단</option>
+            <option value="category">업무분야 선택</option>
+            <option value="category">기업감사/내부통제</option>
+            <option value="category">기술보호</option>
+            <option value="category">금융/가상자산</option>
+            <option value="category">건설/부동산</option>
           </select>
-          <img className="search-icon" src={searchIcon} alt="search-icon" />
+
           <input
             type="text"
             placeholder="키워드를 입력해주세요."
@@ -67,9 +69,10 @@ const MainSection = () => {
             value={keyword}
             onChange={(e) => setKeyword(e.target.value)}
           />
-          <button className="search-button" onClick={() => setKeyword("")}>
+          {/* <button className="search-button" onClick={() => setKeyword("")}>
             X
-          </button>
+          </button> */}
+          <img className="search-icon" src={searchIcon} alt="search-icon" />
 
           {isFocused && (
             <div className="keyword-recommendation">

@@ -38,9 +38,11 @@ const TitleSection = () => {
       <div className="search-bar-wrap">
         <div className="search-bar">
           <select className="category-select">
-            <option value="category">업무분야선택</option>
-            <option value="category">금융분야</option>
-            <option value="category">첨단분야</option>
+            <option value="category">업무분야 선택</option>
+            <option value="category">기업감사/내부통제</option>
+            <option value="category">기술보호</option>
+            <option value="category">금융/가상자산</option>
+            <option value="category">건설/부동산</option>
           </select>
           <input
             type="text"
