@@ -28,12 +28,11 @@ const NewsLetterSection = () => {
       <div className="swiper-container">
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
-          // navigation
-          slidesPerView={4} // 슬라이드 4개씩 표시
-          spaceBetween={5} // 슬라이드 간 간격
+          slidesPerView={4}
+          spaceBetween={5}
           scrollbar={{ draggable: true }}
-          slidesOffsetBefore={0} // 슬라이드 시작 지점
-          slidesOffsetAfter={0} // 슬라이드 끝 지점
+          slidesOffsetBefore={0}
+          slidesOffsetAfter={0}
         >
           {Array(5)
             .fill(0)

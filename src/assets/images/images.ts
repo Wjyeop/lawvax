@@ -34,6 +34,7 @@ import TechCenter03 from "./TechCenter03.png";
 import viewMore from "./viewMore.png";
 import work01 from "./work01.png";
 import work02 from "./work02.png";
+import field01 from "./field01.png";
 
 const images = {
   ArrowLeft,
@@ -71,6 +72,7 @@ const images = {
   viewMore,
   work01,
   work02,
+  field01,
 };
 
 export default images;

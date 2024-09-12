@@ -46,8 +46,12 @@ const ServicesPage = () => {
       <div className="content-wrap">
         <div className="content01" onClick={() => toggleExpand("business")}>
           <div className={isBusinessExpanded ? "title open" : "title"}>
-            <span>업무 분야_1</span>
-            <img src={isBusinessExpanded ? icons.up01 : icons.down01} alt="" />
+            <span>형사</span>
+            <img
+              className="fold-img"
+              src={isBusinessExpanded ? icons.up01 : icons.down01}
+              alt=""
+            />
           </div>
           {isBusinessExpanded && (
             <div className="fold-wrap">
@@ -90,8 +94,9 @@ const ServicesPage = () => {
         </div>
         <div className="content02">
           <div className="title">
-            <span>업무 분야_2</span>
+            <span>민사 · 행정 · 가사</span>
             <img
+              className="fold-img"
               src={isFinanceExpanded ? up01 : down01}
               alt=""
               onClick={() => toggleExpand("finance")}
@@ -101,8 +106,9 @@ const ServicesPage = () => {
         </div>
         <div className="content03">
           <div className="title">
-            <span>업무 분야_3</span>
+            <span>금융 · 가상자산</span>
             <img
+              className="fold-img"
               src={isTechnologyExpanded ? up01 : down01}
               alt=""
               onClick={() => toggleExpand("technology")}
@@ -112,44 +118,72 @@ const ServicesPage = () => {
         </div>
         <div className="content04">
           <div className="title">
-            <span>업무 분야_4</span>
-            <img src={isTechnologyExpanded ? up01 : down01} alt="" />
+            <span>기업 자문 · 감사대행</span>
+            <img
+              className="fold-img"
+              src={isTechnologyExpanded ? up01 : down01}
+              alt=""
+            />
           </div>
         </div>
         <div className="content05">
           <div className="title">
-            <span>업무 분야_5</span>
-            <img src={isTechnologyExpanded ? up01 : down01} alt="" />
+            <span>IT · 첨단 · 기술보호 · 개인정보</span>
+            <img
+              className="fold-img"
+              src={isTechnologyExpanded ? up01 : down01}
+              alt=""
+            />
           </div>
         </div>
         <div className="content06">
           <div className="title">
-            <span>업무 분야_6</span>
-            <img src={isTechnologyExpanded ? up01 : down01} alt="" />
+            <span>조세 · 관세 · 공정거래</span>
+            <img
+              className="fold-img"
+              src={isTechnologyExpanded ? up01 : down01}
+              alt=""
+            />
           </div>
         </div>
         <div className="content07">
           <div className="title">
-            <span>업무 분야_7</span>
-            <img src={isTechnologyExpanded ? up01 : down01} alt="" />
+            <span>기업 M&A · 구조조정 · 회생</span>
+            <img
+              className="fold-img"
+              src={isTechnologyExpanded ? up01 : down01}
+              alt=""
+            />
           </div>
         </div>
         <div className="content08">
           <div className="title">
-            <span>업무 분야_8</span>
-            <img src={isTechnologyExpanded ? up01 : down01} alt="" />
+            <span>건설 · 부동산</span>
+            <img
+              className="fold-img"
+              src={isTechnologyExpanded ? up01 : down01}
+              alt=""
+            />
           </div>
         </div>
         <div className="content09">
           <div className="title">
-            <span>업무 분야_9</span>
-            <img src={isTechnologyExpanded ? up01 : down01} alt="" />
+            <span>조선 · 해운</span>
+            <img
+              className="fold-img"
+              src={isTechnologyExpanded ? up01 : down01}
+              alt=""
+            />
           </div>
         </div>
         <div className="content10">
           <div className="title">
-            <span>업무 분야_10</span>
-            <img src={isTechnologyExpanded ? up01 : down01} alt="" />
+            <span>방산 · 우주항공</span>
+            <img
+              className="fold-img"
+              src={isTechnologyExpanded ? up01 : down01}
+              alt=""
+            />
           </div>
         </div>
       </div>

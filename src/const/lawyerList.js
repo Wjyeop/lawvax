@@ -2,12 +2,40 @@ import lawyerImage from "../assets/images/lawyer1.png";
 
 export const lawyerList = [
   {
-    name: "유성열",
+    name: "김기동",
+    name2: "(柳成烈)",
+    img: lawyerImage,
+    title: "대표 변호사",
+    phone: "02. 583. 6300",
+    email: "ysl@lawvax.co.kr",
+    mark: ["서울대 법대", "부산지검장"],
+  },
+  {
+    name: "이동열",
     name2: "(柳成烈)",
     img: lawyerImage,
     title: "변호사",
     phone: "02. 583. 6300",
     email: "ysl@lawvax.co.kr",
+    mark: ["대검 부패범죄특별수사단 단장"],
+  },
+  {
+    name: "김후곤",
+    name2: "(柳成烈)",
+    img: lawyerImage,
+    title: "변호사",
+    phone: "02. 583. 6300",
+    email: "ysl@lawvax.co.kr",
+    mark: ["서울대 법대", "부산지검장"],
+  },
+  {
+    name: "손영배",
+    name2: "(柳成烈)",
+    img: lawyerImage,
+    title: "변호사",
+    phone: "02. 583. 6300",
+    email: "ysl@lawvax.co.kr",
+    mark: ["서울대 법대", "부산지검장"],
   },
   {
     name: "유성열",
@@ -16,6 +44,16 @@ export const lawyerList = [
     title: "변호사",
     phone: "02. 583. 6300",
     email: "ysl@lawvax.co.kr",
+    mark: ["서울대 법대", "부산지검장"],
+  },
+  {
+    name: "유상재",
+    name2: "(柳成烈)",
+    img: lawyerImage,
+    title: "변호사",
+    phone: "02. 583. 6300",
+    email: "ysl@lawvax.co.kr",
+    mark: ["서울대 법대", "부산지검장"],
   },
   {
     name: "유성열",
@@ -24,6 +62,7 @@ export const lawyerList = [
     title: "변호사",
     phone: "02. 583. 6300",
     email: "ysl@lawvax.co.kr",
+    mark: ["서울대 법대", "부산지검장"],
   },
   {
     name: "유성열",
@@ -32,6 +71,7 @@ export const lawyerList = [
     title: "변호사",
     phone: "02. 583. 6300",
     email: "ysl@lawvax.co.kr",
+    mark: ["서울대 법대", "부산지검장"],
   },
   {
     name: "유성열",
@@ -40,6 +80,7 @@ export const lawyerList = [
     title: "변호사",
     phone: "02. 583. 6300",
     email: "ysl@lawvax.co.kr",
+    mark: ["서울대 법대", "부산지검장"],
   },
   {
     name: "유성열",
@@ -48,6 +89,7 @@ export const lawyerList = [
     title: "변호사",
     phone: "02. 583. 6300",
     email: "ysl@lawvax.co.kr",
+    mark: ["서울대 법대", "부산지검장"],
   },
   {
     name: "유성열",
@@ -56,6 +98,7 @@ export const lawyerList = [
     title: "변호사",
     phone: "02. 583. 6300",
     email: "ysl@lawvax.co.kr",
+    mark: ["서울대 법대", "부산지검장"],
   },
   {
     name: "유성열",
@@ -64,6 +107,7 @@ export const lawyerList = [
     title: "변호사",
     phone: "02. 583. 6300",
     email: "ysl@lawvax.co.kr",
+    mark: ["서울대 법대", "부산지검장"],
   },
   {
     name: "유성열",
@@ -72,6 +116,7 @@ export const lawyerList = [
     title: "변호사",
     phone: "02. 583. 6300",
     email: "ysl@lawvax.co.kr",
+    mark: ["서울대 법대", "부산지검장"],
   },
   {
     name: "유성열",
@@ -80,37 +125,6 @@ export const lawyerList = [
     title: "변호사",
     phone: "02. 583. 6300",
     email: "ysl@lawvax.co.kr",
-  },
-  {
-    name: "유성열",
-    name2: "(柳成烈)",
-    img: lawyerImage,
-    title: "변호사",
-    phone: "02. 583. 6300",
-    email: "ysl@lawvax.co.kr",
-  },
-  {
-    name: "유성열",
-    name2: "(柳成烈)",
-    img: lawyerImage,
-    title: "변호사",
-    phone: "02. 583. 6300",
-    email: "ysl@lawvax.co.kr",
-  },
-  {
-    name: "유성열",
-    name2: "(柳成烈)",
-    img: lawyerImage,
-    title: "변호사",
-    phone: "02. 583. 6300",
-    email: "ysl@lawvax.co.kr",
-  },
-  {
-    name: "유성열",
-    name2: "(柳成烈)",
-    img: lawyerImage,
-    title: "변호사",
-    phone: "02. 583. 6300",
-    email: "ysl@lawvax.co.kr",
+    mark: ["서울대 법대", "부산지검장"],
   },
 ];
