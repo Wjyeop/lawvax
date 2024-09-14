@@ -22,6 +22,7 @@ import top from "./top.png";
 import up from "./up.png";
 import up01 from "./up01.png";
 import up02 from "./up02.png";
+import search from "./search.png";
 
 const icons = {
   big,
@@ -48,6 +49,7 @@ const icons = {
   up,
   up01,
   up02,
+  search,
 };
 
 export default icons;

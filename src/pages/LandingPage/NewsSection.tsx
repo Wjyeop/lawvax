@@ -45,12 +45,12 @@ const NewsSection = () => {
         >
           인재영입
         </button>
-        <button
+        {/* <button
           className={activeTab === "수상" ? "active" : ""}
           onClick={() => setActiveTab("수상")}
         >
           수상
-        </button>
+        </button> */}
       </div>
       <div className="content">
         <div className="img-section">

@@ -1,7 +1,9 @@
 import { useState } from "react";
-import searchIcon from "../../assets/images/LandingPageSearchIcon.png";
+import search from "../../assets/images/icons/search.png";
+import { useNavigate } from "react-router-dom";
 
 const MainSection = () => {
+  const navigate = useNavigate();
   const [keyword, setKeyword] = useState("");
   const [isFocused, setIsFocused] = useState(false);
   const recommendedKeywords = [
@@ -29,14 +31,24 @@ const MainSection = () => {
 
   const handleKeywordClick = (keyword: string) => {
     setKeyword(keyword);
-    setIsFocused(false); // 선택 후 추천 키워드 숨기기 (선택 사항)
+    setIsFocused(false);
   };
 
   const handleBlur = () => {
-    // onBlur 이벤트가 바로 발생하지 않도록 지연을 줍니다.
     setTimeout(() => {
       setIsFocused(false);
     }, 100);
+  };
+
+  const handleSearch = () => {
+    navigate("/landing-search");
+    console.log("검색된 키워드:", keyword);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
   };
 
   console.log("keyword", keyword);
@@ -52,13 +64,13 @@ const MainSection = () => {
           <br /> 기업 금융 IT 분야 로펌
         </p>
         <div className="search-bar">
-          <select className="category-select">
+          {/* <select className="category-select">
             <option value="category">업무분야 선택</option>
             <option value="category">기업감사/내부통제</option>
             <option value="category">기술보호</option>
             <option value="category">금융/가상자산</option>
             <option value="category">건설/부동산</option>
-          </select>
+          </select> */}
 
           <input
             type="text"
@@ -68,11 +80,15 @@ const MainSection = () => {
             onBlur={handleBlur}
             value={keyword}
             onChange={(e) => setKeyword(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
-          {/* <button className="search-button" onClick={() => setKeyword("")}>
-            X
-          </button> */}
-          <img className="search-icon" src={searchIcon} alt="search-icon" />
+
+          <img
+            className="search-icon"
+            src={search}
+            alt="search-icon"
+            onClick={handleSearch}
+          />
 
           {isFocused && (
             <div className="keyword-recommendation">

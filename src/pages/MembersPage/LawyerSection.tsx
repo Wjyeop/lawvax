@@ -9,14 +9,14 @@ const Lawyersection = () => {
     0
   );
   const [showAll, setShowAll] = useState(false);
-  const visibleLawyers = showAll ? lawyerList : lawyerList.slice(0, 6); // 처음엔 6명만 표시
+  const visibleLawyers = showAll ? lawyerList : lawyerList.slice(0, 6);
 
   const handleClick = (index: number) => {
     setSelectedLawyerIndex(index);
   };
 
   const handleToggle = () => {
-    setShowAll((prevState) => !prevState); // 상태 토글
+    setShowAll((prevState) => !prevState);
   };
 
   return (
@@ -28,15 +28,19 @@ const Lawyersection = () => {
             className={`lawyer-item ${selectedLawyerIndex === index ? "selected" : ""}`}
             onClick={() => handleClick(index)}
           >
-            <div className="img-wrap">
-              <img src={lawyer1} alt={lawyer.name} />
+            <img src={lawyer.img} alt="" />
+            <div className="text-wrap">
+              <p className="p1">
+                <span>{lawyer.name}</span>
+                <span> {lawyer.name2}</span>
+              </p>
+              <p className="p2">{lawyer.title}</p>
+              {lawyer.mark.map((mark, index) => (
+                <p key={index} className="p3">
+                  {mark}
+                </p>
+              ))}
             </div>
-            {selectedLawyerIndex === index && (
-              <div className="text-wrap">
-                {/* <p className="title">{lawyer.title}</p> */}
-                <p className="name">{lawyer.name}</p>
-              </div>
-            )}
           </div>
         ))}
       </div>

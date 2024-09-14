@@ -54,12 +54,12 @@ const NewsPage = () => {
         >
           인재영입
         </button>
-        <button
+        {/* <button
           className={activeTab === "수상" ? "active" : ""}
           onClick={() => setActiveTab("수상")}
         >
           수상
-        </button>
+        </button> */}
       </div>
       <div className="news-grid">
         {currentItems.map((news, index) => (

@@ -6,6 +6,7 @@ import searchIcon from "../../assets/images/LandingPageSearchIcon.png";
 const TitleSection = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
+  const [searchCategory, setSearchCategory] = useState("");
 
   const handleSearch = () => {
     navigate(`/memberSearch?query=${searchTerm}`);
@@ -37,16 +38,9 @@ const TitleSection = () => {
       </div>
       <div className="search-bar-wrap">
         <div className="search-bar">
-          <select className="category-select">
-            <option value="category">업무분야 선택</option>
-            <option value="category">기업감사/내부통제</option>
-            <option value="category">기술보호</option>
-            <option value="category">금융/가상자산</option>
-            <option value="category">건설/부동산</option>
-          </select>
           <input
             type="text"
-            placeholder="성함을 입력해주세요."
+            placeholder="이름을 검색해주세요."
             className="search-input"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -55,6 +49,32 @@ const TitleSection = () => {
           <div>
             <img className="search-icon" src={searchIcon} alt="search-icon" />
           </div>
+        </div>
+        <div className="search-category-wrap">
+          <button
+            className={searchCategory === "기업감사" ? "active" : ""}
+            onClick={() => setSearchCategory("기업감사")}
+          >
+            기업감사 / 내부통제
+          </button>
+          <button
+            className={searchCategory === "기술보호" ? "active" : ""}
+            onClick={() => setSearchCategory("기술보호")}
+          >
+            기술보호
+          </button>
+          <button
+            className={searchCategory === "금융" ? "active" : ""}
+            onClick={() => setSearchCategory("금융")}
+          >
+            금융 / 가상자산
+          </button>
+          <button
+            className={searchCategory === "건설" ? "active" : ""}
+            onClick={() => setSearchCategory("건설")}
+          >
+            건설 / 부동산
+          </button>
         </div>
       </div>
     </section>
