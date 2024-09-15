@@ -68,22 +68,16 @@ const PostPage = () => {
         modules={[Navigation, Pagination]}
         navigation
         slidesPerView={3}
-        spaceBetween={10}
-        slidesOffsetBefore={50}
-        slidesOffsetAfter={50}
+        spaceBetween={5}
       >
         {relatedNews.map((news) => (
           <SwiperSlide>
-            <div key={news.id} className="related-news__item">
-              <img
-                src={news.image}
-                alt={news.title}
-                className="related-news__image"
-              />
-              <div>
-                <h3 className="related-news__title">{news.title}</h3>
-                <div>
-                  <span className="related-news__date">{news.date}</span>
+            <div key={news.id} className="content">
+              <img src={news.image} alt={news.title} />
+              <div className="text-wrap">
+                <h3 className="title">{news.title}</h3>
+                <div className="bottom">
+                  <span className="date">{news.date}</span>
                   <span className="more">자세히보기</span>
                 </div>
               </div>

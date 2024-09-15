@@ -103,7 +103,7 @@ const LandingSearchPage = () => {
         <div className="sub-title">
           <h1>
             법인소식
-            <Link to="/news">
+            <Link to="/landing-search-detail">
               <button className="more">
                 <img src={img.more} alt="" />
               </button>
@@ -124,7 +124,7 @@ const LandingSearchPage = () => {
         <div className="sub-title">
           <h1>
             언론보도
-            <Link to="/news">
+            <Link to="/landing-search-detail">
               <button className="more">
                 <img src={img.more} alt="" />
               </button>
@@ -145,7 +145,7 @@ const LandingSearchPage = () => {
         <div className="sub-title">
           <h1>
             인재영입
-            <Link to="/news">
+            <Link to="/landing-search-detail">
               <button className="more">
                 <img src={img.more} alt="" />
               </button>

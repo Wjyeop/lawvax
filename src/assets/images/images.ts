@@ -35,6 +35,11 @@ import viewMore from "./viewMore.png";
 import work01 from "./work01.png";
 import work02 from "./work02.png";
 import field01 from "./field01.png";
+import center01 from "./center01.png";
+import center02 from "./center02.png";
+import center03 from "./center03.png";
+import center04 from "./center04.png";
+import center05 from "./center05.png";
 
 const images = {
   ArrowLeft,
@@ -73,6 +78,11 @@ const images = {
   work01,
   work02,
   field01,
+  center01,
+  center02,
+  center03,
+  center04,
+  center05,
 };
 
 export default images;

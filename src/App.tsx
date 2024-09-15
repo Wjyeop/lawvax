@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import LandingSearchPage from "./pages/LandingSearchPage/LandingSearchPage";
+import LandingSearchDetailPage from "./pages/LandingSearchDetailPage/LandingSearchDetail";
 import MembersPage from "./pages/MembersPage/MembersPage";
 import MemberSearchPage from "./pages/MemberSearchPage/MemberSearchPage";
 import MemberProfilePage from "./pages/MemberProfilePage/MemberProfilePage";
@@ -22,7 +23,6 @@ import ServicesDetail from "./pages/ServicesDetailPage/ServicesDetail";
 import Topbutton from "./components/TopButton";
 
 function App() {
-  //버셀배포테스트
   return (
     <div className="App">
       <BrowserRouter>
@@ -32,6 +32,10 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/landing-search" element={<LandingSearchPage />} />
+          <Route
+            path="/landing-search-detail"
+            element={<LandingSearchDetailPage />}
+          />
 
           <Route path="/intro" element={<IntroPage />} />
 

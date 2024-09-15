@@ -2,17 +2,38 @@ import { useState } from "react";
 import { newsData } from "../../const/newsList";
 import home from "../../assets/images/icons/home.png";
 import { Link } from "react-router-dom";
+import icons from "../../assets/images/icons/icons";
 
 const NewsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [activeTab, setActiveTab] = useState("법인소식");
 
+  const totalPages = Math.ceil(newsData.length / 9);
+  const currentItems = newsData.slice((currentPage - 1) * 9, currentPage * 9);
+
   const handleClick = (page: number) => {
     setCurrentPage(page);
   };
 
-  const totalPages = Math.ceil(newsData.length / 9);
-  const currentItems = newsData.slice((currentPage - 1) * 9, currentPage * 9);
+  const handlePrevClick = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleNextClick = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handleFirstClick = () => {
+    setCurrentPage(1);
+  };
+
+  const handleLastClick = () => {
+    setCurrentPage(totalPages);
+  };
 
   return (
     <div className="news-page">
@@ -78,6 +99,18 @@ const NewsPage = () => {
         ))}
       </div>
       <div className="pagination">
+        <img
+          src={icons.left02}
+          alt="First Page"
+          onClick={handleFirstClick}
+          style={{ cursor: currentPage > 1 ? "pointer" : "not-allowed" }}
+        />
+        <img
+          src={icons.left}
+          alt=""
+          onClick={handlePrevClick}
+          style={{ cursor: currentPage > 1 ? "pointer" : "not-allowed" }}
+        />
         {Array.from({ length: totalPages }, (_, index) => (
           <span key={index}>
             <span
@@ -89,6 +122,22 @@ const NewsPage = () => {
             {index < totalPages - 1 && <span className="separator">|</span>}
           </span>
         ))}
+        <img
+          src={icons.right}
+          alt=""
+          onClick={handleNextClick}
+          style={{
+            cursor: currentPage < totalPages ? "pointer" : "not-allowed",
+          }}
+        />
+        <img
+          src={icons.right02}
+          alt="Last Page"
+          onClick={handleLastClick}
+          style={{
+            cursor: currentPage < totalPages ? "pointer" : "not-allowed",
+          }}
+        />
       </div>
     </div>
   );

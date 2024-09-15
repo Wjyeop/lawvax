@@ -1112,6 +1112,78 @@
   background: #1676bc;
 }
 
+/* 랜딩 상세 검색 페이지 */
+
+.landing-search-detail-page {
+  padding-top: 72px;
+}
+
+.landing-search-detail-page .process {
+  display: flex;
+  align-items: center;
+  margin: 5% 10%;
+}
+
+.landing-search-detail-page .process img {
+  width: 24px;
+}
+
+.landing-search-detail-page .process span {
+  padding-left: 15px;
+  color: #999999;
+}
+
+.landing-search-detail-page .sub-title {
+  margin: 5% 10%;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.landing-search-detail-page .content-wrap {
+  margin: 5% 10%;
+}
+
+.landing-search-detail-page .content-wrap .news-item {
+  border-bottom: 1px solid #d9d9d9;
+  padding: 20px 0;
+}
+.landing-search-detail-page .content-wrap .news-item .content {
+  font-size: 0.8em;
+  color: #666666;
+}
+
+.landing-search-detail-page .content-wrap .news-item .date {
+  font-size: 0.8em;
+  color: #666666;
+}
+
+.landing-search-detail-page .pagination {
+  margin: 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-search-detail-page .pagination img {
+  width: 24px;
+  cursor: pointer;
+}
+
+.landing-search-detail-page .page-number {
+  margin: 0 5px;
+  cursor: pointer;
+  color: #555;
+}
+
+.landing-search-detail-page .page-number.active {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.landing-search-detail-page .separator {
+  margin: 0 5px;
+  color: #bbb;
+}
+
 /* 로벡스 소개 페이지 */
 
 .intro-page {
@@ -2034,8 +2106,10 @@
 }
 
 .member-search-page .search-list-section .pagination {
-  text-align: center;
   margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .member-search-page .search-list-section .page-number {
@@ -2052,6 +2126,35 @@
 .member-search-page .search-list-section .separator {
   margin: 0 5px;
   color: #bbb;
+}
+
+.member-search-page .title-section .search-category-wrap {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5% 0;
+}
+
+.member-search-page .title-section .search-category-wrap button {
+  width: fit-content;
+  border: 1px solid #1676bc;
+  border-radius: 25px;
+  color: #1676bc;
+  background-color: white;
+  padding: 5px 10px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.member-search-page .title-section .search-category-wrap .active {
+  background-color: #1676bc;
+  color: white;
+}
+
+.member-search-page .title-section .search-category-wrap button:hover {
+  background-color: #1676bc;
+  color: white;
 }
 
 /* 구성원 상세 페이지 */
@@ -2167,6 +2270,10 @@
   display: flex;
   justify-content: space-between;
   border-bottom: 2px solid #d9d9d9;
+  position: sticky;
+  top: 72px;
+  background-color: white;
+  z-index: 1;
 }
 
 .member-profile-page .sub-menu .menu-item {
@@ -2177,9 +2284,6 @@
 .member-profile-page .sub-menu .menu-item.active {
   color: #007bff;
   font-weight: bold;
-}
-
-.member-profile-page .fold-section .section {
 }
 
 .member-profile-page .profile-main .img-wrap {
@@ -2396,7 +2500,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  padding: 10%;
+  padding: 5%;
   justify-content: center;
 }
 
@@ -2444,9 +2548,15 @@
 }
 
 .news-page .pagination {
+  margin: 0 0 10% 0;
   display: flex;
   justify-content: center;
-  margin: 0 0 10% 0;
+  align-items: center;
+}
+
+.news-page .pagination img {
+  width: 24px;
+  cursor: pointer;
 }
 
 .news-page .pagination .page-number {
@@ -2547,37 +2657,34 @@
 }
 
 .post-page .swiper {
-  margin: 5%;
+  margin: 5% 10%;
 }
 
 .post-page .swiper-slide {
-  width: 300px;
-  height: 250px;
   border: 1px solid #ddd;
 }
 
-.post-page .swiper-slide img {
-  width: 100%;
+.post-page .swiper-slide .content {
+  margin: 0;
 }
 
-.post-page .swiper-slide .related-news__item > div {
+.post-page .swiper-slide .content .text-wrap {
   padding: 10px;
 }
 
-.post-page .swiper-slide .related-news__item > div > h3 {
+.post-page .swiper-slide .content .text-wrap .title {
   height: 80px;
-  text-align: left;
-  margin-top: 0;
+  margin: 0;
 }
 
-.post-page .swiper-slide .related-news__item > div > div {
+.post-page .swiper-slide .content .text-wrap .bottom {
   display: flex;
   font-size: 0.8em;
   color: #888;
   justify-content: space-between;
 }
 
-.post-page .swiper-slide .related-news__item > div > div .more {
+.post-page .swiper-slide .content .text-wrap .bottom .more {
   text-decoration: underline;
   cursor: pointer;
 }
@@ -2685,9 +2792,15 @@
 }
 
 .newsletter-page .pagination {
+  margin: 0 0 10% 0;
   display: flex;
   justify-content: center;
-  margin: 0 0 10% 0;
+  align-items: center;
+}
+
+.newsletter-page .pagination img {
+  width: 24px;
+  cursor: pointer;
 }
 
 .newsletter-page .pagination .page-number {
@@ -2769,7 +2882,6 @@
 .support-center-page .theme-select button.active {
   font-weight: bold;
   color: black;
-  border-bottom: 1px solid #ddd;
 }
 
 .support-center-page .theme-select button.active::after {
@@ -2786,7 +2898,6 @@
 
 .support-center-page .theme-select button:hover {
   color: black;
-  border-bottom: 1px solid #ddd;
   font-weight: bold;
 }
 
@@ -2831,32 +2942,28 @@
 }
 
 .support-center-page .section02 {
-  margin: 5% 10%;
+  margin: 0 10%;
 }
 
-.support-center-page .section02 > div {
+.support-center-page .section02 .content {
   display: flex;
-  margin: 10%;
+  margin: 5% 0;
 }
 
-.support-center-page .section02 > div .text-wrap .p1 {
+.support-center-page .section02 .content .text-wrap .p1 {
   font-weight: bold;
-  font-size: 0.5em;
-  margin: 0;
+  font-size: 1.5em;
+  margin: 20px 0;
 }
 
-.support-center-page .section02 > div .text-wrap .p2 {
-  font-size: 1em;
+.support-center-page .section02 .content .text-wrap .p2 {
+  font-size: 0.8em;
   margin: 0;
   font-weight: bold;
 }
 
-.support-center-page .section02 > div .text-wrap .p3 {
-  font-size: 0.6em;
-}
-
-.support-center-page .section02 > div .text-wrap {
-  flex: 4;
+.support-center-page .section02 .content .text-wrap {
+  flex: 5;
   text-align: left;
   padding: 20px;
   display: flex;
@@ -2864,14 +2971,24 @@
   justify-content: flex-end;
 }
 
-.support-center-page .section02 > div .img-wrap {
-  flex: 6;
+.support-center-page .section02 .content .img-wrap {
+  flex: 3;
   align-items: center;
   display: flex;
 }
 
-.support-center-page .section02 > div .img-wrap img {
+.support-center-page .section02 .content .img-wrap img {
   width: 100%;
+  height: auto;
+}
+
+.support-center-page .section03 {
+  margin: 5% 20%;
+}
+
+.support-center-page .section03 img {
+  width: 100%;
+  height: auto;
 }
 
 .support-center-page .search-list-section {
@@ -2930,6 +3047,9 @@
 .support-center-page .search-list-section .pagination {
   text-align: center;
   margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .support-center-page .search-list-section .page-number {
@@ -2946,4 +3066,183 @@
 .support-center-page .search-list-section .separator {
   margin: 0 5px;
   color: #bbb;
+}
+
+.support-center-page .section04 {
+  margin: 5% 10%;
+}
+
+.support-center-page .section04 .members-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+  justify-items: center;
+  gap: 150px 100px;
+}
+
+.support-center-page .section04 .members-wrap .lawyer-item {
+}
+
+.support-center-page .section04 .members-wrap .lawyer-item img {
+  width: 100%;
+}
+
+.support-center-page .section04 .members-wrap .lawyer-item .text-wrap {
+  position: absolute;
+  text-align: left;
+}
+
+.support-center-page .section04 .members-wrap .lawyer-item .text-wrap p {
+  margin: 5px 0;
+}
+
+.support-center-page .section04 .members-wrap .lawyer-item .text-wrap .p1 {
+  font-size: 1.2em;
+}
+
+.support-center-page
+  .section04
+  .members-wrap
+  .lawyer-item
+  .text-wrap
+  .p1
+  span:last-child {
+  color: #666666;
+}
+
+.support-center-page .section04 .members-wrap .lawyer-item .text-wrap .p2 {
+  color: #666666;
+  font-size: 0.8em;
+}
+
+.support-center-page .section04 .members-wrap .lawyer-item .text-wrap .p3 {
+  border: 1px solid #d9d9d9;
+  color: #999999;
+  font-size: 0.8em;
+  width: fit-content;
+  padding: 0 5px;
+}
+
+.support-center-page .section04 .toggle-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 120px auto;
+  color: #999999;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  position: relative;
+  width: 100%;
+  font-weight: bold;
+}
+
+.support-center-page .section04 .toggle-button img {
+  width: 20px;
+  margin-left: 10px;
+}
+
+.support-center-page .section04 .toggle-button::before,
+.support-center-page .section04 .toggle-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
+.support-center-page .section04 .toggle-button::before {
+  left: 0;
+}
+
+.support-center-page .section04 .toggle-button::after {
+  right: 0;
+}
+
+.support-center-page .section05 {
+  margin: 5% 10%;
+}
+
+.support-center-page .section05 .sub-title {
+  text-align: left;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.support-center-page .section05 .sub-title p {
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 20px 0;
+}
+
+.support-center-page .section05 .sub-title button {
+  background: none;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+  color: #888;
+  position: relative;
+  padding: 5px;
+  margin: 10px;
+}
+
+.support-center-page .section05 .sub-title button img {
+  width: 50px;
+  margin-left: 10px;
+}
+
+.support-center-page .section05 .swiper-wrapper {
+  padding: 5% 0;
+}
+
+.support-center-page .section05 .newsletter-content {
+  border: 2px solid #d9d9d9;
+  border-radius: 5px;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+}
+
+.support-center-page .section05 .newsletter-content .mark {
+  flex: 2;
+  text-align: left;
+}
+
+.support-center-page .section05 .newsletter-content .mark span {
+  background-color: #1676bc;
+  color: white;
+  width: 100%;
+  padding: 5px 10px;
+}
+
+.support-center-page .section05 .newsletter-content .title {
+  flex: 6;
+  font-weight: bold;
+  text-align: left;
+  font-size: 1em;
+  margin: 0;
+}
+
+.support-center-page .section05 .newsletter-content .bottom {
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1em;
+  color: #888;
+}
+
+.support-center-page .section05 .newsletter-content .bottom a {
+  text-decoration: none;
+  color: #888;
+}
+
+.support-center-page .section05 .newsletter-content .bottom .more {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.support-center-page .section05 .swiper-scrollbar-drag {
+  background: #1676bc;
 }

@@ -23,6 +23,10 @@ import up from "./up.png";
 import up01 from "./up01.png";
 import up02 from "./up02.png";
 import search from "./search.png";
+import left from "./left.png";
+import left02 from "./left02.png";
+import right from "./right.png";
+import right02 from "./right02.png";
 
 const icons = {
   big,
@@ -50,6 +54,10 @@ const icons = {
   up01,
   up02,
   search,
+  left,
+  left02,
+  right,
+  right02,
 };
 
 export default icons;
