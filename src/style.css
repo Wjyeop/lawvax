@@ -1,0 +1,3248 @@
+.header {
+  position: fixed;
+  top: 0;
+  height: 72px;
+  width: 100%;
+  max-width: 1080px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header .header-section {
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+}
+
+.header .center-header {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  margin-left: 10%;
+}
+
+.header .center-header > a {
+  padding: 20px;
+}
+
+.header .logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.header .logo-image {
+  height: 48px;
+  margin-right: 10px;
+}
+
+.header .logo-text {
+  font-size: 1.5em;
+  color: #0056b3;
+}
+
+.header .nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+.header .nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 20px;
+  width: 100%;
+}
+
+.header .nav a:hover {
+  color: #0056b3;
+}
+
+.header .icons {
+  display: flex;
+  gap: 15px;
+}
+
+.header .icon {
+  cursor: pointer;
+  height: 24px;
+}
+
+.footer {
+  background-color: #697077;
+  padding: 10px 40px;
+}
+
+.footer-content .section1 {
+  display: flex;
+  padding: 10px 0;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid white;
+}
+
+.footer-content .section1 .footer-icons img {
+  height: 24px;
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+.footer-content .footer-logo-image {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.footer-content .section2 {
+  color: white;
+  font-size: 11px;
+}
+
+/* 사이드 버튼 */
+.side-button-container {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 200px;
+  transform: translateY(-100%);
+  display: flex;
+  font-weight: 400;
+  font-size: 1em;
+  transition: left 0.3s ease;
+}
+
+@media screen and (min-width: 1080px) {
+  .side-button-container {
+    left: calc(50% - 540px);
+  }
+}
+
+.side-button-container .section1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.side-button-container .side-button {
+  background-color: #fff;
+  color: #1676bc;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.side-button-container .side-button a {
+  text-decoration: none;
+  color: #1676bc;
+}
+
+.side-button-container .section2 {
+  border-radius: 0 15px 15px 0;
+  color: #fff;
+  background-color: #1676bc;
+  writing-mode: vertical-rl;
+  text-align: center;
+  padding: 10px;
+}
+
+.side-button:hover {
+  background-color: #ccc;
+}
+
+/* 탑버튼 */
+
+.top-btn {
+  width: 48px;
+  height: 48px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+  background-color: transparent;
+}
+
+.top-btn img {
+  width: 100%;
+}
+
+/* 랜딩페이지 */
+
+.landing-page {
+  padding-top: 72px;
+}
+
+.landing-page .main-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 1080px;
+  background-color: #000000;
+  position: relative;
+}
+
+.landing-page .main-section .main-content {
+  text-align: center;
+  width: 100%;
+}
+
+.landing-page .main-section .main-title {
+  font-size: 1.5em;
+  color: #1876bc;
+}
+
+.landing-page .main-section .highlight {
+  color: #1876bc;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.landing-page .main-section .main-subtitle {
+  font-size: 2.5em;
+  color: #fff;
+  margin-top: 10px;
+}
+
+.landing-page .main-section .search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 10px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.landing-page .main-section .category-select {
+  width: 160px;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: #333;
+  padding: 10px;
+  outline: none;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.landing-page .main-section .search-icon {
+  height: 24px;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+.landing-page .main-section .search-input {
+  flex-grow: 1;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  outline: none;
+  background: transparent;
+}
+
+.landing-page .main-section .search-button {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: #111111;
+  cursor: pointer;
+  padding: 10px;
+  outline: none;
+}
+
+.landing-page .main-section .search-button:hover {
+  color: #333;
+}
+
+.landing-page .main-section .keyword-recommendation {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fff;
+  padding: 10px;
+  align-items: center;
+  gap: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.landing-page .main-section .keyword-item {
+  color: #007bff;
+  border: 1px solid #007bff;
+  padding: 5px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.landing-page .main-section .keyword-item:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* 랜딩페이지 - 뉴스섹션 */
+
+.landing-page .news-section {
+  margin: 10%;
+  text-align: center;
+}
+
+.landing-page .news-section .title {
+  text-align: left;
+}
+
+.landing-page .news-section .title p {
+  font-size: 1.5em;
+  font-family: "Times New Roman", Times, serif;
+  margin: 0px;
+}
+
+.landing-page .news-section img {
+  width: 100%;
+}
+
+.landing-page .news-section .title .more {
+  border: none;
+  background: none;
+  padding-left: 30px;
+  cursor: pointer;
+}
+
+.landing-page .news-section .title .more img {
+  width: 50px;
+}
+
+.landing-page .news-section .content {
+  display: flex;
+  margin: 20px 100px;
+}
+
+.landing-page .news-section .content .img-section {
+  flex: 60%;
+  padding: 10px;
+}
+
+.landing-page .news-section .content .text-section {
+  flex: 40%;
+  text-align: left;
+}
+
+.landing-page .news-section .content .text-section .title {
+  font-weight: bold;
+}
+
+.landing-page .news-section .content .text-section .nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.landing-page .news-section .content .text-section .nav button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.landing-page .news-section .content .text-section .nav img {
+  width: 10px;
+}
+
+.landing-page .news-section .content .text-section .nav span {
+  font-size: 1em;
+  color: #1676bc;
+}
+
+.landing-page .news-section .theme-select {
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.landing-page .news-section .theme-select button {
+  background: none;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+  color: #888;
+  position: relative;
+  padding: 5px;
+  margin: 10px;
+}
+
+.landing-page .news-section .theme-select button.active {
+  font-weight: bold;
+  color: black;
+  /* border-bottom: 1px solid #ddd; */
+}
+
+.landing-page .news-section .theme-select button.active::after {
+  border-bottom: 1px solid #ddd;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+.landing-page .news-section .theme-select button:hover {
+  color: black;
+  font-weight: bold;
+}
+
+.landing-page .news-section .content .text-section .more {
+  border: none;
+  background: none;
+  color: #888;
+  text-decoration: underline;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* 랜딩페이지 > 뉴스레터섹션 */
+
+.landing-page .newsletter-section {
+  text-align: center;
+}
+
+.landing-page .newsletter-section .title {
+  text-align: left;
+  margin: 0 10%;
+}
+
+.landing-page .newsletter-section .title p {
+  font-size: 1.5em;
+  font-family: "Times New Roman", Times, serif;
+  margin: 0px;
+  line-height: 0.8;
+}
+
+.landing-page .newsletter-section .title .more {
+  border: none;
+  background: none;
+  padding-left: 30px;
+  cursor: pointer;
+}
+
+.landing-page .newsletter-section .title .more img {
+  width: 50px;
+}
+
+/* 랜딩페이지 > 뉴스레터 슬라이드 */
+
+.landing-page .newsletter-section .swiper-container {
+  padding: 5% 10%;
+}
+
+.landing-page .newsletter-section .swiper-wrapper {
+  padding: 5% 0;
+}
+
+.landing-page .newsletter-section .newsletter-content {
+  border: 2px solid #d9d9d9;
+  border-radius: 5px;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+}
+
+.landing-page .newsletter-section .newsletter-content .mark {
+  flex: 2;
+  text-align: left;
+}
+
+.landing-page .newsletter-section .newsletter-content .mark span {
+  background-color: #1676bc;
+  color: white;
+  width: 100%;
+  padding: 5px 10px;
+}
+
+.landing-page .newsletter-section .newsletter-content .title {
+  flex: 6;
+  font-weight: bold;
+  text-align: left;
+  font-size: 1em;
+  margin: 0;
+}
+
+.landing-page .newsletter-section .newsletter-content .bottom {
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1em;
+  color: #888;
+}
+
+.landing-page .newsletter-section .newsletter-content .bottom a {
+  text-decoration: none;
+  color: #888;
+}
+
+.landing-page .newsletter-section .newsletter-content .bottom .more {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.landing-page .newsletter-section .swiper-scrollbar-drag {
+  background: #1676bc;
+}
+
+/* 랜딩페이지 > PROFESSIONAL */
+
+.landing-page .hired-section {
+  text-align: center;
+}
+
+.landing-page .hired-section .title {
+  text-align: left;
+  margin: 0 10%;
+}
+
+.landing-page .hired-section .title p {
+  font-size: 1.5em;
+  font-family: "Times New Roman", Times, serif;
+  margin: 0px;
+  line-height: 0.8;
+}
+
+.landing-page .hired-section .title .more {
+  border: none;
+  background: none;
+  padding-left: 30px;
+  cursor: pointer;
+}
+
+.landing-page .hired-section .title .more img {
+  width: 50px;
+}
+
+/* 랜딩페이지 > PROFESSIONAL > 슬라이드 */
+
+.landing-page .hired-section .swiper {
+  width: 100%;
+}
+
+.landing-page .hired-section .swiper-container {
+  margin: 0 5%;
+}
+
+.landing-page .hired-section .swiper-wrapper {
+  padding: 10% 0 10% 0;
+}
+
+.landing-page .hired-section .swiper-slide {
+  width: 300px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  justify-content: flex-end;
+}
+
+.landing-page .hired-section .content .img-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.landing-page .hired-section .swiper-scrollbar {
+  margin: 0 5%;
+}
+
+.landing-page .hired-section .swiper-scrollbar-drag {
+  background: #1676bc;
+}
+
+.landing-page .hired-section .content {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.landing-page .hired-section .content img {
+  filter: grayscale(100%);
+}
+
+.landing-page .hired-section .content.active,
+.landing-page .hired-section .content:hover {
+  transform: scale(1.8);
+  filter: grayscale(0%);
+}
+
+.landing-page .hired-section .content.active img,
+.landing-page .hired-section .content:hover img {
+  filter: grayscale(0%);
+}
+
+.landing-page .hired-section .content.active .text-wrap,
+.landing-page .hired-section .content:hover .text-wrap {
+  display: block;
+  transform: scale(0.8);
+  position: absolute;
+  right: 20%;
+}
+
+.landing-page .hired-section .content img {
+  width: 50%;
+  filter: grayscale(100%);
+}
+
+.landing-page .hired-section .content .text-wrap {
+  display: none;
+}
+
+.landing-page .hired-section .content .text-wrap {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: left;
+}
+
+.landing-page .hired-section .content .text-wrap p {
+  margin: 0px;
+}
+
+.landing-page .hired-section .content .text-wrap .job {
+  font-size: 0.5em;
+}
+
+.landing-page .hired-section .content .text-wrap .name {
+  font-size: 1em;
+  color: #1676bc;
+  font-weight: bold;
+  margin: 0;
+}
+
+.landing-page .hired-section .content .text-wrap .class {
+  font-size: 0.5em;
+}
+
+/* 랜딩페이지 > 로백스 맵 */
+
+.landing-page .lawvax-map-section {
+  text-align: center;
+  margin: 10%;
+}
+
+.landing-page .lawvax-map-section .title {
+  text-align: left;
+}
+
+.landing-page .lawvax-map-section .title p {
+  font-size: 1.5em;
+  font-family: "Times New Roman", Times, serif;
+  margin: 0px;
+  line-height: 0.8;
+}
+
+.landing-page .lawvax-map-section .content {
+  display: flex;
+  position: relative;
+}
+
+.landing-page .lawvax-map-section .content .text-section {
+  flex: 40%;
+  text-align: left;
+}
+
+.landing-page .lawvax-map-section .content .search-bar {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.landing-page .lawvax-map-section .content .search-bar img {
+  width: 20px;
+}
+
+.landing-page .lawvax-map-section .content .search-bar input {
+  border: none;
+  padding: 10px;
+  width: 100%;
+  outline: none;
+}
+
+.landing-page .lawvax-map-section .content .search-bar button {
+  border: none;
+  background: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.landing-page .lawvax-map-section .content .sub-wrap {
+  padding: 20px 0;
+}
+
+.landing-page .lawvax-map-section .content .sub-title {
+  font-weight: bold;
+}
+
+.landing-page .lawvax-map-section .content p {
+  margin: 5px 0;
+  font-size: 0.8em;
+  display: flex;
+  align-items: center;
+}
+
+.landing-page .lawvax-map-section .content p img {
+  width: 18px;
+  cursor: pointer;
+}
+
+.landing-page .lawvax-map-section .content .map-section {
+  flex: 50%;
+  padding: 0 5%;
+}
+
+.landing-page .lawvax-map-section .content .map-section .kakaomap-wrap {
+  width: 100%;
+}
+
+.landing-page .lawvax-map-section .content .share {
+  position: absolute;
+  right: 0;
+  top: 30px;
+  right: 5%;
+  display: flex;
+  align-items: center;
+  color: #0056b3;
+  border: 2px solid #0056b3;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.landing-page .lawvax-map-section .content .share img {
+  width: 24px;
+  padding-right: 5px;
+}
+
+.landing-page .lawvax-map-section .call span {
+  display: flex;
+  align-items: center;
+  font-size: 0.8em;
+}
+
+.landing-page .lawvax-map-section .call img {
+  height: 20px;
+  padding-right: 10px;
+}
+
+.landing-page .lawvax-map-section .traffic p {
+  display: flex;
+  align-items: center;
+}
+
+.landing-page .lawvax-map-section .traffic img {
+  height: 20px;
+  padding-right: 10px;
+}
+
+.landing-page .lawvax-map-section .map-section {
+  align-items: end;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.landing-page .lawvax-map-section .map-section img {
+  margin: 50px;
+  width: 100%;
+  height: 100%;
+}
+
+/* 랜딩 메인 검색 페이지  */
+
+.landing-search-page {
+  padding-top: 72px;
+}
+
+.landing-search-page .process {
+  display: flex;
+  align-items: center;
+  margin: 5% 10%;
+}
+
+.landing-search-page .process img {
+  width: 24px;
+}
+
+.landing-search-page .process span {
+  padding-left: 15px;
+  color: #999999;
+}
+
+.landing-search-page .search-bar-wrap {
+  background-color: #f9f9f9;
+  padding: 5% 25%;
+}
+
+.landing-search-page .search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ccc;
+  background-color: white;
+  padding: 10px;
+  width: 50%;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.landing-search-page .search-bar input {
+  flex-grow: 1;
+  border: none;
+  padding: 10px;
+  font-size: 0.8em;
+  outline: none;
+  background: transparent;
+}
+
+.landing-search-page .search-bar img {
+  height: 24px;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+.landing-search-page .members-section {
+  padding: 5% 10%;
+}
+
+.landing-search-page .members-section .sub-title {
+  text-align: left;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.landing-search-page .members-section .members-wrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.landing-search-page .members-section .members-wrap a {
+  text-decoration: none;
+  color: black;
+}
+
+.landing-search-page .members-section .members-wrap .lawyer-item {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-search-page .members-section .members-wrap .lawyer-item img {
+  width: 100%;
+}
+
+.landing-search-page .members-section .members-wrap .lawyer-item .text-wrap {
+  padding: 10px 0;
+}
+
+.landing-search-page .members-section .members-wrap .lawyer-item .text-wrap p {
+  margin: 5px 0;
+}
+
+.landing-search-page
+  .members-section
+  .members-wrap
+  .lawyer-item
+  .text-wrap
+  .p1 {
+  font-weight: bold;
+}
+
+.landing-search-page
+  .members-section
+  .members-wrap
+  .lawyer-item
+  .text-wrap
+  .p2 {
+  color: #666666;
+  font-size: 0.8em;
+}
+
+.landing-search-page
+  .members-section
+  .members-wrap
+  .lawyer-item
+  .text-wrap
+  .p3 {
+  border: 1px solid #d9d9d9;
+  color: #999999;
+  font-size: 0.8em;
+  width: fit-content;
+  padding: 0 5px;
+}
+
+.landing-search-page .members-section .toggle-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  color: #999999;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  position: relative;
+  width: 100%;
+  font-weight: bold;
+}
+
+.landing-search-page .members-section .toggle-button img {
+  width: 20px;
+  margin-left: 10px;
+}
+
+.landing-search-page .members-section .toggle-button::before,
+.landing-search-page .members-section .toggle-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
+.landing-search-page .members-section .toggle-button::before {
+  left: 0;
+}
+
+.landing-search-page .members-section .toggle-button::after {
+  right: 0;
+}
+
+.landing-search-page .service-section {
+  padding: 5% 10%;
+  background-color: #f9f9f9;
+}
+
+.landing-search-page .service-section .sub-title {
+  text-align: left;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.landing-search-page .news-section01 {
+  padding: 5% 10%;
+}
+
+.landing-search-page .news-section01 .sub-title {
+  text-align: left;
+  display: flex;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.landing-search-page .sub-title .more {
+  border: none;
+  background: none;
+  padding-left: 30px;
+  cursor: pointer;
+}
+
+.landing-search-page .sub-title .more img {
+  width: 50px;
+}
+
+.landing-search-page .news-section01 .content .news-item {
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.landing-search-page .news-section01 .content .news-item .content {
+  font-size: 0.8em;
+  color: #666666;
+}
+
+.landing-search-page .news-section01 .content .news-item .date {
+  font-size: 0.8em;
+  color: #666666;
+}
+
+.landing-search-page .news-section02 {
+  padding: 5% 10%;
+}
+
+.landing-search-page .news-section02 .sub-title {
+  text-align: left;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.landing-search-page .news-section02 .content .news-item {
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.landing-search-page .news-section02 .content .news-item .content {
+  font-size: 0.8em;
+  color: #666666;
+}
+
+.landing-search-page .news-section02 .content .news-item .date {
+  font-size: 0.8em;
+  color: #666666;
+}
+
+.landing-search-page .news-section03 {
+  padding: 5% 10%;
+}
+
+.landing-search-page .news-section03 .sub-title {
+  text-align: left;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.landing-search-page .news-section03 .content .news-item {
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.landing-search-page .news-section03 .content .news-item .content {
+  font-size: 0.8em;
+  color: #666666;
+}
+
+.landing-search-page .news-section03 .content .news-item .date {
+  font-size: 0.8em;
+  color: #666666;
+}
+
+.landing-search-page .newsletter-section {
+  padding: 5% 10%;
+}
+
+.landing-search-page .newsletter-section .sub-title {
+  text-align: left;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.landing-search-page .newsletter-section .content .swiper-container {
+  padding: 5% 0;
+}
+
+.landing-search-page
+  .newsletter-section
+  .content
+  .swiper-container
+  .swiper-wrapper {
+  padding: 5% 0;
+}
+
+.landing-search-page .newsletter-section .content .newsletter-content {
+  border: 2px solid #d9d9d9;
+  border-radius: 5px;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+}
+
+.landing-search-page .newsletter-section .content .newsletter-content .mark {
+  flex: 2;
+  text-align: left;
+}
+
+.landing-search-page
+  .newsletter-section
+  .content
+  .newsletter-content
+  .mark
+  span {
+  background-color: #1676bc;
+  color: white;
+  width: 100%;
+  padding: 5px 10px;
+}
+
+.landing-search-page .newsletter-section .content .newsletter-content .title {
+  flex: 6;
+  font-weight: bold;
+  text-align: left;
+  font-size: 1em;
+  margin: 0;
+}
+
+.landing-search-page .newsletter-section .content .newsletter-content .bottom {
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1em;
+  color: #888;
+}
+
+.landing-search-page
+  .newsletter-section
+  .content
+  .newsletter-content
+  .bottom
+  a {
+  text-decoration: none;
+  color: #888;
+}
+
+.landing-search-page
+  .newsletter-section
+  .content
+  .newsletter-content
+  .bottom
+  .more {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.landing-search-page .newsletter-section .swiper-scrollbar-drag {
+  background: #1676bc;
+}
+
+/* 랜딩 상세 검색 페이지 */
+
+.landing-search-detail-page {
+  padding-top: 72px;
+}
+
+.landing-search-detail-page .process {
+  display: flex;
+  align-items: center;
+  margin: 5% 10%;
+}
+
+.landing-search-detail-page .process img {
+  width: 24px;
+}
+
+.landing-search-detail-page .process span {
+  padding-left: 15px;
+  color: #999999;
+}
+
+.landing-search-detail-page .sub-title {
+  margin: 5% 10%;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.landing-search-detail-page .content-wrap {
+  margin: 5% 10%;
+}
+
+.landing-search-detail-page .content-wrap .news-item {
+  border-bottom: 1px solid #d9d9d9;
+  padding: 20px 0;
+}
+.landing-search-detail-page .content-wrap .news-item .content {
+  font-size: 0.8em;
+  color: #666666;
+}
+
+.landing-search-detail-page .content-wrap .news-item .date {
+  font-size: 0.8em;
+  color: #666666;
+}
+
+.landing-search-detail-page .pagination {
+  margin: 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-search-detail-page .pagination img {
+  width: 24px;
+  cursor: pointer;
+}
+
+.landing-search-detail-page .page-number {
+  margin: 0 5px;
+  cursor: pointer;
+  color: #555;
+}
+
+.landing-search-detail-page .page-number.active {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.landing-search-detail-page .separator {
+  margin: 0 5px;
+  color: #bbb;
+}
+
+/* 로벡스 소개 페이지 */
+
+.intro-page {
+  padding-top: 72px;
+}
+
+.intro-page .process {
+  display: flex;
+  align-items: center;
+  margin: 5% 10%;
+}
+
+.intro-page .process img {
+  width: 24px;
+}
+
+.intro-page .process span {
+  padding-left: 15px;
+  color: #999999;
+}
+
+.intro-page .p2 {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.intro-page .section01 {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 5%;
+}
+
+.intro-page .section01 img {
+  width: 100%;
+}
+
+.intro-page .section01 .img-wrap {
+  padding: 5%;
+  flex: 3;
+}
+
+.intro-page .section01 .text-wrap {
+  flex: 4;
+  text-align: left;
+}
+
+.intro-page .section01 h1 {
+  font-size: 5em;
+  font-weight: 300;
+  font-family: "Times New Roman", Times, serif;
+  color: #f1f0f0;
+  margin: 5% 0 0 0;
+}
+
+.intro-page .section02 {
+  background-image: url("../src/assets/images/intro01.png");
+  background-size: cover;
+  background-position: center;
+  padding: 5% 40% 5% 10%;
+  height: 50vh;
+}
+
+.intro-page .section03 {
+  padding: 5% 10% 0 10%;
+  display: flex;
+}
+
+.intro-page .section03 .text-wrap {
+  text-align: left;
+  flex: 6;
+}
+
+.intro-page .section03 .img-wrap {
+  padding-left: 5%;
+  flex: 5;
+}
+
+.intro-page .section03 img {
+  width: 100%;
+  height: 100%;
+}
+
+.intro-page .section04 {
+  padding: 0 10% 5% 10%;
+  display: flex;
+}
+
+.intro-page .section04 .text-wrap {
+  margin-top: auto;
+}
+
+.intro-page .section04 .img-wrap {
+  padding-right: 5%;
+}
+
+.intro-page .section04 img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 업무 분야 페이지 */
+
+.services-page {
+  padding-top: 72px;
+}
+
+.services-page .process {
+  display: flex;
+  align-items: center;
+  margin: 5% 10%;
+}
+
+.services-page .process img {
+  width: 24px;
+}
+
+.services-page .process span {
+  padding-left: 15px;
+  color: #999999;
+}
+
+.services-page > .title {
+  margin: 5% 10%;
+}
+
+.services-page .title p {
+  font-size: 1.5em;
+  font-family: "Times New Roman", Times, serif;
+  line-height: 0.8;
+}
+
+.services-page .content-wrap {
+  border-top: 2px solid #d9d9d9;
+  margin: 5% 10%;
+}
+
+.services-page .content-wrap > div {
+  border-bottom: 2px solid #d9d9d9;
+  cursor: pointer;
+}
+
+.services-page .content-wrap > div:hover {
+  background-color: #f3f4f8;
+}
+
+.services-page .content-wrap > div:hover .fold-img {
+  content: url(../src/assets/images/icons/up01.png);
+  transform: rotate(90deg);
+}
+
+.services-page .content-wrap > div .title {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.services-page .content-wrap > div .open {
+  background-color: #f3f4f8;
+}
+
+.services-page .content-wrap > div .title span {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.services-page .content-wrap > div .title img {
+  transform: rotate(-90deg);
+  width: 24px;
+}
+
+.services-page .content-wrap > div > .fold-wrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  padding: 15px 0;
+  background-color: #fff;
+}
+
+.services-page .content-wrap > div > .fold-wrap a {
+  text-decoration: none;
+  color: black;
+}
+
+.services-page .content-wrap > div > .fold-wrap .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.services-page .content-wrap > div > .fold-wrap .content:hover {
+  background-color: #f3f4f8;
+  cursor: pointer;
+}
+
+.services-page .content-wrap > div > .fold-wrap .content p {
+  margin: 0;
+}
+
+.services-page .content-wrap > div > .fold-wrap .content img {
+  height: 20px;
+  transition: all 0.3s ease;
+}
+
+.services-page .content-wrap > div > .fold-wrap .content:hover img {
+  transform: rotate(-90deg);
+}
+
+/* 업무분야 상세 페이지 */
+
+.services-detail-page {
+  padding-top: 72px;
+}
+
+.services-detail-page .process {
+  display: flex;
+  align-items: center;
+  margin: 5% 10%;
+}
+
+.services-detail-page .process img {
+  width: 24px;
+}
+
+.services-detail-page .process span {
+  padding-left: 15px;
+  color: #999999;
+}
+
+.services-detail-page .title {
+  margin: 5% 10%;
+}
+
+.services-detail-page .title p {
+  font-size: 2.5em;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.services-detail-page .title p .blue {
+  font-size: 2em;
+}
+
+.services-detail-page .sub-title {
+  margin: 5% 10% 0 10%;
+  font-size: 2em;
+}
+
+.services-detail-page .sub-title img {
+  width: 100%;
+}
+
+.services-detail-page .sub-title-ment {
+  margin: 5%;
+}
+
+.services-detail-page .content-wrap {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.services-detail-page .content-wrap .content-left {
+  width: 75%;
+}
+
+.services-detail-page .content-wrap .content-left .sub-title-ment {
+  padding-left: 10%;
+}
+
+.services-detail-page .content-wrap .content-left .main-field-of-work {
+  background-color: #f6f8fa;
+  padding: 5% 0 5% 10%;
+}
+
+.services-detail-page .content-wrap .content-left .featured-cases {
+  background-color: #f6f8fa;
+  padding: 5% 0 5% 10%;
+}
+
+.services-detail-page .content-wrap .content-left .members {
+  padding: 5% 0 5% 10%;
+  height: 100%;
+}
+
+.services-detail-page .content-wrap .content-left .members .members-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.services-detail-page .content-wrap .content-left .members .members-grid img {
+  width: 100%;
+}
+
+.services-detail-page .content-wrap .content-left .members p {
+  margin: 5px;
+}
+
+.services-detail-page
+  .content-wrap
+  .content-left
+  .members
+  .p1
+  span:first-child {
+  font-size: 1.2em;
+}
+
+.services-detail-page .content-wrap .content-left .members .p1 span:last-child {
+  color: #666666;
+}
+
+.services-detail-page .content-wrap .content-left .members .p2 {
+  color: #666666;
+  font-size: 0.8em;
+}
+
+.services-detail-page .content-wrap .content-left .members .p3 {
+  border: 1px solid #d9d9d9;
+  color: #999999;
+  font-size: 0.8em;
+  width: fit-content;
+  padding: 0 5px;
+}
+
+.services-detail-page
+  .content-wrap
+  .content-left
+  .members
+  .p3
+  span:first-child {
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.services-detail-page .content-wrap .content-left .members .p4 {
+  font-size: 0.8em;
+}
+
+.services-detail-page .toggle-button-wrap {
+  padding: 5% 0 5% 10%;
+}
+
+.services-detail-page .toggle-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  color: #999999;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  position: relative;
+  width: 100%;
+  font-weight: bold;
+}
+
+.services-detail-page .toggle-button img {
+  width: 20px;
+  margin-left: 10px;
+}
+
+.services-detail-page .toggle-button::before,
+.services-detail-page .toggle-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
+.services-detail-page .toggle-button::before {
+  left: 0;
+}
+
+.services-detail-page .toggle-button::after {
+  right: 0;
+}
+
+.services-detail-page .toggle-button .full-line::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #e0e0e0;
+  margin-top: 10px;
+}
+
+.services-detail-page
+  .content-wrap
+  .content-left
+  .members
+  .p4
+  span:first-child {
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.services-detail-page .content-wrap .content-left .recent-news {
+  padding: 5% 0 5% 10%;
+}
+
+.services-detail-page .content-wrap .content-left .recent-news .swiper-wrapper {
+  padding-bottom: 50px;
+}
+
+.services-detail-page
+  .content-wrap
+  .content-left
+  .recent-news
+  .newsletter-content {
+  border: 2px solid #d9d9d9;
+  border-radius: 5px;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+}
+
+.services-detail-page .content-wrap .content-left .recent-news .mark {
+  flex: 2;
+  text-align: left;
+}
+
+.services-detail-page .content-wrap .content-left .recent-news .mark span {
+  background-color: #1676bc;
+  color: white;
+  width: 100%;
+  padding: 5px 10px;
+}
+
+.services-detail-page .content-wrap .content-left .recent-news .title {
+  flex: 6;
+  font-weight: bold;
+  text-align: left;
+  font-size: 1em;
+  margin: 0;
+}
+
+.services-detail-page .content-wrap .content-left .recent-news .bottom {
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1em;
+  color: #888;
+}
+
+.services-detail-page .content-wrap .content-left .recent-news .bottom a {
+  text-decoration: none;
+  color: #888;
+}
+
+.services-detail-page .content-wrap .content-left .recent-news .bottom .more {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.services-detail-page
+  .content-wrap
+  .content-left
+  .recent-news
+  .swiper-scrollbar-drag {
+  background: #1676bc;
+}
+
+.services-detail-page .content-wrap .content-right {
+  position: sticky;
+  top: 100px;
+  width: 25%;
+  padding-right: 10%;
+  margin-left: 5%;
+}
+
+.services-detail-page .content-wrap .content-right p {
+  font-size: 0.8em;
+  margin: 30px 0;
+  color: #999999;
+  cursor: pointer;
+}
+
+.services-detail-page .content-wrap .content-right p:hover {
+  color: #1676bc;
+}
+
+/* 구성원 페이지 */
+
+.members-page {
+  padding-top: 72px;
+}
+
+.members-page .process {
+  display: flex;
+  align-items: center;
+  margin: 5% 10%;
+}
+
+.members-page .process img {
+  width: 24px;
+}
+
+.members-page .process span {
+  padding-left: 15px;
+  color: #999999;
+}
+
+.members-page .process .search {
+  display: none;
+}
+
+.members-page .title-section .sub-title {
+  margin: 5% 10%;
+}
+
+.members-page .search-bar-wrap {
+  background-color: #f9f9f9;
+  padding: 5% 25%;
+}
+
+.members-page .search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ccc;
+  background-color: white;
+}
+
+.members-page .search-bar input {
+  flex: 6;
+  border: none;
+  padding: 10px;
+  font-size: 0.8em;
+  outline: none;
+  background: transparent;
+}
+
+.members-page .search-bar img {
+  flex: 1;
+  height: 20px;
+  padding-right: 10px;
+  padding-top: 3px;
+}
+
+.members-page .title-section .search-category-wrap {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5% 0;
+}
+
+.members-page .title-section .search-category-wrap button {
+  width: fit-content;
+  border: 1px solid #1676bc;
+  border-radius: 25px;
+  color: #1676bc;
+  background-color: white;
+  padding: 5px 10px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.members-page .title-section .search-category-wrap .active {
+  background-color: #1676bc;
+  color: white;
+}
+
+.members-page .title-section .search-category-wrap button:hover {
+  background-color: #1676bc;
+  color: white;
+}
+
+/* 구성원 */
+
+.members-page .hired-title {
+  margin: 5% 10% 2% 10%;
+}
+
+.members-page .hired-title span {
+  font-size: 1.5em;
+}
+
+.members-page .hired-section .swiper-wrapper {
+  padding: 5% 10%;
+}
+
+.members-page .hired {
+  background-color: #f9f9f9;
+}
+
+.members-page .hired-section .swiper-slide > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+
+.members-page .hired-section .swiper-slide > div .img-wrap {
+  flex: 3;
+}
+
+.members-page .hired-section .swiper-slide > div .img-wrap img {
+  max-width: 80%;
+}
+
+.members-page .hired-section .swiper-slide > div .text-wrap {
+  flex: 3;
+  text-align: left;
+  padding: 20px;
+}
+
+.members-page .hired-section .swiper-slide > div .text-wrap .job {
+  margin: 0px;
+  font-weight: bold;
+}
+
+.members-page .hired-section .swiper-slide > div .text-wrap .name {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #1676bc;
+}
+
+.members-page .hired-section .swiper-slide > div .text-wrap .name-2 {
+  padding-left: 10px;
+  font-size: 1.2em;
+  color: #888;
+}
+
+.members-page .hired-section .swiper-slide > div .text-wrap .pre {
+  font-weight: bold;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+}
+
+.members-page .hired-section .swiper-slide > div .text-wrap .pre img {
+  width: 20px;
+  padding-right: 5px;
+}
+
+.members-page .hired-section .swiper-slide > div .text-wrap .viewmore img {
+  width: 108px;
+  cursor: pointer;
+}
+
+.members-page .hired-section .swiper-slide > div .gap {
+  flex: 4;
+}
+
+.members-page .hired-section .swiper-slide > div .back {
+  position: absolute;
+  bottom: 0;
+  right: 30%;
+  color: white;
+  font-size: 15em;
+  font-weight: bold;
+  z-index: -1;
+}
+
+/* 구성원 - 변호사 */
+
+.members-page .lawyer-section {
+  margin: 5% 0;
+  text-align: center;
+}
+
+.members-page .lawyer-section .grid-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+  justify-items: center;
+  gap: 150px 0;
+}
+
+.members-page .lawyer-section .lawyer-item:first-child {
+  justify-self: center;
+}
+
+.members-page .lawyer-section .lawyer-item {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.members-page .lawyer-section .lawyer-item img {
+  width: 100%;
+  max-width: 200px;
+}
+.members-page .lawyer-section .lawyer-item .text-wrap {
+  position: absolute;
+  text-align: left;
+}
+
+.members-page .lawyer-section .lawyer-item .text-wrap p {
+  margin: 5px 0;
+}
+
+.members-page .lawyer-section .lawyer-item .text-wrap .p1 {
+  font-size: 1.2em;
+}
+
+.members-page .lawyer-section .lawyer-item .text-wrap .p1 span:last-child {
+  color: #666666;
+}
+
+.members-page .lawyer-section .lawyer-item .text-wrap .p2 {
+  color: #666666;
+  font-size: 0.8em;
+}
+
+.members-page .lawyer-section .lawyer-item .text-wrap .p3 {
+  border: 1px solid #d9d9d9;
+  color: #999999;
+  font-size: 0.8em;
+  width: fit-content;
+  padding: 0 5px;
+}
+
+.members-page .lawyer-section .selected {
+  filter: none;
+}
+
+.members-page .lawyer-section .lawyer-item:hover {
+  filter: none;
+}
+
+.members-page .lawyer-section .lawyer-item:hover .text-wrap {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease;
+}
+
+.members-page .lawyer-section .lawyer-item .text-wrap {
+  position: absolute;
+  text-align: left;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+.members-page .lawyer-section .lawyer-item.selected .text-wrap {
+  opacity: 1; /* 선택된 변호사 텍스트 노출 */
+  visibility: visible;
+}
+
+.members-page .lawyer-section .toggle-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 120px auto;
+  color: #999999;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  position: relative;
+  width: 100%;
+  font-weight: bold;
+}
+
+.members-page .lawyer-section .toggle-button img {
+  width: 20px;
+  margin-left: 10px;
+}
+
+.members-page .lawyer-section .toggle-button::before,
+.members-page .lawyer-section .toggle-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
+.members-page .lawyer-section .toggle-button::before {
+  left: 0;
+}
+
+.members-page .lawyer-section .toggle-button::after {
+  right: 0;
+}
+
+.members-page .lawyer-section .toggle-button .full-line::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #e0e0e0;
+  margin-top: 10px;
+}
+
+/* 구성원 검색 페이지 */
+
+.member-search-page {
+  padding-top: 72px;
+}
+
+.member-search-page .process {
+  display: flex;
+  align-items: center;
+  margin: 5% 10%;
+}
+
+.member-search-page .process img {
+  width: 24px;
+}
+
+.member-search-page .process span {
+  padding-left: 15px;
+  color: #999999;
+}
+
+.member-search-page .title-section .process .search {
+  display: block;
+}
+
+.member-search-page .title-section .sub-title {
+  margin: 5% 10%;
+}
+
+.member-search-page .search-bar-wrap {
+  background-color: #f9f9f9;
+  padding: 5% 25%;
+}
+
+.member-search-page .search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ccc;
+  background-color: white;
+}
+
+.member-search-page .search-bar .category-select {
+  width: 110px;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: #333;
+  padding: 10px;
+  outline: none;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.member-search-page .search-bar .category-select {
+  flex: 3;
+  font-size: 0.8em;
+}
+
+.member-search-page .search-bar input {
+  flex: 6;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  outline: none;
+  background: transparent;
+}
+
+.member-search-page .search-bar img {
+  flex: 1;
+  height: 20px;
+  padding-right: 10px;
+  padding-top: 3px;
+  cursor: pointer;
+}
+
+.member-search-page .search-list-section {
+  margin: 5% 10% 10% 10%;
+}
+
+.member-search-page .search-list-section .search-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+}
+
+.member-search-page .search-list-section .lawyer {
+  flex: 0 1 18%;
+}
+
+.member-search-page .search-list-section .lawyer img {
+  width: 100%;
+  background-color: #f9f9f9;
+}
+
+.member-search-page .search-list-section .lawyer .text-wrap p {
+  margin: 0px;
+}
+
+.member-search-page .search-list-section .lawyer .text-wrap .name {
+  font-size: 1.5em;
+}
+
+.member-search-page .search-list-section .lawyer .text-wrap .name > span {
+  font-size: 0.7em;
+  color: #888;
+  padding-left: 10px;
+}
+
+.member-search-page .search-list-section .lawyer .text-wrap .job {
+  color: #888;
+  margin: 10px 0;
+}
+
+.member-search-page .search-list-section .lawyer .text-wrap .phone > span {
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.member-search-page .search-list-section .lawyer .text-wrap .email > span {
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.member-search-page .search-list-section .pagination {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.member-search-page .search-list-section .page-number {
+  margin: 0 5px;
+  cursor: pointer;
+  color: #555;
+}
+
+.member-search-page .search-list-section .page-number.active {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.member-search-page .search-list-section .separator {
+  margin: 0 5px;
+  color: #bbb;
+}
+
+.member-search-page .title-section .search-category-wrap {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5% 0;
+}
+
+.member-search-page .title-section .search-category-wrap button {
+  width: fit-content;
+  border: 1px solid #1676bc;
+  border-radius: 25px;
+  color: #1676bc;
+  background-color: white;
+  padding: 5px 10px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.member-search-page .title-section .search-category-wrap .active {
+  background-color: #1676bc;
+  color: white;
+}
+
+.member-search-page .title-section .search-category-wrap button:hover {
+  background-color: #1676bc;
+  color: white;
+}
+
+/* 구성원 상세 페이지 */
+
+.member-profile-page {
+  padding-top: 72px;
+}
+
+.member-profile-page .title-section {
+  display: flex;
+  justify-content: space-between;
+  margin: 5% 10%;
+}
+
+.member-profile-page .process {
+  display: flex;
+  align-items: center;
+}
+
+.member-profile-page .process img {
+  width: 24px;
+}
+
+.member-profile-page .process span {
+  padding-left: 15px;
+  color: #999999;
+}
+
+.member-profile-page .title-section .save {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border: 1px solid #1676bc;
+}
+
+.member-profile-page .title-section .save img {
+  width: 20px;
+  cursor: pointer;
+  padding: 0px 5px 0px 0px;
+}
+
+.member-profile-page .title-section .save span {
+  cursor: pointer;
+  color: #007bff;
+}
+
+.member-profile-page .profile-main {
+  margin: 5% 10%;
+}
+
+.member-profile-page .profile-main .content-wrap {
+  margin: 0 5%;
+  display: flex;
+}
+
+.member-profile-page .profile-main .text-wrap {
+  flex: 3;
+}
+
+.member-profile-page .profile-main .text-wrap .name {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0;
+}
+
+.member-profile-page .profile-main .text-wrap .name .job {
+  color: #888;
+  font-size: 0.5em;
+  font-weight: normal;
+  padding-left: 10px;
+}
+
+.member-profile-page .profile-main .text-wrap .mark {
+  display: flex;
+  align-items: center;
+}
+
+.member-profile-page .profile-main .text-wrap .mark img {
+  width: 24px;
+  padding-right: 5px;
+}
+
+.member-profile-page .profile-main .text-wrap .sub-title {
+  font-weight: bold;
+  margin: 0;
+  border-left: #1676bc 5px solid;
+  margin-top: 50px;
+}
+
+.member-profile-page .profile-main .text-wrap .sub-title span {
+  padding-left: 10px;
+}
+
+.member-profile-page .profile-main .text-wrap .sub-content01 {
+  margin-left: 15px;
+  font-size: 0.7em;
+}
+
+.member-profile-page .profile-main .text-wrap .sub-content02 {
+  margin: 20px 10px;
+  width: 70%;
+}
+
+.member-profile-page .profile-main .text-wrap .sub-content02 span {
+  border: 1px solid black;
+  padding: 5px;
+  margin: 5px;
+}
+
+.member-profile-page .sub-menu {
+  margin: 10%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #d9d9d9;
+  position: sticky;
+  top: 72px;
+  background-color: white;
+  z-index: 1;
+}
+
+.member-profile-page .sub-menu .menu-item {
+  color: #ccc;
+  cursor: pointer;
+}
+
+.member-profile-page .sub-menu .menu-item.active {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.member-profile-page .profile-main .img-wrap {
+  flex: 3;
+}
+
+.member-profile-page .profile-main .img-wrap img {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: -5px;
+}
+
+.member-profile-page .profile-main .ment {
+  border-top: 3px solid #7e7e7e;
+  border-bottom: 3px solid #7e7e7e;
+  padding: 5% 0;
+  margin: 0;
+}
+
+.member-profile-page .fold-section {
+  margin: 0 10%;
+  padding-bottom: 5%;
+}
+
+.member-profile-page .fold-section > div {
+  padding-bottom: 20;
+}
+
+.member-profile-page .fold-section > div .title {
+  font-size: 1.5em;
+  font-weight: bold;
+  border-left: #1676bc 5px solid;
+}
+
+.member-profile-page .fold-section > div .title p {
+  padding-left: 20px;
+}
+
+.member-profile-page .fold-section > div .content {
+  margin: 0 3%;
+}
+
+.member-profile-page .fold-section > div .content > div {
+  margin: 20px 0;
+  text-align: left;
+  color: #666666;
+}
+
+.member-profile-page .fold-section > div .content .year {
+  display: inline-block;
+  color: #888;
+  width: 150px;
+}
+
+.member-profile-page .fold-section button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  color: #ccc;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  position: relative;
+  width: 100%;
+}
+
+.member-profile-page .fold-section button img {
+  width: 20px;
+  margin-left: 10px;
+}
+
+.member-profile-page .fold-section button::before,
+.member-profile-page .fold-section button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
+.member-profile-page .fold-section button::before {
+  left: 0;
+}
+
+.member-profile-page .fold-section button::after {
+  right: 0;
+}
+
+.member-profile-page .fold-section .full-line::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #e0e0e0;
+  margin-top: 10px;
+}
+
+.member-profile-page .info {
+  margin: 0 10% 10% 0;
+  text-align: right;
+}
+
+.member-profile-page .info .phone {
+  color: #888;
+}
+
+.member-profile-page .info .phone > span {
+  color: black;
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.member-profile-page .info .email {
+  color: #888;
+}
+
+.member-profile-page .info .email > span {
+  color: black;
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.member-profile-page .top-btn {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+.member-profile-page .top-btn img {
+  width: 24px;
+}
+
+/* 법인소식 */
+
+.news-page {
+  padding-top: 72px;
+  text-align: center;
+}
+
+.news-page .process {
+  display: flex;
+  align-items: center;
+  margin: 5% 10%;
+}
+
+.news-page .process img {
+  width: 24px;
+}
+
+.news-page .process span {
+  padding-left: 15px;
+  color: #999999;
+}
+
+.news-page .title {
+  margin: 5% 10%;
+  font-family: "Times New Roman", Times, serif;
+  text-align: left;
+}
+
+.news-page .title .about {
+  font-size: 1.5em;
+  margin: 0px;
+  color: #1676bc;
+}
+
+.news-page .title p {
+  font-size: 1.5em;
+  margin: 0px;
+}
+
+.news-page .theme-select {
+  margin: 5% 10%;
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.news-page .theme-select button {
+  background: none;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+  color: #888;
+  position: relative;
+  padding: 5px;
+  margin: 10px;
+}
+
+.news-page .theme-select button.active {
+  font-weight: bold;
+  color: black;
+}
+
+.news-page .theme-select button.active::after {
+  border-bottom: 1px solid #ddd;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+.news-page .news-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 5%;
+  justify-content: center;
+}
+
+.news-page .news-item {
+  width: 30%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.news-page .news-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.news-page .news-content {
+  padding: 10px;
+}
+
+.news-page .news-title {
+  font-size: 1.1em;
+  margin-bottom: 5px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.news-page .bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.news-page .news-date {
+  color: #ccc;
+  font-size: 0.9em;
+}
+
+.news-page .more > a {
+  font-size: 0.9em;
+  color: #ccc;
+  text-decoration: underline;
+}
+
+.news-page .pagination {
+  margin: 0 0 10% 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.news-page .pagination img {
+  width: 24px;
+  cursor: pointer;
+}
+
+.news-page .pagination .page-number {
+  margin: 0 5px;
+  cursor: pointer;
+  color: #555;
+}
+
+.news-page .pagination .page-number.active {
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* 게시글 페이지 */
+
+.post-page {
+  padding-top: 72px;
+  text-align: center;
+}
+
+.post-page .process {
+  display: flex;
+  align-items: center;
+  margin: 5% 10%;
+}
+
+.post-page .process img {
+  width: 24px;
+}
+
+.post-page .process span {
+  padding-left: 15px;
+  color: #999999;
+}
+
+.post-page .title {
+  margin: 5% 10%;
+  text-align: left;
+}
+
+.post-page .section1 {
+  margin: 5% 10%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+  color: #888;
+}
+
+.post-page .section1 div {
+  display: flex;
+  align-items: center;
+  color: #666666;
+}
+
+.post-page .section1 img {
+  width: 20px;
+  padding: 0 10px 0 20px;
+}
+
+.post-page .content {
+  margin: 5% 10%;
+  text-align: center;
+}
+
+.post-page .content img {
+  width: 100%;
+}
+
+.post-page .content .sub-title {
+  font-size: 0.9em;
+  color: #666666;
+  font-weight: bold;
+}
+
+.post-page .content p {
+  text-align: left;
+  font-size: 0.8em;
+}
+
+.post-page .related-news {
+  margin: 5% 10%;
+  text-align: left;
+  border-top: 2px solid #ddd;
+}
+
+.post-page .related-news .list {
+  text-align: right;
+  font-size: 0.8em;
+  color: #888;
+  display: flex;
+  justify-content: right;
+  padding-top: 5px;
+}
+
+.post-page .related-news .list img {
+  width: 20px;
+  padding: 0 10px 0 20px;
+}
+
+.post-page .swiper {
+  margin: 5% 10%;
+}
+
+.post-page .swiper-slide {
+  border: 1px solid #ddd;
+}
+
+.post-page .swiper-slide .content {
+  margin: 0;
+}
+
+.post-page .swiper-slide .content .text-wrap {
+  padding: 10px;
+}
+
+.post-page .swiper-slide .content .text-wrap .title {
+  height: 80px;
+  margin: 0;
+}
+
+.post-page .swiper-slide .content .text-wrap .bottom {
+  display: flex;
+  font-size: 0.8em;
+  color: #888;
+  justify-content: space-between;
+}
+
+.post-page .swiper-slide .content .text-wrap .bottom .more {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* 뉴스레터 */
+
+.newsletter-page {
+  padding-top: 72px;
+  margin: 5% 10%;
+}
+
+.newsletter-page .process {
+  display: flex;
+  align-items: center;
+}
+
+.newsletter-page .process img {
+  width: 24px;
+}
+
+.newsletter-page .process span {
+  padding-left: 15px;
+  color: #999999;
+}
+
+.newsletter-page .title {
+  margin: 5% 0;
+  text-align: left;
+}
+
+.newsletter-page .card-wrap {
+  display: flex;
+  gap: 20px;
+}
+
+.newsletter-page .newsletter-content {
+  border: 2px solid #d9d9d9;
+  border-radius: 5px;
+  max-width: 20.5%;
+  padding: 20px 10px;
+}
+
+.newsletter-page .newsletter-content .mark {
+  height: 40px;
+}
+
+.newsletter-page .newsletter-content .mark span {
+  background-color: #1676bc;
+  color: white;
+  padding: 2px 5px;
+  font-size: 0.8em;
+}
+
+.newsletter-page .newsletter-content .title {
+  font-weight: bold;
+  text-align: left;
+  font-size: 1em;
+  height: 120px;
+}
+
+.newsletter-page .newsletter-content .bottom {
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+  color: #888;
+}
+
+.newsletter-page .newsletter-content .bottom a {
+  text-decoration: underline;
+  color: #888;
+}
+
+.newsletter-page .list-wrap {
+  margin-top: 50px;
+  padding: 20px 0;
+  border-top: 1px solid #d9d9d9;
+}
+
+.newsletter-page .list-wrap .list {
+  padding: 20px 0;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.newsletter-page .list-wrap .list .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.newsletter-page .list-wrap .list .top .mark {
+  background-color: #1676bc;
+  color: white;
+  padding: 2px 5px;
+  font-size: 0.5em;
+}
+
+.newsletter-page .list-wrap .list .bottom span {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.newsletter-page .list-wrap .list .bottom {
+  margin: 5px 0;
+}
+
+.newsletter-page .pagination {
+  margin: 0 0 10% 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newsletter-page .pagination img {
+  width: 24px;
+  cursor: pointer;
+}
+
+.newsletter-page .pagination .page-number {
+  margin: 0 5px;
+  cursor: pointer;
+  color: #555;
+}
+
+.newsletter-page .pagination .page-number.active {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.newsletter-page .pagination .separator {
+  margin: 0 5px;
+  color: #bbb;
+}
+
+/* 센터페이지 기업감사/내부통제 지원센터 */
+
+.support-center-page {
+  position: relative;
+  text-align: center;
+  padding-top: 72px;
+}
+
+.support-center-page .main {
+  position: relative;
+}
+
+.support-center-page .main .img-wrap {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.support-center-page .main .img-wrap img {
+  width: 100%;
+  height: auto;
+}
+
+.support-center-page .main .text-wrap {
+  position: absolute;
+  top: 60%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  z-index: 1000;
+}
+
+.support-center-page .main .text-wrap p {
+  font-size: 0.5em;
+  font-weight: bold;
+}
+
+.support-center-page .main .text-wrap h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0;
+}
+
+.support-center-page .theme-select {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.support-center-page .theme-select button {
+  background: none;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+  color: #888;
+  position: relative;
+  padding: 5px;
+  margin: 10px;
+}
+
+.support-center-page .theme-select button.active {
+  font-weight: bold;
+  color: black;
+}
+
+.support-center-page .theme-select button.active::after {
+  border-bottom: 1px solid #ddd;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+.support-center-page .theme-select button:hover {
+  color: black;
+  font-weight: bold;
+}
+
+.support-center-page > .section01 {
+  position: relative;
+}
+
+.support-center-page > .section01 .img-wrap {
+  z-index: 1;
+  margin: 0 10%;
+}
+
+.support-center-page > .section01 img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  text-align: left;
+}
+
+.support-center-page > .section01 .text-wrap {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+}
+
+.support-center-page > .section01 .text-wrap .p1 {
+  font-weight: bold;
+  margin: 0;
+}
+
+.support-center-page > .sub-title {
+  width: 100%;
+  font-size: 3em;
+  margin: 0;
+  color: #eeeeee;
+  font-weight: normal;
+  text-align: center;
+}
+
+.support-center-page .section02 {
+  margin: 0 10%;
+}
+
+.support-center-page .section02 .content {
+  display: flex;
+  margin: 5% 0;
+}
+
+.support-center-page .section02 .content .text-wrap .p1 {
+  font-weight: bold;
+  font-size: 1.5em;
+  margin: 20px 0;
+}
+
+.support-center-page .section02 .content .text-wrap .p2 {
+  font-size: 0.8em;
+  margin: 0;
+  font-weight: bold;
+}
+
+.support-center-page .section02 .content .text-wrap {
+  flex: 5;
+  text-align: left;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.support-center-page .section02 .content .img-wrap {
+  flex: 3;
+  align-items: center;
+  display: flex;
+}
+
+.support-center-page .section02 .content .img-wrap img {
+  width: 100%;
+  height: auto;
+}
+
+.support-center-page .section03 {
+  margin: 5% 20%;
+}
+
+.support-center-page .section03 img {
+  width: 100%;
+  height: auto;
+}
+
+.support-center-page .search-list-section {
+  margin: 5% 10% 10% 10%;
+}
+
+.support-center-page .search-list-section .search-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+}
+
+.support-center-page .search-list-section .lawyer {
+  flex: 0 1 18%;
+}
+
+.support-center-page .search-list-section .lawyer img {
+  width: 100%;
+  background-color: #f9f9f9;
+}
+
+.support-center-page .search-list-section .lawyer .text-wrap {
+  text-align: left;
+}
+
+.support-center-page .search-list-section .lawyer .text-wrap p {
+  margin: 0px;
+}
+
+.support-center-page .search-list-section .lawyer .text-wrap .name {
+  font-size: 1.5em;
+}
+
+.support-center-page .search-list-section .lawyer .text-wrap .name > span {
+  font-size: 0.7em;
+  color: #888;
+  padding-left: 10px;
+}
+
+.support-center-page .search-list-section .lawyer .text-wrap .job {
+  color: #888;
+  margin: 10px 0;
+}
+
+.support-center-page .search-list-section .lawyer .text-wrap .phone > span {
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.support-center-page .search-list-section .lawyer .text-wrap .email > span {
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.support-center-page .search-list-section .pagination {
+  text-align: center;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.support-center-page .search-list-section .page-number {
+  margin: 0 5px;
+  cursor: pointer;
+  color: #555;
+}
+
+.support-center-page .search-list-section .page-number.active {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.support-center-page .search-list-section .separator {
+  margin: 0 5px;
+  color: #bbb;
+}
+
+.support-center-page .section04 {
+  margin: 5% 10%;
+}
+
+.support-center-page .section04 .members-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+  justify-items: center;
+  gap: 150px 100px;
+}
+
+.support-center-page .section04 .members-wrap .lawyer-item {
+}
+
+.support-center-page .section04 .members-wrap .lawyer-item img {
+  width: 100%;
+}
+
+.support-center-page .section04 .members-wrap .lawyer-item .text-wrap {
+  position: absolute;
+  text-align: left;
+}
+
+.support-center-page .section04 .members-wrap .lawyer-item .text-wrap p {
+  margin: 5px 0;
+}
+
+.support-center-page .section04 .members-wrap .lawyer-item .text-wrap .p1 {
+  font-size: 1.2em;
+}
+
+.support-center-page
+  .section04
+  .members-wrap
+  .lawyer-item
+  .text-wrap
+  .p1
+  span:last-child {
+  color: #666666;
+}
+
+.support-center-page .section04 .members-wrap .lawyer-item .text-wrap .p2 {
+  color: #666666;
+  font-size: 0.8em;
+}
+
+.support-center-page .section04 .members-wrap .lawyer-item .text-wrap .p3 {
+  border: 1px solid #d9d9d9;
+  color: #999999;
+  font-size: 0.8em;
+  width: fit-content;
+  padding: 0 5px;
+}
+
+.support-center-page .section04 .toggle-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 120px auto;
+  color: #999999;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  position: relative;
+  width: 100%;
+  font-weight: bold;
+}
+
+.support-center-page .section04 .toggle-button img {
+  width: 20px;
+  margin-left: 10px;
+}
+
+.support-center-page .section04 .toggle-button::before,
+.support-center-page .section04 .toggle-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
+.support-center-page .section04 .toggle-button::before {
+  left: 0;
+}
+
+.support-center-page .section04 .toggle-button::after {
+  right: 0;
+}
+
+.support-center-page .section05 {
+  margin: 5% 10%;
+}
+
+.support-center-page .section05 .sub-title {
+  text-align: left;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.support-center-page .section05 .sub-title p {
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 20px 0;
+}
+
+.support-center-page .section05 .sub-title button {
+  background: none;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+  color: #888;
+  position: relative;
+  padding: 5px;
+  margin: 10px;
+}
+
+.support-center-page .section05 .sub-title button img {
+  width: 50px;
+  margin-left: 10px;
+}
+
+.support-center-page .section05 .swiper-wrapper {
+  padding: 5% 0;
+}
+
+.support-center-page .section05 .newsletter-content {
+  border: 2px solid #d9d9d9;
+  border-radius: 5px;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+}
+
+.support-center-page .section05 .newsletter-content .mark {
+  flex: 2;
+  text-align: left;
+}
+
+.support-center-page .section05 .newsletter-content .mark span {
+  background-color: #1676bc;
+  color: white;
+  width: 100%;
+  padding: 5px 10px;
+}
+
+.support-center-page .section05 .newsletter-content .title {
+  flex: 6;
+  font-weight: bold;
+  text-align: left;
+  font-size: 1em;
+  margin: 0;
+}
+
+.support-center-page .section05 .newsletter-content .bottom {
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1em;
+  color: #888;
+}
+
+.support-center-page .section05 .newsletter-content .bottom a {
+  text-decoration: none;
+  color: #888;
+}
+
+.support-center-page .section05 .newsletter-content .bottom .more {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.support-center-page .section05 .swiper-scrollbar-drag {
+  background: #1676bc;
+}

@@ -1,38 +1,92 @@
 .App {
-  text-align: center;
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  max-width: 1080px;
+  margin: 0 auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.blue {
+  color: #1676bc;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.gray {
+  color: #ccc;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.roman-title {
+  font-family: "Times New Roman", Times, serif;
+  margin: 0px;
+  line-height: 0.8;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.hidden {
+  display: none;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.flex {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+ol,
+ul {
+  list-style: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+:root {
+  /* point color */
+  --point-color-1: #005bac;
+  --point-color-2: #1676bc;
+  --point-color-3: #1876bc;
+  --point-color-4: rgba(22, 118, 188, 0.3);
+  --point-color-5: #1a6cb5;
+
+  /* mono color */
+  --mono-white: #ffffff;
+  --mono-black-title: #000000;
+  --mono-black-title-2: #222222;
+  --mono-gray-icon: #666666;
+  --mono-gray-txt-light: #999999;
+  --mono-gray-txt-dark: #333333;
+  --mono-gray-txt-input: #6e6e6f;
+  --mono-gray-txt-normal: #a2a9b1;
+  --mono-gray-txt-back: #f9f9f9;
+  --mono-gray-line-1: #d9d9d9;
+  --mono-gray-line-2: #d5d5d5;
+  --mono-gray-line-3: #e0e0e0;
+  --mono-gray-line-4: #7e7e7e;
+  --mono-gray-bg-1: #f5f6fa;
+  --mono-gray-bg-2: #d9d9d9;
+  --mono-gray-bg-3: #697077;
+  --mono-gray-bg-4: #dbdbdb;
+  --mono-gray-input-ph: #c5c5c5;
+  --mono-gray-input-bd: #c1c7cd;
+  --mono-gray-normal: #ededed;
+  --mono-black-icon-1: #21272a;
+  --mono-black-icon-2: #111111;
+  /* other color */
+  --other-red: #da1e28;
+  /* border */
+  --table-bd: 1px solid #d5d5d5;
+  --ctn-bd-inner: 0 0 0 0.3px #b9b9b9b9 inset;
+  --keyword-bd-all: 2px solid #1676bc;
+  --input-bd-bottom: 1px solid #c1c7cd;
+  --input-bd-all: 1px solid #d9d9d9;
+  --input-bd-inner-1: 0 0 0 0.6px #d5d5d5 inset;
+  --input-bd-inner-2: 0 0 0 1px #d5d5d5 inset;
+  --checkbox-bd-inner: 0 0 0 1px #8fc0ec inset;
+  --table-bd: 1px solid var(--mono-gray-line-2);
+  --btn-bd: 0 0 0 2px #8fb6ff inset;
+  /* shadow */
+  --shadow-1: 6px 6px 54px 0px #0000000d;
+  --shadow-2: 0px 0px 10px 0px #0000001a;
 }
