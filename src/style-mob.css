@@ -93,4 +93,340 @@
     right: 0;
     font-size: 0.8em;
   }
+
+  /* 소개 페이지 */
+
+  .intro-page {
+    display: block;
+  }
+
+  .intro-page .p2 {
+    font-size: 1.5rem;
+  }
+
+  .intro-page .process,
+  .intro-page .section01 {
+    margin: 5%;
+  }
+
+  .intro-page .section01 > div {
+    display: block;
+  }
+
+  .intro-page .section01 h1 {
+    font-size: 3rem;
+  }
+
+  .intro-page .section02 {
+    padding: 5%;
+    background-image: none;
+    position: relative;
+    height: auto;
+  }
+
+  .intro-page .section02 img {
+    width: 100%;
+  }
+
+  .intro-page .section03 {
+    padding: 5%;
+    display: block;
+  }
+
+  .intro-page .section03 .img-wrap {
+    padding: 0;
+  }
+
+  .intro-page .section04 {
+    display: block;
+    padding: 5%;
+  }
+
+  .intro-page .section04 .img-wrap {
+    padding: 0;
+  }
+
+  /* 업무 분야 */
+
+  .services-page .process,
+  .services-page > .title,
+  .services-page .content-wrap,
+  .services-detail-page .process,
+  .services-detail-page .title {
+    margin: 5%;
+  }
+
+  .services-page .content-wrap > div > .fold-wrap {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .services-detail-page .sub-title {
+    margin: 5% 5% 0 5%;
+    font-size: 2em;
+  }
+
+  .services-detail-page .content-wrap .content-left {
+    width: 80%;
+  }
+
+  .services-detail-page .content-wrap .content-left .sub-title-ment {
+    padding-left: 0%;
+  }
+
+  .services-detail-page .content-wrap .content-right {
+    position: sticky;
+    top: 0px;
+    width: 20%;
+    padding-right: 3%;
+    margin-left: 3%;
+  }
+
+  .services-detail-page .content-wrap .content-right p {
+    font-size: 0.7em;
+  }
+
+  .services-detail-page .content-wrap .content-left .main-field-of-work ul {
+    padding-left: 0;
+    font-size: 0.8em;
+  }
+
+  .services-detail-page .content-wrap .content-left .main-field-of-work p {
+    font-size: 0.8em;
+  }
+  .services-detail-page .content-wrap .content-left .main-field-of-work,
+  .services-detail-page .content-wrap .content-left .members,
+  .services-detail-page .toggle-button-wrap,
+  .services-detail-page .content-wrap .content-left .recent-news {
+    padding: 5% 0 5% 5%;
+  }
+
+  .services-detail-page .content-wrap .content-left .members .members-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .services-detail-page .toggle-button::before,
+  .services-detail-page .toggle-button::after {
+    width: 30%;
+  }
+
+  /* 구성원 */
+
+  .members-page .process,
+  .members-page .title-section .sub-title,
+  .members-page .lawyer-section {
+    margin: 5%;
+  }
+
+  .members-page .search-bar-wrap {
+    padding: 5%;
+  }
+
+  .members-page .lawyer-section .grid-wrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(200px, auto);
+    justify-items: center;
+    gap: 150px 0;
+  }
+
+  .member-search-page .process,
+  .member-search-page .title-section .sub-title,
+  .member-search-page .search-list-section,
+  .member-search-page .search-bar-wrap {
+    margin: 5%;
+  }
+
+  .members-page .lawyer-section .lawyer-item {
+    filter: grayscale(0%);
+  }
+
+  .member-search-page .search-list-section .search-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(200px, auto);
+    justify-items: center;
+    gap: 150px 0;
+  }
+
+  .members-page .lawyer-section .lawyer-item .text-wrap {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .member-profile-page .title-section {
+    margin: 5%;
+  }
+
+  .member-profile-page .title-section .save {
+    padding: 5px;
+    position: absolute;
+    top: 35px;
+    right: 20px;
+  }
+
+  .member-profile-page .title-section .save span {
+    font-size: 0.7em;
+  }
+
+  .member-profile-page .title-section .save img {
+    width: 15px;
+  }
+
+  .member-profile-page .profile-main {
+    margin: 5%;
+  }
+
+  .member-profile-page .profile-main .content-wrap {
+    position: relative;
+  }
+
+  .member-profile-page .profile-main .text-wrap .sub-content02 {
+    display: flex;
+    gap: 5px;
+  }
+
+  .member-profile-page .profile-main .text-wrap .sub-content02 span {
+    border: 1px solid black;
+    padding: 5px;
+    white-space: nowrap;
+    word-break: keep-all;
+  }
+
+  .member-profile-page .profile-main .img-wrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+  }
+
+  .member-profile-page .sub-menu {
+    margin: 0;
+    padding: 20px;
+    top: 0px;
+  }
+
+  .member-profile-page .fold-section button::before,
+  .member-profile-page .fold-section button::after {
+    width: 30%;
+  }
+
+  /* 뉴스 페이지 */
+
+  .news-page .process,
+  .news-page .title,
+  .news-page .theme-select {
+    margin: 5%;
+  }
+
+  .news-page .news-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .news-page .news-item {
+    width: 100%;
+  }
+
+  /* 뉴스레터 */
+
+  .newsletter-page {
+    margin: 5%;
+    padding-top: 72px;
+  }
+
+  .newsletter-page .card-wrap {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+
+  .newsletter-page .newsletter-content {
+    border: 2px solid #d9d9d9;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 95%;
+    padding: 20px 10px;
+  }
+
+  /* 기술 도움 센터 */
+
+  .support-center-page {
+    padding-top: 0;
+  }
+
+  .support-center-page h1 {
+    font-size: 1.5rem;
+  }
+
+  .support-center-page p {
+    font-size: 0.8rem;
+  }
+
+  .support-center-page .main {
+    height: 45vh;
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 60%,
+        rgba(255, 255, 255) 100%
+      ),
+      /* 하단 투명도 그라디언트 */ url("../src/assets/images/CenterMain01.png"); /* 배경 이미지 */
+    background-size: cover;
+    background-position: center;
+  }
+
+  .support-center-page .main .text-wrap {
+    position: relative;
+    text-align: left;
+    left: 60%;
+  }
+
+  .support-center-page .theme-select {
+    top: 0px;
+  }
+
+  .support-center-page > .section01 {
+    padding: 10% 5%;
+    background: url("../src/assets/images/CenterMain02.png");
+    background-size: cover;
+    background-position: center;
+    background-size: 80%;
+    background-repeat: no-repeat;
+  }
+
+  .support-center-page > .section01 .text-wrap {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+
+  .support-center-page .section02 .content {
+    display: block;
+    margin: 10% 0%;
+  }
+
+  .support-center-page .section02 .content .text-wrap {
+    padding: 0;
+  }
+
+  .support-center-page .section02 .content .img-wrap img {
+    height: auto;
+  }
+
+  .support-center-page .section03 {
+    margin: 5%;
+  }
+
+  .support-center-page .section04 {
+    margin: 5%;
+  }
+
+  .support-center-page .section04 .members-wrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 150px 50px;
+  }
 }

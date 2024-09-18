@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { lawyerList } from "../../const/lawyerList";
 import { Link } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 
 const SearchListSection = () => {
-  const itemsPerPage = 8; // 페이지당 변호사 수
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  // const isDesktop = useMediaQuery({ query: "(min-width: 769px)" });
+
+  const itemsPerPage = isMobile ? 4 : 8;
+
   const [currentPage, setCurrentPage] = useState(1);
 
   const handleClick = (page: number) => {

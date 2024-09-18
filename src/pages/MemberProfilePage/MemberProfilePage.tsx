@@ -7,7 +7,6 @@ import down from "../../assets/images/icons/down.png";
 import big from "../../assets/images/icons/big.png";
 
 import { profileData } from "../../const/profileData";
-import Topbutton from "../../components/TopButton";
 
 const MemberProfilePage = () => {
   const [isEducationExpanded, setEducationExpanded] = useState(false);
@@ -284,7 +283,6 @@ const MemberProfilePage = () => {
           kdong@lawvax.co.kr
         </p>
       </div>
-      <Topbutton />
     </div>
   );
 };

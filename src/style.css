@@ -2073,7 +2073,6 @@
 
 .member-search-page .search-list-section .lawyer img {
   width: 100%;
-  background-color: #f9f9f9;
 }
 
 .member-search-page .search-list-section .lawyer .text-wrap p {
@@ -2863,6 +2862,10 @@
 }
 
 .support-center-page .theme-select {
+  position: sticky;
+  top: 72px;
+  background-color: white;
+  z-index: 100;
   display: flex;
   justify-content: center;
   margin-top: 20px;

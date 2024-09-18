@@ -173,6 +173,14 @@ const ServicesDetail = () => {
                 scrollbar={{ draggable: true }}
                 slidesOffsetBefore={0}
                 slidesOffsetAfter={0}
+                breakpoints={{
+                  300: {
+                    slidesPerView: 2,
+                  },
+                  1024: {
+                    slidesPerView: 4,
+                  },
+                }}
               >
                 {Array(5)
                   .fill(0)
