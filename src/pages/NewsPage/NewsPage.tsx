@@ -48,7 +48,7 @@ const NewsPage = () => {
       <div className="title">
         <div>
           <p className="about">About Us</p>
-          <p style={{ fontSize: "2.5em" }}>
+          <p style={{ fontSize: "2em" }}>
             <span className="blue" style={{ fontSize: "2em" }}>
               N
             </span>

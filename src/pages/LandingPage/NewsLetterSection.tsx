@@ -11,7 +11,7 @@ const NewsLetterSection = () => {
     <section className="newsletter-section">
       <div className="title">
         <div>
-          <p style={{ fontSize: "2.5em" }}>
+          <p style={{ fontSize: "2em" }}>
             <span className="blue" style={{ fontSize: "2em" }}>
               N
             </span>
@@ -33,6 +33,14 @@ const NewsLetterSection = () => {
           scrollbar={{ draggable: true }}
           slidesOffsetBefore={0}
           slidesOffsetAfter={0}
+          breakpoints={{
+            300: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 4,
+            },
+          }}
         >
           {Array(5)
             .fill(0)

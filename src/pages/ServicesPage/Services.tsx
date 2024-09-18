@@ -34,7 +34,7 @@ const ServicesPage = () => {
         <span>업무분야</span>
       </div>
       <div className="title">
-        <p style={{ fontSize: "2.5em" }}>
+        <p style={{ fontSize: "2em" }}>
           <span className="blue" style={{ fontSize: "2em" }}>
             F
           </span>

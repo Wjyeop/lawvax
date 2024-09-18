@@ -27,6 +27,7 @@ import left from "./left.png";
 import left02 from "./left02.png";
 import right from "./right.png";
 import right02 from "./right02.png";
+import closeBtn from "./closeBtn.svg";
 
 const icons = {
   big,
@@ -58,6 +59,7 @@ const icons = {
   left02,
   right,
   right02,
+  closeBtn,
 };
 
 export default icons;

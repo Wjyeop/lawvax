@@ -2,7 +2,7 @@ import "../App.css";
 import logo from "../assets/images/HeaderLogo.png";
 import marker from "../assets/images/icons/marker.png";
 import phone from "../assets/images/HeaderPhoneCall.png";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   // const location = useLocation();

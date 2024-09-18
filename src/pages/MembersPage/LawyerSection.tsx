@@ -1,4 +1,3 @@
-import lawyer1 from "../../assets/images/hiredSample.png";
 import { lawyerList } from "../../const/lawyerList";
 import up from "../../assets/images/icons/up.png";
 import down from "../../assets/images/icons/down.png";

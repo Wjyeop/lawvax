@@ -13,7 +13,7 @@ const NewsSection = () => {
       <div className="title">
         <p className="blue">About Us</p>
         <div>
-          <p style={{ fontSize: "2.5em" }}>
+          <p style={{ fontSize: "2em" }}>
             <span className="blue" style={{ fontSize: "2em" }}>
               N
             </span>
@@ -70,7 +70,7 @@ const NewsSection = () => {
             중대재해처벌법 시행 2년, <br />
             무엇이 달라졌을까
           </p>
-          <p className="cotents">
+          <p className="content">
             [김기동 법무법인 로백스 대표변호사] 산업현장에서 반복적으로 발생하는
             중대재해를 줄이고자 재정된 중대재해 처벌 등에 관한 법률 (이하
             '중대재해처벌법')이 시행된 지 벌써 2년이 지났다. 재정 당시 과도한

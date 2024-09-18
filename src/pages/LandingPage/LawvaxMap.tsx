@@ -70,7 +70,7 @@ const LawvaxMap: React.FC = () => {
     <section className="lawvax-map-section">
       <div className="title">
         <div>
-          <p style={{ fontSize: "2.5em" }}>
+          <p style={{ fontSize: "2em" }}>
             <span className="blue" style={{ fontSize: "2em" }}>
               M
             </span>

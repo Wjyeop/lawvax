@@ -24,7 +24,7 @@ const HiredLawyerSection = () => {
     <section className="hired-section">
       <div className="title">
         <div>
-          <p style={{ fontSize: "2.5em" }}>
+          <p style={{ fontSize: "2em" }}>
             <span className="blue" style={{ fontSize: "2em" }}>
               P
             </span>
@@ -47,6 +47,17 @@ const HiredLawyerSection = () => {
           slidesOffsetBefore={50}
           slidesOffsetAfter={50}
           ref={swiperRef}
+          breakpoints={{
+            300: {
+              slidesPerView: 2,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 4,
+            },
+          }}
         >
           {[1, 2, 3, 4, 5, 6, 7].map((_, index) => (
             <SwiperSlide key={index} onClick={() => handleSlideClick(index)}>

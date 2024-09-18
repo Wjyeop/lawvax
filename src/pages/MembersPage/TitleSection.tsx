@@ -29,7 +29,7 @@ const TitleSection = () => {
         <span className="search">인물검색</span>
       </div>
       <div className="sub-title">
-        <p className="roman-title" style={{ fontSize: "2.5em" }}>
+        <p className="roman-title" style={{ fontSize: "2em" }}>
           <span className="blue" style={{ fontSize: "2em" }}>
             P
           </span>

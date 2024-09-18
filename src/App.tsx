@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
 import "./style.css";
+import "./style-mob.css";
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Header from "./components/Header";
@@ -21,12 +23,14 @@ import TechCenterPage from "./pages/TechCenterPage/TechCenterPage";
 import SupportCenterPage from "./pages/SupportCenterPage/SupportCenterPage";
 import ServicesDetail from "./pages/ServicesDetailPage/ServicesDetail";
 import Topbutton from "./components/TopButton";
+import HeaderMob from "./components/HeaderMob";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Header />
+        <HeaderMob />
         <CenterSide />
 
         <Routes>

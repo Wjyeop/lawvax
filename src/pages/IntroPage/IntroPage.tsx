@@ -90,7 +90,7 @@ const IntroPage = () => {
       </div>
       {/* <div className="title">
         <span className="blue">Introduction</span>
-        <p style={{ fontSize: "2.5em" }}>
+        <p style={{ fontSize: "2em" }}>
           <span className="blue" style={{ fontSize: "2em" }}>
             L
           </span>

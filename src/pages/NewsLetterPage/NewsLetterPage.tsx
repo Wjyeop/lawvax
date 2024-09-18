@@ -46,7 +46,7 @@ const NewsLetterPage = () => {
         <span>뉴스레터</span>
       </div>
       <div className="title">
-        <p className="roman-title" style={{ fontSize: "2.5em" }}>
+        <p className="roman-title" style={{ fontSize: "2em" }}>
           <span className="blue" style={{ fontSize: "2em" }}>
             N
           </span>
