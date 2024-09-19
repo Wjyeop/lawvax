@@ -251,7 +251,7 @@ const nav_style = (isNavVisible: any) => css`
   position: fixed;
   top: 0;
   width: 100%;
-  max-width: 1280px;
+  max-width: 1080px;
   height: 100vh;
   background-color: var(--mono-white);
   padding: 28px 16px 0 16px;

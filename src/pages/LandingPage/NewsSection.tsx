@@ -76,7 +76,9 @@ const NewsSection = () => {
             '중대재해처벌법')이 시행된 지 벌써 2년이 지났다. 재정 당시 과도한
             형사처벌 등에 대한 우려에도 불구하고 어느덧 중대재해처벌법 ...
           </p>
-          <button className="more">자세히 보기</button>
+          <Link to="/news">
+            <button className="more">자세히 보기</button>
+          </Link>
         </div>
       </div>
     </div>

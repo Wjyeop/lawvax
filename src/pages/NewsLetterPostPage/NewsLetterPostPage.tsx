@@ -3,24 +3,22 @@ import share from "../../assets/images/icons/share.png";
 import print from "../../assets/images/icons/print.png";
 import newsBig from "../../assets/images/newsBig1.png";
 import list from "../../assets/images/icons/list.png";
-import { relatedNews } from "../../const/relatedNews";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
+import { relatedNews } from "../../const/relatedNews";
 
-const PostPage = () => {
+const NewsLetterPostPage = () => {
   return (
     <div className="post-page">
       <div className="process">
         <img src={home} alt="home" />
         <span>HOME</span>
         <span>{">"}</span>
-        <span>법인소식</span>
-        <span>{">"}</span>
-        <span>소식</span>
+        <span>뉴스레터</span>
         <span>{">"}</span>
         <span>게시물</span>
       </div>
@@ -56,7 +54,7 @@ const PostPage = () => {
         </p>
       </div>
       <div className="related-news">
-        <Link to="/news">
+        <Link to="/newsletter">
           <div className="list">
             <img src={list} alt="" />
             <span>목록보기</span>
@@ -99,4 +97,4 @@ const PostPage = () => {
   );
 };
 
-export default PostPage;
+export default NewsLetterPostPage;

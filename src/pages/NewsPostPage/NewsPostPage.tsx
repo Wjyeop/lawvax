@@ -3,15 +3,15 @@ import share from "../../assets/images/icons/share.png";
 import print from "../../assets/images/icons/print.png";
 import newsBig from "../../assets/images/newsBig1.png";
 import list from "../../assets/images/icons/list.png";
-import { relatedNews } from "../../const/relatedNews";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
+import { relatedNews } from "../../const/relatedNews";
 
-const PostPage = () => {
+const NewsPostPage = () => {
   return (
     <div className="post-page">
       <div className="process">
@@ -99,4 +99,4 @@ const PostPage = () => {
   );
 };
 
-export default PostPage;
+export default NewsPostPage;

@@ -62,7 +62,8 @@ const SupportCenterPage = () => {
             <p>TO MANAGING ADVANCED THCH LEGAL RISKS</p>
             <h1>
               Technology
-              <br /> Protection Center
+              <br />
+              Protection Center
             </h1>
           </div>
         </div>

@@ -378,9 +378,9 @@
   }
 
   .support-center-page .main .text-wrap {
-    position: relative;
-    text-align: left;
-    left: 60%;
+    top: 40%;
+    left: 10%;
+    transform: none;
   }
 
   .support-center-page .theme-select {
