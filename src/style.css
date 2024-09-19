@@ -341,6 +341,20 @@
   text-align: left;
 }
 
+.landing-page .news-section .content .text-section .text-wrap {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.landing-page .news-section .content .text-section .text-wrap.fade-out {
+  opacity: 0;
+}
+
+.landing-page .news-section .content .text-section .text-wrap.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+}
+
 .landing-page .news-section .content .text-section .title {
   font-weight: bold;
 }

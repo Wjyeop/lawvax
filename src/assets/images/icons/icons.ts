@@ -28,6 +28,8 @@ import left02 from "./left02.png";
 import right from "./right.png";
 import right02 from "./right02.png";
 import closeBtn from "./closeBtn.svg";
+import arrowLeft from "./ArrowLeft.png";
+import arrowRight from "./ArrowRight.png";
 
 const icons = {
   big,
@@ -60,6 +62,8 @@ const icons = {
   right,
   right02,
   closeBtn,
+  arrowLeft,
+  arrowRight,
 };
 
 export default icons;

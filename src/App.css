@@ -6,6 +6,15 @@
   margin: 0 auto;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .blue {
   color: #1676bc;
 }

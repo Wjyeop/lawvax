@@ -1,12 +1,35 @@
-import React, { useState } from "react";
-import newsImg from "../../assets/images/news1.png";
+import { useState } from "react";
 import more from "../../assets/images/more.png";
-import left from "../../assets/images/ArrowLeft.png";
-import right from "../../assets/images/ArrowRight.png";
 import { Link } from "react-router-dom";
+import icons from "../../assets/images/icons/icons";
+import img from "../../assets/images/images";
+import { newsData } from "../../const/newsList";
 
 const NewsSection = () => {
   const [activeTab, setActiveTab] = useState("법인소식");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [fadeState, setFadeState] = useState("");
+
+  const handleNext = () => {
+    const newIndex = (currentIndex + 1) % newsData.length;
+    setFadeState("fade-out");
+
+    // 페이드 아웃이 끝나고 페이드 인을 실행
+    setTimeout(() => {
+      setCurrentIndex(newIndex);
+      setFadeState("fade-in");
+    }, 300); // 여기서 500ms는 fade-out의 transition 시간과 일치시킵니다.
+  };
+
+  const handlePrev = () => {
+    const newIndex = (currentIndex - 1 + newsData.length) % newsData.length;
+    setFadeState("fade-out");
+
+    setTimeout(() => {
+      setCurrentIndex(newIndex);
+      setFadeState("fade-in");
+    }, 300);
+  };
 
   return (
     <div className="news-section">
@@ -20,12 +43,13 @@ const NewsSection = () => {
             EWS
             <Link to="/news">
               <button className="more">
-                <img src={more} alt="" />
+                <img src={more} alt="More button" />
               </button>
             </Link>
           </p>
         </div>
       </div>
+
       <div className="theme-select">
         <button
           className={activeTab === "법인소식" ? "active" : ""}
@@ -45,40 +69,34 @@ const NewsSection = () => {
         >
           인재영입
         </button>
-        {/* <button
-          className={activeTab === "수상" ? "active" : ""}
-          onClick={() => setActiveTab("수상")}
-        >
-          수상
-        </button> */}
       </div>
+
       <div className="content">
         <div className="img-section">
-          <img src={newsImg} alt="" />
+          <img src={img.news1} alt="News" />
         </div>
         <div className="text-section">
           <div className="nav">
-            <button>
-              <img src={left} alt="" />
+            <button onClick={handlePrev}>
+              <img src={icons.arrowLeft} alt="Previous" />
             </button>
-            <span>1 / 10</span>
-            <button>
-              <img src={right} alt="" />
+            <span>
+              {currentIndex + 1} / {newsData.length}
+            </span>
+            <button onClick={handleNext}>
+              <img src={icons.arrowRight} alt="Next" />
             </button>
           </div>
-          <p className="title">
-            중대재해처벌법 시행 2년, <br />
-            무엇이 달라졌을까
-          </p>
-          <p className="content">
-            [김기동 법무법인 로백스 대표변호사] 산업현장에서 반복적으로 발생하는
-            중대재해를 줄이고자 재정된 중대재해 처벌 등에 관한 법률 (이하
-            '중대재해처벌법')이 시행된 지 벌써 2년이 지났다. 재정 당시 과도한
-            형사처벌 등에 대한 우려에도 불구하고 어느덧 중대재해처벌법 ...
-          </p>
-          <Link to="/news">
-            <button className="more">자세히 보기</button>
-          </Link>
+          <div
+            className={`text-wrap ${fadeState}`}
+            // onTransitionEnd={handleTransitionEnd}
+          >
+            <p className="title">{newsData[currentIndex].title}</p>
+            <p className="content">{newsData[currentIndex].content}</p>
+            <Link to="/news">
+              <button className="more">자세히 보기</button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
