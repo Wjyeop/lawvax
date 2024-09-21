@@ -1,8 +1,5 @@
 import { useState } from "react";
-import img from "../../assets/images/images";
-import icons from "../../assets/images/icons/icons";
-import main01 from "../../assets/images/CenterMain01.png";
-import main02 from "../../assets/images/CenterMain02.png";
+import img from "../../assets/images/img";
 import { lawyerList } from "../../const/lawyerList";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
@@ -53,7 +50,7 @@ const SupportCenterPage = () => {
             </h1>
           </div>
           <div className="img-wrap">
-            <img src={main01} alt="" />
+            <img src={img.CenterMain01} alt="" />
           </div>
         </div>
       ) : (
@@ -118,7 +115,7 @@ const SupportCenterPage = () => {
       {isDesktop ? (
         <div className="section01" id="section01">
           <div className="img-wrap">
-            <img src={main02} alt="" />
+            <img src={img.CenterMain02} alt="" />
           </div>
           <div className="text-wrap">
             <p className="p1">개요</p>
@@ -515,9 +512,9 @@ const SupportCenterPage = () => {
         <button className="toggle-button" onClick={handleToggle}>
           {showAll ? "접기" : "더보기"}
           {showAll ? (
-            <img src={icons.up} alt="" />
+            <img src={img.icons.up} alt="" />
           ) : (
-            <img src={icons.down} alt="" />
+            <img src={img.icons.down} alt="" />
           )}
         </button>
       </div>

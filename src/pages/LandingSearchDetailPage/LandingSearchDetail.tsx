@@ -1,5 +1,5 @@
 import { useState } from "react";
-import icons from "../../assets/images/icons/icons";
+import img from "../../assets/images/img";
 
 const LandingSearchDetailPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -34,7 +34,7 @@ const LandingSearchDetailPage = () => {
   return (
     <div className="landing-search-detail-page">
       <div className="process">
-        <img src={icons.home} alt="" />
+        <img src={img.icons.home} alt="" />
         <span>HOME</span>
         <span className="search">{">"}</span>
         <span className="search">형사</span>
@@ -55,13 +55,13 @@ const LandingSearchDetailPage = () => {
       </div>
       <div className="pagination">
         <img
-          src={icons.left02}
+          src={img.icons.left02}
           alt="First Page"
           onClick={handleFirstClick}
           style={{ cursor: currentPage > 1 ? "pointer" : "not-allowed" }}
         />
         <img
-          src={icons.left}
+          src={img.icons.left}
           alt=""
           onClick={handlePrevClick}
           style={{ cursor: currentPage > 1 ? "pointer" : "not-allowed" }}
@@ -78,7 +78,7 @@ const LandingSearchDetailPage = () => {
           </span>
         ))}
         <img
-          src={icons.right}
+          src={img.icons.right}
           alt=""
           onClick={handleNextClick}
           style={{
@@ -86,7 +86,7 @@ const LandingSearchDetailPage = () => {
           }}
         />
         <img
-          src={icons.right02}
+          src={img.icons.right02}
           alt="Last Page"
           onClick={handleLastClick}
           style={{

@@ -1,6 +1,4 @@
 // src/assets/images/images.ts
-import ArrowLeft from "./ArrowLeft.png";
-import ArrowRight from "./ArrowRight.png";
 import CenterMain01 from "./CenterMain01.png";
 import CenterMain02 from "./CenterMain02.png";
 import FooterBlog from "./FooterBlog.png";
@@ -40,10 +38,40 @@ import center02 from "./center02.png";
 import center03 from "./center03.png";
 import center04 from "./center04.png";
 import center05 from "./center05.png";
+import ArrowLeft from "./icons/ArrowLeft.png";
+import ArrowRight from "./icons/ArrowRight.png";
+import big from "./icons/big.png";
+import blueBus from "./icons/blueBus.png";
+import copy from "./icons/copy.png";
+import down from "./icons/down.png";
+import down01 from "./icons/down01.png";
+import down02 from "./icons/down02.png";
+import fax from "./icons/fax.png";
+import greenBus from "./icons/greenBus.png";
+import home from "./icons/home.png";
+import list from "./icons/list.png";
+import marker from "./icons/marker.png";
+import phone from "./icons/phone.png";
+import pre from "./icons/pre.png";
+import print from "./icons/print.png";
+import save from "./icons/save.png";
+import saveBlue from "./icons/saveBlue.png";
+import searchIcon from "./icons/searchIcon.png";
+import share from "./icons/share.png";
+import shareBlue from "./icons/shareBlue.png";
+import threeLine from "./icons/threeLine.png";
+import top from "./icons/top.png";
+import up from "./icons/up.png";
+import up01 from "./icons/up01.png";
+import up02 from "./icons/up02.png";
+import search from "./icons/search.png";
+import left from "./icons/left.png";
+import left02 from "./icons/left02.png";
+import right from "./icons/right.png";
+import right02 from "./icons/right02.png";
+import closeBtn from "./icons/closeBtn.svg";
 
-const images = {
-  ArrowLeft,
-  ArrowRight,
+const img = {
   CenterMain01,
   CenterMain02,
   FooterBlog,
@@ -83,6 +111,40 @@ const images = {
   center03,
   center04,
   center05,
+  icons: {
+    ArrowLeft,
+    ArrowRight,
+    big,
+    blueBus,
+    copy,
+    down,
+    down01,
+    down02,
+    fax,
+    greenBus,
+    home,
+    list,
+    marker,
+    phone,
+    pre,
+    print,
+    save,
+    saveBlue,
+    searchIcon,
+    share,
+    shareBlue,
+    threeLine,
+    top,
+    up,
+    up01,
+    up02,
+    search,
+    left,
+    left02,
+    right,
+    right02,
+    closeBtn,
+  },
 };
 
-export default images;
+export default img;

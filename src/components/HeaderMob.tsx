@@ -1,8 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import icons from "../assets/images/icons/icons";
 import { css } from "@emotion/react";
+import img from "../assets/images/img";
 
 function HeaderMob() {
   const location = useLocation();
@@ -48,7 +48,7 @@ function HeaderMob() {
       <nav css={nav_style(isNavVisible)}>
         <div css={btn_container}>
           <button css={close_btn} onClick={closeNav}>
-            <img src={icons.closeBtn} alt="닫기 버튼" />
+            <img src={img.icons.closeBtn} alt="닫기 버튼" />
           </button>
         </div>
 

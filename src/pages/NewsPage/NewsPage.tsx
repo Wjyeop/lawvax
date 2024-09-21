@@ -2,7 +2,7 @@ import { useState } from "react";
 import { newsData } from "../../const/newsList";
 import home from "../../assets/images/icons/home.png";
 import { Link } from "react-router-dom";
-import icons from "../../assets/images/icons/icons";
+import img from "../../assets/images/img";
 
 const NewsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -100,13 +100,13 @@ const NewsPage = () => {
       </div>
       <div className="pagination">
         <img
-          src={icons.left02}
+          src={img.icons.left02}
           alt="First Page"
           onClick={handleFirstClick}
           style={{ cursor: currentPage > 1 ? "pointer" : "not-allowed" }}
         />
         <img
-          src={icons.left}
+          src={img.icons.left}
           alt=""
           onClick={handlePrevClick}
           style={{ cursor: currentPage > 1 ? "pointer" : "not-allowed" }}
@@ -123,7 +123,7 @@ const NewsPage = () => {
           </span>
         ))}
         <img
-          src={icons.right}
+          src={img.icons.right}
           alt=""
           onClick={handleNextClick}
           style={{
@@ -131,7 +131,7 @@ const NewsPage = () => {
           }}
         />
         <img
-          src={icons.right02}
+          src={img.icons.right02}
           alt="Last Page"
           onClick={handleLastClick}
           style={{

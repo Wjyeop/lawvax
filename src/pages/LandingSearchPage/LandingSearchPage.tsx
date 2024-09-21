@@ -5,8 +5,7 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
-import icons from "../../assets/images/icons/icons";
-import img from "../../assets/images/images";
+import img from "../../assets/images/img";
 import { Link } from "react-router-dom";
 
 const LandingSearchPage = () => {
@@ -34,7 +33,7 @@ const LandingSearchPage = () => {
   return (
     <div className="landing-search-page">
       <div className="process">
-        <img src={icons.home} alt="" />
+        <img src={img.icons.home} alt="" />
         <span>HOME</span>
         <span className="search">{">"}</span>
         <span className="search">형사</span>
@@ -52,7 +51,7 @@ const LandingSearchPage = () => {
 
         <img
           className="search-icon"
-          src={icons.search}
+          src={img.icons.search}
           alt="search-icon"
           onClick={handleSearch}
         />
@@ -83,9 +82,9 @@ const LandingSearchPage = () => {
         <button className="toggle-button" onClick={handleToggle}>
           {showAll ? "접기" : "더보기"}
           {showAll ? (
-            <img src={icons.up} alt="" />
+            <img src={img.icons.up} alt="" />
           ) : (
-            <img src={icons.down} alt="" />
+            <img src={img.icons.down} alt="" />
           )}
         </button>
       </div>

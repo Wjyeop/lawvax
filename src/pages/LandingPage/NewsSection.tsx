@@ -1,8 +1,6 @@
 import { useState } from "react";
-import more from "../../assets/images/more.png";
 import { Link } from "react-router-dom";
-import icons from "../../assets/images/icons/icons";
-import img from "../../assets/images/images";
+import img from "../../assets/images/img";
 import { newsData } from "../../const/newsList";
 
 const NewsSection = () => {
@@ -43,7 +41,7 @@ const NewsSection = () => {
             EWS
             <Link to="/news">
               <button className="more">
-                <img src={more} alt="More button" />
+                <img src={img.more} alt="More button" />
               </button>
             </Link>
           </p>
@@ -78,13 +76,13 @@ const NewsSection = () => {
         <div className="text-section">
           <div className="nav">
             <button onClick={handlePrev}>
-              <img src={icons.arrowLeft} alt="Previous" />
+              <img src={img.icons.ArrowLeft} alt="Previous" />
             </button>
             <span>
               {currentIndex + 1} / {newsData.length}
             </span>
             <button onClick={handleNext}>
-              <img src={icons.arrowRight} alt="Next" />
+              <img src={img.icons.ArrowRight} alt="Next" />
             </button>
           </div>
           <div
