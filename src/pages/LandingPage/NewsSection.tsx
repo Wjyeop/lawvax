@@ -1,22 +1,43 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import img from "../../assets/images/img";
-import { newsData } from "../../const/newsList";
+import { getNewsLandingPage } from "../../api/newsLandingPage";
 
 const NewsSection = () => {
   const [activeTab, setActiveTab] = useState("법인소식");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fadeState, setFadeState] = useState("");
+  interface NewsItem {
+    title: string;
+    summary: string;
+    mainImg: string;
+    createAt: string;
+    creatorName: string;
+  }
+
+  const [newsData, setNewsData] = useState<NewsItem[]>([]);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const data = await getNewsLandingPage(activeTab);
+        setNewsData(data);
+      } catch (error) {
+        console.error("뉴스 조회 중 에러 발생:", error);
+      }
+    };
+
+    fetchNews();
+  }, [activeTab]);
 
   const handleNext = () => {
     const newIndex = (currentIndex + 1) % newsData.length;
     setFadeState("fade-out");
 
-    // 페이드 아웃이 끝나고 페이드 인을 실행
     setTimeout(() => {
       setCurrentIndex(newIndex);
       setFadeState("fade-in");
-    }, 300); // 여기서 500ms는 fade-out의 transition 시간과 일치시킵니다.
+    }, 300);
   };
 
   const handlePrev = () => {
@@ -89,11 +110,15 @@ const NewsSection = () => {
             className={`text-wrap ${fadeState}`}
             // onTransitionEnd={handleTransitionEnd}
           >
-            <p className="title">{newsData[currentIndex].title}</p>
-            <p className="content">{newsData[currentIndex].content}</p>
-            <Link to="/news">
-              <button className="more">자세히 보기</button>
-            </Link>
+            {newsData.length > 0 && (
+              <>
+                <p className="title">{newsData[currentIndex].title}</p>
+                <p className="content">{newsData[currentIndex].summary}</p>
+                <Link to="/news">
+                  <button className="more">자세히 보기</button>
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>

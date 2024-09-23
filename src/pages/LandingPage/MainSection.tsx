@@ -51,8 +51,6 @@ const MainSection = () => {
     }
   };
 
-  console.log("keyword", keyword);
-
   return (
     <div className="main-section">
       <div className="main-content">

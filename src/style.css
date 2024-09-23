@@ -339,6 +339,9 @@
 .landing-page .news-section .content .text-section {
   flex: 40%;
   text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .landing-page .news-section .content .text-section .text-wrap {
@@ -551,6 +554,58 @@
   width: 50px;
 }
 
+.landing-page .hired-section .content-wrap {
+  position: relative;
+  margin: 5% 0;
+}
+
+.landing-page .hired-section .content-wrap .section01 {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  width: 250px;
+}
+
+.landing-page .hired-section .content-wrap .section01 > div {
+  position: relative;
+}
+
+.landing-page .hired-section .content-wrap .section01 .img-wrap {
+}
+
+.landing-page .hired-section .content-wrap .section01 .img-wrap img {
+  width: 80%;
+}
+
+.landing-page .hired-section .content-wrap .section01 .text-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: left;
+  padding: 10px;
+}
+
+.landing-page .hired-section .content-wrap .section01 .text-wrap p {
+  font-weight: bold;
+  margin: 0px;
+}
+
+.landing-page .hired-section .content-wrap .section01 .text-wrap .job {
+  font-size: 0.5em;
+}
+
+.landing-page .hired-section .content-wrap .section01 .text-wrap .name {
+  font-size: 1em;
+  color: #1676bc;
+  font-weight: bold;
+  margin: 0;
+}
+
+.landing-page .hired-section .content-wrap .section01 .text-wrap .class {
+  font-size: 0.5em;
+}
+
 /* 랜딩페이지 > PROFESSIONAL > 슬라이드 */
 
 .landing-page .hired-section .swiper {
@@ -558,11 +613,11 @@
 }
 
 .landing-page .hired-section .swiper-container {
-  margin: 0 10% 0 5%;
+  margin: 0 10% 0 35%;
 }
 
 .landing-page .hired-section .swiper-wrapper {
-  padding: 10% 0 10% 0;
+  padding: 10% 0;
 }
 
 .landing-page .hired-section .swiper-slide {
@@ -599,7 +654,7 @@
 
 .landing-page .hired-section .content.active,
 .landing-page .hired-section .content:hover {
-  transform: scale(1.8);
+  transform: scale(1.2);
   filter: grayscale(0%);
 }
 
@@ -611,13 +666,13 @@
 .landing-page .hired-section .content.active .text-wrap,
 .landing-page .hired-section .content:hover .text-wrap {
   display: block;
-  transform: scale(0.8);
   position: absolute;
-  right: 20%;
+  right: 0%;
+  text-align: right;
 }
 
 .landing-page .hired-section .content img {
-  width: 50%;
+  width: 80%;
   filter: grayscale(100%);
 }
 
@@ -634,6 +689,7 @@
 }
 
 .landing-page .hired-section .content .text-wrap p {
+  font-weight: bold;
   margin: 0px;
 }
 
