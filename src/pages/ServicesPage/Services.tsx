@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import img from "../../assets/images/img";
+import { getWorkField } from "../../api/workField";
 
 const ServicesPage = () => {
   const [isBusinessExpanded, setBusinessExpanded] = useState(false);
   const [isTechnologyExpanded, setTechnologyExpanded] = useState(false);
   const [isFinanceExpanded, setFinanceExpanded] = useState(false);
+  const [data, setData] = useState([]);
 
   const toggleExpand = (section: any) => {
     switch (section) {
@@ -22,6 +24,20 @@ const ServicesPage = () => {
         break;
     }
   };
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const data = await getWorkField();
+        console.log(data);
+        // setMembersData(data);
+      } catch (error) {
+        console.error("업무분야 조회 중 에러 발생:", error);
+      }
+    };
+
+    fetchNews();
+  }, []);
 
   return (
     <div className="services-page">

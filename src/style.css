@@ -567,11 +567,14 @@
   width: 250px;
 }
 
-.landing-page .hired-section .content-wrap .section01 > div {
+.landing-page .hired-section .content-wrap .section01 .slider-content {
   position: relative;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
 }
 
-.landing-page .hired-section .content-wrap .section01 .img-wrap {
+.landing-page .hired-section .content-wrap .section01 .slider-content.fade {
+  opacity: 0;
 }
 
 .landing-page .hired-section .content-wrap .section01 .img-wrap img {
@@ -613,11 +616,11 @@
 }
 
 .landing-page .hired-section .swiper-container {
-  margin: 0 10% 0 35%;
+  margin: 0 15% 0 35%;
 }
 
 .landing-page .hired-section .swiper-wrapper {
-  padding: 10% 0;
+  padding: 15% 0 5% 0;
 }
 
 .landing-page .hired-section .swiper-slide {
@@ -737,8 +740,7 @@
 }
 
 .landing-page .lawvax-map-section .content .search-bar {
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  border: 2px solid #ccc;
   padding: 10px;
   width: 100%;
   display: flex;

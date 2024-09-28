@@ -4,20 +4,23 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import img from "../../assets/images/img";
 import { membersLandingPage } from "../../api/membersLandingPage";
+import { LandingMemberSection01 } from "../../components/LandingMemberSection01";
 
 const HiredLawyerSection = () => {
+  const navigate = useNavigate();
   interface MemberItem {
     nameKo: string;
     position: string;
     firstMainCareer: string;
+    mainImg: string;
   }
 
   const [membersData, setMembersData] = useState<MemberItem[]>([]);
   const swiperRef = useRef(null);
-  const [activeSlideIndex, setActiveSlideIndex] = useState<number | null>(0);
+  const [activeSlideIndex, setActiveSlideIndex] = useState<number | null>(null);
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -38,7 +41,12 @@ const HiredLawyerSection = () => {
     if (swiperRef.current && (swiperRef.current as any).swiper) {
       (swiperRef.current as any).swiper.slideTo(index);
     }
+
+    // navigate(`/members/${membersData[index].nameKo}`);
+    navigate(`/profile`);
   };
+
+  // console.log(membersData);
 
   return (
     <section className="hired-section">
@@ -58,22 +66,11 @@ const HiredLawyerSection = () => {
         </div>
       </div>
       <div className="content-wrap">
-        <div className="section01">
-          <div>
-            <div className="img-wrap">
-              <img src={img.lawyer4} alt="" />
-            </div>
-            <div className="text-wrap">
-              <p className="job">변호사</p>
-              <p className="name">김변호사</p>
-              <p className="class">변호사 1급</p>
-            </div>
-          </div>
-        </div>
+        <LandingMemberSection01 />
         <div className="swiper-container">
           <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
-            navigation
+            navigation={false}
             slidesPerView={3}
             scrollbar={{ draggable: true }}
             spaceBetween={0}
@@ -98,7 +95,8 @@ const HiredLawyerSection = () => {
                   className={`content ${activeSlideIndex === index ? "active" : ""}`}
                 >
                   <div className="img-wrap">
-                    <img src={img.lawyer1} alt={`Slide ${index}`} />
+                    <img src={img.lawyer1} alt="" />
+                    {/* <img src={data.mainImg} alt={`Slide ${index}`} /> */}
                   </div>
                   <div className="text-wrap">
                     <p className="job">{data.position}</p>

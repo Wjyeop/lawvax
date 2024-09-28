@@ -1,8 +1,11 @@
+// 구성원 상세 조회
+
 import axiosInstance from "./axiosInstance";
 
-export const getMembers = async (lawyerId: number) => {
+export const getMembersDetail = async (lawyerId: number) => {
   try {
     const response = await axiosInstance.get(`/api/lawyer/${lawyerId}`);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
     if (error instanceof Error) {

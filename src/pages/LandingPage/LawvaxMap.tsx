@@ -21,7 +21,6 @@ const LawvaxMap: React.FC = () => {
     lat: number;
     lng: number;
   }>({ lat: 37.5665, lng: 126.978 }); // 서울 기본 좌표
-  // const destinationName = "로백스";
   const destinationCoords = {
     lat: 37.4874330809783,
     lng: 127.012219208568,
@@ -70,6 +69,7 @@ const LawvaxMap: React.FC = () => {
     <section className="lawvax-map-section">
       <div className="title">
         <div>
+          <p className="blue">Lawvax</p>
           <p style={{ fontSize: "2em" }}>
             <span className="blue" style={{ fontSize: "2em" }}>
               M

@@ -56,6 +56,20 @@
     min-height: 200px;
   }
 
+  .landing-page .hired-section .content-wrap .section01 {
+    left: 5%;
+    max-width: 160px;
+  }
+
+  .landing-page .hired-section .content-wrap .section01 .img-wrap img {
+    width: 70%;
+  }
+
+  .landing-page .hired-section .content-wrap .section01 .text-wrap {
+    top: -10px;
+    right: -20px;
+  }
+
   .landing-page .hired-section {
     margin: 5% 0;
   }
