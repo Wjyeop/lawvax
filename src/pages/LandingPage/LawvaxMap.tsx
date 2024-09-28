@@ -17,10 +17,6 @@ declare global {
 
 const LawvaxMap: React.FC = () => {
   const [departure, setDeparture] = useState<string>("");
-  const [departureCoords] = useState<{
-    lat: number;
-    lng: number;
-  }>({ lat: 37.5665, lng: 126.978 }); // 서울 기본 좌표
   const destinationCoords = {
     lat: 37.4874330809783,
     lng: 127.012219208568,
@@ -31,8 +27,39 @@ const LawvaxMap: React.FC = () => {
   }
 
   const handleFindDirection = () => {
-    const kakaoUrl = `https://map.kakao.com/link/from/${departureCoords.lat},${departureCoords.lng}/to/로백스,${destinationCoords.lat},${destinationCoords.lng}`;
-    window.open(kakaoUrl, "_blank");
+    const geocoder = new window.kakao.maps.services.Geocoder();
+    const ps = new window.kakao.maps.services.Places();
+
+    // 주소 검색
+    geocoder.addressSearch(departure, (result: any, status: any) => {
+      if (status === window.kakao.maps.services.Status.OK) {
+        const coords = {
+          lat: parseFloat(result[0].y),
+          lng: parseFloat(result[0].x),
+        };
+
+        const kakaoUrl = `https://map.kakao.com/link/from/${departure},${coords.lat},${coords.lng}/to/로백스,${destinationCoords.lat},${destinationCoords.lng}`;
+        window.open(kakaoUrl, "_blank");
+      } else {
+        // 장소 키워드 검색
+        ps.keywordSearch(departure, (result: any, status: any) => {
+          if (status === window.kakao.maps.services.Status.OK) {
+            const coords = {
+              lat: parseFloat(result[0].y),
+              lng: parseFloat(result[0].x),
+            };
+
+            console.log(`입력한 장소명: ${departure}`);
+            console.log(`위도: ${coords.lat}, 경도: ${coords.lng}`);
+
+            const kakaoUrl = `https://map.kakao.com/link/from/${departure},${coords.lat},${coords.lng}/to/로백스,${destinationCoords.lat},${destinationCoords.lng}`;
+            window.open(kakaoUrl, "_blank");
+          } else {
+            alert("주소나 장소를 찾을 수 없습니다. 다시 시도해주세요.");
+          }
+        });
+      }
+    });
   };
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
