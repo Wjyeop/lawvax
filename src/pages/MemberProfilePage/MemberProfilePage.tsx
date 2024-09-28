@@ -7,8 +7,33 @@ import down from "../../assets/images/icons/down.png";
 import big from "../../assets/images/icons/big.png";
 
 import { profileData } from "../../const/profileData";
+import { getMembersDetail } from "../../api/membersDetail";
+import { generateMemberProfilePdf } from "../../utils/pdf";
+
+interface MemberItem {
+  id: number;
+  nameKo: string;
+  nameEn: string;
+  nameCh: string;
+  position: string;
+  firstMainCareer: string;
+  secondMainCareer: string;
+  mainImg: string;
+  introduction: string;
+  workFields: { workField: string }[]; // 객체 배열로 표현
+  educations: { startYear: string; content: string }[];
+  careers: { startYear: string; content: string }[];
+  handleCases: { content: string }[]; // handleCases 배열에 startYear가 없었으므로 content만 포함
+  licenses: { content: string }[];
+  workNumber: string;
+  email: string;
+  faxNumber: string;
+  isVisible: boolean;
+  language: string;
+}
 
 const MemberProfilePage = () => {
+  const [lawyerData, setLawyerData] = useState<MemberItem>();
   const [isEducationExpanded, setEducationExpanded] = useState(false);
   const [isExperienceExpanded, setExperienceExpanded] = useState(false);
   const [isEtcWorkFieldsExpanded, setEtcWorkFieldsExpanded] = useState(false);
@@ -95,6 +120,40 @@ const MemberProfilePage = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const fetchLawyer = async () => {
+      try {
+        const data = await getMembersDetail(2);
+
+        const lawyerData: MemberItem = {
+          ...data,
+          id: data.id || 0, // 기본값 설정
+          nameEn: data.nameEn || "", // 기본값 설정
+          nameCh: data.nameCh || "", // 기본값 설정
+          isVisible: data.isVisible !== undefined ? data.isVisible : true, // 기본값 설정
+          language: data.language || "", // 기본값 설정
+        };
+
+        setLawyerData(data);
+        console.log(data);
+      } catch (error) {
+        console.error("뉴스 조회 중 에러 발생:", error);
+      }
+    };
+
+    fetchLawyer();
+  }, []);
+
+  const handlePdfDownload = () => {
+    if (lawyerData) {
+      generateMemberProfilePdf(lawyerData); // lawyerData를 인자로 전달하여 PDF 생성
+    } else {
+      console.error("변호사 데이터를 불러오지 못했습니다.");
+    }
+  };
+
+  console.log(lawyerData);
+
   return (
     <div className="member-profile-page">
       <div className="title-section">
@@ -106,7 +165,7 @@ const MemberProfilePage = () => {
           <span className="search">{">"}</span>
           <span className="search">인물검색</span>
         </div>
-        <div className="save">
+        <div className="save" onClick={handlePdfDownload}>
           <img src={save} alt="" />
           <span>상세정보 저장하기</span>
         </div>
@@ -115,9 +174,9 @@ const MemberProfilePage = () => {
         <div className="content-wrap">
           <div className="text-wrap">
             <p className="name">
-              {profileData.nameKo}
-              {/* <span>({profileData.nameCh})</span> */}
-              <span className="job">{profileData.position}</span>
+              {lawyerData?.nameKo}
+              {/* <span>({lawyerData?.nameCh})</span> */}
+              <span className="job">{lawyerData?.position}</span>
             </p>
             <p className="mark">
               <img src={big} alt="" />
@@ -145,7 +204,7 @@ const MemberProfilePage = () => {
             <img src={lawyerImage} alt="" />
           </div>
         </div>
-        <p className="ment">{profileData.introduction}</p>
+        <p className="ment">{lawyerData?.introduction}</p>
       </div>
       <div className="sub-menu">
         <span className="menu-item" data-target="case-section">
@@ -166,10 +225,10 @@ const MemberProfilePage = () => {
           <div className="title">
             <p>주요 처리사례</p>
           </div>
-          {profileData.handleCases
+          {profileData?.handleCases
             .slice(
               0,
-              isHandleCasesExpanded ? profileData.handleCases.length : 4
+              isHandleCasesExpanded ? lawyerData?.handleCases.length : 4
             )
             .map((item, index) => (
               <div key={index} className="content">
@@ -179,7 +238,7 @@ const MemberProfilePage = () => {
                 </div>
               </div>
             ))}
-          {profileData.handleCases.length > 4 ? (
+          {profileData?.handleCases.length > 4 ? (
             <button onClick={() => toggleExpand("handleCases")}>
               {isHandleCasesExpanded ? "접기" : "펼치기"}
               {isHandleCasesExpanded ? (
@@ -196,8 +255,8 @@ const MemberProfilePage = () => {
           <div className="title">
             <p>학력</p>
           </div>
-          {profileData.educations
-            .slice(0, isEducationExpanded ? profileData.educations.length : 4)
+          {profileData?.educations
+            .slice(0, isEducationExpanded ? lawyerData?.educations.length : 4)
             .map((item, index) => (
               <div key={index} className="content">
                 <div>
@@ -206,7 +265,7 @@ const MemberProfilePage = () => {
                 </div>
               </div>
             ))}
-          {profileData.educations.length > 4 ? (
+          {profileData?.educations.length > 4 ? (
             <button onClick={() => toggleExpand("education")}>
               {isEducationExpanded ? "접기" : "펼치기"}
               {isEducationExpanded ? (
@@ -223,8 +282,8 @@ const MemberProfilePage = () => {
           <div className="title">
             <p>경력</p>
           </div>
-          {profileData.careers
-            .slice(0, isExperienceExpanded ? profileData.careers.length : 4)
+          {lawyerData?.careers
+            .slice(0, isExperienceExpanded ? lawyerData?.careers.length : 4)
             .map((item, index) => (
               <div key={index} className="content">
                 <div>
@@ -233,7 +292,7 @@ const MemberProfilePage = () => {
                 </div>
               </div>
             ))}
-          {profileData.careers.length > 4 ? (
+          {profileData?.careers.length > 4 ? (
             <button onClick={() => toggleExpand("experience")}>
               {isExperienceExpanded ? "접기" : "펼치기"}
               {isExperienceExpanded ? (
@@ -250,8 +309,8 @@ const MemberProfilePage = () => {
           <div className="title">
             <p>저서/활동/기타</p>
           </div>
-          {profileData.licenses
-            .slice(0, isLicensesExpanded ? profileData.licenses.length : 4)
+          {lawyerData?.licenses
+            .slice(0, isLicensesExpanded ? lawyerData?.licenses.length : 4)
             .map((item, index) => (
               <div key={index} className="content">
                 <div>
@@ -259,7 +318,7 @@ const MemberProfilePage = () => {
                 </div>
               </div>
             ))}
-          {profileData.licenses.length > 4 ? (
+          {profileData?.licenses.length > 4 ? (
             <button onClick={() => toggleExpand("licenses")}>
               {isLicensesExpanded ? "접기" : "펼치기"}
               {isLicensesExpanded ? (
