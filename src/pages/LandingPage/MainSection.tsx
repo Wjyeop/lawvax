@@ -1,11 +1,14 @@
 import { useState } from "react";
 import search from "../../assets/images/icons/search.png";
 import { useNavigate } from "react-router-dom";
+import { getLandingSearch } from "../../api/getLandingSearch";
+import useSearchStore from "../../stores/searchStore"; // Zustand 스토어 임포트
 
 const MainSection = () => {
   const navigate = useNavigate();
-  const [keyword, setKeyword] = useState("");
   const [isFocused, setIsFocused] = useState(false);
+  const { setSearchResults, setKeyword, keyword } = useSearchStore(); // Zustand 훅 사용
+
   const recommendedKeywords = [
     "형사",
     "기업",
@@ -40,11 +43,19 @@ const MainSection = () => {
     }, 100);
   };
 
-  const handleSearch = () => {
-    navigate("/landing-search");
+  // 검색 API 호출 후 Zustand에 저장하고 결과 페이지로 이동
+  const handleSearch = async () => {
     console.log("검색된 키워드:", keyword);
+    try {
+      const searchResults = await getLandingSearch(keyword, true); // 검색 API 호출
+      setSearchResults(searchResults); // Zustand에 검색 결과 저장
+      navigate("/landing-search"); // 검색 결과 페이지로 이동
+    } catch (error) {
+      console.error("검색 실패:", error);
+    }
   };
 
+  // Enter 키를 눌렀을 때 검색 실행
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       handleSearch();
@@ -62,14 +73,6 @@ const MainSection = () => {
           <br /> 기업 금융 IT 분야 로펌
         </p>
         <div className="search-bar">
-          {/* <select className="category-select">
-            <option value="category">업무분야 선택</option>
-            <option value="category">기업감사/내부통제</option>
-            <option value="category">기술보호</option>
-            <option value="category">금융/가상자산</option>
-            <option value="category">건설/부동산</option>
-          </select> */}
-
           <input
             type="text"
             placeholder="키워드를 입력해주세요."
@@ -78,16 +81,14 @@ const MainSection = () => {
             onBlur={handleBlur}
             value={keyword}
             onChange={(e) => setKeyword(e.target.value)}
-            onKeyDown={handleKeyDown}
+            onKeyDown={handleKeyDown} // Enter 키 입력 처리
           />
-
           <img
             className="search-icon"
             src={search}
             alt="search-icon"
-            onClick={handleSearch}
+            onClick={handleSearch} // 클릭 시 검색 실행
           />
-
           {isFocused && (
             <div className="keyword-recommendation">
               {recommendedKeywords.map((item, index) => (
@@ -102,8 +103,6 @@ const MainSection = () => {
             </div>
           )}
         </div>
-
-        <p className="bottom-text">영상</p>
       </div>
     </div>
   );

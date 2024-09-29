@@ -5,8 +5,8 @@ import { getNewsLandingPage } from "../../api/newsLandingPage";
 
 const NewsSection = () => {
   const [activeTab, setActiveTab] = useState("법인소식");
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [fadeState, setFadeState] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0); // 초기 index 상태
+  const [fadeState, setFadeState] = useState(""); // 페이드 애니메이션 상태
   interface NewsItem {
     title: string;
     summary: string;
@@ -17,18 +17,20 @@ const NewsSection = () => {
 
   const [newsData, setNewsData] = useState<NewsItem[]>([]);
 
+  // activeTab이 변경될 때마다 뉴스 데이터를 가져오고 currentIndex를 0으로 설정
   useEffect(() => {
     const fetchNews = async () => {
       try {
         const data = await getNewsLandingPage(activeTab);
         setNewsData(data);
+        setCurrentIndex(0); // 탭이 변경될 때 첫 번째 아이템을 보여주기 위해 currentIndex 초기화
       } catch (error) {
         console.error("뉴스 조회 중 에러 발생:", error);
       }
     };
 
     fetchNews();
-  }, [activeTab]);
+  }, [activeTab]); // activeTab이 변경될 때마다 실행
 
   const handleNext = () => {
     const newIndex = (currentIndex + 1) % newsData.length;
@@ -106,10 +108,7 @@ const NewsSection = () => {
               <img src={img.icons.ArrowRight} alt="Next" />
             </button>
           </div>
-          <div
-            className={`text-wrap ${fadeState}`}
-            // onTransitionEnd={handleTransitionEnd}
-          >
+          <div className={`text-wrap ${fadeState}`}>
             {newsData.length > 0 && (
               <>
                 <p className="title">{newsData[currentIndex].title}</p>

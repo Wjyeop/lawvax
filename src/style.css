@@ -299,6 +299,7 @@
 .landing-page .news-section {
   margin: 10%;
   text-align: center;
+  height: 50vh;
 }
 
 .landing-page .news-section .title {
@@ -439,6 +440,7 @@
 
 .landing-page .newsletter-section {
   text-align: center;
+  height: 50vh;
 }
 
 .landing-page .newsletter-section .title {
@@ -529,6 +531,7 @@
 
 .landing-page .hired-section {
   text-align: center;
+  height: 50vh;
 }
 
 .landing-page .hired-section .title {
@@ -716,6 +719,7 @@
 .landing-page .lawvax-map-section {
   text-align: center;
   margin: 10%;
+  height: 50vh;
 }
 
 .landing-page .lawvax-map-section .title {
@@ -1126,7 +1130,7 @@
   padding: 20px 10px;
   display: flex;
   flex-direction: column;
-  min-height: 300px;
+  min-height: 200px;
 }
 
 .landing-search-page .newsletter-section .content .newsletter-content .mark {

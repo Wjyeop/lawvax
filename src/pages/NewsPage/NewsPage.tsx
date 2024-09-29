@@ -6,7 +6,7 @@ import img from "../../assets/images/img";
 
 const NewsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [activeTab, setActiveTab] = useState("법인소식");
+  const [activeTab, setActiveTab] = useState("LawVax소식");
 
   const totalPages = Math.ceil(newsData.length / 9);
   const currentItems = newsData.slice((currentPage - 1) * 9, currentPage * 9);
@@ -43,7 +43,7 @@ const NewsPage = () => {
         <span>{">"}</span>
         <span>법인소식</span>
         <span>{">"}</span>
-        <span className="search">법인소식</span>
+        <span className="search">{activeTab}</span>
       </div>
       <div className="title">
         <div>
@@ -58,10 +58,10 @@ const NewsPage = () => {
       </div>
       <div className="theme-select">
         <button
-          className={activeTab === "법인소식" ? "active" : ""}
-          onClick={() => setActiveTab("법인소식")}
+          className={activeTab === "LawVax소식" ? "active" : ""}
+          onClick={() => setActiveTab("LawVax소식")}
         >
-          법인소식
+          LawVax소식
         </button>
         <button
           className={activeTab === "언론보도" ? "active" : ""}
