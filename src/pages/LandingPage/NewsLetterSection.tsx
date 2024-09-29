@@ -5,8 +5,33 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getNewsLetterLandingPage } from "../../api/newsLetterLandingPage";
 
 const NewsLetterSection = () => {
+  interface NewsLetterItem {
+    title: string;
+    summary: string;
+    mainImg: string;
+    createAt: string;
+    creatorName: string;
+  }
+
+  const [newsLetterData, setNewsLetterData] = useState<NewsLetterItem[]>([]);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const data = await getNewsLetterLandingPage();
+        setNewsLetterData(data);
+      } catch (error) {
+        console.error("뉴스 조회 중 에러 발생:", error);
+      }
+    };
+
+    fetchNews();
+  }, []);
+
   return (
     <section className="newsletter-section">
       <div className="title">
@@ -42,9 +67,8 @@ const NewsLetterSection = () => {
             },
           }}
         >
-          {Array(5)
-            .fill(0)
-            .map((_, index) => (
+          {newsLetterData.length > 0 &&
+            newsLetterData.map((_, index) => (
               <SwiperSlide key={index}>
                 <div className="newsletter-content">
                   <div className="mark">

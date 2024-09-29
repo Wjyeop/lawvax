@@ -1,13 +1,13 @@
-import { useState } from "react";
-import icons from "../../assets/images/icons/icons";
-import up01 from "../../assets/images/icons/up01.png";
-import down01 from "../../assets/images/icons/down01.png";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import img from "../../assets/images/img";
+import { getWorkField } from "../../api/workField";
 
 const ServicesPage = () => {
   const [isBusinessExpanded, setBusinessExpanded] = useState(false);
   const [isTechnologyExpanded, setTechnologyExpanded] = useState(false);
   const [isFinanceExpanded, setFinanceExpanded] = useState(false);
+  const [data, setData] = useState([]);
 
   const toggleExpand = (section: any) => {
     switch (section) {
@@ -25,10 +25,24 @@ const ServicesPage = () => {
     }
   };
 
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const data = await getWorkField();
+        console.log(data);
+        // setMembersData(data);
+      } catch (error) {
+        console.error("업무분야 조회 중 에러 발생:", error);
+      }
+    };
+
+    fetchNews();
+  }, []);
+
   return (
     <div className="services-page">
       <div className="process">
-        <img src={icons.home} alt="home" />
+        <img src={img.icons.home} alt="home" />
         <span>HOME</span>
         <span>{">"}</span>
         <span>업무분야</span>
@@ -49,7 +63,7 @@ const ServicesPage = () => {
             <span>형사</span>
             <img
               className="fold-img"
-              src={isBusinessExpanded ? icons.up01 : icons.down01}
+              src={isBusinessExpanded ? img.icons.up01 : img.icons.down01}
               alt=""
             />
           </div>
@@ -58,36 +72,36 @@ const ServicesPage = () => {
               <Link to="/services/detail">
                 <div className="content">
                   <p>업무분야</p>
-                  <img src={icons.down} alt="" />
+                  <img src={img.icons.down} alt="" />
                 </div>
               </Link>
               <div className="content">
                 <p>업무분야</p>
-                <img src={icons.down} alt="" />
+                <img src={img.icons.down} alt="" />
               </div>
               <div className="content">
                 <p>업무분야</p>
-                <img src={icons.down} alt="" />
+                <img src={img.icons.down} alt="" />
               </div>
               <div className="content">
                 <p>업무분야</p>
-                <img src={icons.down} alt="" />
+                <img src={img.icons.down} alt="" />
               </div>
               <div className="content">
                 <p>업무분야</p>
-                <img src={icons.down} alt="" />
+                <img src={img.icons.down} alt="" />
               </div>
               <div className="content">
                 <p>업무분야</p>
-                <img src={icons.down} alt="" />
+                <img src={img.icons.down} alt="" />
               </div>
               <div className="content">
                 <p>업무분야</p>
-                <img src={icons.down} alt="" />
+                <img src={img.icons.down} alt="" />
               </div>
               <div className="content">
                 <p>업무분야</p>
-                <img src={icons.down} alt="" />
+                <img src={img.icons.down} alt="" />
               </div>
             </div>
           )}
@@ -97,7 +111,7 @@ const ServicesPage = () => {
             <span>민사 · 행정 · 가사</span>
             <img
               className="fold-img"
-              src={isFinanceExpanded ? up01 : down01}
+              src={isFinanceExpanded ? img.icons.up01 : img.icons.down01}
               alt=""
               onClick={() => toggleExpand("finance")}
             />
@@ -109,7 +123,7 @@ const ServicesPage = () => {
             <span>금융 · 가상자산</span>
             <img
               className="fold-img"
-              src={isTechnologyExpanded ? up01 : down01}
+              src={isTechnologyExpanded ? img.icons.up01 : img.icons.down01}
               alt=""
               onClick={() => toggleExpand("technology")}
             />
@@ -121,7 +135,7 @@ const ServicesPage = () => {
             <span>기업 자문 · 감사대행</span>
             <img
               className="fold-img"
-              src={isTechnologyExpanded ? up01 : down01}
+              src={isTechnologyExpanded ? img.icons.up01 : img.icons.down01}
               alt=""
             />
           </div>
@@ -131,7 +145,7 @@ const ServicesPage = () => {
             <span>IT · 첨단 · 기술보호 · 개인정보</span>
             <img
               className="fold-img"
-              src={isTechnologyExpanded ? up01 : down01}
+              src={isTechnologyExpanded ? img.icons.up01 : img.icons.down01}
               alt=""
             />
           </div>
@@ -141,7 +155,7 @@ const ServicesPage = () => {
             <span>조세 · 관세 · 공정거래</span>
             <img
               className="fold-img"
-              src={isTechnologyExpanded ? up01 : down01}
+              src={isTechnologyExpanded ? img.icons.up01 : img.icons.down01}
               alt=""
             />
           </div>
@@ -151,7 +165,7 @@ const ServicesPage = () => {
             <span>기업 M&A · 구조조정 · 회생</span>
             <img
               className="fold-img"
-              src={isTechnologyExpanded ? up01 : down01}
+              src={isTechnologyExpanded ? img.icons.up01 : img.icons.down01}
               alt=""
             />
           </div>
@@ -161,7 +175,7 @@ const ServicesPage = () => {
             <span>건설 · 부동산</span>
             <img
               className="fold-img"
-              src={isTechnologyExpanded ? up01 : down01}
+              src={isTechnologyExpanded ? img.icons.up01 : img.icons.down01}
               alt=""
             />
           </div>
@@ -171,7 +185,7 @@ const ServicesPage = () => {
             <span>조선 · 해운</span>
             <img
               className="fold-img"
-              src={isTechnologyExpanded ? up01 : down01}
+              src={isTechnologyExpanded ? img.icons.up01 : img.icons.down01}
               alt=""
             />
           </div>
@@ -181,7 +195,7 @@ const ServicesPage = () => {
             <span>방산 · 우주항공</span>
             <img
               className="fold-img"
-              src={isTechnologyExpanded ? up01 : down01}
+              src={isTechnologyExpanded ? img.icons.up01 : img.icons.down01}
               alt=""
             />
           </div>

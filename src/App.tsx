@@ -14,8 +14,9 @@ import MembersPage from "./pages/MembersPage/MembersPage";
 import MemberSearchPage from "./pages/MemberSearchPage/MemberSearchPage";
 import MemberProfilePage from "./pages/MemberProfilePage/MemberProfilePage";
 import NewsPage from "./pages/NewsPage/NewsPage";
-import PostPage from "./pages/PostPage/PostPage";
+import NewsPostPage from "./pages/NewsPostPage/NewsPostPage";
 import NewsLetterPage from "./pages/NewsLetterPage/NewsLetterPage";
+import NewsLetterPostPage from "./pages/NewsLetterPostPage/NewsLetterPostPage";
 import IntroPage from "./pages/IntroPage/IntroPage";
 import ServicesPage from "./pages/ServicesPage/Services";
 import CenterSide from "./components/CenterSide";
@@ -47,9 +48,10 @@ function App() {
           <Route path="/services/detail" element={<ServicesDetail />} />
 
           <Route path="/news" element={<NewsPage />} />
-          <Route path="/news/post" element={<PostPage />} />
+          <Route path="/news/post" element={<NewsPostPage />} />
 
           <Route path="/newsletter" element={<NewsLetterPage />} />
+          <Route path="/newsletter/post" element={<NewsLetterPostPage />} />
 
           <Route path="/members" element={<MembersPage />} />
           <Route path="/memberSearch" element={<MemberSearchPage />} />

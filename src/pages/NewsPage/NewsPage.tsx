@@ -2,11 +2,11 @@ import { useState } from "react";
 import { newsData } from "../../const/newsList";
 import home from "../../assets/images/icons/home.png";
 import { Link } from "react-router-dom";
-import icons from "../../assets/images/icons/icons";
+import img from "../../assets/images/img";
 
 const NewsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [activeTab, setActiveTab] = useState("법인소식");
+  const [activeTab, setActiveTab] = useState("LawVax소식");
 
   const totalPages = Math.ceil(newsData.length / 9);
   const currentItems = newsData.slice((currentPage - 1) * 9, currentPage * 9);
@@ -43,7 +43,7 @@ const NewsPage = () => {
         <span>{">"}</span>
         <span>법인소식</span>
         <span>{">"}</span>
-        <span className="search">법인소식</span>
+        <span className="search">{activeTab}</span>
       </div>
       <div className="title">
         <div>
@@ -58,10 +58,10 @@ const NewsPage = () => {
       </div>
       <div className="theme-select">
         <button
-          className={activeTab === "법인소식" ? "active" : ""}
-          onClick={() => setActiveTab("법인소식")}
+          className={activeTab === "LawVax소식" ? "active" : ""}
+          onClick={() => setActiveTab("LawVax소식")}
         >
-          법인소식
+          LawVax소식
         </button>
         <button
           className={activeTab === "언론보도" ? "active" : ""}
@@ -100,13 +100,13 @@ const NewsPage = () => {
       </div>
       <div className="pagination">
         <img
-          src={icons.left02}
+          src={img.icons.left02}
           alt="First Page"
           onClick={handleFirstClick}
           style={{ cursor: currentPage > 1 ? "pointer" : "not-allowed" }}
         />
         <img
-          src={icons.left}
+          src={img.icons.left}
           alt=""
           onClick={handlePrevClick}
           style={{ cursor: currentPage > 1 ? "pointer" : "not-allowed" }}
@@ -123,7 +123,7 @@ const NewsPage = () => {
           </span>
         ))}
         <img
-          src={icons.right}
+          src={img.icons.right}
           alt=""
           onClick={handleNextClick}
           style={{
@@ -131,7 +131,7 @@ const NewsPage = () => {
           }}
         />
         <img
-          src={icons.right02}
+          src={img.icons.right02}
           alt="Last Page"
           onClick={handleLastClick}
           style={{

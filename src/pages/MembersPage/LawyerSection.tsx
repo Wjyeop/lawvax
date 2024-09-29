@@ -2,13 +2,22 @@ import { lawyerList } from "../../const/lawyerList";
 import up from "../../assets/images/icons/up.png";
 import down from "../../assets/images/icons/down.png";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 
 const Lawyersection = () => {
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  // const isDesktop = useMediaQuery({ query: "(min-width: 769px)" });
+
   const [selectedLawyerIndex, setSelectedLawyerIndex] = useState<number | null>(
     0
   );
   const [showAll, setShowAll] = useState(false);
-  const visibleLawyers = showAll ? lawyerList : lawyerList.slice(0, 6);
+  const visibleLawyers = showAll
+    ? lawyerList
+    : isMobile
+      ? lawyerList.slice(0, 4) // 모바일에서는 4개만 표시
+      : lawyerList.slice(0, 6); // 데스크탑에서는 6개만 표시
 
   const handleClick = (index: number) => {
     setSelectedLawyerIndex(index);
@@ -27,7 +36,9 @@ const Lawyersection = () => {
             className={`lawyer-item ${selectedLawyerIndex === index ? "selected" : ""}`}
             onClick={() => handleClick(index)}
           >
-            <img src={lawyer.img} alt="" />
+            <Link to="/profile">
+              <img src={lawyer.img} alt="" />
+            </Link>
             <div className="text-wrap">
               <p className="p1">
                 <span>{lawyer.name}</span>

@@ -1,12 +1,56 @@
-import React, { useState } from "react";
-import newsImg from "../../assets/images/news1.png";
-import more from "../../assets/images/more.png";
-import left from "../../assets/images/ArrowLeft.png";
-import right from "../../assets/images/ArrowRight.png";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import img from "../../assets/images/img";
+import { getNewsLandingPage } from "../../api/newsLandingPage";
 
 const NewsSection = () => {
   const [activeTab, setActiveTab] = useState("법인소식");
+  const [currentIndex, setCurrentIndex] = useState(0); // 초기 index 상태
+  const [fadeState, setFadeState] = useState(""); // 페이드 애니메이션 상태
+  interface NewsItem {
+    title: string;
+    summary: string;
+    mainImg: string;
+    createAt: string;
+    creatorName: string;
+  }
+
+  const [newsData, setNewsData] = useState<NewsItem[]>([]);
+
+  // activeTab이 변경될 때마다 뉴스 데이터를 가져오고 currentIndex를 0으로 설정
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const data = await getNewsLandingPage(activeTab);
+        setNewsData(data);
+        setCurrentIndex(0); // 탭이 변경될 때 첫 번째 아이템을 보여주기 위해 currentIndex 초기화
+      } catch (error) {
+        console.error("뉴스 조회 중 에러 발생:", error);
+      }
+    };
+
+    fetchNews();
+  }, [activeTab]); // activeTab이 변경될 때마다 실행
+
+  const handleNext = () => {
+    const newIndex = (currentIndex + 1) % newsData.length;
+    setFadeState("fade-out");
+
+    setTimeout(() => {
+      setCurrentIndex(newIndex);
+      setFadeState("fade-in");
+    }, 300);
+  };
+
+  const handlePrev = () => {
+    const newIndex = (currentIndex - 1 + newsData.length) % newsData.length;
+    setFadeState("fade-out");
+
+    setTimeout(() => {
+      setCurrentIndex(newIndex);
+      setFadeState("fade-in");
+    }, 300);
+  };
 
   return (
     <div className="news-section">
@@ -20,12 +64,13 @@ const NewsSection = () => {
             EWS
             <Link to="/news">
               <button className="more">
-                <img src={more} alt="" />
+                <img src={img.more} alt="More button" />
               </button>
             </Link>
           </p>
         </div>
       </div>
+
       <div className="theme-select">
         <button
           className={activeTab === "법인소식" ? "active" : ""}
@@ -45,38 +90,35 @@ const NewsSection = () => {
         >
           인재영입
         </button>
-        {/* <button
-          className={activeTab === "수상" ? "active" : ""}
-          onClick={() => setActiveTab("수상")}
-        >
-          수상
-        </button> */}
       </div>
+
       <div className="content">
         <div className="img-section">
-          <img src={newsImg} alt="" />
+          <img src={img.news1} alt="News" />
         </div>
         <div className="text-section">
           <div className="nav">
-            <button>
-              <img src={left} alt="" />
+            <button onClick={handlePrev}>
+              <img src={img.icons.ArrowLeft} alt="Previous" />
             </button>
-            <span>1 / 10</span>
-            <button>
-              <img src={right} alt="" />
+            <span>
+              {currentIndex + 1} / {newsData.length}
+            </span>
+            <button onClick={handleNext}>
+              <img src={img.icons.ArrowRight} alt="Next" />
             </button>
           </div>
-          <p className="title">
-            중대재해처벌법 시행 2년, <br />
-            무엇이 달라졌을까
-          </p>
-          <p className="content">
-            [김기동 법무법인 로백스 대표변호사] 산업현장에서 반복적으로 발생하는
-            중대재해를 줄이고자 재정된 중대재해 처벌 등에 관한 법률 (이하
-            '중대재해처벌법')이 시행된 지 벌써 2년이 지났다. 재정 당시 과도한
-            형사처벌 등에 대한 우려에도 불구하고 어느덧 중대재해처벌법 ...
-          </p>
-          <button className="more">자세히 보기</button>
+          <div className={`text-wrap ${fadeState}`}>
+            {newsData.length > 0 && (
+              <>
+                <p className="title">{newsData[currentIndex].title}</p>
+                <p className="content">{newsData[currentIndex].summary}</p>
+                <Link to="/news">
+                  <button className="more">자세히 보기</button>
+                </Link>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>

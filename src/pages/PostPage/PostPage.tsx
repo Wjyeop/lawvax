@@ -69,6 +69,16 @@ const PostPage = () => {
         navigation
         slidesPerView={3}
         spaceBetween={5}
+        breakpoints={{
+          320: {
+            slidesPerView: 2,
+            spaceBetween: 5,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 5,
+          },
+        }}
       >
         {relatedNews.map((news) => (
           <SwiperSlide>

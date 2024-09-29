@@ -1,5 +1,4 @@
-import icons from "../../assets/images/icons/icons";
-import images from "../../assets/images/images";
+import img from "../../assets/images/img";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import "swiper/css";
@@ -28,7 +27,7 @@ const ServicesDetail = () => {
   return (
     <div className="services-detail-page">
       <div className="process">
-        <img src={icons.home} alt="home" />
+        <img src={img.icons.home} alt="home" />
         <span>HOME</span>
         <span>{">"}</span>
         <span>업무분야</span>
@@ -45,7 +44,7 @@ const ServicesDetail = () => {
       </div>
       <div className="sub-title" ref={introduce}>
         <p>형사</p>
-        <img src={images.field01} alt="" />
+        <img src={img.field01} alt="" />
       </div>
       <div className="content-wrap">
         <div className="content-left">
@@ -155,9 +154,9 @@ const ServicesDetail = () => {
             <button className="toggle-button" onClick={handleToggle}>
               {showAll ? "접기" : "더보기"}
               {showAll ? (
-                <img src={icons.up} alt="" />
+                <img src={img.icons.up} alt="" />
               ) : (
-                <img src={icons.down} alt="" />
+                <img src={img.icons.down} alt="" />
               )}
             </button>
           </div>
@@ -173,6 +172,14 @@ const ServicesDetail = () => {
                 scrollbar={{ draggable: true }}
                 slidesOffsetBefore={0}
                 slidesOffsetAfter={0}
+                breakpoints={{
+                  300: {
+                    slidesPerView: 2,
+                  },
+                  1024: {
+                    slidesPerView: 4,
+                  },
+                }}
               >
                 {Array(5)
                   .fill(0)

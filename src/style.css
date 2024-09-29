@@ -299,6 +299,7 @@
 .landing-page .news-section {
   margin: 10%;
   text-align: center;
+  height: 50vh;
 }
 
 .landing-page .news-section .title {
@@ -326,7 +327,7 @@
   width: 50px;
 }
 
-.landing-page .news-section .content {
+.landing-page .news-section > .content {
   display: flex;
   margin: 20px 100px;
 }
@@ -339,6 +340,23 @@
 .landing-page .news-section .content .text-section {
   flex: 40%;
   text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.landing-page .news-section .content .text-section .text-wrap {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.landing-page .news-section .content .text-section .text-wrap.fade-out {
+  opacity: 0;
+}
+
+.landing-page .news-section .content .text-section .text-wrap.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
 }
 
 .landing-page .news-section .content .text-section .title {
@@ -356,7 +374,8 @@
   background: none;
   border: none;
   cursor: pointer;
-  margin: 10px;
+  margin: 0;
+  padding: 0;
 }
 
 .landing-page .news-section .content .text-section .nav img {
@@ -421,6 +440,7 @@
 
 .landing-page .newsletter-section {
   text-align: center;
+  height: 50vh;
 }
 
 .landing-page .newsletter-section .title {
@@ -511,6 +531,7 @@
 
 .landing-page .hired-section {
   text-align: center;
+  height: 50vh;
 }
 
 .landing-page .hired-section .title {
@@ -536,6 +557,61 @@
   width: 50px;
 }
 
+.landing-page .hired-section .content-wrap {
+  position: relative;
+  margin: 5% 0;
+}
+
+.landing-page .hired-section .content-wrap .section01 {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  width: 250px;
+}
+
+.landing-page .hired-section .content-wrap .section01 .slider-content {
+  position: relative;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.landing-page .hired-section .content-wrap .section01 .slider-content.fade {
+  opacity: 0;
+}
+
+.landing-page .hired-section .content-wrap .section01 .img-wrap img {
+  width: 80%;
+}
+
+.landing-page .hired-section .content-wrap .section01 .text-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: left;
+  padding: 10px;
+}
+
+.landing-page .hired-section .content-wrap .section01 .text-wrap p {
+  font-weight: bold;
+  margin: 0px;
+}
+
+.landing-page .hired-section .content-wrap .section01 .text-wrap .job {
+  font-size: 0.5em;
+}
+
+.landing-page .hired-section .content-wrap .section01 .text-wrap .name {
+  font-size: 1em;
+  color: #1676bc;
+  font-weight: bold;
+  margin: 0;
+}
+
+.landing-page .hired-section .content-wrap .section01 .text-wrap .class {
+  font-size: 0.5em;
+}
+
 /* 랜딩페이지 > PROFESSIONAL > 슬라이드 */
 
 .landing-page .hired-section .swiper {
@@ -543,11 +619,11 @@
 }
 
 .landing-page .hired-section .swiper-container {
-  margin: 0 5%;
+  margin: 0 15% 0 35%;
 }
 
 .landing-page .hired-section .swiper-wrapper {
-  padding: 10% 0 10% 0;
+  padding: 15% 0 5% 0;
 }
 
 .landing-page .hired-section .swiper-slide {
@@ -574,16 +650,17 @@
 
 .landing-page .hired-section .content {
   position: relative;
-  transition: all 0.3s ease;
+  /* transition: all 0.5s ease; */
 }
 
 .landing-page .hired-section .content img {
   filter: grayscale(100%);
+  cursor: pointer;
 }
 
 .landing-page .hired-section .content.active,
 .landing-page .hired-section .content:hover {
-  transform: scale(1.8);
+  transform: scale(1.2);
   filter: grayscale(0%);
 }
 
@@ -595,13 +672,13 @@
 .landing-page .hired-section .content.active .text-wrap,
 .landing-page .hired-section .content:hover .text-wrap {
   display: block;
-  transform: scale(0.8);
   position: absolute;
-  right: 20%;
+  right: 0%;
+  text-align: right;
 }
 
 .landing-page .hired-section .content img {
-  width: 50%;
+  width: 80%;
   filter: grayscale(100%);
 }
 
@@ -618,6 +695,7 @@
 }
 
 .landing-page .hired-section .content .text-wrap p {
+  font-weight: bold;
   margin: 0px;
 }
 
@@ -641,6 +719,7 @@
 .landing-page .lawvax-map-section {
   text-align: center;
   margin: 10%;
+  height: 50vh;
 }
 
 .landing-page .lawvax-map-section .title {
@@ -665,8 +744,7 @@
 }
 
 .landing-page .lawvax-map-section .content .search-bar {
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  border: 2px solid #ccc;
   padding: 10px;
   width: 100%;
   display: flex;
@@ -1052,7 +1130,7 @@
   padding: 20px 10px;
   display: flex;
   flex-direction: column;
-  min-height: 300px;
+  min-height: 200px;
 }
 
 .landing-search-page .newsletter-section .content .newsletter-content .mark {
@@ -1728,6 +1806,7 @@
   height: 20px;
   padding-right: 10px;
   padding-top: 3px;
+  cursor: pointer;
 }
 
 .members-page .title-section .search-category-wrap {
@@ -2022,28 +2101,11 @@
   background-color: white;
 }
 
-.member-search-page .search-bar .category-select {
-  width: 110px;
-  border: none;
-  background: transparent;
-  font-size: 16px;
-  color: #333;
-  padding: 10px;
-  outline: none;
-  margin-right: 10px;
-  cursor: pointer;
-}
-
-.member-search-page .search-bar .category-select {
-  flex: 3;
-  font-size: 0.8em;
-}
-
 .member-search-page .search-bar input {
   flex: 6;
   border: none;
   padding: 10px;
-  font-size: 16px;
+  font-size: 0.8em;
   outline: none;
   background: transparent;
 }
@@ -2073,7 +2135,6 @@
 
 .member-search-page .search-list-section .lawyer img {
   width: 100%;
-  background-color: #f9f9f9;
 }
 
 .member-search-page .search-list-section .lawyer .text-wrap p {
@@ -2660,6 +2721,9 @@
   margin: 5% 10%;
 }
 
+.post-page .swiper .swiper-wrapper {
+}
+
 .post-page .swiper-slide {
   border: 1px solid #ddd;
 }
@@ -2675,6 +2739,7 @@
 .post-page .swiper-slide .content .text-wrap .title {
   height: 80px;
   margin: 0;
+  font-size: 1em;
 }
 
 .post-page .swiper-slide .content .text-wrap .bottom {
@@ -2863,6 +2928,10 @@
 }
 
 .support-center-page .theme-select {
+  position: sticky;
+  top: 72px;
+  background-color: white;
+  z-index: 100;
   display: flex;
   justify-content: center;
   margin-top: 20px;
