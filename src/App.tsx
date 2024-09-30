@@ -21,8 +21,13 @@ import TechCenterPage from "./pages/TechCenterPage/TechCenterPage";
 import SupportCenterPage from "./pages/SupportCenterPage/SupportCenterPage";
 import ServicesDetail from "./pages/ServicesDetailPage/ServicesDetail";
 import Layout from "./components/Layout/Layout";
+
+// admin
 import AdminLayout from "./components/Layout/AdminLayout";
 import PeopleManagement from "./pages/admin/People/PeopleManagement";
+import WorkCategoryManagement from "./pages/admin/WorkCategory/WorkCategoryManagement";
+import NewsLetterManagement from "./pages/admin/NewsLetter/NewsLetterManagement";
+import PostManagement from "./pages/admin/Post/PostManagement";
 
 function App() {
   return (
@@ -59,6 +64,15 @@ function App() {
             <Route
               path="/admin/people-management"
               element={<PeopleManagement />}
+            />
+            <Route
+              path="/admin/work-category-manegement"
+              element={<WorkCategoryManagement />}
+            />
+            <Route path="/admin/post-manegement" element={<PostManagement />} />
+            <Route
+              path="/admin/news-letter-manegement"
+              element={<NewsLetterManagement />}
             />
           </Route>
         </Routes>
