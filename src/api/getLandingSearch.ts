@@ -7,8 +7,7 @@ export const getLandingSearch = async (
   try {
     const response = await axiosInstance.get(`/api/search`, {
       params: {
-        serach: search,
-        // search: search,
+        search: search,
         is_first_page: isFirstPage,
       },
     });

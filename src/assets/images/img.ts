@@ -44,7 +44,6 @@ import big from "./icons/big.png";
 import blueBus from "./icons/blueBus.png";
 import copy from "./icons/copy.png";
 import down from "./icons/down.png";
-import down01 from "./icons/down01.png";
 import down02 from "./icons/down02.png";
 import fax from "./icons/fax.png";
 import greenBus from "./icons/greenBus.png";
@@ -70,6 +69,7 @@ import left02 from "./icons/left02.png";
 import right from "./icons/right.png";
 import right02 from "./icons/right02.png";
 import closeBtn from "./icons/closeBtn.svg";
+import arrowGray from "./icons/arrowGray.png";
 
 const img = {
   CenterMain01,
@@ -118,7 +118,6 @@ const img = {
     blueBus,
     copy,
     down,
-    down01,
     down02,
     fax,
     greenBus,
@@ -144,6 +143,7 @@ const img = {
     right,
     right02,
     closeBtn,
+    arrowGray,
   },
 };
 
