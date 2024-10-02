@@ -16,13 +16,13 @@ import NewsPostPage from "./pages/NewsPostPage/NewsPostPage";
 import NewsLetterPage from "./pages/NewsLetterPage/NewsLetterPage";
 import NewsLetterPostPage from "./pages/NewsLetterPostPage/NewsLetterPostPage";
 import IntroPage from "./pages/IntroPage/IntroPage";
-import ServicesPage from "./pages/ServicesPage/Services";
 import TechCenterPage from "./pages/TechCenterPage/TechCenterPage";
 import SupportCenterPage from "./pages/SupportCenterPage/SupportCenterPage";
-import ServicesDetail from "./pages/ServicesDetailPage/ServicesDetail";
 import Layout from "./components/Layout/Layout";
 import AdminLayout from "./components/Layout/AdminLayout";
 import PeopleManagement from "./pages/admin/People/PeopleManagement";
+import WorkFieldPage from "./pages/WorkFieldPage/WorkFieldPage";
+import WorkFieldDetailPage from "./pages/WorkFieldDetailPage/WorkFieldDetailPage";
 
 function App() {
   return (
@@ -37,8 +37,11 @@ function App() {
               element={<LandingSearchDetailPage />}
             />
             <Route path="/intro" element={<IntroPage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/services/detail" element={<ServicesDetail />} />
+            <Route path="/workfield" element={<WorkFieldPage />} />
+            <Route
+              path="/workfield/detail/:workField"
+              element={<WorkFieldDetailPage />}
+            />
             <Route path="/news" element={<NewsPage />} />
             <Route path="/news/post/:id" element={<NewsPostPage />} />
             <Route path="/newsletter" element={<NewsLetterPage />} />
