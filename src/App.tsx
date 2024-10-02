@@ -24,10 +24,10 @@ import Layout from "./components/Layout/Layout";
 
 // admin
 import AdminLayout from "./components/Layout/AdminLayout";
-import PeopleManagement from "./pages/admin/People/PeopleManagement";
-import WorkCategoryManagement from "./pages/admin/WorkCategory/WorkCategoryManagement";
-import NewsLetterManagement from "./pages/admin/NewsLetter/NewsLetterManagement";
-import PostManagement from "./pages/admin/Post/PostManagement";
+import PeopleManagement from "./pages/Admin/People/PeopleManagement";
+import WorkCategoryManagement from "./pages/Admin/WorkCategory/WorkCategoryManagement";
+import NewsLetterManagement from "./pages/Admin/NewsLetter/NewsLetterManagement";
+import PostManagement from "./pages/Admin/Post/PostManagement";
 
 function App() {
   return (
