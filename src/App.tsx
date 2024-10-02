@@ -36,22 +36,19 @@ function App() {
               path="/landing-search-detail"
               element={<LandingSearchDetailPage />}
             />
-
             <Route path="/intro" element={<IntroPage />} />
-
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/services/detail" element={<ServicesDetail />} />
-
             <Route path="/news" element={<NewsPage />} />
-            <Route path="/news/post" element={<NewsPostPage />} />
-
+            <Route path="/news/post/:id" element={<NewsPostPage />} />
             <Route path="/newsletter" element={<NewsLetterPage />} />
-            <Route path="/newsletter/post" element={<NewsLetterPostPage />} />
-
+            <Route
+              path="/newsletter/post:id"
+              element={<NewsLetterPostPage />}
+            />
             <Route path="/members" element={<MembersPage />} />
             <Route path="/memberSearch" element={<MemberSearchPage />} />
             <Route path="/profile" element={<MemberProfilePage />} />
-
             <Route path="/support-center" element={<SupportCenterPage />} />
             <Route path="/tech-center" element={<TechCenterPage />} />
           </Route>
