@@ -1,8 +1,7 @@
 import home from "../../assets/images/icons/home.png";
-import share from "../../assets/images/icons/share.png";
-import print from "../../assets/images/icons/print.png";
+// import share from "../../assets/images/icons/share.png";
+// import print from "../../assets/images/icons/print.png";
 import list from "../../assets/images/icons/list.png";
-import img from "../../assets/images/img";
 import { Link, useParams } from "react-router-dom"; // useParams 사용
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
@@ -51,7 +50,7 @@ const NewsPostPage = () => {
 
     fetchNewsDetail();
     fetchRelatedNews();
-  }, [id, selectedTab]); // id가 변경될 때마다 호출
+  }, [id, selectedTab]);
 
   return (
     <div className="post-page">
@@ -117,7 +116,9 @@ const NewsPostPage = () => {
                     <h3 className="title">{news.title}</h3>
                     <div className="bottom">
                       <span className="date">{news.createdAt}</span>
-                      <span className="more">자세히보기</span>
+                      <Link to={`/news/post/${news.id}`}>
+                        <span className="more">자세히보기</span>
+                      </Link>
                     </div>
                   </div>
                 </div>

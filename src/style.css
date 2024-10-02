@@ -2704,12 +2704,14 @@
 }
 
 .post-page .related-news .list {
-  text-align: right;
   font-size: 0.8em;
   color: #888;
+  padding-top: 5px;
+}
+
+.post-page .related-news a {
   display: flex;
   justify-content: right;
-  padding-top: 5px;
 }
 
 .post-page .related-news .list img {
@@ -2745,12 +2747,13 @@
 .post-page .swiper-slide .content .text-wrap .bottom {
   display: flex;
   font-size: 0.8em;
-  color: #888;
   justify-content: space-between;
 }
 
 .post-page .swiper-slide .content .text-wrap .bottom .more {
   text-decoration: underline;
+  color: #888;
+
   cursor: pointer;
 }
 

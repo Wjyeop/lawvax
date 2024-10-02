@@ -43,7 +43,7 @@ function App() {
             <Route path="/news/post/:id" element={<NewsPostPage />} />
             <Route path="/newsletter" element={<NewsLetterPage />} />
             <Route
-              path="/newsletter/post:id"
+              path="/newsletter/post/:id"
               element={<NewsLetterPostPage />}
             />
             <Route path="/members" element={<MembersPage />} />
