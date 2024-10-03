@@ -94,7 +94,15 @@ const NewsSection = () => {
 
       <div className="content">
         <div className="img-section">
-          <img src={img.news1} alt="News" />
+          {/* <img src={img.news1} alt="News" /> */}
+          <img
+            src={
+              newsData[currentIndex]?.mainImg
+                ? newsData[currentIndex]?.mainImg
+                : img.news1
+            }
+            alt="News"
+          />
         </div>
         <div className="text-section">
           <div className="nav">

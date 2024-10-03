@@ -7,32 +7,12 @@ import down from "../../assets/images/icons/down.png";
 import big from "../../assets/images/icons/big.png";
 
 import { profileData } from "../../const/profileData";
-import { getMembersDetail } from "../../api/membersDetail";
+import { getMembersDetail } from "../../api/getMembersDetail";
 import { generateMemberProfilePdf } from "../../utils/pdf";
-
-interface MemberItem {
-  id: number;
-  nameKo: string;
-  nameEn: string;
-  nameCh: string;
-  position: string;
-  firstMainCareer: string;
-  secondMainCareer: string;
-  mainImg: string;
-  introduction: string;
-  workFields: { workField: string }[]; // 객체 배열로 표현
-  educations: { startYear: string; content: string }[];
-  careers: { startYear: string; content: string }[];
-  handleCases: { content: string }[]; // handleCases 배열에 startYear가 없었으므로 content만 포함
-  licenses: { content: string }[];
-  workNumber: string;
-  email: string;
-  faxNumber: string;
-  isVisible: boolean;
-  language: string;
-}
+import { useParams } from "react-router-dom";
 
 const MemberProfilePage = () => {
+  const { id } = useParams();
   const [lawyerData, setLawyerData] = useState<MemberItem>();
   const [isEducationExpanded, setEducationExpanded] = useState(false);
   const [isExperienceExpanded, setExperienceExpanded] = useState(false);
@@ -123,26 +103,14 @@ const MemberProfilePage = () => {
   useEffect(() => {
     const fetchLawyer = async () => {
       try {
-        const data = await getMembersDetail(2);
-
-        const lawyerData: MemberItem = {
-          ...data,
-          id: data.id || 0, // 기본값 설정
-          nameEn: data.nameEn || "", // 기본값 설정
-          nameCh: data.nameCh || "", // 기본값 설정
-          isVisible: data.isVisible !== undefined ? data.isVisible : true, // 기본값 설정
-          language: data.language || "", // 기본값 설정
-        };
-
+        const data = await getMembersDetail(Number(id));
         setLawyerData(data);
-        console.log(data);
       } catch (error) {
-        console.error("뉴스 조회 중 에러 발생:", error);
+        console.error("변호사 데이터 조회 중 에러 발생:", error);
       }
     };
-
     fetchLawyer();
-  }, []);
+  }, [id]);
 
   const handlePdfDownload = () => {
     if (lawyerData) {
@@ -151,8 +119,6 @@ const MemberProfilePage = () => {
       console.error("변호사 데이터를 불러오지 못했습니다.");
     }
   };
-
-  console.log(lawyerData);
 
   return (
     <div className="member-profile-page">
@@ -175,20 +141,18 @@ const MemberProfilePage = () => {
           <div className="text-wrap">
             <p className="name">
               {lawyerData?.nameKo}
-              {/* <span>({lawyerData?.nameCh})</span> */}
               <span className="job">{lawyerData?.position}</span>
             </p>
             <p className="mark">
               <img src={big} alt="" />
-              서울대 법대
+              {lawyerData?.position}
             </p>
             <p className="sub-title">
               <span>주요경력</span>
             </p>
             <div className="sub-content01">
-              <p>서울대 법대</p>
-              <p>부산지검장</p>
-              <p>대검 부패범죄특별수사단 단장</p>
+              <p>{lawyerData?.firstMainCareer}</p>
+              <p>{lawyerData?.secondMainCareer}</p>
             </div>
             <p className="sub-title">
               <span>업무분야</span>
@@ -347,3 +311,50 @@ const MemberProfilePage = () => {
 };
 
 export default MemberProfilePage;
+
+interface Career {
+  startYear: string;
+  endYear: string;
+  content: string;
+}
+
+interface Education {
+  startYear: string;
+  endYear: string;
+  content: string;
+}
+
+interface HandleCase {
+  startYear: string;
+  endYear: string;
+  content: string;
+}
+
+interface License {
+  content: string;
+}
+
+interface WorkField {
+  workField: string;
+}
+
+interface MemberItem {
+  id: number;
+  nameKo: string;
+  nameEn: string;
+  nameCh: string;
+  position: string;
+  email: string;
+  mainImg: string;
+  firstMainCareer: string;
+  secondMainCareer: string;
+  workNumber: string;
+  faxNumber: string;
+  introduction: string;
+  language: string;
+  careers: Career[];
+  educations: Education[];
+  handleCases: HandleCase[];
+  licenses: License[];
+  workFields: WorkField[];
+}

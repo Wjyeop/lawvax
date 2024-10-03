@@ -4,28 +4,6 @@ import { jsPDF } from "jspdf"; // 이로써 모듈로 인식됩니다.
 import { _fonts } from "./font";
 import img from "../assets/images/img";
 
-interface MemberItem {
-  id: number;
-  nameKo: string;
-  nameEn: string;
-  nameCh: string;
-  position: string;
-  firstMainCareer: string;
-  secondMainCareer: string;
-  mainImg: string;
-  introduction: string;
-  workFields: { workField: string }[]; // 객체 배열로 표현
-  educations: { startYear: string; content: string }[];
-  careers: { startYear: string; content: string }[];
-  handleCases: { content: string }[]; // handleCases 배열에 startYear가 없었으므로 content만 포함
-  licenses: { content: string }[];
-  workNumber: string;
-  email: string;
-  faxNumber: string;
-  isVisible: boolean;
-  language: string;
-}
-
 export const generateMemberProfilePdf = (lawyerData: MemberItem) => {
   const doc = new jsPDF("p", "mm", "a4");
   // const imageUrl = lawyerData.mainImg;
@@ -151,3 +129,50 @@ export const generateMemberProfilePdf = (lawyerData: MemberItem) => {
   // PDF 저장
   doc.save(`${lawyerData.nameKo}_profile.pdf`);
 };
+
+interface Career {
+  startYear: string;
+  endYear: string;
+  content: string;
+}
+
+interface Education {
+  startYear: string;
+  endYear: string;
+  content: string;
+}
+
+interface HandleCase {
+  startYear: string;
+  endYear: string;
+  content: string;
+}
+
+interface License {
+  content: string;
+}
+
+interface WorkField {
+  workField: string;
+}
+
+interface MemberItem {
+  id: number;
+  nameKo: string;
+  nameEn: string;
+  nameCh: string;
+  position: string;
+  email: string;
+  mainImg: string;
+  firstMainCareer: string;
+  secondMainCareer: string;
+  workNumber: string;
+  faxNumber: string;
+  introduction: string;
+  language: string;
+  careers: Career[];
+  educations: Education[];
+  handleCases: HandleCase[];
+  licenses: License[];
+  workFields: WorkField[];
+}

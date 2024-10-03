@@ -9,7 +9,6 @@ import LandingPage from "./pages/LandingPage/LandingPage";
 import LandingSearchPage from "./pages/LandingSearchPage/LandingSearchPage";
 import LandingSearchDetailPage from "./pages/LandingSearchDetailPage/LandingSearchDetail";
 import MembersPage from "./pages/MembersPage/MembersPage";
-import MemberSearchPage from "./pages/MemberSearchPage/MemberSearchPage";
 import MemberProfilePage from "./pages/MemberProfilePage/MemberProfilePage";
 import NewsPage from "./pages/NewsPage/NewsPage";
 import NewsPostPage from "./pages/NewsPostPage/NewsPostPage";
@@ -33,9 +32,10 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/landing-search" element={<LandingSearchPage />} />
             <Route
-              path="/landing-search-detail"
+              path="/landing-search-detail/:section"
               element={<LandingSearchDetailPage />}
             />
+
             <Route path="/intro" element={<IntroPage />} />
             <Route path="/workfield" element={<WorkFieldPage />} />
             <Route
@@ -50,8 +50,10 @@ function App() {
               element={<NewsLetterPostPage />}
             />
             <Route path="/members" element={<MembersPage />} />
-            <Route path="/memberSearch" element={<MemberSearchPage />} />
-            <Route path="/profile" element={<MemberProfilePage />} />
+            <Route
+              path="/members/profile/:id"
+              element={<MemberProfilePage />}
+            />
             <Route path="/support-center" element={<SupportCenterPage />} />
             <Route path="/tech-center" element={<TechCenterPage />} />
           </Route>

@@ -1,11 +1,85 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import img from "../../assets/images/img";
+import useSearchStore from "../../stores/searchStore";
+import { useParams } from "react-router-dom";
+import { getSearchNews } from "../../api/getSearchNews";
+import { getSearchNewsLetter } from "../../api/getSearchNewsLetter";
 
 const LandingSearchDetailPage = () => {
+  const section = useParams();
   const [currentPage, setCurrentPage] = useState(1);
+  const { keyword } = useSearchStore();
+  const [data, setData] = useState<any[]>([]);
 
-  const totalPages = Math.ceil(법인소식.length / 7);
-  const currentItems = 법인소식.slice((currentPage - 1) * 7, currentPage * 7);
+  const totalPages = Array.isArray(data) ? Math.ceil(data.length / 7) : 1;
+  const currentItems = Array.isArray(data)
+    ? data.slice((currentPage - 1) * 7, currentPage * 7)
+    : [];
+
+  useEffect(() => {
+    if (section.section === "법인소식") {
+      const fetchNewsData = async () => {
+        try {
+          const newsData = await getSearchNews(
+            keyword,
+            currentPage,
+            "Lawvax소식"
+          );
+          setData(newsData);
+        } catch (error) {
+          console.error("Lawvax소식 페이지 검색 실패:", error);
+        }
+      };
+      fetchNewsData();
+    }
+
+    if (section.section === "언론보도") {
+      const fetchNewsData = async () => {
+        try {
+          const newsData = await getSearchNews(
+            keyword,
+            currentPage,
+            "언론보도"
+          );
+          setData(newsData.newsList);
+        } catch (error) {
+          console.error("언론보도 페이지 검색 실패:", error);
+        }
+      };
+      fetchNewsData();
+    }
+
+    if (section.section === "인재영입") {
+      const fetchNewsData = async () => {
+        try {
+          const newsData = await getSearchNews(
+            keyword,
+            currentPage,
+            "인재영입"
+          );
+          setData(newsData);
+        } catch (error) {
+          console.error("인재영입 페이지 검색 실패:", error);
+        }
+      };
+      fetchNewsData();
+    }
+
+    if (section.section === "뉴스레터") {
+      const fetchNewsLetterData = async () => {
+        try {
+          const newsLetterData = await getSearchNewsLetter(
+            keyword,
+            currentPage
+          );
+          setData(newsLetterData);
+        } catch (error) {
+          console.error("뉴스레터 페이지 검색 실패:", error);
+        }
+      };
+      fetchNewsLetterData();
+    } // eslint-disable-next-line
+  }, [section]);
 
   const handleClick = (page: number) => {
     setCurrentPage(page);
@@ -36,20 +110,20 @@ const LandingSearchDetailPage = () => {
       <div className="process">
         <img src={img.icons.home} alt="" />
         <span>HOME</span>
+        {keyword && <span className="search">{">"}</span>}
+        {keyword && <span className="search">{keyword}</span>}{" "}
         <span className="search">{">"}</span>
-        <span className="search">형사</span>
-        <span className="search">{">"}</span>
-        <span className="search">법인소식</span>
+        <span className="search">{section.section}</span>
       </div>
       <div className="sub-title">
-        <h1>법인소식</h1>
+        <h1>{section.section}</h1>
       </div>
       <div className="content-wrap">
         {currentItems.slice(0, 7).map((news, index) => (
           <div key={index} className="news-item">
             <h3 className="title">{news.title}</h3>
-            <p className="content">{news.content}</p>
-            <p className="date">{news.date}</p>
+            <p className="content">{news.summary}</p>
+            <p className="date">{news.createAt?.slice(0, 10)}</p>
           </div>
         ))}
       </div>
@@ -99,66 +173,3 @@ const LandingSearchDetailPage = () => {
 };
 
 export default LandingSearchDetailPage;
-
-const 법인소식 = [
-  {
-    title:
-      "[디지털타임스] 가상자산 이용자보호법 시행, 민·형사 법적분쟁도 본격화되나",
-    content:
-      "2024.7.28. 디지털타임스에 법무법인(유) 광장 윤종수 변호사의 멘트가 실렸습니다. 가상자산 이용자보호법 시행과 함께 당국의 감독·제재 권한이 강화되면서 향후 관련 법적 분쟁도 급증할 전망인 가운데, 광장 윤종수 가산자산전담팀 팀장은 이용자보호법 관련 규정의 해석과 실제 적용 범위에 대한 자문 등 수요가 있었다며 법 시행으로 그에 관한 대비와 실제 분쟁 발생으로 관련 수요가 늘어날 것이라고 전망했습니다. ",
-    date: "2024.07.28",
-  },
-  {
-    title:
-      "[아시아투데이] [로펌 zip중탐구] 국내 첫 가상자산법 시행…분주한 6대 로펌",
-    content:
-      "2024.7.28. 디지털타임스에 법무법인(유) 광장 윤종수 변호사의 멘트가 실렸습니다. 가상자산 이용자보호법 시행과 함께 당국의 감독·제재 권한이 강화되면서 향후 관련 법적 분쟁도 급증할 전망인 가운데, 광장 윤종수 가산자산전담팀 팀장은 이용자보호법 관련 규정의 해석과 실제 적용 범위에 대한 자문 등 수요가 있었다며 법 시행으로 그에 관한 대비와 실제 분쟁 발생으로 관련 수요가 늘어날 것이라고 전망했습니다. ",
-    date: "2024.07.28",
-  },
-  {
-    title: "[한국경제] 법무법인 광장, 박양호 전 법무부 법무과장 영입",
-    content:
-      "2024.7.28. 디지털타임스에 법무법인(유) 광장 윤종수 변호사의 멘트가 실렸습니다. 가상자산 이용자보호법 시행과 함께 당국의 감독·제재 권한이 강화되면서 향후 관련 법적 분쟁도 급증할 전망인 가운데, 광장 윤종수 가산자산전담팀 팀장은 이용자보호법 관련 규정의 해석과 실제 적용 범위에 대한 자문 등 수요가 있었다며 법 시행으로 그에 관한 대비와 실제 분쟁 발생으로 관련 수요가 늘어날 것이라고 전망했습니다. ",
-    date: "2024.07.28",
-  },
-  {
-    title:
-      "[디지털타임스] 가상자산 이용자보호법 시행, 민·형사 법적분쟁도 본격화되나",
-    content:
-      "2024.7.28. 디지털타임스에 법무법인(유) 광장 윤종수 변호사의 멘트가 실렸습니다. 가상자산 이용자보호법 시행과 함께 당국의 감독·제재 권한이 강화되면서 향후 관련 법적 분쟁도 급증할 전망인 가운데, 광장 윤종수 가산자산전담팀 팀장은 이용자보호법 관련 규정의 해석과 실제 적용 범위에 대한 자문 등 수요가 있었다며 법 시행으로 그에 관한 대비와 실제 분쟁 발생으로 관련 수요가 늘어날 것이라고 전망했습니다. ",
-    date: "2024.07.28",
-  },
-  {
-    title:
-      "[아시아투데이] [로펌 zip중탐구] 국내 첫 가상자산법 시행…분주한 6대 로펌",
-    content:
-      "2024.7.28. 디지털타임스에 법무법인(유) 광장 윤종수 변호사의 멘트가 실렸습니다. 가상자산 이용자보호법 시행과 함께 당국의 감독·제재 권한이 강화되면서 향후 관련 법적 분쟁도 급증할 전망인 가운데, 광장 윤종수 가산자산전담팀 팀장은 이용자보호법 관련 규정의 해석과 실제 적용 범위에 대한 자문 등 수요가 있었다며 법 시행으로 그에 관한 대비와 실제 분쟁 발생으로 관련 수요가 늘어날 것이라고 전망했습니다. ",
-    date: "2024.07.28",
-  },
-  {
-    title: "[한국경제] 법무법인 광장, 박양호 전 법무부 법무과장 영입",
-    content:
-      "2024.7.28. 디지털타임스에 법무법인(유) 광장 윤종수 변호사의 멘트가 실렸습니다. 가상자산 이용자보호법 시행과 함께 당국의 감독·제재 권한이 강화되면서 향후 관련 법적 분쟁도 급증할 전망인 가운데, 광장 윤종수 가산자산전담팀 팀장은 이용자보호법 관련 규정의 해석과 실제 적용 범위에 대한 자문 등 수요가 있었다며 법 시행으로 그에 관한 대비와 실제 분쟁 발생으로 관련 수요가 늘어날 것이라고 전망했습니다. ",
-    date: "2024.07.28",
-  },
-  {
-    title:
-      "[디지털타임스] 가상자산 이용자보호법 시행, 민·형사 법적분쟁도 본격화되나",
-    content:
-      "2024.7.28. 디지털타임스에 법무법인(유) 광장 윤종수 변호사의 멘트가 실렸습니다. 가상자산 이용자보호법 시행과 함께 당국의 감독·제재 권한이 강화되면서 향후 관련 법적 분쟁도 급증할 전망인 가운데, 광장 윤종수 가산자산전담팀 팀장은 이용자보호법 관련 규정의 해석과 실제 적용 범위에 대한 자문 등 수요가 있었다며 법 시행으로 그에 관한 대비와 실제 분쟁 발생으로 관련 수요가 늘어날 것이라고 전망했습니다. ",
-    date: "2024.07.28",
-  },
-  {
-    title:
-      "[아시아투데이] [로펌 zip중탐구] 국내 첫 가상자산법 시행…분주한 6대 로펌",
-    content:
-      "2024.7.28. 디지털타임스에 법무법인(유) 광장 윤종수 변호사의 멘트가 실렸습니다. 가상자산 이용자보호법 시행과 함께 당국의 감독·제재 권한이 강화되면서 향후 관련 법적 분쟁도 급증할 전망인 가운데, 광장 윤종수 가산자산전담팀 팀장은 이용자보호법 관련 규정의 해석과 실제 적용 범위에 대한 자문 등 수요가 있었다며 법 시행으로 그에 관한 대비와 실제 분쟁 발생으로 관련 수요가 늘어날 것이라고 전망했습니다. ",
-    date: "2024.07.28",
-  },
-  {
-    title: "[한국경제] 법무법인 광장, 박양호 전 법무부 법무과장 영입",
-    content:
-      "2024.7.28. 디지털타임스에 법무법인(유) 광장 윤종수 변호사의 멘트가 실렸습니다. 가상자산 이용자보호법 시행과 함께 당국의 감독·제재 권한이 강화되면서 향후 관련 법적 분쟁도 급증할 전망인 가운데, 광장 윤종수 가산자산전담팀 팀장은 이용자보호법 관련 규정의 해석과 실제 적용 범위에 대한 자문 등 수요가 있었다며 법 시행으로 그에 관한 대비와 실제 분쟁 발생으로 관련 수요가 늘어날 것이라고 전망했습니다. ",
-    date: "2024.07.28",
-  },
-];
