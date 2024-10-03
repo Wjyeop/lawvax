@@ -1779,8 +1779,29 @@
 }
 
 .members-page .search-bar-wrap {
+  position: relative;
   background-color: #f9f9f9;
   padding: 5% 25%;
+  max-width: 600px;
+}
+
+.members-page .search-bar-wrap .autocomplete-suggestions {
+  position: absolute;
+  background-color: #fff;
+  padding: 5px 10px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0;
+  z-index: 1000;
+}
+
+.members-page .search-bar-wrap .autocomplete-suggestions li {
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.members-page .search-bar-wrap .autocomplete-suggestions li:hover {
+  background-color: #f3f4f8;
 }
 
 .members-page .search-bar {
@@ -1928,7 +1949,7 @@
 /* 구성원 - 변호사 */
 
 .members-page .lawyer-section {
-  margin: 5% 0;
+  margin: 5% 0 15% 0;
   text-align: center;
 }
 
@@ -2189,11 +2210,31 @@
 }
 
 .member-search-page .title-section .search-category-wrap {
+  position: relative;
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
   padding: 5% 0;
+}
+
+.member-search-page .search-bar-wrap .autocomplete-suggestions {
+  position: absolute;
+  background-color: #fff;
+  padding: 5px 10px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0;
+  z-index: 1000;
+}
+
+.member-search-page .search-bar-wrap .autocomplete-suggestions li {
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.member-search-page .search-bar-wrap .autocomplete-suggestions li:hover {
+  background-color: #f3f4f8;
 }
 
 .member-search-page .title-section .search-category-wrap button {
