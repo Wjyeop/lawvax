@@ -1022,6 +1022,10 @@
   border-bottom: 1px solid #d9d9d9;
 }
 
+.landing-search-page .service-section ul {
+  list-style: disc;
+}
+
 .landing-search-page .news-section01 {
   padding: 5% 10%;
 }

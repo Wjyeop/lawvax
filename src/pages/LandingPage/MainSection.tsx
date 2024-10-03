@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import search from "../../assets/images/icons/search.png";
 import { useNavigate } from "react-router-dom";
 import { getLandingSearch } from "../../api/getLandingSearch";
-import useSearchStore from "../../stores/searchStore"; // Zustand 스토어 임포트
+import useSearchStore from "../../stores/searchStore";
 
 const MainSection = () => {
   const navigate = useNavigate();
   const [isFocused, setIsFocused] = useState(false);
-  const { setSearchResults, setKeyword, keyword } = useSearchStore(); // Zustand 훅 사용
+  const { setSearchResults, setKeyword, keyword } = useSearchStore();
 
   const recommendedKeywords = [
     "형사",
@@ -32,6 +32,11 @@ const MainSection = () => {
     "국제 분쟁",
   ];
 
+  useEffect(() => {
+    setKeyword("");
+    // eslint-disable-next-line
+  }, []);
+
   const handleKeywordClick = (keyword: string) => {
     setKeyword(keyword);
     setIsFocused(false);
@@ -43,13 +48,12 @@ const MainSection = () => {
     }, 100);
   };
 
-  // 검색 API 호출 후 Zustand에 저장하고 결과 페이지로 이동
   const handleSearch = async () => {
     console.log("검색된 키워드:", keyword);
     try {
-      const searchResults = await getLandingSearch(keyword, true); // 검색 API 호출
-      setSearchResults(searchResults); // Zustand에 검색 결과 저장
-      navigate("/landing-search"); // 검색 결과 페이지로 이동
+      const searchResults = await getLandingSearch(keyword, true);
+      setSearchResults(searchResults);
+      navigate("/landing-search");
     } catch (error) {
       console.error("검색 실패:", error);
     }
@@ -81,13 +85,13 @@ const MainSection = () => {
             onBlur={handleBlur}
             value={keyword}
             onChange={(e) => setKeyword(e.target.value)}
-            onKeyDown={handleKeyDown} // Enter 키 입력 처리
+            onKeyDown={handleKeyDown}
           />
           <img
             className="search-icon"
             src={search}
             alt="search-icon"
-            onClick={handleSearch} // 클릭 시 검색 실행
+            onClick={handleSearch}
           />
           {isFocused && (
             <div className="keyword-recommendation">

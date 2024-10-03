@@ -92,49 +92,48 @@ const Lawyersection = () => {
 
 export default Lawyersection;
 
-interface Career {
-  startYear: string;
-  endYear: string;
-  content: string;
-}
+// interface Career {
+//   startYear: string;
+//   endYear: string;
+//   content: string;
+// }
 
-interface Education {
-  startYear: string;
-  endYear: string;
-  content: string;
-}
+// interface Education {
+//   startYear: string;
+//   endYear: string;
+//   content: string;
+// }
 
-interface HandleCase {
-  startYear: string;
-  endYear: string;
-  content: string;
-}
+// interface HandleCase {
+//   startYear: string;
+//   endYear: string;
+//   content: string;
+// }
 
-interface License {
-  content: string;
-}
+// interface License {
+//   content: string;
+// }
 
-interface WorkField {
-  workField: string;
-}
-
-interface MemberItem {
-  id: number;
-  nameKo: string;
-  nameEn: string;
-  nameCh: string;
-  position: string;
-  email: string;
-  mainImg: string;
-  firstMainCareer: string;
-  secondMainCareer: string;
-  workNumber: string;
-  faxNumber: string;
-  introduction: string;
-  language: string;
-  careers: Career[];
-  educations: Education[];
-  handleCases: HandleCase[];
-  licenses: License[];
-  workFields: WorkField[];
-}
+// interface WorkField {
+//   workField: string;
+// }
+// interface MemberItem {
+//   id: number;
+//   nameKo: string;
+//   nameEn: string;
+//   nameCh: string;
+//   position: string;
+//   email: string;
+//   mainImg: string;
+//   firstMainCareer: string;
+//   secondMainCareer: string;
+//   workNumber: string;
+//   faxNumber: string;
+//   introduction: string;
+//   language: string;
+//   careers: Career[];
+//   educations: Education[];
+//   handleCases: HandleCase[];
+//   licenses: License[];
+//   workFields: WorkField[];
+// }

@@ -32,9 +32,10 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/landing-search" element={<LandingSearchPage />} />
             <Route
-              path="/landing-search-detail"
+              path="/landing-search-detail/:section"
               element={<LandingSearchDetailPage />}
             />
+
             <Route path="/intro" element={<IntroPage />} />
             <Route path="/workfield" element={<WorkFieldPage />} />
             <Route
