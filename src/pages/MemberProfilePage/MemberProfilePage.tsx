@@ -4,7 +4,6 @@ import lawyerImage from "../../assets/images/lawyer4.png";
 import save from "../../assets/images/icons/saveBlue.png";
 import up from "../../assets/images/icons/up.png";
 import down from "../../assets/images/icons/down.png";
-import big from "../../assets/images/icons/big.png";
 
 import { profileData } from "../../const/profileData";
 import { getMembersDetail } from "../../api/getMembersDetail";
@@ -143,10 +142,10 @@ const MemberProfilePage = () => {
               {lawyerData?.nameKo}
               <span className="job">{lawyerData?.position}</span>
             </p>
-            <p className="mark">
+            {/* <p className="mark">
               <img src={big} alt="" />
               {lawyerData?.position}
-            </p>
+            </p> */}
             <p className="sub-title">
               <span>주요경력</span>
             </p>

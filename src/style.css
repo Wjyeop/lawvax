@@ -495,6 +495,7 @@
   color: white;
   width: 100%;
   padding: 5px 10px;
+  font-size: 0.5em;
 }
 
 .landing-page .newsletter-section .newsletter-content .title {
@@ -1698,6 +1699,7 @@
   color: white;
   width: 100%;
   padding: 5px 10px;
+  font-size: 0.5em;
 }
 
 .services-detail-page .content-wrap .content-left .recent-news .title {
@@ -1712,7 +1714,7 @@
   flex: 2;
   display: flex;
   justify-content: space-between;
-  font-size: 1em;
+  font-size: 0.8em;
   color: #888;
 }
 
@@ -2847,7 +2849,7 @@
   background-color: #1676bc;
   color: white;
   padding: 2px 5px;
-  font-size: 0.8em;
+  font-size: 0.5em;
 }
 
 .newsletter-page .newsletter-content .title {
@@ -3331,6 +3333,7 @@
   color: white;
   width: 100%;
   padding: 5px 10px;
+  font-size: 0.5em;
 }
 
 .support-center-page .section05 .newsletter-content .title {
