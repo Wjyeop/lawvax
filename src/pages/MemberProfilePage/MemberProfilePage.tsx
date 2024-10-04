@@ -4,7 +4,6 @@ import lawyerImage from "../../assets/images/lawyer4.png";
 import save from "../../assets/images/icons/saveBlue.png";
 import up from "../../assets/images/icons/up.png";
 import down from "../../assets/images/icons/down.png";
-import big from "../../assets/images/icons/big.png";
 
 import { profileData } from "../../const/profileData";
 import { getMembersDetail } from "../../api/getMembersDetail";
