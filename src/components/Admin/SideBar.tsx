@@ -9,7 +9,7 @@ export default function ManagementTab() {
     <nav className="admin-side-bar">
       <ul className="admin-tab-container">
         {MANAGEMENT_TAB_CONTENTS.map(({ link, Icon, label }) => (
-          <Link to={link}>
+          <Link key={`admin-sidebar-${label}`} to={link}>
             <li
               className={
                 link === pathname ? "admin-tab-active" : "admin-tab-item"

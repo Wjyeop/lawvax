@@ -125,7 +125,7 @@ table {
   border-spacing: 0;
 }
 
-/* layout */
+/* layout & common */
 .admin-layout {
   font-family: "Noto Sans KR", sans-serif;
   font-optical-sizing: auto;
@@ -149,6 +149,11 @@ table {
 .admin-contents-layout {
   display: flex;
   flex: 1;
+}
+
+.admin-divider {
+  width: 100%;
+  border-top: 0.6px solid #e0e0e0;
 }
 
 /* side-bar */
@@ -211,8 +216,7 @@ table {
   color: #fff; /* hover 시 텍스트 색상 */
 }
 
-/* peopleManagement */
-.admin-people-container {
+.admin-common-container {
   padding-top: 30px;
   padding-left: 30px;
   padding-right: 109px;
@@ -221,12 +225,13 @@ table {
   padding-bottom: 50px;
 }
 
-.admin-people-title {
+.admin-common-title {
   font-size: 32px;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
+/* peopleManagement */
 .admin-people-position-wrapper {
   width: 100%;
   display: flex;
@@ -367,4 +372,140 @@ table {
 
 .admin-table-body td:nth-child(6) {
   width: 25%;
+}
+
+/* news-letter */
+.admin-writing-wrapper {
+  gap: 30px;
+  display: flex;
+  /* height: 100%; */
+}
+
+.admin-writing-tab {
+  width: 286px;
+  padding: 24px;
+  border-radius: 14px;
+  border: 0.3px solid #b9b9b9;
+  background-color: #fff;
+  height: auto;
+}
+
+.admin-news-category {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 238px;
+}
+
+.admin-news-category li {
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.admin-category-activeItem,
+.admin-category-item:hover {
+  background-color: #005bac;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.admin-news-contents {
+  background-color: white;
+  width: 100%;
+  border-radius: 14px;
+  padding: 24px 24px 0 24px;
+}
+
+.admin-news-btnwrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.admin-news-itemWrap {
+  margin-top: 24px;
+  border-top: 1px solid #d5d5d5;
+}
+
+.admin-news-item {
+  display: flex;
+  align-items: center;
+  padding: 22px 24px;
+  border-bottom: 1px solid #d5d5d5;
+}
+
+.admin-creator {
+  flex: 2;
+}
+
+.admin-title {
+  flex: 8;
+}
+
+.admin-category {
+  flex: 3;
+}
+
+.admin-date {
+  flex: 2;
+  color: gray;
+}
+
+.admin-news-iconWrap {
+  display: flex;
+  gap: 10px;
+}
+
+.admin-news-icon {
+  padding: 6px;
+  background-color: #f5f6fa;
+  border-radius: 4px;
+  border: 0.6px solid #d5d5d5;
+  cursor: pointer;
+}
+
+.admin-page-warp {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.admin-page-item {
+  display: flex;
+}
+
+.admin-page-num {
+  color: #999;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-page-activeItem {
+  color: #1676bc;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-page-divide {
+  width: 2px;
+  height: 18px;
+  background-color: #d9d9d9;
+  margin: 0 14px;
+}
+
+.admin-prev {
+  margin-right: 14px;
+  cursor: pointer;
+}
+
+.admin-next {
+  margin-left: 14px;
+  cursor: pointer;
 }

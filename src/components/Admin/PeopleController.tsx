@@ -33,9 +33,10 @@ export default function PeopleController({
 
     setPositionData(copyData);
   }, []);
+
   return (
     <section>
-      <h2 className="admin-people-title">구성원 관리</h2>
+      <h2 className="admin-common-title">구성원 관리</h2>
       <ul className="admin-people-position-wrapper">
         {Object.entries(positionData).map(([name, count]: any) => (
           <li

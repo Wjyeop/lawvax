@@ -12,7 +12,7 @@ export default function PeopleManagement() {
   };
 
   return (
-    <section className="admin-people-container">
+    <section className="admin-common-container">
       <PeopleController
         samplePeopleData={samplePeopleData}
         selectPostion={selectPostion}
