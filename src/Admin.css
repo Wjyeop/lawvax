@@ -127,7 +127,7 @@ table {
 
 /* layout & common */
 .admin-layout {
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Pretendard", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   width: 100%;
@@ -138,10 +138,14 @@ table {
 }
 
 .admin-header {
-  position: sticky;
-  padding: 12px 0 12px 48px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: 12px 48px;
+  height: 72px;
   box-sizing: border-box;
-  width: 100%;
   background-color: #fff;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }
@@ -149,6 +153,7 @@ table {
 .admin-contents-layout {
   display: flex;
   flex: 1;
+  margin-top: 72px;
 }
 
 .admin-divider {
@@ -217,12 +222,9 @@ table {
 }
 
 .admin-common-container {
-  padding-top: 30px;
-  padding-left: 30px;
-  padding-right: 109px;
-  width: 100%;
+  padding: 30px 109px 50px 30px;
+  width: calc(100% - 238px);
   background-color: #f5f6fa;
-  padding-bottom: 50px;
 }
 
 .admin-common-title {
@@ -246,8 +248,7 @@ table {
   cursor: pointer;
   border-radius: 14px;
   height: 100px;
-  min-width: 200px;
-  width: 100%;
+  width: 20%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -262,8 +263,7 @@ table {
   cursor: pointer;
   border-radius: 14px;
   height: 100px;
-  min-width: 200px;
-  width: 100%;
+  width: 20%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -328,7 +328,7 @@ table {
   border-top: 1px solid #d5d5d5;
   border-bottom: 1px solid #d5d5d5;
   background-color: #fff;
-  table-layout: auto; /* 자동 레이아웃으로 설정 */
+  table-layout: auto;
 }
 
 .admin-table-head th {
@@ -387,6 +387,7 @@ table {
   border-radius: 14px;
   border: 0.3px solid #b9b9b9;
   background-color: #fff;
+  box-sizing: border-box;
   height: auto;
 }
 
@@ -416,10 +417,11 @@ table {
 }
 
 .admin-news-contents {
+  width: 1234px;
   background-color: white;
-  width: 100%;
   border-radius: 14px;
-  padding: 24px 24px 0 24px;
+  padding: 24px 24px 60px;
+  box-sizing: border-box;
 }
 
 .admin-news-btnwrap {
@@ -435,7 +437,7 @@ table {
 .admin-news-item {
   display: flex;
   align-items: center;
-  padding: 22px 24px;
+  padding: 20px 24px;
   border-bottom: 1px solid #d5d5d5;
 }
 

@@ -1,7 +1,10 @@
 import { useState } from "react";
 
 import CategoryTab from "../../../components/Admin/CategoryTab";
-import { NEWS_LETTER_TAB_CONTENTS } from "../../../components/Admin/constants";
+import {
+  NEWS_LETTER_TAB_CONTENTS,
+  NEWS_LETTER_LIST_CONTENTS,
+} from "../../../components/Admin/constants";
 import NewsLetterContents from "../../../components/Admin/NewsLetterContents";
 
 const DEFAULT = "전체보기";
@@ -16,6 +19,13 @@ export default function NewsLetterManagement() {
     setSelectCategory(category);
   };
 
+  const filteredList =
+    selectCategory === DEFAULT
+      ? NEWS_LETTER_LIST_CONTENTS.newsletterList
+      : NEWS_LETTER_LIST_CONTENTS.newsletterList.filter(
+          (item) => item.category === selectCategory
+        );
+
   return (
     <section className="admin-common-container">
       <h2 className="admin-common-title">뉴스레터 관리</h2>
@@ -25,7 +35,10 @@ export default function NewsLetterManagement() {
           onClick={handlePosition}
           selectCategory={selectCategory}
         />
-        <NewsLetterContents />
+        <NewsLetterContents
+          totalCount={NEWS_LETTER_LIST_CONTENTS.totalCount}
+          list={filteredList}
+        />
       </div>
     </section>
   );

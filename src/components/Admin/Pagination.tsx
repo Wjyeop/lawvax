@@ -3,7 +3,7 @@ import Next from "../../assets/images/ic_admin_next.svg";
 
 type Props = {
   currentPage: number;
-  totalPages: number;
+  pages: any;
   onClickPrevButton: () => void;
   onClickNextButton: () => void;
   handlePage: (page: number) => void;
@@ -11,13 +11,11 @@ type Props = {
 
 export default function Pagination({
   currentPage,
-  totalPages,
+  pages,
   onClickPrevButton,
   onClickNextButton,
   handlePage,
 }: Props) {
-  const PageLengthList = Array.from({ length: totalPages }, (_, i) => i + 1);
-
   return (
     <ul className="admin-page-warp">
       <img
@@ -26,7 +24,7 @@ export default function Pagination({
         onClick={onClickPrevButton}
         className="admin-prev"
       />
-      {PageLengthList.map((num, index) => (
+      {pages.map((num: number, index: number) => (
         <li key={num} className="admin-page-item">
           <span
             onClick={() => handlePage(num)}
@@ -36,9 +34,7 @@ export default function Pagination({
           >
             {num}
           </span>
-          {index < PageLengthList.length - 1 && (
-            <div className="admin-page-divide" />
-          )}
+          {index < pages.length - 1 && <div className="admin-page-divide" />}
         </li>
       ))}
       <img

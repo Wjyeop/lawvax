@@ -14,7 +14,7 @@ type Props = {
   list: any;
 };
 
-export default function NewsLetterContents({ totalCount, list }: Props) {
+export default function PostContents({ totalCount, list }: Props) {
   const [currentPage, setCurrentPage] = useState(DEFAULT_PAGE);
   const [currentPageGroup, setCurrentPageGroup] = useState(1);
 
@@ -35,12 +35,14 @@ export default function NewsLetterContents({ totalCount, list }: Props) {
   const onClickNextButton = () => {
     if (endPage < totalPages) {
       setCurrentPageGroup((prev) => prev + 1);
+      setCurrentPage((prev) => prev + pagesPerGroup);
     }
   };
 
   const onClickPrevButton = () => {
     if (currentPageGroup > 1) {
       setCurrentPageGroup((prev) => prev - 1);
+      setCurrentPage((prev) => prev - pagesPerGroup);
     }
   };
 

@@ -69,3 +69,82 @@ export const NEWS_LETTER_LIST_CONTENTS = {
     },
   ],
 };
+
+export const POST_TAB_CONTENT = {
+  전체보기: 253,
+  Lawvax소식: 0,
+  언론보도: 253,
+  인재영입: 0,
+  비공개: 0,
+};
+
+export const POST_LIST_CONTENT = {
+  totalCount: 253,
+  newsList: [
+    {
+      id: 480,
+      creator: "로백스",
+      title: "법무법인 로백스, 중견기업연합회와 기술보호협력 방안 모색",
+      category: "언론보도",
+      createdAt: "2023-03-30T14:55:34",
+    },
+    {
+      id: 479,
+      creator: "로백스",
+      title: "\t법무법인 로백스, 세계보안엑스포(SECON) 통해 무료법률상담 진행",
+      category: "언론보도",
+      createdAt: "2023-03-30T14:55:20",
+    },
+    {
+      id: 478,
+      creator: "로백스",
+      title: "현대모비스, 정의선 사내이사 재선임…현대제철·위아도 원안대로",
+      category: "언론보도",
+      createdAt: "2023-03-30T14:55:06",
+    },
+    {
+      id: 477,
+      creator: "로백스",
+      title:
+        '"산업기술 애로, 저희에게 맡기세요" 한국산업기술보호協 법률자문단 출범',
+      category: "언론보도",
+      createdAt: "2023-03-30T14:54:56",
+    },
+    {
+      id: 476,
+      creator: "로백스",
+      title: "법무법인 로백스, 中企와 상생행보",
+      category: "언론보도",
+      createdAt: "2023-03-30T14:54:36",
+    },
+    {
+      id: 475,
+      creator: "로백스",
+      title: "정의선, 현대모비스 사내이사 재선임…조성환 사장 ",
+      category: "언론보도",
+      createdAt: "2023-03-30T14:53:39",
+    },
+    {
+      id: 474,
+      creator: "로백스",
+      title:
+        "기업 ‘甲’, 회계법인 ‘乙’…한국판 ‘엔론 사태’ 도돌이표 [김기동의 이슈&로]",
+      category: "언론보도",
+      createdAt: "2023-03-30T14:53:25",
+    },
+    {
+      id: 473,
+      creator: "로백스",
+      title: "김현준 ‘세무법인’, 김대지 ‘로펌’ 택했다…전직 국세청장의 새출발",
+      category: "언론보도",
+      createdAt: "2023-03-30T14:53:01",
+    },
+    {
+      id: 472,
+      creator: "로백스",
+      title: "[논단]금융혁신의 새 지평 '토큰증권'에 대한 기대",
+      category: "언론보도",
+      createdAt: "2023-03-30T14:52:48",
+    },
+  ],
+};
