@@ -1,18 +1,36 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import home from "../../assets/images/icons/home.png";
 import lawyerImage from "../../assets/images/lawyer4.png";
 import save from "../../assets/images/icons/saveBlue.png";
 import up from "../../assets/images/icons/up.png";
 import down from "../../assets/images/icons/down.png";
 
-import { profileData } from "../../const/profileData";
 import { getMembersDetail } from "../../api/getMembersDetail";
 import { generateMemberProfilePdf } from "../../utils/pdf";
 import { useParams } from "react-router-dom";
 
 const MemberProfilePage = () => {
   const { id } = useParams();
-  const [lawyerData, setLawyerData] = useState<MemberItem>();
+  const [lawyerData, setLawyerData] = useState<MemberItem>({
+    id: 0,
+    nameKo: "",
+    nameEn: "",
+    nameCh: "",
+    position: "",
+    email: "",
+    mainImg: "",
+    firstMainCareer: "",
+    secondMainCareer: "",
+    workNumber: "",
+    faxNumber: "",
+    introduction: "",
+    language: "",
+    careers: [],
+    educations: [],
+    handleCases: [],
+    licenses: [],
+    workFields: [],
+  });
   const [isEducationExpanded, setEducationExpanded] = useState(false);
   const [isExperienceExpanded, setExperienceExpanded] = useState(false);
   const [isEtcWorkFieldsExpanded, setEtcWorkFieldsExpanded] = useState(false);
@@ -188,7 +206,7 @@ const MemberProfilePage = () => {
           <div className="title">
             <p>주요 처리사례</p>
           </div>
-          {profileData?.handleCases
+          {lawyerData?.handleCases
             .slice(
               0,
               isHandleCasesExpanded ? lawyerData?.handleCases.length : 4
@@ -201,7 +219,7 @@ const MemberProfilePage = () => {
                 </div>
               </div>
             ))}
-          {profileData?.handleCases.length > 4 ? (
+          {lawyerData?.handleCases.length > 4 && (
             <button onClick={() => toggleExpand("handleCases")}>
               {isHandleCasesExpanded ? "접기" : "펼치기"}
               {isHandleCasesExpanded ? (
@@ -210,25 +228,23 @@ const MemberProfilePage = () => {
                 <img src={down} alt="" />
               )}
             </button>
-          ) : (
-            <div className="full-line" />
           )}
         </div>
         <div className="education section" id="education-section">
           <div className="title">
             <p>학력</p>
           </div>
-          {profileData?.educations
+          {lawyerData?.educations
             .slice(0, isEducationExpanded ? lawyerData?.educations.length : 4)
             .map((item, index) => (
               <div key={index} className="content">
                 <div>
-                  <span className="year">{item.startYear}</span>
+                  <span className="year">{item.year}</span>
                   <span>{item.content}</span>
                 </div>
               </div>
             ))}
-          {profileData?.educations.length > 4 ? (
+          {lawyerData?.educations.length > 4 && (
             <button onClick={() => toggleExpand("education")}>
               {isEducationExpanded ? "접기" : "펼치기"}
               {isEducationExpanded ? (
@@ -237,8 +253,6 @@ const MemberProfilePage = () => {
                 <img src={down} alt="" />
               )}
             </button>
-          ) : (
-            <div className="full-line" />
           )}
         </div>
         <div className="experience section" id="experience-section">
@@ -255,7 +269,7 @@ const MemberProfilePage = () => {
                 </div>
               </div>
             ))}
-          {profileData?.careers.length > 4 ? (
+          {lawyerData?.careers.length > 4 && (
             <button onClick={() => toggleExpand("experience")}>
               {isExperienceExpanded ? "접기" : "펼치기"}
               {isExperienceExpanded ? (
@@ -264,36 +278,34 @@ const MemberProfilePage = () => {
                 <img src={down} alt="" />
               )}
             </button>
-          ) : (
-            <div className="full-line" />
           )}
         </div>
-        <div className="other-section section" id="other-section">
-          <div className="title">
-            <p>저서/활동/기타</p>
-          </div>
-          {lawyerData?.licenses
-            .slice(0, isLicensesExpanded ? lawyerData?.licenses.length : 4)
-            .map((item, index) => (
-              <div key={index} className="content">
-                <div>
-                  <span>{item.content}</span>
+        {lawyerData?.licenses.length > 1 && (
+          <div className="other-section section" id="other-section">
+            <div className="title">
+              <p>저서/활동/기타</p>
+            </div>
+            {lawyerData?.licenses
+              .slice(0, isLicensesExpanded ? lawyerData?.licenses.length : 4)
+              .map((item, index) => (
+                <div key={index} className="content">
+                  <div>
+                    <span>{item.content}</span>
+                  </div>
                 </div>
-              </div>
-            ))}
-          {profileData?.licenses.length > 4 ? (
-            <button onClick={() => toggleExpand("licenses")}>
-              {isLicensesExpanded ? "접기" : "펼치기"}
-              {isLicensesExpanded ? (
-                <img src={up} alt="" />
-              ) : (
-                <img src={down} alt="" />
-              )}
-            </button>
-          ) : (
-            <div className="full-line" />
-          )}
-        </div>
+              ))}
+            {lawyerData?.licenses.length > 4 && (
+              <button onClick={() => toggleExpand("licenses")}>
+                {isLicensesExpanded ? "접기" : "펼치기"}
+                {isLicensesExpanded ? (
+                  <img src={up} alt="" />
+                ) : (
+                  <img src={down} alt="" />
+                )}
+              </button>
+            )}
+          </div>
+        )}
       </div>
       <div className="info">
         <p className="phone">
@@ -318,8 +330,7 @@ interface Career {
 }
 
 interface Education {
-  startYear: string;
-  endYear: string;
+  year: string;
   content: string;
 }
 

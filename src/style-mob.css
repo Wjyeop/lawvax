@@ -82,6 +82,7 @@
 
   .landing-page .lawvax-map-section {
     margin: 5% 10%;
+    height: 80vh;
   }
 
   .landing-page .lawvax-map-section .content .search-bar {
@@ -231,6 +232,10 @@
   .members-page .title-section .sub-title,
   .members-page .lawyer-section {
     margin: 5%;
+  }
+
+  .members-page .lawyer-section {
+    padding-bottom: 20vh;
   }
 
   .members-page .search-bar-wrap {
