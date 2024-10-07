@@ -64,7 +64,7 @@ function HeaderMob() {
             </Link>
           </li>
           <li>
-            <Link to="/services" onClick={closeNav}>
+            <Link to="/workfield" onClick={closeNav}>
               업무분야
             </Link>
           </li>

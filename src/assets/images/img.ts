@@ -38,6 +38,8 @@ import center02 from "./center02.png";
 import center03 from "./center03.png";
 import center04 from "./center04.png";
 import center05 from "./center05.png";
+import null01 from "./null.png";
+
 import ArrowLeft from "./icons/ArrowLeft.png";
 import ArrowRight from "./icons/ArrowRight.png";
 import big from "./icons/big.png";
@@ -111,6 +113,7 @@ const img = {
   center03,
   center04,
   center05,
+  null01,
   icons: {
     ArrowLeft,
     ArrowRight,
