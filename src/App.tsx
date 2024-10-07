@@ -28,6 +28,7 @@ import PeopleManagement from "./pages/Admin/People/PeopleManagement";
 import WorkCategoryManagement from "./pages/Admin/WorkCategory/WorkCategoryManagement";
 import NewsLetterManagement from "./pages/Admin/NewsLetter/NewsLetterManagement";
 import PostManagement from "./pages/Admin/Post/PostManagement";
+import Login from "./pages/Admin/Login/Login";
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
             <Route path="/support-center" element={<SupportCenterPage />} />
             <Route path="/tech-center" element={<TechCenterPage />} />
           </Route>
+          <Route path="/admin/login" element={<Login />} />
           <Route element={<AdminLayout />}>
             <Route
               path="/admin/people-management"

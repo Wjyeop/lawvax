@@ -172,6 +172,116 @@ input[type="number"] {
   border-top: 0.6px solid #e0e0e0;
 }
 
+.admin-login-layout {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 210px;
+}
+
+/* login */
+.admin-login-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 602px;
+}
+
+.admin-login-inputWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  user-select: none;
+}
+
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.custom-checkbox .checkmark {
+  height: 20px;
+  width: 20px;
+  background-color: #ccc;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+.custom-checkbox input:checked + .checkmark {
+  background-color: #005bac;
+  border: 2px solid #8fb6ff;
+  box-sizing: border-box;
+  background-image: url("./assets/images/ic_admin_check.svg");
+  background-size: 20px 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.custom-checkbox .checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.custom-checkbox input:checked + .checkmark::after {
+  display: block;
+}
+
+.custom-checkbox .checkmark::after {
+  left: 7px;
+  top: 3px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.admin-login-label {
+  opacity: 0.7;
+}
+
+.admin-login-input {
+  height: 48px;
+  border-radius: 6px;
+  border: none;
+  border-bottom: 1px solid #c1c7cd;
+  background-color: #f5f6fa;
+  padding: 14px;
+  box-sizing: border-box;
+}
+
+.admin-login-btn {
+  width: 602px;
+  height: 48px;
+  background-color: #005bac;
+  border: 2px solid #8fb6ff;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.admin-eyes {
+  position: absolute;
+  top: 34px;
+  right: 14px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
 /* side-bar */
 .admin-side-bar {
   padding: 24px 20px 100px 20px;
