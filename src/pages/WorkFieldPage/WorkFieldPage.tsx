@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; // useNavigate 추가
+import { useNavigate } from "react-router-dom";
 import img from "../../assets/images/img";
 import { getWorkField } from "../../api/getWorkField";
 
 const WorkFieldPage = () => {
   const [workFieldList, setWorkFieldList] = useState([]);
 
-  const navigate = useNavigate(); // 페이지 이동을 위한 useNavigate 사용
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchWorkField = async () => {
@@ -22,7 +22,7 @@ const WorkFieldPage = () => {
   }, []);
 
   const handleFieldClick = (field: string) => {
-    navigate(`/workfield/detail/${field}`); // 페이지 이동
+    navigate(`/workfield/detail/${field}`);
   };
 
   return (
