@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; // useNavigate 추가
+import { useNavigate } from "react-router-dom"; // useNavigate 추가
 import img from "../../assets/images/img";
 import { getWorkField } from "../../api/getWorkField";
 
