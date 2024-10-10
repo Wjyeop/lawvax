@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import PeopleController from "../../../components/Admin/PeopleController";
-import PeopleTable from "../../../components/Admin/PeopleTable";
+import PeopleController from "../../../components/Admin/People/PeopleController";
+import PeopleTable from "../../../components/Admin/People/PeopleTable";
 
 export default function PeopleManagement() {
   const [peopleList, setPeopleList] = useState<any>([]);

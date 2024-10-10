@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 
-import DropdownSrc from "../../assets/images/ic_admin_dropdowArr.svg";
+import DropdownSrc from "../../../assets/images/ic_admin_dropdowArr.svg";
 import Divider from "./Divider";
 
 type Props = {

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { tryLogin } from "../../../api/admin";
-import CheckBox from "../../../components/Admin/CheckBox";
+import CheckBox from "../../../components/Admin/Common/CheckBox";
 import Logo from "../../../assets/images/ic_admin_loginLogo.svg";
 import Eyes from "../../../assets/images/ic_admin_eyes.svg";
 import {

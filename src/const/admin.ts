@@ -1,7 +1,7 @@
-import { ReactComponent as People } from "../../assets/images/ic_admin_people.svg";
-import { ReactComponent as List } from "../../assets/images/ic_admin_list.svg";
-import { ReactComponent as Box } from "../../assets/images/ic_admin_box.svg";
-import { ReactComponent as NewsLetter } from "../../assets/images/ic_admin_newsletter.svg";
+import { ReactComponent as People } from "../assets/images/ic_admin_people.svg";
+import { ReactComponent as List } from "../assets/images/ic_admin_list.svg";
+import { ReactComponent as Box } from "../assets/images/ic_admin_box.svg";
+import { ReactComponent as NewsLetter } from "../assets/images/ic_admin_newsletter.svg";
 
 export const MANAGEMENT_TAB_CONTENTS = [
   {

@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import { getPeopleCount, getPeopleList } from "../../api/admin";
-import Plus from "../../assets/images/ic_plus.svg";
-import Shake from "../../assets/images/ic_admin_shake.svg";
-import Search from "../../assets/images/ic_admin_search.svg";
+import { getPeopleCount, getPeopleList } from "../../../api/admin";
+import Plus from "../../../assets/images/ic_plus.svg";
+import Shake from "../../../assets/images/ic_admin_shake.svg";
+import Search from "../../../assets/images/ic_admin_search.svg";
 
 interface PeopleItem {
   email: string;

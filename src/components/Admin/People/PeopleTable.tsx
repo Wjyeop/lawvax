@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { getPeopleList, deletePeople } from "../../api/admin";
+import { getPeopleList, deletePeople } from "../../../api/admin";
 
 type Props = {
   selectPostion: string;

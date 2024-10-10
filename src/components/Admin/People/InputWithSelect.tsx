@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import Plus from "../../assets/images/ic_admin_plus2.svg";
-import Trash from "../../assets/images/ic_admin_trash.svg";
-import DropdownSrc from "../../assets/images/ic_admin_dropdowArr.svg";
+import Plus from "../../../assets/images/ic_admin_plus2.svg";
+import Trash from "../../../assets/images/ic_admin_trash.svg";
+import DropdownSrc from "../../../assets/images/ic_admin_dropdowArr.svg";
 
 type Props = {
   index: number;

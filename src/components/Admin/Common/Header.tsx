@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import Logo from "../../assets/images/ic_admin_logo.svg";
+import Logo from "../../../assets/images/ic_admin_logo.svg";
 
 export default function Header() {
   return (

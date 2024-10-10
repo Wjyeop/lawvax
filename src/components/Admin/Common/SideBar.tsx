@@ -3,10 +3,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   removeLocalAdminToken,
   removeSessionAdminToken,
-} from "../../utils/token";
-import { MANAGEMENT_TAB_CONTENTS } from "./constants";
+} from "../../../utils/token";
+import { MANAGEMENT_TAB_CONTENTS } from "../../../const/admin";
 import Divider from "./Divider";
-import Logout from "../../assets/images/ic_admin_logout.svg";
+import Logout from "../../../assets/images/ic_admin_logout.svg";
 
 export default function ManagementTab() {
   const navigate = useNavigate();

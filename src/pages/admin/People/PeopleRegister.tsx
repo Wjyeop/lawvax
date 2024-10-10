@@ -1,16 +1,16 @@
 import { useState, useMemo } from "react";
 
-import LabelInput from "../../../components/Admin/LabelInput";
-import Dropdown from "../../../components/Admin/Dropdown";
+import LabelInput from "../../../components/Admin/People/LabelInput";
+import Dropdown from "../../../components/Admin/Common/Dropdown";
 import InputWithYearAndText from "../../../components/Admin/People/InputWithYearAndText";
-import InputWithSelect from "../../../components/Admin/InputWithSelect";
+import InputWithSelect from "../../../components/Admin/People/InputWithSelect";
 import InputWithText from "../../../components/Admin/People/InputWithText";
-import CheckBox from "../../../components/Admin/CheckBox";
+import CheckBox from "../../../components/Admin/Common/CheckBox";
 import {
   MAIN_TASKS_LIST,
   WORK_POSITION_LIST,
   ADD_TASKS_LIST,
-} from "../../../components/Admin/constants";
+} from "../../../const/admin";
 import Photo from "../../../assets/images/ic_admin_photo.svg";
 
 const DEFAULT_INPUT_COUNT = 3;

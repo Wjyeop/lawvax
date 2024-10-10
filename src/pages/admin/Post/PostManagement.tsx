@@ -1,11 +1,8 @@
 import { useState } from "react";
 
-import CategoryTab from "../../../components/Admin/CategoryTab";
-import {
-  POST_TAB_CONTENT,
-  POST_LIST_CONTENT,
-} from "../../../components/Admin/constants";
-import PostContents from "../../../components/Admin/PostContents";
+import CategoryTab from "../../../components/Admin/Common/CategoryTab";
+import { POST_TAB_CONTENT, POST_LIST_CONTENT } from "../../../const/admin";
+import PostContents from "../../../components/Admin/Post/PostContents";
 
 const DEFAULT = "전체보기";
 

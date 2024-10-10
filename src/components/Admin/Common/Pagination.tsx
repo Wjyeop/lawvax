@@ -1,5 +1,5 @@
-import Prev from "../../assets/images/ic_admin_prev.svg";
-import Next from "../../assets/images/ic_admin_next.svg";
+import Prev from "../../../assets/images/ic_admin_prev.svg";
+import Next from "../../../assets/images/ic_admin_next.svg";
 
 type Props = {
   currentPage: number;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import CategoryTab from "../../../components/Admin/CategoryTab";
-import { WORK_CATEGORY_CONTENT } from "../../../components/Admin/constants";
+import CategoryTab from "../../../components/Admin/Common/CategoryTab";
+import { WORK_CATEGORY_CONTENT } from "../../../const/admin";
 import Photo from "../../../assets/images/ic_admin_photo.svg";
 import InputWithYearAndText from "../../../components/Admin/WorkCategory/InputWithYearAndText";
 import InputWithText from "../../../components/Admin/WorkCategory/InputWithText";

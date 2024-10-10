@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-import CategoryTab from "../../../components/Admin/CategoryTab";
+import CategoryTab from "../../../components/Admin/Common/CategoryTab";
 import {
   NEWS_LETTER_TAB_CONTENTS,
   NEWS_LETTER_LIST_CONTENTS,
-} from "../../../components/Admin/constants";
-import NewsLetterContents from "../../../components/Admin/NewsLetterContents";
+} from "../../../const/admin";
+import NewsLetterContents from "../../../components/Admin/NewsLetter/NewsLetterContents";
 
 const DEFAULT = "전체보기";
 
