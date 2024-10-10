@@ -3,7 +3,7 @@ import { getToken, saveToken, removeToken } from "../utils/token";
 import { refreshToken } from "./auth";
 
 const axiosInstance = axios.create({
-  baseURL: "http://13.124.200.80:8000",
+  baseURL: process.env.REACT_APP_BASE_URL,
 });
 
 axiosInstance.interceptors.request.use(
