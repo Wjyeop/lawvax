@@ -1,18 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-import { getPeopleCount } from "../../../api/admin";
 import PeopleController from "../../../components/Admin/PeopleController";
 import PeopleTable from "../../../components/Admin/PeopleTable";
-import { samplePeopleData } from "../../../const/samplePeopleData";
 
 export default function PeopleManagement() {
+  const [peopleList, setPeopleList] = useState<any>([]);
   const [selectPostion, setSelectPostion] = useState("전체");
-
-  useEffect(() => {
-    (async () => {
-      await getPeopleCount();
-    })();
-  }, []);
 
   const handlePosition = (postion: string) => {
     setSelectPostion(postion);
@@ -21,11 +14,16 @@ export default function PeopleManagement() {
   return (
     <section className="admin-common-container">
       <PeopleController
-        samplePeopleData={samplePeopleData}
         selectPostion={selectPostion}
         handlePosition={handlePosition}
+        setPeopleList={setPeopleList}
+        peopleList={peopleList}
       />
-      <PeopleTable />
+      <PeopleTable
+        selectPostion={selectPostion}
+        peopleList={peopleList}
+        setPeopleList={setPeopleList}
+      />
     </section>
   );
 }

@@ -477,9 +477,15 @@ input:-ms-input-placeholder {
   border-top: 1px solid #d5d5d5;
 }
 
-.admin-table-image {
+.admin-table-imageWrap {
   width: 80px;
   height: 100px;
+}
+
+.admin-table-img {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
 }
 
 .admin-table-edit,
@@ -502,8 +508,16 @@ input:-ms-input-placeholder {
   color: #999999;
 }
 
+.admin-table-body td:nth-child(1) {
+  width: 10%;
+}
+
+.admin-table-body td:nth-child(3) {
+  width: 20%;
+}
+
 .admin-table-body td:nth-child(6) {
-  width: 25%;
+  width: 20%;
 }
 
 /* news-letter */

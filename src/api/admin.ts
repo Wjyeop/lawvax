@@ -17,9 +17,9 @@ export const tryLogin = async (account: Account) => {
   return response;
 };
 
-export const getPeopleList = async (position = "전체", name?: string) => {
+export const getPeopleList = async (position: string, name?: string) => {
   try {
-    const response = await axios.get(
+    const response = await adminInstance.get(
       `${BASE_URL}/api/v2/admin/lawyer?position=${position}`
     );
 
@@ -30,13 +30,17 @@ export const getPeopleList = async (position = "전체", name?: string) => {
 };
 
 export const getPeopleCount = async () => {
-  try {
-    const response = await adminInstance.get(
-      `${BASE_URL}/api/v2/admin/lawyer/stats`
-    );
+  const response = await adminInstance.get(
+    `${BASE_URL}/api/v2/admin/lawyer/stats`
+  );
 
-    return response;
-  } catch (err) {
-    console.log(err);
-  }
+  return response;
+};
+
+export const deletePeople = async (id: number) => {
+  const response = await adminInstance.delete(
+    `${BASE_URL}/api/v2/admin/lawyer/${id}`
+  );
+
+  return response;
 };

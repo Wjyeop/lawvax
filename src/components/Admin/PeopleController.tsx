@@ -1,39 +1,64 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
+import { getPeopleCount, getPeopleList } from "../../api/admin";
 import Plus from "../../assets/images/ic_plus.svg";
 import Shake from "../../assets/images/ic_admin_shake.svg";
 import Search from "../../assets/images/ic_admin_search.svg";
-import { Link } from "react-router-dom";
+
+interface PeopleItem {
+  email: string;
+  id: number;
+  isVisible: boolean;
+  mainImg: string;
+  name: string;
+  position: string;
+}
 
 type Props = {
-  samplePeopleData: any;
   selectPostion: string;
   handlePosition: (position: string) => void;
+  setPeopleList: (item: PeopleItem[]) => void;
+  peopleList: PeopleItem[];
 };
 
 export default function PeopleController({
-  samplePeopleData,
   selectPostion,
   handlePosition,
+  setPeopleList,
+  peopleList,
 }: Props) {
+  const [inputValueTemp, setInputValueTemp] = useState("");
   const [positionData, setPositionData] = useState<any>({
     전체: 0,
-    "대표 변호사": 0,
-    "파트너 변호사": 0,
+    대표변호사: 0,
+    파트너변호사: 0,
     변호사: 0,
     고문: 0,
   });
 
   useEffect(() => {
-    const data = samplePeopleData.map((data: any) => data.position);
-    const copyData = { ...positionData };
-    data.forEach((position: string) => {
-      copyData[position] += 1;
-    });
-    copyData["전체"] = data.length;
+    (async () => {
+      const { data } = await getPeopleCount();
 
-    setPositionData(copyData);
-  }, []);
+      setPositionData(data || []);
+    })();
+  }, [peopleList]);
+
+  const handleSearch = async (e: any) => {
+    if (e.key === "Enter") {
+      if (inputValueTemp.trim() === "") {
+        const { data } = await getPeopleList("전체");
+        return setPeopleList(data);
+      }
+
+      const filtered = peopleList.filter(
+        (item) => item.name === inputValueTemp
+      );
+
+      return setPeopleList(filtered);
+    }
+  };
 
   return (
     <section>
@@ -74,6 +99,8 @@ export default function PeopleController({
             type="text"
             placeholder="Search"
             className="admin-people-searchbox"
+            onChange={(e) => setInputValueTemp(e.target.value)}
+            onKeyDown={handleSearch}
           />
         </div>
       </div>
