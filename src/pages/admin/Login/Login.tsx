@@ -1,12 +1,24 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
+import { tryLogin } from "../../../api/admin";
 import CheckBox from "../../../components/Admin/CheckBox";
 import Logo from "../../../assets/images/ic_admin_loginLogo.svg";
 import Eyes from "../../../assets/images/ic_admin_eyes.svg";
+import {
+  saveLocalAdminToken,
+  saveSessionAdminToken,
+} from "../../../utils/token";
 
 export default function Login() {
+  const navigate = useNavigate();
   const [isCheck, setIsCheck] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [isPasswordShow, setIsPasswordShow] = useState(false);
+  const [account, setAccount] = useState({
+    identifier: "",
+    password: "",
+  });
 
   const handleSingleCheck = () => {
     setIsCheck((prev) => !prev);
@@ -14,6 +26,25 @@ export default function Login() {
 
   const handlePasswordShow = () => {
     setIsPasswordShow((prev) => !prev);
+  };
+
+  const onClickLoginButton = async () => {
+    try {
+      setIsLoading(true);
+      const { data } = await tryLogin(account);
+      if (!isCheck) {
+        saveSessionAdminToken(data);
+        return navigate("/admin/people-management", { replace: true });
+      }
+
+      saveLocalAdminToken(data);
+      return navigate("/admin/people-management", { replace: true });
+    } catch (error) {
+      alert("아이디 혹은 비밀번호를 다시 입력해주세요.");
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -31,6 +62,9 @@ export default function Login() {
             placeholder="아이디를 입력해주세요."
             id="id"
             className="admin-login-input"
+            onChange={(e) =>
+              setAccount({ ...account, identifier: e.target.value })
+            }
           />
         </div>
         <div className="admin-login-inputWrap">
@@ -42,6 +76,9 @@ export default function Login() {
             placeholder="비밀번호를 입력해주세요."
             id="pw"
             className="admin-login-input"
+            onChange={(e) =>
+              setAccount({ ...account, password: e.target.value })
+            }
           />
 
           <img
@@ -52,7 +89,12 @@ export default function Login() {
           />
         </div>
         <CheckBox label="자동 로그인" handleSingleCheck={handleSingleCheck} />
-        <button type="button" className="admin-login-btn">
+        <button
+          onClick={onClickLoginButton}
+          type="button"
+          className="admin-login-btn"
+          disabled={isLoading}
+        >
           로그인
         </button>
       </div>

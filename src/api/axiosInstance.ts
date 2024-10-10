@@ -2,16 +2,20 @@ import axios from "axios";
 import { getToken, saveToken, removeToken } from "../utils/token";
 import { refreshToken } from "./auth";
 
+const baseURL = "http://13.124.200.80:8000";
+
 const axiosInstance = axios.create({
-  baseURL: "http://13.124.200.80:8000",
+  baseURL,
 });
 
 axiosInstance.interceptors.request.use(
-  (config) => {
+  async (config) => {
     const token = getToken();
+
     if (token) {
       config.headers["access-token"] = token;
     }
+
     return config;
   },
   (error) => {
