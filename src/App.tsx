@@ -25,6 +25,7 @@ import Layout from "./components/Layout/Layout";
 // admin
 import AdminLayout from "./components/Layout/AdminLayout";
 import PeopleManagement from "./pages/Admin/People/PeopleManagement";
+import PeopleRegister from "./pages/Admin/People/PeopleRegister";
 import WorkCategoryManagement from "./pages/Admin/WorkCategory/WorkCategoryManagement";
 import NewsLetterManagement from "./pages/Admin/NewsLetter/NewsLetterManagement";
 import PostManagement from "./pages/Admin/Post/PostManagement";
@@ -67,6 +68,7 @@ function App() {
               path="/admin/people-management"
               element={<PeopleManagement />}
             />
+            <Route path="/admin/people-register" element={<PeopleRegister />} />
             <Route
               path="/admin/work-category-manegement"
               element={<WorkCategoryManagement />}

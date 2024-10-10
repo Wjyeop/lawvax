@@ -3,8 +3,8 @@ import { useState } from "react";
 import CategoryTab from "../../../components/Admin/CategoryTab";
 import { WORK_CATEGORY_CONTENT } from "../../../components/Admin/constants";
 import Photo from "../../../assets/images/ic_admin_photo.svg";
-import InputWithYearAndText from "../../../components/Admin/InputWithYearAndText";
-import InputWithText from "../../../components/Admin/InputWithText";
+import InputWithYearAndText from "../../../components/Admin/WorkCategory/InputWithYearAndText";
+import InputWithText from "../../../components/Admin/WorkCategory/InputWithText";
 
 const DEFAULT_INPUT_COUNT = 3;
 const DEFAULT_EXAM_INPUT_COUNT = 1;
@@ -61,6 +61,8 @@ export default function WorkCategoryManagement() {
             <span>대표사례</span>
             {[...Array(inputCount)].map(() => (
               <InputWithYearAndText
+                numPlaceholder="1995"
+                textPlaceholder="OO그룹 감사업무 대행 및 고소·고발 대리"
                 onClickPlusButton={onClickPlusButton}
                 onClickDeleteButton={onClickDeleteButton}
               />

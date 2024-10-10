@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Plus from "../../assets/images/ic_plus.svg";
 import Shake from "../../assets/images/ic_admin_shake.svg";
 import Search from "../../assets/images/ic_admin_search.svg";
+import { Link } from "react-router-dom";
 
 type Props = {
   samplePeopleData: any;
@@ -40,6 +41,7 @@ export default function PeopleController({
       <ul className="admin-people-position-wrapper">
         {Object.entries(positionData).map(([name, count]: any) => (
           <li
+            key={`people-controller-${name}`}
             onClick={() => handlePosition(name)}
             className={
               selectPostion !== name
@@ -56,10 +58,10 @@ export default function PeopleController({
       </ul>
       <div className="admin-people-control">
         <div className="admin-control-btnwrap">
-          <button className="admin-control-btn">
+          <Link to="/admin/people-register" className="admin-control-btn">
             <img src={Plus} alt="플러스 아이콘" />
             <span>등록하기</span>
-          </button>
+          </Link>
           <button className="admin-control-btn">
             <img src={Shake} alt="바꾸기 아이콘" />
             <span>순서 바꾸기</span>

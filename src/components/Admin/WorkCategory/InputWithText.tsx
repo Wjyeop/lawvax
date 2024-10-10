@@ -1,19 +1,19 @@
-import Plus from "../../assets/images/ic_admin_plus2.svg";
-import Trash from "../../assets/images/ic_admin_trash.svg";
+import Plus from "../../../assets/images/ic_admin_plus2.svg";
+import Trash from "../../../assets/images/ic_admin_trash.svg";
 
-type Props = { onClickPlusButton: () => void; onClickDeleteButton: () => void };
+type Props = {
+  onClickPlusButton: () => void;
+  onClickDeleteButton: () => void;
+};
 
-export default function InputWithYearAndText({
+export default function InputWithText({
   onClickPlusButton,
   onClickDeleteButton,
 }: Props) {
   return (
-    <div style={{ marginTop: "10px" }} className="admin-number-inputWrap">
-      <input type="number" placeholder="1995" className="admin-number-input" />
-      <span>~</span>
-      <input type="number" placeholder="1995" className="admin-number-input" />
+    <div className="admin-number-inputWrap">
       <input
-        style={{ margin: "0 10px" }}
+        style={{ marginRight: "10px" }}
         type="text"
         placeholder="OO그룹 감사업무 대행 및 고소·고발 대리"
         className="admin-text-input"

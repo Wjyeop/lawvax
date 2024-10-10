@@ -8,6 +8,7 @@ export const MANAGEMENT_TAB_CONTENTS = [
     Icon: People,
     label: "구성원 관리",
     link: "/admin/people-management",
+    extraLink: "/admin/people-register",
   },
   {
     Icon: List,
@@ -161,3 +162,25 @@ export const WORK_CATEGORY_CONTENT = [
   "조선 · 해운",
   "방산 · 우주항공",
 ];
+
+export const WORK_POSITION_LIST = [
+  "대표 변호사",
+  "파트너 변호사",
+  "변호사",
+  "고문",
+];
+
+export const MAIN_TASKS_LIST = [
+  "형사",
+  "민사·행정·가사",
+  "금융·가상자산",
+  "기업 자문·감사 대행",
+  "IT·첨단·기술보호·개인정보",
+  "조세·관세·공정거래",
+  "기업 M&A·구조조정·회생",
+  "건설·부동산",
+  "조선·해운",
+  "방산·우주항공",
+];
+
+export const ADD_TASKS_LIST = ["기업 감사/내부통제 센터", "기술보호센터"];
