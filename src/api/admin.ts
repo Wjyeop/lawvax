@@ -1,7 +1,5 @@
-import axios from "axios";
 import adminInstance from "./adminInstance";
-
-const BASE_URL = "http://13.124.200.80:8000";
+const BASE_URL = "https://lvx.co.kr";
 
 interface Account {
   identifier: string;
@@ -40,6 +38,24 @@ export const getPeopleCount = async () => {
 export const deletePeople = async (id: number) => {
   const response = await adminInstance.delete(
     `${BASE_URL}/api/v2/admin/lawyer/${id}`
+  );
+
+  return response;
+};
+
+export const createPeople = async (data: any) => {
+  const response = await adminInstance.post(
+    `${BASE_URL}/api/v2/admin/lawyer`,
+    data
+  );
+
+  return response;
+};
+
+export const createImage = async (file: any) => {
+  const response = await adminInstance.post(
+    `${BASE_URL}/api/v2/admin/images`,
+    file
   );
 
   return response;

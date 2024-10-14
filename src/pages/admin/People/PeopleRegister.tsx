@@ -1,5 +1,6 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, ChangeEvent } from "react";
 
+import { createPeople, createImage } from "../../../api/admin";
 import LabelInput from "../../../components/Admin/People/LabelInput";
 import Dropdown from "../../../components/Admin/Common/Dropdown";
 import InputWithYearAndText from "../../../components/Admin/People/InputWithYearAndText";
@@ -12,13 +13,38 @@ import {
   ADD_TASKS_LIST,
 } from "../../../const/admin";
 import Photo from "../../../assets/images/ic_admin_photo.svg";
+import {
+  validateEmail,
+  validatePhoneNumber,
+  validateRequiredValue,
+  formatPhoneNumber,
+  formatEmptyObject,
+  generateFormData,
+} from "../../../utils/admin";
+import { useNavigate } from "react-router-dom";
 
-const DEFAULT_INPUT_COUNT = 3;
+export interface Career {
+  startYear: string;
+  endYear: string;
+  content: string;
+}
+
+export interface Education {
+  year: string;
+  content: string;
+}
+
+export interface Licenses {
+  content: string;
+}
 
 export default function PeopleRegister() {
+  const navigate = useNavigate();
+
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string>("");
   const [isCheck, setIsCheck] = useState(false);
-  const [careerInputCount, setCareerInputCount] = useState(DEFAULT_INPUT_COUNT);
-  const [examInputCount, setExamInputCount] = useState(DEFAULT_INPUT_COUNT);
+  const [isLoading, setIsLoading] = useState(false);
   const [profile, setProfile] = useState<any>({
     nameKo: "",
     nameCh: "",
@@ -32,7 +58,7 @@ export default function PeopleRegister() {
     isVisible: true,
     workFields: [],
   });
-  const [careers, setCareers] = useState<any>([
+  const [careers, setCareers] = useState<Career[]>([
     {
       startYear: "",
       endYear: "",
@@ -49,12 +75,12 @@ export default function PeopleRegister() {
       content: "",
     },
   ]);
-  const [educations, setEducations] = useState<any>([
+  const [educations, setEducations] = useState<Education[]>([
     { year: "", content: "" },
     { year: "", content: "" },
     { year: "", content: "" },
   ]);
-  const [licenses, setLicenses] = useState([
+  const [licenses, setLicenses] = useState<Licenses[]>([
     {
       content: "",
     },
@@ -65,7 +91,7 @@ export default function PeopleRegister() {
       content: "",
     },
   ]);
-  const [handleCases, setHandleCases] = useState([
+  const [handleCases, setHandleCases] = useState<Career[]>([
     {
       startYear: "",
       endYear: "",
@@ -87,7 +113,7 @@ export default function PeopleRegister() {
     setIsCheck((prev) => !prev);
   };
 
-  const handleYearChange = (index: number, year: number) => {
+  const handleYearChange = (index: number, year: string) => {
     const newEducations = [...educations];
     newEducations[index].year = year;
     return setEducations(newEducations);
@@ -208,22 +234,99 @@ export default function PeopleRegister() {
       : profile.workFields[0].workField;
   }, [profile.workFields]);
 
+  const uploadImage = async (image: string | File) => {
+    const formData = generateFormData(image);
+    const { data } = await createImage(formData);
+  };
+
+  const onClickSaveButton = async () => {
+    try {
+      setIsLoading(true);
+      validateRequiredValue(profile);
+      const {
+        filteredCareers,
+        filteredEducations,
+        filteredLicenses,
+        filteredHandleCases,
+      } = formatEmptyObject(careers, educations, licenses, handleCases);
+      validateEmail(profile.email);
+      validatePhoneNumber(profile.workNumber);
+      const combinedData = {
+        ...profile,
+        careers: filteredCareers,
+        educations: filteredEducations,
+        licenses: filteredLicenses,
+        handleCases: filteredHandleCases,
+        isVisible: !isCheck,
+      };
+
+      // await uploadImage(previewUrl);
+      await createPeople(combinedData);
+      navigate("/admin/people-management");
+    } catch (error) {
+      if (error instanceof Error) {
+        alert(error.message);
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const file = e.target.files[0];
+
+      if (file && file.type.match("image.*")) {
+        const imageUrl = URL.createObjectURL(file);
+        setPreviewUrl(imageUrl);
+        e.target.value = "";
+      }
+    }
+  };
+
   return (
     <section className="admin-register-container">
       <h2 className="admin-common-title">구성원 등록</h2>
       <div className="admin-people-registerWrap">
         <div className="admin-photo-wrap">
-          <img src={Photo} alt="사진 이미지" className="admin-photo" />
+          <img
+            onClick={handleClick}
+            src={previewUrl || Photo}
+            alt="사진 이미지"
+            className="admin-photo"
+          />
           <span className="admin-photo-text">대표 사진 등록</span>
+          <input
+            type="file"
+            accept="image/*"
+            ref={fileInputRef}
+            style={{ display: "none" }}
+            onChange={handleImageChange}
+          />
         </div>
         <div className="admin-register-inputCon">
           <div className="admin-register-half">
             <div className="admin-register-innerInputWrap">
               <LabelInput
                 label="이름(한글)"
-                placeholder="아이디를 입력해주세요."
+                placeholder="홍길동"
+                type="text"
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setProfile({ ...profile, nameKo: e.target.value })
+                }
               />
-              <LabelInput label="이름(한문)" placeholder="洪吉童" />
+              <LabelInput
+                label="이름(한문)"
+                placeholder="洪吉童"
+                type="text"
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setProfile({ ...profile, nameCh: e.target.value })
+                }
+              />
             </div>
             <div className="admin-register-innerDropdownWrap">
               <Dropdown
@@ -242,19 +345,53 @@ export default function PeopleRegister() {
               />
             </div>
             <div className="admin-register-innerInputWrap">
-              <LabelInput label="전화번호" placeholder="010-0000-0000" />
+              <LabelInput
+                label="전화번호"
+                placeholder="010-0000-0000"
+                value={profile.workNumber}
+                type="text"
+                maxLength={13}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setProfile({
+                    ...profile,
+                    workNumber: formatPhoneNumber(e.target.value),
+                  })
+                }
+              />
               <LabelInput
                 label="E-mail"
                 placeholder="hongildong@lawvax.co.kr"
+                type="text"
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setProfile({ ...profile, email: e.target.value })
+                }
               />
             </div>
             <div className="admin-register-textarea">
               <span>소개</span>
-              <textarea placeholder="간단한 소개 글을 작성해주세요." />
+              <textarea
+                placeholder="간단한 소개 글을 작성해주세요."
+                onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+                  setProfile({ ...profile, introduction: e.target.value })
+                }
+              />
             </div>
             <div className="admin-register-innerInputWrap">
-              <LabelInput label="주요경력" placeholder="1순위 입력" />
-              <LabelInput placeholder="2순위 입력" />
+              <LabelInput
+                label="주요경력"
+                placeholder="1순위 입력"
+                type="text"
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setProfile({ ...profile, firstMainCareer: e.target.value })
+                }
+              />
+              <LabelInput
+                placeholder="2순위 입력"
+                type="text"
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setProfile({ ...profile, secondMainCareer: e.target.value })
+                }
+              />
             </div>
           </div>
           <div className="admin-register-half">
@@ -317,7 +454,12 @@ export default function PeopleRegister() {
           </div>
         </div>
         <div className="admin-register-btnWrap">
-          <button type="button" className="admin-register-savebtn">
+          <button
+            type="button"
+            disabled={isLoading}
+            onClick={onClickSaveButton}
+            className="admin-register-savebtn"
+          >
             저장
           </button>
           <CheckBox label="비공개" handleSingleCheck={handleSingleCheck} />

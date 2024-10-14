@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getLocalAdminToken, getSessionAdminToken } from "../utils/token";
 
-const baseURL = "http://13.124.200.80:8000";
+const baseURL = "https://lvx.co.kr";
 
 const adminInstance = axios.create({
   baseURL,

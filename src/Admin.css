@@ -1023,6 +1023,7 @@ input:-ms-input-placeholder {
   background-color: #005bac;
   border: none;
   border-radius: 6px;
+  cursor: pointer;
 }
 
 .admin-logout-btn {

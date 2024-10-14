@@ -7,7 +7,7 @@ import DropdownSrc from "../../../assets/images/ic_admin_dropdowArr.svg";
 type Props = {
   index: number;
   value: any;
-  handleYearChange: (index: number, year: number) => void;
+  handleYearChange: (index: number, year: string) => void;
   handleInputChange: (
     index: number,
     content: string,
@@ -32,7 +32,7 @@ export default function InputWithSelect({
   const years = Array.from({ length: 40 }, (_, i) => currentYear - i);
 
   const onChange = (index: number, year: number) => {
-    handleYearChange(index, year);
+    handleYearChange(index, String(year));
     setIsOpen(!isOpen);
   };
 
