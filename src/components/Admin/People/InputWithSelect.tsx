@@ -44,8 +44,8 @@ export default function InputWithSelect({
           type="button"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <p className={!value ? "admin-year-btnBas" : ""}>
-            {!value ? "선택" : value}
+          <p className={!value["year"] ? "admin-year-btnBas" : ""}>
+            {!value["year"] ? "선택" : value["year"]}
           </p>
           <img src={DropdownSrc} alt="드롭다운 아이콘" />
         </button>
@@ -71,6 +71,7 @@ export default function InputWithSelect({
         type="text"
         placeholder="OO대학교 졸업"
         className="admin-text-input"
+        value={value["content"]}
         onChange={(e) =>
           handleInputChange(index, "content", e.target.value, "education")
         }

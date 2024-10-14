@@ -14,6 +14,7 @@ type Props = {
     data: string
   ) => void;
   data: string;
+  value?: any;
 };
 
 export default function InputWithYearAndText({
@@ -24,6 +25,7 @@ export default function InputWithYearAndText({
   handleRemoveForm,
   handleInputChange,
   data,
+  value,
 }: Props) {
   return (
     <div className="admin-number-inputWrap">
@@ -34,6 +36,7 @@ export default function InputWithYearAndText({
         onChange={(e) =>
           handleInputChange(index, "startYear", e.target.value, data)
         }
+        value={value["startYear"] || ""}
       />
       <span>~</span>
       <input
@@ -43,6 +46,7 @@ export default function InputWithYearAndText({
         onChange={(e) =>
           handleInputChange(index, "endYear", e.target.value, data)
         }
+        value={value["endYear"] || ""}
       />
       <input
         style={{ margin: "0 10px" }}
@@ -52,6 +56,7 @@ export default function InputWithYearAndText({
         onChange={(e) =>
           handleInputChange(index, "content", e.target.value, data)
         }
+        value={value["content"] || ""}
       />
       <div className="admin-news-iconWrap">
         <img

@@ -3,6 +3,7 @@ import Trash from "../../../assets/images/ic_admin_trash.svg";
 
 type Props = {
   index: number;
+  value?: any;
   handleAddForm: (data: string) => void;
   handleRemoveForm: (index: number, data: string) => void;
   handleInputChange: (
@@ -15,6 +16,7 @@ type Props = {
 
 export default function InputWithText({
   index,
+  value,
   handleAddForm,
   handleRemoveForm,
   handleInputChange,
@@ -26,6 +28,7 @@ export default function InputWithText({
         type="text"
         placeholder="OO그룹 감사업무 대행 및 고소·고발 대리"
         className="admin-text-input"
+        value={value["content"]}
         onChange={(e) =>
           handleInputChange(index, "content", e.target.value, "licenses")
         }

@@ -32,6 +32,14 @@ export const getPeopleCount = async () => {
   return response;
 };
 
+export const getPeopleItem = async (id: any) => {
+  const response = await adminInstance.get(
+    `${BASE_URL}/api/v2/admin/lawyer/${id}`
+  );
+
+  return response;
+};
+
 export const deletePeople = async (id: number) => {
   const response = await adminInstance.delete(
     `${BASE_URL}/api/v2/admin/lawyer/${id}`
@@ -43,6 +51,15 @@ export const deletePeople = async (id: number) => {
 export const createPeople = async (data: any) => {
   const response = await adminInstance.post(
     `${BASE_URL}/api/v2/admin/lawyer`,
+    data
+  );
+
+  return response;
+};
+
+export const updatePeople = async (id: string | undefined, data: any) => {
+  const response = await adminInstance.put(
+    `${BASE_URL}/api/v2/admin/lawyer/${id}`,
     data
   );
 

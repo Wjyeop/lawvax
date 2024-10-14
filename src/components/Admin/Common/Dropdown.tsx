@@ -9,6 +9,7 @@ type Props = {
   isMultiple: boolean;
   handleCheck: (position: string) => void;
   list: string[];
+  checkedItems?: string[];
 };
 
 export default function Dropdown({
@@ -17,6 +18,7 @@ export default function Dropdown({
   isMultiple,
   handleCheck,
   list,
+  checkedItems,
 }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -49,7 +51,12 @@ export default function Dropdown({
                 {position === "기업 감사/내부통제 센터" && <Divider />}
                 <li key={`work-${position}`} className="admin-dropItem">
                   <label className="admin-custom-checkbox">
-                    <input type="checkbox" onClick={() => onClick(position)} />
+                    <input
+                      type="checkbox"
+                      checked={checkedItems?.includes(position)}
+                      onClick={() => onClick(position)}
+                      readOnly
+                    />
                     <span className="admin-checkmark"></span>
                     {position}
                   </label>

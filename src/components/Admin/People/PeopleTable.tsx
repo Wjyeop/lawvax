@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import { getPeopleList, deletePeople } from "../../../api/admin";
 
@@ -35,6 +36,7 @@ export default function PeopleTable({
 
       setPeopleList(data || []);
       setReorderedList(data || []);
+      console.log(data);
     })();
   }, [selectPostion]);
 
@@ -120,7 +122,9 @@ export default function PeopleTable({
             <td></td>
             <td>{item.isVisible ? "공개" : "비공개"}</td>
             <td>
-              <button className="admin-table-edit">수정</button>
+              <Link to={`/admin/people-edit/${item.id}`}>
+                <button className="admin-table-edit">수정</button>
+              </Link>
             </td>
             <td>
               <button
