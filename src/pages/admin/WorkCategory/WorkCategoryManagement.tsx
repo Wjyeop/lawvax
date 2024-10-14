@@ -112,7 +112,6 @@ export default function WorkCategoryManagement() {
     };
 
     try {
-      console.log(selectCategory, dataToSend);
       await updateWorkCategory(selectCategory, dataToSend);
       alert("저장이 완료되었습니다.");
     } catch (error) {

@@ -20,6 +20,7 @@ type Props = {
   handlePosition: (position: string) => void;
   setPeopleList: (item: PeopleItem[]) => void;
   peopleList: PeopleItem[];
+  handleEditMode: () => void;
 };
 
 export default function PeopleController({
@@ -27,6 +28,7 @@ export default function PeopleController({
   handlePosition,
   setPeopleList,
   peopleList,
+  handleEditMode,
 }: Props) {
   const [inputValueTemp, setInputValueTemp] = useState("");
   const [positionData, setPositionData] = useState<any>({
@@ -87,7 +89,7 @@ export default function PeopleController({
             <img src={Plus} alt="플러스 아이콘" />
             <span>등록하기</span>
           </Link>
-          <button className="admin-control-btn">
+          <button onClick={handleEditMode} className="admin-control-btn">
             <img src={Shake} alt="바꾸기 아이콘" />
             <span>순서 바꾸기</span>
           </button>

@@ -17,15 +17,11 @@ export const tryLogin = async (account: Account) => {
 };
 
 export const getPeopleList = async (position: string, name?: string) => {
-  try {
-    const response = await adminInstance.get(
-      `${BASE_URL}/api/v2/admin/lawyer?position=${position}`
-    );
+  const response = await adminInstance.get(
+    `${BASE_URL}/api/v2/admin/lawyer?position=${position}`
+  );
 
-    return response;
-  } catch (error: any) {
-    throw new Error("구성원 불러오기: " + (error as Error).message);
-  }
+  return response;
 };
 
 export const getPeopleCount = async () => {
