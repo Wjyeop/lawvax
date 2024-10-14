@@ -43,6 +43,7 @@ export default function PeopleRegister() {
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string>("");
+  const [imageFile, setImageFile] = useState<File | null>(null);
   const [isCheck, setIsCheck] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [profile, setProfile] = useState<any>({
@@ -234,23 +235,29 @@ export default function PeopleRegister() {
       : profile.workFields[0].workField;
   }, [profile.workFields]);
 
-  const uploadImage = async (image: string | File) => {
-    const formData = generateFormData(image);
-    const { data } = await createImage(formData);
+  const uploadImage = async (image: File | null) => {
+    if (image) {
+      const formData = generateFormData(image);
+      const { data } = await createImage(formData);
+
+      return data;
+    }
   };
 
   const onClickSaveButton = async () => {
     try {
       setIsLoading(true);
+      const url = await uploadImage(imageFile);
+
       validateRequiredValue(profile);
+      validateEmail(profile.email);
+      validatePhoneNumber(profile.workNumber);
       const {
         filteredCareers,
         filteredEducations,
         filteredLicenses,
         filteredHandleCases,
       } = formatEmptyObject(careers, educations, licenses, handleCases);
-      validateEmail(profile.email);
-      validatePhoneNumber(profile.workNumber);
       const combinedData = {
         ...profile,
         careers: filteredCareers,
@@ -258,9 +265,9 @@ export default function PeopleRegister() {
         licenses: filteredLicenses,
         handleCases: filteredHandleCases,
         isVisible: !isCheck,
+        mainImg: url,
       };
 
-      // await uploadImage(previewUrl);
       await createPeople(combinedData);
       navigate("/admin/people-management");
     } catch (error) {
@@ -283,6 +290,7 @@ export default function PeopleRegister() {
       if (file && file.type.match("image.*")) {
         const imageUrl = URL.createObjectURL(file);
         setPreviewUrl(imageUrl);
+        setImageFile(file);
         e.target.value = "";
       }
     }
