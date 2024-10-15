@@ -7,15 +7,25 @@ import Edit from "../../../assets/images/ic_admin_edit.svg";
 import Trash from "../../../assets/images/ic_admin_trash.svg";
 import Pagination from "../Common/Pagination";
 
-const DEFAULT_PAGE = 1;
-
 type Props = {
   totalCount: number;
   list: any;
+  setCurrentPage: (page: number) => void;
+  currentPage: number;
+  setSearchValue: (value: string) => void;
+  handleSearch: (e: any) => void;
+  onClickDeleteButton: (id: number) => void;
 };
 
-export default function NewsLetterContents({ totalCount, list }: Props) {
-  const [currentPage, setCurrentPage] = useState(DEFAULT_PAGE);
+export default function NewsLetterContents({
+  totalCount,
+  list,
+  setCurrentPage,
+  currentPage,
+  setSearchValue,
+  handleSearch,
+  onClickDeleteButton,
+}: Props) {
   const [currentPageGroup, setCurrentPageGroup] = useState(1);
 
   const totalPages = calculateMaxPageNum(totalCount, 9);
@@ -57,6 +67,8 @@ export default function NewsLetterContents({ totalCount, list }: Props) {
             type="text"
             placeholder="Search"
             className="admin-people-searchbox"
+            onChange={(e) => setSearchValue(e.target.value)}
+            onKeyDown={handleSearch}
           />
         </div>
       </div>
@@ -74,6 +86,7 @@ export default function NewsLetterContents({ totalCount, list }: Props) {
               <img
                 src={Trash}
                 alt="휴지통 아이콘"
+                onClick={() => onClickDeleteButton(id)}
                 className="admin-news-icon"
               />
             </div>

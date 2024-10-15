@@ -128,3 +128,31 @@ export const deletePost = async (id: number) => {
 
   return response;
 };
+
+export const getNewsLetterList = async (
+  page: number,
+  category: string,
+  searchValue?: string
+) => {
+  const response = await adminInstance.get(
+    `${BASE_URL}/api/v2/admin/newsletter?page=${page}&category=${category}&search=${searchValue}`
+  );
+
+  return response;
+};
+
+export const getNewsLetterCount = async () => {
+  const response = await adminInstance.get(
+    `${BASE_URL}/api/v2/admin/newsletter/stats`
+  );
+
+  return response;
+};
+
+export const deleteNewsLetter = async (id: number) => {
+  const response = await adminInstance.delete(
+    `${BASE_URL}/api/v2/admin/newsletter/${id}`
+  );
+
+  return response;
+};

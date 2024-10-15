@@ -23,7 +23,6 @@ export default function PostManagement() {
       const {
         data: { totalCount, newsList },
       } = await getPostList(currentPage, selectCategory, searchValue);
-
       const { data } = await getPostCount();
 
       setNewsTab(data);
@@ -54,7 +53,9 @@ export default function PostManagement() {
       const {
         data: { totalCount, newsList },
       } = await getPostList(currentPage, selectCategory, searchValue);
+      const { data } = await getPostCount();
 
+      setNewsTab(data);
       setNewsTotalCount(totalCount);
       setnewsList(newsList);
     }
