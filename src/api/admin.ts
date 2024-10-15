@@ -91,3 +91,12 @@ export const updateWorkCategory = async (field: string, data: any) => {
 
   return response;
 };
+
+export const updatePeopleOrder = async (data: number[]) => {
+  const response = await adminInstance.put(
+    `${BASE_URL}/api/v2/admin/lawyer/sort`,
+    data
+  );
+
+  return response;
+};

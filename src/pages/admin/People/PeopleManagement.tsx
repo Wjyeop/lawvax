@@ -21,9 +21,7 @@ export default function PeopleManagement() {
       <PeopleController
         selectPostion={selectPostion}
         handlePosition={handlePosition}
-        setPeopleList={setPeopleList}
         peopleList={peopleList}
-        handleEditMode={handleEditMode}
       />
       <PeopleTable
         selectPostion={selectPostion}

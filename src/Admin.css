@@ -440,6 +440,50 @@ input:-ms-input-placeholder {
   width: 120px;
 }
 
+.admin-control-unactivebtn {
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #ddd;
+  border: none;
+  border-radius: 6px;
+  width: 120px;
+}
+
+.admin-control-icon {
+  fill: #fff;
+  width: 24px;
+  height: 24px;
+}
+
+.admin-control-activeicon {
+  fill: #005bac;
+  width: 24px;
+  height: 24px;
+}
+
+.admin-control-Activebtn {
+  padding: 8px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #005bac;
+  background-color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 120px;
+  border: 2px solid #005bac;
+}
+
 .admin-people-searchwrap {
   display: flex;
   align-items: center;

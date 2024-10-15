@@ -127,6 +127,7 @@ export default function PeopleEdit() {
         introduction: data.introduction,
         firstMainCareer: data.firstMainCareer,
         secondMainCareer: data.secondMainCareer,
+        mainImg: data.mainImg,
       });
       setCareers(data.careers.length > 0 ? data.careers : careers);
       setEducations(data.educations.length > 0 ? data.educations : educations);
@@ -278,7 +279,10 @@ export default function PeopleEdit() {
   const onClickSaveButton = async () => {
     try {
       setIsLoading(true);
-      const url = await uploadImage(imageFile);
+      let url;
+      if (imageFile) {
+        url = await uploadImage(imageFile);
+      }
 
       validateRequiredValue(profile);
       validateEmail(profile.email);
@@ -296,12 +300,14 @@ export default function PeopleEdit() {
         licenses: filteredLicenses,
         handleCases: filteredHandleCases,
         isVisible: !isCheck,
-        mainImg: url,
+        mainImg: imageFile ? url : profile.mainImg,
       };
+      console.log(combinedData);
 
       await updatePeople(id, combinedData);
       navigate("/admin/people-management");
     } catch (error) {
+      console.log(error);
       if (error instanceof Error) {
         alert(error.message);
       }
