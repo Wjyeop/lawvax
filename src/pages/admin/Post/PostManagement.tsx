@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import CategoryTab from "../../../components/Admin/Common/CategoryTab";
 import { POST_TAB_CONTENT } from "../../../const/admin";
 import PostContents from "../../../components/Admin/Post/PostContents";
-import { getPostCount, getPostList } from "../../../api/admin";
+import { getPostCount, getPostList, deletePost } from "../../../api/admin";
 
 const DEFAULT = "전체보기";
 const DEFAULT_PAGE = 1;
@@ -42,9 +42,19 @@ export default function PostManagement() {
       const {
         data: { totalCount, newsList },
       } = await getPostList(currentPage, selectCategory, searchValue);
-      const { data } = await getPostCount();
 
-      setNewsTab(data);
+      setNewsTotalCount(totalCount);
+      setnewsList(newsList);
+    }
+  };
+
+  const onClickDeleteButton = async (id: number) => {
+    if (window.confirm("삭제하시겠습니까?")) {
+      await deletePost(id);
+      const {
+        data: { totalCount, newsList },
+      } = await getPostList(currentPage, selectCategory, searchValue);
+
       setNewsTotalCount(totalCount);
       setnewsList(newsList);
     }
@@ -66,6 +76,7 @@ export default function PostManagement() {
           currentPage={currentPage}
           handleSearch={handleSearch}
           setSearchValue={setSearchValue}
+          onClickDeleteButton={onClickDeleteButton}
         />
       </div>
     </section>

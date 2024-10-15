@@ -120,3 +120,11 @@ export const getPostCount = async () => {
 
   return response;
 };
+
+export const deletePost = async (id: number) => {
+  const response = await adminInstance.delete(
+    `${BASE_URL}/api/v2/admin/news/${id}`
+  );
+
+  return response;
+};

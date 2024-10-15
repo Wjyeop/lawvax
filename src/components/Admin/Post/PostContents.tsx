@@ -14,6 +14,7 @@ type Props = {
   currentPage: number;
   handleSearch: (e: any) => void;
   setSearchValue: (value: string) => void;
+  onClickDeleteButton: (id: number) => void;
 };
 
 export default function PostContents({
@@ -23,6 +24,7 @@ export default function PostContents({
   currentPage,
   handleSearch,
   setSearchValue,
+  onClickDeleteButton,
 }: Props) {
   const [currentPageGroup, setCurrentPageGroup] = useState(1);
 
@@ -87,6 +89,7 @@ export default function PostContents({
                 src={Trash}
                 alt="휴지통 아이콘"
                 className="admin-news-icon"
+                onClick={() => onClickDeleteButton(id)}
               />
             </div>
           </li>
