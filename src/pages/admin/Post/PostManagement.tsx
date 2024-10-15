@@ -1,27 +1,54 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import CategoryTab from "../../../components/Admin/Common/CategoryTab";
-import { POST_TAB_CONTENT, POST_LIST_CONTENT } from "../../../const/admin";
+import { POST_TAB_CONTENT } from "../../../const/admin";
 import PostContents from "../../../components/Admin/Post/PostContents";
+import { getPostCount, getPostList } from "../../../api/admin";
 
 const DEFAULT = "전체보기";
+const DEFAULT_PAGE = 1;
 
 export default function PostManagement() {
   const [newsTab, setNewsTab] = useState(POST_TAB_CONTENT);
+  const [newsTotalCount, setNewsTotalCount] = useState(0);
+  const [newsList, setnewsList] = useState([]);
+  const [currentPage, setCurrentPage] = useState(DEFAULT_PAGE);
   const [selectCategory, setSelectCategory] = useState(
     Object.keys(newsTab)[0] || DEFAULT
   );
+  const [searchValue, setSearchValue] = useState("");
+
+  useEffect(() => {
+    (async () => {
+      const {
+        data: { totalCount, newsList },
+      } = await getPostList(currentPage, selectCategory, searchValue);
+
+      const { data } = await getPostCount();
+
+      setNewsTab(data);
+      setNewsTotalCount(totalCount);
+      setnewsList(newsList);
+    })();
+  }, [selectCategory, currentPage]);
 
   const handlePosition = (category: string) => {
     setSelectCategory(category);
   };
 
-  const filteredList =
-    selectCategory === DEFAULT
-      ? POST_LIST_CONTENT.newsList
-      : POST_LIST_CONTENT.newsList.filter(
-          (item) => item.category === selectCategory
-        );
+  const handleSearch = async (e: any) => {
+    if (e.key === "Enter") {
+      setCurrentPage(DEFAULT_PAGE);
+      const {
+        data: { totalCount, newsList },
+      } = await getPostList(currentPage, selectCategory, searchValue);
+      const { data } = await getPostCount();
+
+      setNewsTab(data);
+      setNewsTotalCount(totalCount);
+      setnewsList(newsList);
+    }
+  };
 
   return (
     <section className="admin-common-container">
@@ -33,8 +60,12 @@ export default function PostManagement() {
           selectCategory={selectCategory}
         />
         <PostContents
-          totalCount={POST_LIST_CONTENT.totalCount}
-          list={filteredList}
+          totalCount={newsTotalCount}
+          list={newsList}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+          handleSearch={handleSearch}
+          setSearchValue={setSearchValue}
         />
       </div>
     </section>

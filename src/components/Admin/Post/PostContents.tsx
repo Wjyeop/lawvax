@@ -7,15 +7,23 @@ import Edit from "../../../assets/images/ic_admin_edit.svg";
 import Trash from "../../../assets/images/ic_admin_trash.svg";
 import Pagination from "../Common/Pagination";
 
-const DEFAULT_PAGE = 1;
-
 type Props = {
   totalCount: number;
   list: any;
+  setCurrentPage: any;
+  currentPage: number;
+  handleSearch: (e: any) => void;
+  setSearchValue: (value: string) => void;
 };
 
-export default function PostContents({ totalCount, list }: Props) {
-  const [currentPage, setCurrentPage] = useState(DEFAULT_PAGE);
+export default function PostContents({
+  totalCount,
+  list,
+  setCurrentPage,
+  currentPage,
+  handleSearch,
+  setSearchValue,
+}: Props) {
   const [currentPageGroup, setCurrentPageGroup] = useState(1);
 
   const totalPages = calculateMaxPageNum(totalCount, 9);
@@ -35,14 +43,14 @@ export default function PostContents({ totalCount, list }: Props) {
   const onClickNextButton = () => {
     if (endPage < totalPages) {
       setCurrentPageGroup((prev) => prev + 1);
-      setCurrentPage((prev) => prev + pagesPerGroup);
+      setCurrentPage((prev: number) => prev + pagesPerGroup);
     }
   };
 
   const onClickPrevButton = () => {
     if (currentPageGroup > 1) {
       setCurrentPageGroup((prev) => prev - 1);
-      setCurrentPage((prev) => prev - pagesPerGroup);
+      setCurrentPage((prev: number) => prev - pagesPerGroup);
     }
   };
 
@@ -59,6 +67,8 @@ export default function PostContents({ totalCount, list }: Props) {
             type="text"
             placeholder="Search"
             className="admin-people-searchbox"
+            onKeyDown={handleSearch}
+            onChange={(e) => setSearchValue(e.target.value)}
           />
         </div>
       </div>

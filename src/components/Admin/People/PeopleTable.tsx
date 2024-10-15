@@ -41,7 +41,6 @@ export default function PeopleTable({
 
       setPeopleList(data || []);
       setReorderedList(data || []);
-      console.log(data);
     })();
   }, [selectPostion]);
 
@@ -51,8 +50,6 @@ export default function PeopleTable({
       const { data } = await getPeopleList(selectPostion);
 
       setPeopleList(data || []);
-    } else {
-      console.log("삭제 안함!");
     }
   };
 
@@ -165,47 +162,49 @@ export default function PeopleTable({
           </tr>
         </thead>
         <tbody>
-          {reorderedList.map((item: PeopleItem, idx: number) => (
-            <tr
-              key={item.id}
-              draggable={isEditMode}
-              onDragStart={(e) => handleDragStart(e, idx)}
-              onDragEnter={() => handleDragEnter(idx)}
-              onDragEnd={handleDragEnd}
-              className="admin-table-body"
-              style={{
-                opacity: draggedIndex === idx ? 0.5 : 1,
-                cursor: isEditMode ? "move" : "default",
-              }}
-            >
-              <td>{idx + 1}</td>
-              <td className="admin-table-imageWrap">
-                <img
-                  src={item.mainImg}
-                  alt="profile"
-                  className="admin-table-img"
-                />
-              </td>
-              <td>{item.position}</td>
-              <td>{item.name}</td>
-              <td>{item.email}</td>
-              <td></td>
-              <td>{item.isVisible ? "공개" : "비공개"}</td>
-              <td>
-                <Link to={`/admin/people-edit/${item.id}`}>
-                  <button className="admin-table-edit">수정</button>
-                </Link>
-              </td>
-              <td>
-                <button
-                  onClick={() => onClickDeleteButton(item.id)}
-                  className="admin-table-del"
-                >
-                  삭제
-                </button>
-              </td>
-            </tr>
-          ))}
+          {(isEditMode ? reorderedList : peopleList).map(
+            (item: PeopleItem, idx: number) => (
+              <tr
+                key={item.id}
+                draggable={isEditMode}
+                onDragStart={(e) => handleDragStart(e, idx)}
+                onDragEnter={() => handleDragEnter(idx)}
+                onDragEnd={handleDragEnd}
+                className="admin-table-body"
+                style={{
+                  opacity: draggedIndex === idx ? 0.5 : 1,
+                  cursor: isEditMode ? "move" : "default",
+                }}
+              >
+                <td>{idx + 1}</td>
+                <td className="admin-table-imageWrap">
+                  <img
+                    src={item.mainImg}
+                    alt="profile"
+                    className="admin-table-img"
+                  />
+                </td>
+                <td>{item.position}</td>
+                <td>{item.name}</td>
+                <td>{item.email}</td>
+                <td></td>
+                <td>{item.isVisible ? "공개" : "비공개"}</td>
+                <td>
+                  <Link to={`/admin/people-edit/${item.id}`}>
+                    <button className="admin-table-edit">수정</button>
+                  </Link>
+                </td>
+                <td>
+                  <button
+                    onClick={() => onClickDeleteButton(item.id)}
+                    className="admin-table-del"
+                  >
+                    삭제
+                  </button>
+                </td>
+              </tr>
+            )
+          )}
         </tbody>
       </table>
     </>

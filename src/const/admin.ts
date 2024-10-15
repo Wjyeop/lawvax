@@ -72,9 +72,9 @@ export const NEWS_LETTER_LIST_CONTENTS = {
 };
 
 export const POST_TAB_CONTENT = {
-  전체보기: 253,
+  전체보기: 0,
   Lawvax소식: 0,
-  언론보도: 253,
+  언론보도: 0,
   인재영입: 0,
   비공개: 0,
 };

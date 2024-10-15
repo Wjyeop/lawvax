@@ -100,3 +100,23 @@ export const updatePeopleOrder = async (data: number[]) => {
 
   return response;
 };
+
+export const getPostList = async (
+  page: number,
+  category: string,
+  searchValue?: string
+) => {
+  const response = await adminInstance.get(
+    `${BASE_URL}/api/v2/admin/news?page=${page}&category=${category}&search=${searchValue}`
+  );
+
+  return response;
+};
+
+export const getPostCount = async () => {
+  const response = await adminInstance.get(
+    `${BASE_URL}/api/v2/admin/news/stats`
+  );
+
+  return response;
+};
