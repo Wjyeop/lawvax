@@ -156,3 +156,12 @@ export const deleteNewsLetter = async (id: number) => {
 
   return response;
 };
+
+export const createNews = async (data: any) => {
+  const response = await adminInstance.post(
+    `${BASE_URL}/api/v2/admin/news`,
+    data
+  );
+
+  return response;
+};

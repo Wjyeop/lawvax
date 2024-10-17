@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import { calculateMaxPageNum } from "../../../utils/admin";
 import Plus from "../../../assets/images/ic_plus.svg";
@@ -59,10 +60,12 @@ export default function PostContents({
   return (
     <div className="admin-news-contents">
       <div className="admin-news-btnwrap">
-        <button className="admin-control-btn">
-          <img src={Plus} alt="플러스 아이콘" />
-          <span>글쓰기</span>
-        </button>
+        <Link to="/admin/post-register">
+          <button className="admin-control-btn">
+            <img src={Plus} alt="플러스 아이콘" />
+            <span>글쓰기</span>
+          </button>
+        </Link>
         <div className="admin-people-searchwrap">
           <img src={Search} alt="돋보기 아이콘" />
           <input

@@ -30,6 +30,7 @@ import PeopleEdit from "./pages/Admin/People/PeopleEdit";
 import WorkCategoryManagement from "./pages/Admin/WorkCategory/WorkCategoryManagement";
 import NewsLetterManagement from "./pages/Admin/NewsLetter/NewsLetterManagement";
 import PostManagement from "./pages/Admin/Post/PostManagement";
+import PostRegister from "./pages/Admin/Post/PostRegister";
 import Login from "./pages/Admin/Login/Login";
 
 function App() {
@@ -76,6 +77,7 @@ function App() {
               element={<WorkCategoryManagement />}
             />
             <Route path="/admin/post-manegement" element={<PostManagement />} />
+            <Route path="/admin/post-register" element={<PostRegister />} />
             <Route
               path="/admin/news-letter-manegement"
               element={<NewsLetterManagement />}

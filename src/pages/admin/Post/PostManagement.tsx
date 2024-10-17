@@ -60,6 +60,7 @@ export default function PostManagement() {
       setnewsList(newsList);
     }
   };
+  console.log(newsList);
 
   return (
     <section className="admin-common-container">

@@ -184,3 +184,5 @@ export const MAIN_TASKS_LIST = [
 ];
 
 export const ADD_TASKS_LIST = ["기업 감사/내부통제 센터", "기술보호센터"];
+
+export const POST_REGISTER_CATEGORY = ["Lawvax소식", "언론보도", "인재영입"];
