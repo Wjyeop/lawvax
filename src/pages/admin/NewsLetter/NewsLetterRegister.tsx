@@ -14,12 +14,12 @@ import "react-quill/dist/quill.snow.css";
 import CheckBox from "../../../components/Admin/Common/CheckBox";
 import Photo from "../../../assets/images/ic_admin_photo.svg";
 import DropdownSrc from "../../../assets/images/ic_admin_dropdowArr.svg";
-import { POST_REGISTER_CATEGORY } from "../../../const/admin";
+import { NEWS_LETTER_REGISTER_CATEGORY } from "../../../const/admin";
 import {
   createImage,
-  getNewsItem,
-  createNews,
-  updateNewsItem,
+  getNewsLetterItem,
+  createNewLetter,
+  updateNewsLetterItem,
 } from "../../../api/admin";
 import { generateFormData } from "../../../utils/admin";
 
@@ -31,7 +31,7 @@ interface Contents {
   isVisible: boolean;
 }
 
-export default function PostRegister() {
+export default function NewsLetterRegister() {
   const { state } = useLocation();
   const navigate = useNavigate();
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -51,7 +51,7 @@ export default function PostRegister() {
   useEffect(() => {
     (async () => {
       if (state?.id) {
-        const { data } = await getNewsItem(Number(state?.id));
+        const { data } = await getNewsLetterItem(Number(state?.id));
         setContents(data);
         setPreviewUrl(data.mainImg);
       }
@@ -144,11 +144,11 @@ export default function PostRegister() {
         mainImg: imageFile ? url : contents.mainImg,
       };
       if (state?.id) {
-        await updateNewsItem(state?.id, combinedData);
+        await updateNewsLetterItem(state?.id, combinedData);
       } else {
-        await createNews(combinedData);
+        await createNewLetter(combinedData);
       }
-      navigate("/admin/post-manegement");
+      navigate("/admin/news-letter-manegement");
     } catch (error) {
       console.log(error);
     } finally {
@@ -158,7 +158,7 @@ export default function PostRegister() {
 
   return (
     <section className="admin-common-container">
-      <h2 className="admin-common-title">게시글 작성</h2>
+      <h2 className="admin-common-title">뉴스레터 작성</h2>
       <div className="admin-post-registerCon">
         <div className="admin-photo-wrap">
           <img
@@ -198,8 +198,8 @@ export default function PostRegister() {
             <div>
               {isOpen && (
                 <ul className="admin-post-dropList">
-                  {POST_REGISTER_CATEGORY.map((category) => (
-                    <div key={`work-${category}`}>
+                  {NEWS_LETTER_REGISTER_CATEGORY.map((category) => (
+                    <div key={`work-${category}`} className="test">
                       <li className="admin-post-dropItem">
                         <label className="admin-custom-checkbox">
                           <input

@@ -182,3 +182,29 @@ export const updateNewsItem = async (id: number, data: any) => {
 
   return response;
 };
+
+export const createNewLetter = async (data: any) => {
+  const response = await adminInstance.post(
+    `${BASE_URL}/api/v2/admin/newsletter`,
+    data
+  );
+
+  return response;
+};
+
+export const getNewsLetterItem = async (id: number) => {
+  const response = await adminInstance.get(
+    `${BASE_URL}/api/v2/admin/newsletter/${id}`
+  );
+
+  return response;
+};
+
+export const updateNewsLetterItem = async (id: number, data: any) => {
+  const response = await adminInstance.put(
+    `${BASE_URL}/api/v2/admin/newsletter/${id}`,
+    data
+  );
+
+  return response;
+};

@@ -6,6 +6,7 @@ import { WORK_CATEGORY_CONTENT } from "../../../const/admin";
 import Photo from "../../../assets/images/ic_admin_photo.svg";
 import InputWithYearAndText from "../../../components/Admin/WorkCategory/InputWithYearAndText";
 import InputWithText from "../../../components/Admin/WorkCategory/InputWithText";
+import { filterStringForParameter } from "../../../utils/admin";
 
 const DEFAULT_TAB = "형사";
 
@@ -28,7 +29,9 @@ export default function WorkCategoryManagement() {
 
   useEffect(() => {
     (async () => {
-      const { data } = await getWorkCategory(selectCategory);
+      const { data } = await getWorkCategory(
+        filterStringForParameter(selectCategory)
+      );
 
       setWorkCategoryInfo(data);
       setMainCases(data.mainCases);

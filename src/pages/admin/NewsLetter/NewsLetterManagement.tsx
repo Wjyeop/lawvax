@@ -8,6 +8,7 @@ import {
   getNewsLetterCount,
   deleteNewsLetter,
 } from "../../../api/admin";
+import { filterStringForParameter } from "../../../utils/admin";
 
 const DEFAULT = "전체보기";
 const DEFAULT_PAGE = 1;
@@ -26,7 +27,11 @@ export default function NewsLetterManagement() {
     (async () => {
       const {
         data: { totalCount, newsletterList },
-      } = await getNewsLetterList(currentPage, selectCategory, searchValue);
+      } = await getNewsLetterList(
+        currentPage,
+        filterStringForParameter(selectCategory),
+        searchValue
+      );
 
       const { data } = await getNewsLetterCount();
 

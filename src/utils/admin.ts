@@ -87,3 +87,7 @@ export const generateFormData = (image: string | File) => {
 
   return formData;
 };
+
+export const filterStringForParameter = (string: string) => {
+  return string.replace("&", "");
+};

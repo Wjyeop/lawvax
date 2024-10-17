@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 import { calculateMaxPageNum } from "../../../utils/admin";
 import Plus from "../../../assets/images/ic_plus.svg";
@@ -26,6 +27,7 @@ export default function NewsLetterContents({
   handleSearch,
   onClickDeleteButton,
 }: Props) {
+  const navigation = useNavigate();
   const [currentPageGroup, setCurrentPageGroup] = useState(1);
 
   const totalPages = calculateMaxPageNum(totalCount, 9);
@@ -54,13 +56,19 @@ export default function NewsLetterContents({
     }
   };
 
+  const onClickEditButton = (id: number) => {
+    navigation("/admin/post-register", { state: { id } });
+  };
+
   return (
     <div className="admin-news-contents">
       <div className="admin-news-btnwrap">
-        <button className="admin-control-btn">
-          <img src={Plus} alt="플러스 아이콘" />
-          <span>글쓰기</span>
-        </button>
+        <Link to="/admin/news-letter-register">
+          <button className="admin-control-btn">
+            <img src={Plus} alt="플러스 아이콘" />
+            <span>글쓰기</span>
+          </button>
+        </Link>
         <div className="admin-people-searchwrap">
           <img src={Search} alt="돋보기 아이콘" />
           <input
@@ -82,7 +90,12 @@ export default function NewsLetterContents({
               {new Date(createdAt).toLocaleDateString()}
             </span>
             <div className="admin-news-iconWrap">
-              <img src={Edit} alt="설정 아이콘" className="admin-news-icon" />
+              <img
+                src={Edit}
+                alt="설정 아이콘"
+                onClick={() => onClickEditButton(id)}
+                className="admin-news-icon"
+              />
               <img
                 src={Trash}
                 alt="휴지통 아이콘"

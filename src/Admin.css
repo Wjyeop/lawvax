@@ -1159,6 +1159,7 @@ input:-ms-input-placeholder {
   border-left: 0.6px solid #d9d9d9;
   padding: 24px 8px;
   display: flex;
+  align-items: start;
   flex-direction: column;
   gap: 14px;
   position: absolute;
@@ -1166,4 +1167,15 @@ input:-ms-input-placeholder {
   box-sizing: border-box;
   background-color: white;
   z-index: 10;
+}
+
+.admin-post-dropItem label {
+  font-size: 15px;
+}
+
+.admin-post-dropItem p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 90px;
 }
