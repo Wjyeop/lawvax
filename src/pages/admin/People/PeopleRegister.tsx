@@ -423,6 +423,7 @@ export default function PeopleRegister() {
                 <InputWithYearAndText
                   key={`careers-${index}`}
                   index={index}
+                  value={careers[index]}
                   numPlaceholder="1990"
                   textPlaceholder="제31회 사법시험 합격"
                   handleAddForm={handleAddForm}
@@ -438,6 +439,7 @@ export default function PeopleRegister() {
                 <InputWithYearAndText
                   key={`handleCases-${index}`}
                   index={index}
+                  value={handleCases[index]}
                   numPlaceholder="1995"
                   textPlaceholder="OO그룹 감사업무 대행 및 고소·고발 대리"
                   handleAddForm={handleAddForm}
@@ -453,6 +455,7 @@ export default function PeopleRegister() {
                 <InputWithText
                   key={`licenses-${index}`}
                   index={index}
+                  value={licenses}
                   handleAddForm={handleAddForm}
                   handleRemoveForm={handleRemoveForm}
                   handleInputChange={handleInputChange}
