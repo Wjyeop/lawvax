@@ -1,4 +1,5 @@
 import { useState, useMemo, useRef, ChangeEvent, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { updatePeople, createImage, getPeopleItem } from "../../../api/admin";
 import LabelInput from "../../../components/Admin/People/LabelInput";
@@ -21,7 +22,6 @@ import {
   formatEmptyObject,
   generateFormData,
 } from "../../../utils/admin";
-import { useNavigate, useParams } from "react-router-dom";
 
 export interface Career {
   startYear: string;
@@ -114,7 +114,6 @@ export default function PeopleEdit() {
   useEffect(() => {
     (async () => {
       const { data } = await getPeopleItem(Number(id));
-      console.log(data);
       setIsCheck(data.isVisible);
       setProfile({
         ...profile,
@@ -302,12 +301,10 @@ export default function PeopleEdit() {
         isVisible: !isCheck,
         mainImg: imageFile ? url : profile.mainImg,
       };
-      console.log(combinedData);
 
       await updatePeople(id, combinedData);
       navigate("/admin/people-management");
     } catch (error) {
-      console.log(error);
       if (error instanceof Error) {
         alert(error.message);
       }

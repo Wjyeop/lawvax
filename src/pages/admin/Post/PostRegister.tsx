@@ -1,10 +1,13 @@
-import React, {
+import {
   useState,
   useRef,
   ChangeEvent,
   useMemo,
   useCallback,
+  useEffect,
 } from "react";
+import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
@@ -12,10 +15,9 @@ import CheckBox from "../../../components/Admin/Common/CheckBox";
 import Photo from "../../../assets/images/ic_admin_photo.svg";
 import DropdownSrc from "../../../assets/images/ic_admin_dropdowArr.svg";
 import { POST_REGISTER_CATEGORY } from "../../../const/admin";
-import { createImage } from "../../../api/admin";
+import { createImage, getNewsItem } from "../../../api/admin";
 import { generateFormData } from "../../../utils/admin";
-import { createNews } from "../../../api/admin";
-import { useNavigate } from "react-router-dom";
+import { createNews, updateNewsItem } from "../../../api/admin";
 
 interface Contents {
   title: string;
@@ -26,6 +28,7 @@ interface Contents {
 }
 
 export default function PostRegister() {
+  const { state } = useLocation();
   const navigate = useNavigate();
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const quillRef = useRef<any>(null);
@@ -40,6 +43,16 @@ export default function PostRegister() {
     mainImg: null,
     isVisible: true,
   });
+
+  useEffect(() => {
+    (async () => {
+      if (state?.id) {
+        const { data } = await getNewsItem(Number(state?.id));
+        setContents(data);
+        setPreviewUrl(data.mainImg);
+      }
+    })();
+  }, [state?.id]);
 
   const handleClick = () => {
     fileInputRef.current?.click();
@@ -117,9 +130,19 @@ export default function PostRegister() {
   const onClickSubmitButton = async () => {
     try {
       setIsLoading(true);
-      const url = await uploadImage(imageFile);
-      const combinedData = { ...contents, mainImg: url };
-      await createNews(combinedData);
+      let url;
+      if (imageFile) {
+        url = await uploadImage(imageFile);
+      }
+      const combinedData = {
+        ...contents,
+        mainImg: imageFile ? url : contents.mainImg,
+      };
+      if (state?.id) {
+        await updateNewsItem(state?.id, combinedData);
+      } else {
+        await createNews(combinedData);
+      }
       navigate("/admin/post-manegement");
     } catch (error) {
       console.log(error);
@@ -171,11 +194,8 @@ export default function PostRegister() {
               {isOpen && (
                 <ul className="admin-post-dropList">
                   {POST_REGISTER_CATEGORY.map((category) => (
-                    <>
-                      <li
-                        key={`work-${category}`}
-                        className="admin-post-dropItem"
-                      >
+                    <div key={`work-${category}`}>
+                      <li className="admin-post-dropItem">
                         <label className="admin-custom-checkbox">
                           <input
                             type="checkbox"
@@ -186,7 +206,7 @@ export default function PostRegister() {
                           {category}
                         </label>
                       </li>
-                    </>
+                    </div>
                   ))}
                 </ul>
               )}

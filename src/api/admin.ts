@@ -165,3 +165,20 @@ export const createNews = async (data: any) => {
 
   return response;
 };
+
+export const getNewsItem = async (id: number) => {
+  const response = await adminInstance.get(
+    `${BASE_URL}/api/v2/admin/news/${id}`
+  );
+
+  return response;
+};
+
+export const updateNewsItem = async (id: number, data: any) => {
+  const response = await adminInstance.put(
+    `${BASE_URL}/api/v2/admin/news/${id}`,
+    data
+  );
+
+  return response;
+};

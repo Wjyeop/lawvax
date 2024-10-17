@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { calculateMaxPageNum } from "../../../utils/admin";
 import Plus from "../../../assets/images/ic_plus.svg";
@@ -27,6 +27,7 @@ export default function PostContents({
   setSearchValue,
   onClickDeleteButton,
 }: Props) {
+  const navigation: any = useNavigate();
   const [currentPageGroup, setCurrentPageGroup] = useState(1);
 
   const totalPages = calculateMaxPageNum(totalCount, 9);
@@ -55,6 +56,10 @@ export default function PostContents({
       setCurrentPageGroup((prev) => prev - 1);
       setCurrentPage((prev: number) => prev - pagesPerGroup);
     }
+  };
+
+  const onClickEditButton = (id: number) => {
+    navigation("/admin/post-register", { state: { id } });
   };
 
   return (
@@ -87,7 +92,12 @@ export default function PostContents({
               {new Date(createdAt).toLocaleDateString()}
             </span>
             <div className="admin-news-iconWrap">
-              <img src={Edit} alt="설정 아이콘" className="admin-news-icon" />
+              <img
+                src={Edit}
+                alt="설정 아이콘"
+                onClick={() => onClickEditButton(id)}
+                className="admin-news-icon"
+              />
               <img
                 src={Trash}
                 alt="휴지통 아이콘"
