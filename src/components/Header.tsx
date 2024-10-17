@@ -5,21 +5,6 @@ import phone from "../assets/images/HeaderPhoneCall.png";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  // const location = useLocation();
-  // const isCenterPage =
-  //   location.pathname === "/support-center" ||
-  //   location.pathname === "/tech-center";
-
-  // if (isCenterPage) {
-  //   return (
-  //     <header className="center-header">
-  //       <Link to="/">
-  //         <img src={logo} alt="Logo" className="logo-image" />
-  //       </Link>
-  //     </header>
-  //   );
-  // }
-
   return (
     <header className="header">
       <div className="header-section logo">
@@ -34,7 +19,7 @@ const Header = () => {
               <Link to="/intro">LawVax</Link>
             </li>
             <li>
-              <Link to="/services">업무분야</Link>
+              <Link to="/workfield">업무분야</Link>
             </li>
             <li>
               <Link to="/members">구성원</Link>
@@ -51,7 +36,6 @@ const Header = () => {
       <div className="header-section icons">
         <img src={marker} alt="marker" className="icon" />
         <img src={phone} alt="phone" className="icon" />
-        {/* <img src={map} alt="map" className="icon" /> */}
       </div>
     </header>
   );

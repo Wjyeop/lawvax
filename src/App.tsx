@@ -9,18 +9,17 @@ import LandingPage from "./pages/LandingPage/LandingPage";
 import LandingSearchPage from "./pages/LandingSearchPage/LandingSearchPage";
 import LandingSearchDetailPage from "./pages/LandingSearchDetailPage/LandingSearchDetail";
 import MembersPage from "./pages/MembersPage/MembersPage";
-import MemberSearchPage from "./pages/MemberSearchPage/MemberSearchPage";
 import MemberProfilePage from "./pages/MemberProfilePage/MemberProfilePage";
 import NewsPage from "./pages/NewsPage/NewsPage";
 import NewsPostPage from "./pages/NewsPostPage/NewsPostPage";
 import NewsLetterPage from "./pages/NewsLetterPage/NewsLetterPage";
 import NewsLetterPostPage from "./pages/NewsLetterPostPage/NewsLetterPostPage";
 import IntroPage from "./pages/IntroPage/IntroPage";
-import ServicesPage from "./pages/ServicesPage/Services";
 import TechCenterPage from "./pages/TechCenterPage/TechCenterPage";
 import SupportCenterPage from "./pages/SupportCenterPage/SupportCenterPage";
-import ServicesDetail from "./pages/ServicesDetailPage/ServicesDetail";
 import Layout from "./components/Layout/Layout";
+import WorkFieldPage from "./pages/WorkFieldPage/WorkFieldPage";
+import WorkFieldDetailPage from "./pages/WorkFieldDetailPage/WorkFieldDetailPage";
 
 // admin
 import AdminLayout from "./components/Layout/AdminLayout";
@@ -33,6 +32,7 @@ import PostManagement from "./pages/Admin/Post/PostManagement";
 import PostRegister from "./pages/Admin/Post/PostRegister";
 import Login from "./pages/Admin/Login/Login";
 
+
 function App() {
   return (
     <div>
@@ -42,25 +42,28 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/landing-search" element={<LandingSearchPage />} />
             <Route
-              path="/landing-search-detail"
+              path="/landing-search-detail/:section"
               element={<LandingSearchDetailPage />}
             />
 
             <Route path="/intro" element={<IntroPage />} />
-
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/services/detail" element={<ServicesDetail />} />
-
+            <Route path="/workfield" element={<WorkFieldPage />} />
+            <Route
+              path="/workfield/detail/:workField"
+              element={<WorkFieldDetailPage />}
+            />
             <Route path="/news" element={<NewsPage />} />
-            <Route path="/news/post" element={<NewsPostPage />} />
-
+            <Route path="/news/post/:id" element={<NewsPostPage />} />
             <Route path="/newsletter" element={<NewsLetterPage />} />
-            <Route path="/newsletter/post" element={<NewsLetterPostPage />} />
-
+            <Route
+              path="/newsletter/post/:id"
+              element={<NewsLetterPostPage />}
+            />
             <Route path="/members" element={<MembersPage />} />
-            <Route path="/memberSearch" element={<MemberSearchPage />} />
-            <Route path="/profile" element={<MemberProfilePage />} />
-
+            <Route
+              path="/members/profile/:id"
+              element={<MemberProfilePage />}
+            />
             <Route path="/support-center" element={<SupportCenterPage />} />
             <Route path="/tech-center" element={<TechCenterPage />} />
           </Route>

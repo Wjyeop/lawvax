@@ -1,39 +1,36 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import home from "../../assets/images/icons/home.png";
 import lawyerImage from "../../assets/images/lawyer4.png";
 import save from "../../assets/images/icons/saveBlue.png";
 import up from "../../assets/images/icons/up.png";
 import down from "../../assets/images/icons/down.png";
-import big from "../../assets/images/icons/big.png";
 
-import { profileData } from "../../const/profileData";
-import { getMembersDetail } from "../../api/membersDetail";
+import { getMembersDetail } from "../../api/getMembersDetail";
 import { generateMemberProfilePdf } from "../../utils/pdf";
-
-interface MemberItem {
-  id: number;
-  nameKo: string;
-  nameEn: string;
-  nameCh: string;
-  position: string;
-  firstMainCareer: string;
-  secondMainCareer: string;
-  mainImg: string;
-  introduction: string;
-  workFields: { workField: string }[]; // 객체 배열로 표현
-  educations: { startYear: string; content: string }[];
-  careers: { startYear: string; content: string }[];
-  handleCases: { content: string }[]; // handleCases 배열에 startYear가 없었으므로 content만 포함
-  licenses: { content: string }[];
-  workNumber: string;
-  email: string;
-  faxNumber: string;
-  isVisible: boolean;
-  language: string;
-}
+import { useParams } from "react-router-dom";
 
 const MemberProfilePage = () => {
-  const [lawyerData, setLawyerData] = useState<MemberItem>();
+  const { id } = useParams();
+  const [lawyerData, setLawyerData] = useState<MemberItem>({
+    id: 0,
+    nameKo: "",
+    nameEn: "",
+    nameCh: "",
+    position: "",
+    email: "",
+    mainImg: "",
+    firstMainCareer: "",
+    secondMainCareer: "",
+    workNumber: "",
+    faxNumber: "",
+    introduction: "",
+    language: "",
+    careers: [],
+    educations: [],
+    handleCases: [],
+    licenses: [],
+    workFields: [],
+  });
   const [isEducationExpanded, setEducationExpanded] = useState(false);
   const [isExperienceExpanded, setExperienceExpanded] = useState(false);
   const [isEtcWorkFieldsExpanded, setEtcWorkFieldsExpanded] = useState(false);
@@ -123,26 +120,14 @@ const MemberProfilePage = () => {
   useEffect(() => {
     const fetchLawyer = async () => {
       try {
-        const data = await getMembersDetail(2);
-
-        const lawyerData: MemberItem = {
-          ...data,
-          id: data.id || 0, // 기본값 설정
-          nameEn: data.nameEn || "", // 기본값 설정
-          nameCh: data.nameCh || "", // 기본값 설정
-          isVisible: data.isVisible !== undefined ? data.isVisible : true, // 기본값 설정
-          language: data.language || "", // 기본값 설정
-        };
-
+        const data = await getMembersDetail(Number(id));
         setLawyerData(data);
-        console.log(data);
       } catch (error) {
-        console.error("뉴스 조회 중 에러 발생:", error);
+        console.error("변호사 데이터 조회 중 에러 발생:", error);
       }
     };
-
     fetchLawyer();
-  }, []);
+  }, [id]);
 
   const handlePdfDownload = () => {
     if (lawyerData) {
@@ -151,8 +136,6 @@ const MemberProfilePage = () => {
       console.error("변호사 데이터를 불러오지 못했습니다.");
     }
   };
-
-  console.log(lawyerData);
 
   return (
     <div className="member-profile-page">
@@ -175,20 +158,18 @@ const MemberProfilePage = () => {
           <div className="text-wrap">
             <p className="name">
               {lawyerData?.nameKo}
-              {/* <span>({lawyerData?.nameCh})</span> */}
               <span className="job">{lawyerData?.position}</span>
             </p>
-            <p className="mark">
+            {/* <p className="mark">
               <img src={big} alt="" />
-              서울대 법대
-            </p>
+              {lawyerData?.position}
+            </p> */}
             <p className="sub-title">
               <span>주요경력</span>
             </p>
             <div className="sub-content01">
-              <p>서울대 법대</p>
-              <p>부산지검장</p>
-              <p>대검 부패범죄특별수사단 단장</p>
+              <p>{lawyerData?.firstMainCareer}</p>
+              <p>{lawyerData?.secondMainCareer}</p>
             </div>
             <p className="sub-title">
               <span>업무분야</span>
@@ -225,7 +206,7 @@ const MemberProfilePage = () => {
           <div className="title">
             <p>주요 처리사례</p>
           </div>
-          {profileData?.handleCases
+          {lawyerData?.handleCases
             .slice(
               0,
               isHandleCasesExpanded ? lawyerData?.handleCases.length : 4
@@ -238,7 +219,7 @@ const MemberProfilePage = () => {
                 </div>
               </div>
             ))}
-          {profileData?.handleCases.length > 4 ? (
+          {lawyerData?.handleCases.length > 4 && (
             <button onClick={() => toggleExpand("handleCases")}>
               {isHandleCasesExpanded ? "접기" : "펼치기"}
               {isHandleCasesExpanded ? (
@@ -247,25 +228,23 @@ const MemberProfilePage = () => {
                 <img src={down} alt="" />
               )}
             </button>
-          ) : (
-            <div className="full-line" />
           )}
         </div>
         <div className="education section" id="education-section">
           <div className="title">
             <p>학력</p>
           </div>
-          {profileData?.educations
+          {lawyerData?.educations
             .slice(0, isEducationExpanded ? lawyerData?.educations.length : 4)
             .map((item, index) => (
               <div key={index} className="content">
                 <div>
-                  <span className="year">{item.startYear}</span>
+                  <span className="year">{item.year}</span>
                   <span>{item.content}</span>
                 </div>
               </div>
             ))}
-          {profileData?.educations.length > 4 ? (
+          {lawyerData?.educations.length > 4 && (
             <button onClick={() => toggleExpand("education")}>
               {isEducationExpanded ? "접기" : "펼치기"}
               {isEducationExpanded ? (
@@ -274,8 +253,6 @@ const MemberProfilePage = () => {
                 <img src={down} alt="" />
               )}
             </button>
-          ) : (
-            <div className="full-line" />
           )}
         </div>
         <div className="experience section" id="experience-section">
@@ -292,7 +269,7 @@ const MemberProfilePage = () => {
                 </div>
               </div>
             ))}
-          {profileData?.careers.length > 4 ? (
+          {lawyerData?.careers.length > 4 && (
             <button onClick={() => toggleExpand("experience")}>
               {isExperienceExpanded ? "접기" : "펼치기"}
               {isExperienceExpanded ? (
@@ -301,36 +278,34 @@ const MemberProfilePage = () => {
                 <img src={down} alt="" />
               )}
             </button>
-          ) : (
-            <div className="full-line" />
           )}
         </div>
-        <div className="other-section section" id="other-section">
-          <div className="title">
-            <p>저서/활동/기타</p>
-          </div>
-          {lawyerData?.licenses
-            .slice(0, isLicensesExpanded ? lawyerData?.licenses.length : 4)
-            .map((item, index) => (
-              <div key={index} className="content">
-                <div>
-                  <span>{item.content}</span>
+        {lawyerData?.licenses.length > 1 && (
+          <div className="other-section section" id="other-section">
+            <div className="title">
+              <p>저서/활동/기타</p>
+            </div>
+            {lawyerData?.licenses
+              .slice(0, isLicensesExpanded ? lawyerData?.licenses.length : 4)
+              .map((item, index) => (
+                <div key={index} className="content">
+                  <div>
+                    <span>{item.content}</span>
+                  </div>
                 </div>
-              </div>
-            ))}
-          {profileData?.licenses.length > 4 ? (
-            <button onClick={() => toggleExpand("licenses")}>
-              {isLicensesExpanded ? "접기" : "펼치기"}
-              {isLicensesExpanded ? (
-                <img src={up} alt="" />
-              ) : (
-                <img src={down} alt="" />
-              )}
-            </button>
-          ) : (
-            <div className="full-line" />
-          )}
-        </div>
+              ))}
+            {lawyerData?.licenses.length > 4 && (
+              <button onClick={() => toggleExpand("licenses")}>
+                {isLicensesExpanded ? "접기" : "펼치기"}
+                {isLicensesExpanded ? (
+                  <img src={up} alt="" />
+                ) : (
+                  <img src={down} alt="" />
+                )}
+              </button>
+            )}
+          </div>
+        )}
       </div>
       <div className="info">
         <p className="phone">
@@ -347,3 +322,49 @@ const MemberProfilePage = () => {
 };
 
 export default MemberProfilePage;
+
+interface Career {
+  startYear: string;
+  endYear: string;
+  content: string;
+}
+
+interface Education {
+  year: string;
+  content: string;
+}
+
+interface HandleCase {
+  startYear: string;
+  endYear: string;
+  content: string;
+}
+
+interface License {
+  content: string;
+}
+
+interface WorkField {
+  workField: string;
+}
+
+interface MemberItem {
+  id: number;
+  nameKo: string;
+  nameEn: string;
+  nameCh: string;
+  position: string;
+  email: string;
+  mainImg: string;
+  firstMainCareer: string;
+  secondMainCareer: string;
+  workNumber: string;
+  faxNumber: string;
+  introduction: string;
+  language: string;
+  careers: Career[];
+  educations: Education[];
+  handleCases: HandleCase[];
+  licenses: License[];
+  workFields: WorkField[];
+}

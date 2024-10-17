@@ -1,7 +1,7 @@
 import axios from "axios";
 import { saveToken, removeToken } from "../utils/token";
 
-const BASE_URL = "http://13.124.200.80:8000";
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export const login = async (identifier: string, password: string) => {
   try {

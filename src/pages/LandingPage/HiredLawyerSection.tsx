@@ -12,6 +12,7 @@ import { LandingMemberSection01 } from "../../components/LandingMemberSection01"
 const HiredLawyerSection = () => {
   const navigate = useNavigate();
   interface MemberItem {
+    id: 0;
     nameKo: string;
     position: string;
     firstMainCareer: string;
@@ -42,11 +43,8 @@ const HiredLawyerSection = () => {
       (swiperRef.current as any).swiper.slideTo(index);
     }
 
-    // navigate(`/members/${membersData[index].nameKo}`);
-    navigate(`/profile`);
+    navigate(`/members/profile/${membersData[index].id}`);
   };
-
-  // console.log(membersData);
 
   return (
     <section className="hired-section">
@@ -95,8 +93,7 @@ const HiredLawyerSection = () => {
                   className={`content ${activeSlideIndex === index ? "active" : ""}`}
                 >
                   <div className="img-wrap">
-                    <img src={img.lawyer1} alt="" />
-                    {/* <img src={data.mainImg} alt={`Slide ${index}`} /> */}
+                    <img src={data.mainImg} alt={`Slide ${index}`} />
                   </div>
                   <div className="text-wrap">
                     <p className="job">{data.position}</p>

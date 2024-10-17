@@ -5,20 +5,16 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import img from "../../assets/images/img";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useSearchStore from "../../stores/searchStore";
 import { getLandingSearch } from "../../api/getLandingSearch";
 
 const LandingSearchPage = () => {
+  const navigate = useNavigate();
   const [showAll, setShowAll] = useState(false);
   const { searchResults, keyword, setSearchResults, setKeyword } =
     useSearchStore();
   const [tempKeyword, setTempKeyword] = useState(keyword);
-
-  useEffect(() => {
-    console.log("검색된 키워드:", keyword);
-    console.log("검색 결과:", searchResults);
-  }, [searchResults, keyword]);
 
   const handleToggle = () => {
     setShowAll((prevState) => !prevState);
@@ -27,11 +23,15 @@ const LandingSearchPage = () => {
     setTimeout(() => {}, 100);
   };
 
+  useEffect(() => {
+    handleSearch();
+    // eslint-disable-next-line
+  }, []);
+
   const handleSearch = async () => {
-    if (!tempKeyword.trim()) return;
     try {
-      setKeyword(tempKeyword); // 임시 검색어를 실제 검색어로 설정
-      const results = await getLandingSearch(tempKeyword, true);
+      setKeyword(tempKeyword.trim());
+      const results = await getLandingSearch(tempKeyword.trim(), true);
       setSearchResults(results);
     } catch (error) {
       console.error("검색 실패:", error);
@@ -45,7 +45,11 @@ const LandingSearchPage = () => {
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTempKeyword(e.target.value); // 임시 검색어 업데이트
+    setTempKeyword(e.target.value);
+  };
+
+  const handleMoreClick = (section: string) => {
+    navigate(`/landing-search-detail/${section}`);
   };
 
   return (
@@ -55,7 +59,7 @@ const LandingSearchPage = () => {
         <img src={img.icons.home} alt="" />
         <span>HOME</span>
         <span className="search">{">"}</span>
-        <span className="search">{keyword}</span>
+        <span className="search">{keyword ? keyword : "검색결과"}</span>
       </div>
       <div className="search-bar">
         <input
@@ -85,7 +89,9 @@ const LandingSearchPage = () => {
           <div className="members-wrap">
             {searchResults.구성원.map((lawyer: any, index: number) => (
               <div key={index} className="lawyer-item">
-                <img src={lawyer.mainImg} alt={lawyer.nameKo} />
+                <Link to={`/members/profile/${lawyer.id}`}>
+                  <img src={lawyer.mainImg} alt={lawyer.nameKo} />
+                </Link>
                 <div className="text-wrap">
                   <p className="p1">
                     <span>{lawyer.nameKo}</span>
@@ -116,19 +122,14 @@ const LandingSearchPage = () => {
       {searchResults?.업무분야?.length > 0 && (
         <div className="service-section">
           <div className="sub-title">
-            <h1>
-              업무분야
-              <Link to="/landing-search-detail">
-                <button className="more">
-                  <img src={img.more} alt="" />
-                </button>
-              </Link>
-            </h1>
+            <h1>업무분야</h1>
           </div>
           <div className="content">
             <ul>
               {searchResults.업무분야.map((field: string, index: number) => (
-                <li key={index}>{field}</li>
+                <Link to={`/workfield/detail/${field}`}>
+                  <li key={index}>{field}</li>
+                </Link>
               ))}
             </ul>
           </div>
@@ -141,11 +142,12 @@ const LandingSearchPage = () => {
           <div className="sub-title">
             <h1>
               법인소식
-              <Link to="/landing-search-detail">
-                <button className="more">
-                  <img src={img.more} alt="" />
-                </button>
-              </Link>
+              <button
+                className="more"
+                onClick={() => handleMoreClick("법인소식")}
+              >
+                <img src={img.more} alt="" />
+              </button>
             </h1>
           </div>
           <div className="content">
@@ -166,11 +168,12 @@ const LandingSearchPage = () => {
           <div className="sub-title">
             <h1>
               언론보도
-              <Link to="/landing-search-detail">
-                <button className="more">
-                  <img src={img.more} alt="" />
-                </button>
-              </Link>
+              <button
+                className="more"
+                onClick={() => handleMoreClick("언론보도")}
+              >
+                <img src={img.more} alt="" />
+              </button>
             </h1>
           </div>
           <div className="content">
@@ -178,7 +181,7 @@ const LandingSearchPage = () => {
               <div key={index} className="news-item">
                 <h3 className="title">{news.title}</h3>
                 <p className="content">{news.summary}</p>
-                <p className="date">{news.createAt}</p>
+                <p className="date">{news.createAt.slice(0, 10)}</p>
               </div>
             ))}
           </div>
@@ -191,11 +194,12 @@ const LandingSearchPage = () => {
           <div className="sub-title">
             <h1>
               인재영입
-              <Link to="/landing-search-detail">
-                <button className="more">
-                  <img src={img.more} alt="" />
-                </button>
-              </Link>
+              <button
+                className="more"
+                onClick={() => handleMoreClick("인재영입")}
+              >
+                <img src={img.more} alt="" />
+              </button>
             </h1>
           </div>
           <div className="content">
@@ -216,11 +220,12 @@ const LandingSearchPage = () => {
           <div className="sub-title">
             <h1>
               뉴스레터
-              <Link to="/landing-search-detail">
-                <button className="more">
-                  <img src={img.more} alt="" />
-                </button>
-              </Link>
+              <button
+                className="more"
+                onClick={() => handleMoreClick("뉴스레터")}
+              >
+                <img src={img.more} alt="" />
+              </button>
             </h1>
           </div>
           <div className="content">

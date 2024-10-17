@@ -495,6 +495,7 @@
   color: white;
   width: 100%;
   padding: 5px 10px;
+  font-size: 0.5em;
 }
 
 .landing-page .newsletter-section .newsletter-content .title {
@@ -1022,6 +1023,10 @@
   border-bottom: 1px solid #d9d9d9;
 }
 
+.landing-search-page .service-section ul {
+  list-style: disc;
+}
+
 .landing-search-page .news-section01 {
   padding: 5% 10%;
 }
@@ -1430,7 +1435,6 @@
 }
 
 .services-page .content-wrap > div .title img {
-  transform: rotate(-90deg);
   width: 24px;
 }
 
@@ -1695,6 +1699,7 @@
   color: white;
   width: 100%;
   padding: 5px 10px;
+  font-size: 0.5em;
 }
 
 .services-detail-page .content-wrap .content-left .recent-news .title {
@@ -1709,7 +1714,7 @@
   flex: 2;
   display: flex;
   justify-content: space-between;
-  font-size: 1em;
+  font-size: 0.8em;
   color: #888;
 }
 
@@ -1780,8 +1785,29 @@
 }
 
 .members-page .search-bar-wrap {
+  position: relative;
   background-color: #f9f9f9;
   padding: 5% 25%;
+  max-width: 600px;
+}
+
+.members-page .search-bar-wrap .autocomplete-suggestions {
+  position: absolute;
+  background-color: #fff;
+  padding: 5px 10px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0;
+  z-index: 1000;
+}
+
+.members-page .search-bar-wrap .autocomplete-suggestions li {
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.members-page .search-bar-wrap .autocomplete-suggestions li:hover {
+  background-color: #f3f4f8;
 }
 
 .members-page .search-bar {
@@ -1929,7 +1955,7 @@
 /* 구성원 - 변호사 */
 
 .members-page .lawyer-section {
-  margin: 5% 0;
+  margin: 5% 0 15% 0;
   text-align: center;
 }
 
@@ -2190,11 +2216,31 @@
 }
 
 .member-search-page .title-section .search-category-wrap {
+  position: relative;
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
   padding: 5% 0;
+}
+
+.member-search-page .search-bar-wrap .autocomplete-suggestions {
+  position: absolute;
+  background-color: #fff;
+  padding: 5px 10px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0;
+  z-index: 1000;
+}
+
+.member-search-page .search-bar-wrap .autocomplete-suggestions li {
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.member-search-page .search-bar-wrap .autocomplete-suggestions li:hover {
+  background-color: #f3f4f8;
 }
 
 .member-search-page .title-section .search-category-wrap button {
@@ -2704,12 +2750,14 @@
 }
 
 .post-page .related-news .list {
-  text-align: right;
   font-size: 0.8em;
   color: #888;
+  padding-top: 5px;
+}
+
+.post-page .related-news a {
   display: flex;
   justify-content: right;
-  padding-top: 5px;
 }
 
 .post-page .related-news .list img {
@@ -2745,12 +2793,13 @@
 .post-page .swiper-slide .content .text-wrap .bottom {
   display: flex;
   font-size: 0.8em;
-  color: #888;
   justify-content: space-between;
 }
 
 .post-page .swiper-slide .content .text-wrap .bottom .more {
   text-decoration: underline;
+  color: #888;
+
   cursor: pointer;
 }
 
@@ -2800,7 +2849,7 @@
   background-color: #1676bc;
   color: white;
   padding: 2px 5px;
-  font-size: 0.8em;
+  font-size: 0.5em;
 }
 
 .newsletter-page .newsletter-content .title {
@@ -3284,6 +3333,7 @@
   color: white;
   width: 100%;
   padding: 5px 10px;
+  font-size: 0.5em;
 }
 
 .support-center-page .section05 .newsletter-content .title {

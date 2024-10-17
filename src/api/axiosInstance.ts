@@ -5,7 +5,7 @@ import { refreshToken } from "./auth";
 const baseURL = "http://13.124.200.80:8000";
 
 const axiosInstance = axios.create({
-  baseURL,
+  baseURL: process.env.REACT_APP_BASE_URL,
 });
 
 axiosInstance.interceptors.request.use(

@@ -6,7 +6,6 @@ const MembersPage = () => {
   return (
     <div className="members-page">
       <TitleSection />
-      {/* <HiredSection /> */}
       <Lawyersection />
     </div>
   );

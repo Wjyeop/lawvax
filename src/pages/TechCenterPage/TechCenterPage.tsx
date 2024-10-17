@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import img from "../../assets/images/img";
-import { lawyerList } from "../../const/lawyerList";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import "swiper/css";
@@ -8,19 +7,46 @@ import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
+import { getCenterMembers } from "../../api/getCenterMembers";
+import { getCenterNewsLetter } from "../../api/getCenterNewsLetter";
 
 const TechCenterPage = () => {
   const [activeTab, setActiveTab] = useState("소개");
   const [showAll, setShowAll] = useState(false);
+  const [membersData, setMembersData] = useState<any>([]);
+  const [newsLetterData, setNewsLetterData] = useState<any>([]);
 
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const isDesktop = useMediaQuery({ query: "(min-width: 769px)" });
 
   const visibleLawyers = showAll
-    ? lawyerList
+    ? membersData
     : isMobile
-      ? lawyerList.slice(0, 4) // 모바일에서는 4개만 표시
-      : lawyerList.slice(0, 6); // 데스크탑에서는 6개만 표시
+      ? membersData.slice(0, 4) // 모바일에서는 4개만 표시
+      : membersData.slice(0, 6); // 데스크탑에서는 6개만 표시
+
+  useEffect(() => {
+    const fetchMembers = async () => {
+      try {
+        const response = await getCenterMembers("기술 보호 센터");
+        setMembersData(response);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    const fetchNewsLetter = async () => {
+      try {
+        const response = await getCenterNewsLetter("기술 보호 센터");
+        setNewsLetterData(response);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchMembers();
+    fetchNewsLetter();
+  }, []);
 
   const handleToggle = () => {
     setShowAll((prevState) => !prevState);
@@ -126,8 +152,8 @@ const TechCenterPage = () => {
                 기업의 감사나 내부통제 업무를 전문적으로 지원하기 위해
               </span>
               <br />
-              2024. 3. 「기업 감사/내부통제 지원센터(공동센터장
-              김기동·이동열·김후곤 변호사)」를 설립하였습니다.
+              2024. 3. 「기술 보호 센터(공동센터장 김기동·이동열·김후곤
+              변호사)」를 설립하였습니다.
               <br />
               <br />
               지원센터는{" "}
@@ -190,8 +216,8 @@ const TechCenterPage = () => {
                 기업의 감사나 내부통제 업무를 전문적으로 지원하기 위해
               </span>
               <br />
-              2024. 3. 「기업 감사/내부통제 지원센터(공동센터장
-              김기동·이동열·김후곤 변호사)」를 설립하였습니다.
+              2024. 3. 「기술 보호 센터(공동센터장 김기동·이동열·김후곤
+              변호사)」를 설립하였습니다.
               <br />
               <br />
               지원센터는{" "}
@@ -275,7 +301,7 @@ const TechCenterPage = () => {
           </div>
           <div className="content">
             <div className="text-wrap">
-              <p className="p1">LawVax「기업 감사/내부통제 지원센터」의 강점</p>
+              <p className="p1">LawVax「기술 보호 센터」의 강점</p>
               <p className="p2">
                 1. 감사업무 대행 <br />
                 <br />△ 특정 업무·부서·계열사 등 기업에서 위임한 범위 내에서
@@ -397,7 +423,7 @@ const TechCenterPage = () => {
               <img src={img.center02} alt="" />
             </div>
             <div className="text-wrap">
-              <p className="p1">LawVax「기업 감사/내부통제 지원센터」의 강점</p>
+              <p className="p1">LawVax「기술 보호 센터」의 강점</p>
               <p className="p2">
                 1. 감사업무 대행 <br />
                 <br />△ 특정 업무·부서·계열사 등 기업에서 위임한 범위 내에서
@@ -488,82 +514,86 @@ const TechCenterPage = () => {
       <div className="section03" id="section03">
         <img src={img.center05} alt="" />
       </div>
-      <h2 className="sub-title roman-title">Our Team</h2>
-      <div className="section04" id="section04">
-        <div className="members-wrap">
-          {visibleLawyers.map((lawyer, index) => (
-            <div key={index} className="lawyer-item">
-              <img src={lawyer.img} alt="" />
-              <div className="text-wrap">
-                <p className="p1">
-                  <span>{lawyer.name}</span>
-                  <span> {lawyer.name2}</span>
-                </p>
-                <p className="p2">{lawyer.title}</p>
-                {lawyer.mark.map((mark, index) => (
-                  <p key={index} className="p3">
-                    {mark}
-                  </p>
-                ))}
-              </div>
+      {membersData?.length > 0 && (
+        <>
+          <h2 className="sub-title roman-title">Our Team</h2>
+          <div className="section04" id="section04">
+            <div className="members-wrap">
+              {visibleLawyers.map((lawyer: any, index: number) => (
+                <div key={index} className="lawyer-item">
+                  <img src={lawyer.img} alt="" />
+                  <div className="text-wrap">
+                    <p className="p1">
+                      <span>{lawyer.name}</span>
+                      <span> {lawyer.name2}</span>
+                    </p>
+                    <p className="p2">{lawyer.title}</p>
+                    {lawyer.mark.map((mark: any, index: number) => (
+                      <p key={index} className="p3">
+                        {mark}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-        <button className="toggle-button" onClick={handleToggle}>
-          {showAll ? "접기" : "더보기"}
-          {showAll ? (
-            <img src={img.icons.up} alt="" />
-          ) : (
-            <img src={img.icons.down} alt="" />
-          )}
-        </button>
-      </div>
-      <div className="section05" id="section05">
-        <div className="sub-title">
-          <h1>
-            뉴스레터
-            <Link to="/landing-search-detail">
-              <button className="more">
-                <img src={img.more} alt="" />
+            {membersData.length > 6 && (
+              <button className="toggle-button" onClick={handleToggle}>
+                {showAll ? "접기" : "더보기"}
+                {showAll ? (
+                  <img src={img.icons.up} alt="" />
+                ) : (
+                  <img src={img.icons.down} alt="" />
+                )}
               </button>
-            </Link>
-          </h1>
-        </div>
-        <div className="swiper-container">
-          <Swiper
-            modules={[Navigation, Pagination, Scrollbar, A11y]}
-            slidesPerView={4}
-            spaceBetween={5}
-            scrollbar={{ draggable: true }}
-            slidesOffsetBefore={0}
-            slidesOffsetAfter={0}
-            breakpoints={{
-              320: {
-                slidesPerView: 2,
-                spaceBetween: 5,
-              },
-              768: {
-                slidesPerView: 4,
-                spaceBetween: 5,
-              },
-            }}
-          >
-            {Array(5)
-              .fill(0)
-              .map((_, index) => (
+            )}
+          </div>
+        </>
+      )}
+      {newsLetterData?.length > 0 && (
+        <div className="section05" id="section05">
+          <div className="sub-title">
+            <h1>
+              뉴스레터
+              <Link to="/landing-search-detail">
+                <button className="more">
+                  <img src={img.more} alt="" />
+                </button>
+              </Link>
+            </h1>
+          </div>
+          <div className="swiper-container">
+            <Swiper
+              modules={[Navigation, Pagination, Scrollbar, A11y]}
+              slidesPerView={4}
+              spaceBetween={5}
+              scrollbar={{ draggable: true }}
+              slidesOffsetBefore={0}
+              slidesOffsetAfter={0}
+              breakpoints={{
+                320: {
+                  slidesPerView: 2,
+                  spaceBetween: 5,
+                },
+                768: {
+                  slidesPerView: 4,
+                  spaceBetween: 5,
+                },
+              }}
+            >
+              {newsLetterData.map((item: any, index: number) => (
                 <SwiperSlide key={index}>
                   <div className="newsletter-content">
                     <div className="mark">
-                      <span>회계 법률</span>
+                      <span>{item.category}</span>
                     </div>
                     <div className="title">
-                      <span>
-                        '법률AI'거스를 수 없는 대세...변호사 대체 아닌
-                        '협업'으로
-                      </span>
+                      <span>{item.title}</span>
                     </div>
                     <div className="bottom">
-                      <span className="date">2024.07.01</span>
+                      <span className="date">
+                        {item.createdAt?.slice(0, 10)}
+                      </span>
                       <Link to="/newsletter">
                         <span className="more">자세히 보기</span>
                       </Link>
@@ -571,9 +601,10 @@ const TechCenterPage = () => {
                   </div>
                 </SwiperSlide>
               ))}
-          </Swiper>
+            </Swiper>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

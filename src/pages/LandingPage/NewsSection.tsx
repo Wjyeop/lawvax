@@ -94,7 +94,18 @@ const NewsSection = () => {
 
       <div className="content">
         <div className="img-section">
-          <img src={img.news1} alt="News" />
+          <img
+            src={
+              newsData[currentIndex]?.mainImg === "null" ||
+              newsData[currentIndex]?.mainImg === null
+                ? img.null01
+                : newsData[currentIndex]?.mainImg
+            }
+            alt="News"
+            onError={(e) => {
+              e.currentTarget.src = img.null01; // 이미지 로드 실패 시 대체 이미지 설정
+            }}
+          />
         </div>
         <div className="text-section">
           <div className="nav">

@@ -1,38 +1,86 @@
-import { useState } from "react";
-import { newsData } from "../../const/newsList";
+import { useEffect, useState } from "react";
 import home from "../../assets/images/icons/home.png";
 import { Link } from "react-router-dom";
 import img from "../../assets/images/img";
+import { getNewsData } from "../../api/getNewsData";
+import { useNewsStore } from "../../stores/newsStore";
 
 const NewsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [activeTab, setActiveTab] = useState("LawVax소식");
+  const [newsData, setNewsData] = useState({
+    totalCount: 0,
+    newsList: [
+      {
+        id: 0,
+        title: "",
+        mainImg: "",
+        createdAt: "",
+      },
+    ],
+  });
 
-  const totalPages = Math.ceil(newsData.length / 9);
-  const currentItems = newsData.slice((currentPage - 1) * 9, currentPage * 9);
+  const selectedTab = useNewsStore((state) => state.selectedTab);
+  const setSelectedTab = useNewsStore((state) => state.setSelectedTab);
+  const setSelectedNewsId = useNewsStore((state) => state.setSelectedNewsId);
+
+  const itemsPerPage = 9;
+  const pagesPerGroup = 5;
+  const totalPages = Math.ceil(newsData.totalCount / itemsPerPage);
+
+  const [pageGroup, setPageGroup] = useState(1);
+  const startPage = (pageGroup - 1) * pagesPerGroup + 1;
+  const endPage = Math.min(startPage + pagesPerGroup - 1, totalPages);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const data = await getNewsData(currentPage, selectedTab);
+        setNewsData({
+          totalCount: data.totalCount,
+          newsList: data.newsList,
+        });
+      } catch (error) {
+        console.error("뉴스 페이지 조회 중 에러 발생:", error);
+      }
+    };
+
+    fetchNews();
+  }, [currentPage, selectedTab]);
+
+  const handleClickTab = (tab: string) => {
+    setSelectedTab(tab);
+  };
+
+  const handleSelectNews = (id: number) => {
+    setSelectedNewsId(id);
+  };
 
   const handleClick = (page: number) => {
     setCurrentPage(page);
   };
 
-  const handlePrevClick = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
+  const handlePrevGroupClick = () => {
+    if (pageGroup > 1) {
+      setPageGroup(pageGroup - 1);
+      setCurrentPage((pageGroup - 2) * pagesPerGroup + 1);
     }
   };
 
-  const handleNextClick = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
+  const handleNextGroupClick = () => {
+    if (endPage < totalPages) {
+      setPageGroup(pageGroup + 1);
+      setCurrentPage(pageGroup * pagesPerGroup + 1);
     }
   };
 
   const handleFirstClick = () => {
     setCurrentPage(1);
+    setPageGroup(1);
   };
 
   const handleLastClick = () => {
     setCurrentPage(totalPages);
+    setPageGroup(Math.ceil(totalPages / pagesPerGroup));
   };
 
   return (
@@ -43,7 +91,7 @@ const NewsPage = () => {
         <span>{">"}</span>
         <span>법인소식</span>
         <span>{">"}</span>
-        <span className="search">{activeTab}</span>
+        <span className="search">{selectedTab}</span>
       </div>
       <div className="title">
         <div>
@@ -58,40 +106,39 @@ const NewsPage = () => {
       </div>
       <div className="theme-select">
         <button
-          className={activeTab === "LawVax소식" ? "active" : ""}
-          onClick={() => setActiveTab("LawVax소식")}
+          className={selectedTab === "Lawvax소식" ? "active" : ""}
+          onClick={() => handleClickTab("Lawvax소식")}
         >
-          LawVax소식
+          Lawvax소식
         </button>
         <button
-          className={activeTab === "언론보도" ? "active" : ""}
-          onClick={() => setActiveTab("언론보도")}
+          className={selectedTab === "언론보도" ? "active" : ""}
+          onClick={() => handleClickTab("언론보도")}
         >
           언론보도
         </button>
         <button
-          className={activeTab === "인재영입" ? "active" : ""}
-          onClick={() => setActiveTab("인재영입")}
+          className={selectedTab === "인재영입" ? "active" : ""}
+          onClick={() => handleClickTab("인재영입")}
         >
           인재영입
         </button>
-        {/* <button
-          className={activeTab === "수상" ? "active" : ""}
-          onClick={() => setActiveTab("수상")}
-        >
-          수상
-        </button> */}
       </div>
       <div className="news-grid">
-        {currentItems.map((news, index) => (
+        {newsData.newsList.map((news, index) => (
           <div className="news-item" key={index}>
-            <img src={`${news.imgSrc}`} alt={news.title} />
+            <img src={`${news.mainImg}`} alt={news.title} />
             <div className="news-content">
               <p className="news-title">{news.title}</p>
               <div className="bottom">
-                <span className="news-date">{news.date}</span>
+                <span className="news-date">{news.createdAt.slice(0, 10)}</span>
                 <span className="more">
-                  <Link to="/news/post">자세히보기</Link>
+                  <Link
+                    to={`/news/post/${news.id}`}
+                    onClick={() => handleSelectNews(news.id)}
+                  >
+                    자세히보기
+                  </Link>{" "}
                 </span>
               </div>
             </div>
@@ -107,28 +154,28 @@ const NewsPage = () => {
         />
         <img
           src={img.icons.left}
-          alt=""
-          onClick={handlePrevClick}
-          style={{ cursor: currentPage > 1 ? "pointer" : "not-allowed" }}
+          alt="Previous Group"
+          onClick={handlePrevGroupClick}
+          style={{ cursor: pageGroup > 1 ? "pointer" : "not-allowed" }}
         />
-        {Array.from({ length: totalPages }, (_, index) => (
+        {Array.from({ length: endPage - startPage + 1 }, (_, index) => (
           <span key={index}>
             <span
-              className={`page-number ${currentPage === index + 1 ? "active" : ""}`}
-              onClick={() => handleClick(index + 1)}
+              className={`page-number ${currentPage === startPage + index ? "active" : ""}`}
+              onClick={() => handleClick(startPage + index)}
             >
-              {index + 1}
+              {startPage + index}
             </span>
-            {index < totalPages - 1 && <span className="separator">|</span>}
+            {index < endPage - startPage && (
+              <span className="separator">|</span>
+            )}
           </span>
         ))}
         <img
           src={img.icons.right}
-          alt=""
-          onClick={handleNextClick}
-          style={{
-            cursor: currentPage < totalPages ? "pointer" : "not-allowed",
-          }}
+          alt="Next Group"
+          onClick={handleNextGroupClick}
+          style={{ cursor: endPage < totalPages ? "pointer" : "not-allowed" }}
         />
         <img
           src={img.icons.right02}

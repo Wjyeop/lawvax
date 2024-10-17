@@ -4,32 +4,9 @@ import { jsPDF } from "jspdf"; // 이로써 모듈로 인식됩니다.
 import { _fonts } from "./font";
 import img from "../assets/images/img";
 
-interface MemberItem {
-  id: number;
-  nameKo: string;
-  nameEn: string;
-  nameCh: string;
-  position: string;
-  firstMainCareer: string;
-  secondMainCareer: string;
-  mainImg: string;
-  introduction: string;
-  workFields: { workField: string }[]; // 객체 배열로 표현
-  educations: { startYear: string; content: string }[];
-  careers: { startYear: string; content: string }[];
-  handleCases: { content: string }[]; // handleCases 배열에 startYear가 없었으므로 content만 포함
-  licenses: { content: string }[];
-  workNumber: string;
-  email: string;
-  faxNumber: string;
-  isVisible: boolean;
-  language: string;
-}
-
 export const generateMemberProfilePdf = (lawyerData: MemberItem) => {
   const doc = new jsPDF("p", "mm", "a4");
-  // const imageUrl = lawyerData.mainImg;
-  const imageUrl = img.lawyer4; // 임시 이미지
+  const imageUrl = lawyerData.mainImg ? lawyerData.mainImg : img.lawyer4;
   const imageWidth = 60;
   const imageHeight = 90;
   const pageHeight = doc.internal.pageSize.height;
@@ -49,32 +26,28 @@ export const generateMemberProfilePdf = (lawyerData: MemberItem) => {
   // 직책
   doc.setTextColor(126, 126, 126);
   doc.setFontSize(12);
-  doc.text(lawyerData.position, 45, 30);
+  doc.text(lawyerData.position, 50, 30);
   doc.setTextColor(0, 0, 0);
-
-  // 첫 번째 주요 경력
-  doc.setFontSize(10);
-  doc.text(lawyerData.firstMainCareer, 20, 40);
 
   // 주요 경력 타이틀과 파란색 바
   doc.setFontSize(12);
-  doc.text("주요 경력", 20, 50); // "주요 경력" 텍스트
-  doc.setDrawColor(0, 102, 204); // 파란색으로 설정
+  doc.text("주요 경력", 20, 50);
+  doc.setDrawColor(0, 102, 204);
   doc.setLineWidth(1);
-  doc.line(18, 45, 18, 52); // 파란색 바 (세로선)
+  doc.line(18, 45, 18, 52);
   doc.setFontSize(9);
-  doc.text(lawyerData.firstMainCareer, 20, 58); // "주요 경력" 텍스트
-  doc.text(lawyerData.secondMainCareer, 20, 62); // "주요 경력" 텍스트
+  doc.text(lawyerData.firstMainCareer, 20, 58);
+  doc.text(lawyerData.secondMainCareer, 20, 62);
 
   // 업무분야와 파란색 바
   doc.setFontSize(12);
-  doc.text("업무 분야", 20, 80); // "주요 경력" 텍스트
-  doc.setDrawColor(0, 102, 204); // 파란색으로 설정
+  doc.text("업무 분야", 20, 80);
+  doc.setDrawColor(0, 102, 204);
   doc.setLineWidth(1);
-  doc.line(18, 75, 18, 82); // 파란색 바 (세로선)
+  doc.line(18, 75, 18, 82);
   doc.setFontSize(9);
-  doc.text(lawyerData.workFields[0].workField, 20, 88); // "주요 경력" 텍스트
-  doc.text(lawyerData.secondMainCareer, 20, 92); // "주요 경력" 텍스트
+  doc.text(lawyerData.workFields[0].workField, 20, 88);
+  doc.text(lawyerData.secondMainCareer, 20, 92);
 
   // 프로필 이미지
   if (imageUrl) {
@@ -84,7 +57,7 @@ export const generateMemberProfilePdf = (lawyerData: MemberItem) => {
   // 가로줄
   doc.setLineWidth(1);
   doc.setDrawColor(126, 126, 126);
-  doc.line(20, 110, pageWidth - 20, 110); // 가로선
+  doc.line(20, 110, pageWidth - 20, 110);
 
   // 설명 텍스트 추가 (introduction)
   doc.setFontSize(11);
@@ -93,7 +66,7 @@ export const generateMemberProfilePdf = (lawyerData: MemberItem) => {
   // 가로줄
   doc.setLineWidth(1);
   doc.setDrawColor(126, 126, 126);
-  doc.line(20, 155, pageWidth - 20, 155); // 가로선
+  doc.line(20, 155, pageWidth - 20, 155);
 
   // 주요 처리 사례
   doc.setFontSize(12);
@@ -102,46 +75,46 @@ export const generateMemberProfilePdf = (lawyerData: MemberItem) => {
   doc.setLineWidth(1);
   doc.line(18, 160, 18, 167);
   doc.setFontSize(9);
-  lawyerData.handleCases.forEach((handleCase, index) => {
-    doc.text(handleCase.content, 20, 175 + index * 5); // 간격을 7에서 5로 줄임
+  lawyerData.handleCases.slice(0, 3).forEach((handleCase, index) => {
+    doc.text(handleCase.content, 25, 171.5 + index * 5);
   });
 
   // 학력
   doc.setFontSize(12);
-  doc.text("학력", 20, 200);
+  doc.text("학력", 20, 190);
   doc.setDrawColor(0, 102, 204);
   doc.setLineWidth(1);
-  doc.line(18, 195, 18, 202);
+  doc.line(18, 185, 18, 192);
   doc.setFontSize(9);
-  lawyerData.educations.forEach((education, index) => {
-    doc.text(
-      `${education.startYear} - ${education.content}`,
-      20,
-      210 + index * 5
-    ); // 간격을 7에서 5로 줄임
+  lawyerData.educations.slice(0, 3).forEach((education, index) => {
+    doc.text(`${education.year} - ${education.content}`, 25, 196.5 + index * 5); // Y 좌표를 210에서 195로 수정
   });
 
   // 경력
   doc.setFontSize(12);
-  doc.text("경력", 20, 240);
+  doc.text("경력", 20, 215);
+  doc.setDrawColor(0, 102, 204);
+  doc.setLineWidth(1);
+  doc.line(18, 210, 18, 217);
+  doc.setFontSize(9);
+  lawyerData.careers.slice(0, 3).forEach((career, index) => {
+    doc.text(
+      `${career.startYear} - ${career.endYear} ${career.content}`,
+      25,
+      221.5 + index * 5
+    );
+  });
+
+  // 저서 활동 기타
+  doc.setFontSize(12);
+  doc.text("저서 활동 기타", 20, 240);
   doc.setDrawColor(0, 102, 204);
   doc.setLineWidth(1);
   doc.line(18, 235, 18, 242);
   doc.setFontSize(9);
-  lawyerData.careers.forEach((career, index) => {
-    doc.text(`${career.startYear} - ${career.content}`, 20, 250 + index * 5); // 간격을 7에서 5로 줄임
+  lawyerData.licenses.slice(0, 3).forEach((license, index) => {
+    doc.text(`${license.content}`, 25, 246.5 + index * 5);
   });
-
-  // 저서 활동 기타
-  // doc.setFontSize(12);
-  // doc.text("저서 활동 기타", 20, 280);
-  // doc.setDrawColor(0, 102, 204);
-  // doc.setLineWidth(1);
-  // doc.line(18, 275, 18, 282);
-  // doc.setFontSize(9);
-  // lawyerData.licenses.forEach((license, index) => {
-  //   doc.text(`${license.content}`, 20, 290 + index * 5); // 간격을 7에서 5로 줄임
-  // });
 
   // 연락처 정보 추가
   doc.setFontSize(10);
@@ -151,3 +124,49 @@ export const generateMemberProfilePdf = (lawyerData: MemberItem) => {
   // PDF 저장
   doc.save(`${lawyerData.nameKo}_profile.pdf`);
 };
+
+interface Career {
+  startYear: string;
+  endYear: string;
+  content: string;
+}
+
+interface Education {
+  year: string;
+  content: string;
+}
+
+interface HandleCase {
+  startYear: string;
+  endYear: string;
+  content: string;
+}
+
+interface License {
+  content: string;
+}
+
+interface WorkField {
+  workField: string;
+}
+
+interface MemberItem {
+  id: number;
+  nameKo: string;
+  nameEn: string;
+  nameCh: string;
+  position: string;
+  email: string;
+  mainImg: string;
+  firstMainCareer: string;
+  secondMainCareer: string;
+  workNumber: string;
+  faxNumber: string;
+  introduction: string;
+  language: string;
+  careers: Career[];
+  educations: Education[];
+  handleCases: HandleCase[];
+  licenses: License[];
+  workFields: WorkField[];
+}
