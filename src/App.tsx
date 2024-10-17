@@ -26,7 +26,6 @@ import Layout from "./components/Layout/Layout";
 import AdminLayout from "./components/Layout/AdminLayout";
 import PeopleManagement from "./pages/Admin/People/PeopleManagement";
 import PeopleRegister from "./pages/Admin/People/PeopleRegister";
-import PeopleEdit from "./pages/Admin/People/PeopleEdit";
 import WorkCategoryManagement from "./pages/Admin/WorkCategory/WorkCategoryManagement";
 import NewsLetterManagement from "./pages/Admin/NewsLetter/NewsLetterManagement";
 import NewsLetterRegister from "./pages/Admin/NewsLetter/NewsLetterRegister";
@@ -72,7 +71,6 @@ function App() {
               element={<PeopleManagement />}
             />
             <Route path="/admin/people-register" element={<PeopleRegister />} />
-            <Route path="/admin/people-edit/:id" element={<PeopleEdit />} />
             <Route
               path="/admin/work-category-manegement"
               element={<WorkCategoryManagement />}

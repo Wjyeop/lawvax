@@ -1,6 +1,12 @@
-import { useState, useMemo, useRef, ChangeEvent } from "react";
+import { useState, useEffect, useMemo, useRef, ChangeEvent } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
-import { createPeople, createImage } from "../../../api/admin";
+import {
+  getPeopleItem,
+  createPeople,
+  createImage,
+  updatePeople,
+} from "../../../api/admin";
 import LabelInput from "../../../components/Admin/People/LabelInput";
 import Dropdown from "../../../components/Admin/Common/Dropdown";
 import InputWithYearAndText from "../../../components/Admin/People/InputWithYearAndText";
@@ -17,11 +23,11 @@ import {
   validateEmail,
   validatePhoneNumber,
   validateRequiredValue,
+  validateImage,
   formatPhoneNumber,
   formatEmptyObject,
   generateFormData,
 } from "../../../utils/admin";
-import { useNavigate } from "react-router-dom";
 
 export interface Career {
   startYear: string;
@@ -40,6 +46,7 @@ export interface Licenses {
 
 export default function PeopleRegister() {
   const navigate = useNavigate();
+  const { state } = useLocation();
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string>("");
@@ -109,6 +116,37 @@ export default function PeopleRegister() {
       content: "",
     },
   ]);
+
+  useEffect(() => {
+    (async () => {
+      if (state?.id) {
+        const { data } = await getPeopleItem(Number(state?.id));
+        setIsCheck(data.isVisible);
+        setProfile({
+          ...profile,
+          nameKo: data.nameKo,
+          nameCh: data.nameCh,
+          position: data.position,
+          workFields: data.workFields,
+          workNumber: data.workNumber,
+          email: data.email,
+          introduction: data.introduction,
+          firstMainCareer: data.firstMainCareer,
+          secondMainCareer: data.secondMainCareer,
+          mainImg: data.mainImg,
+        });
+        setCareers(data.careers.length > 0 ? data.careers : careers);
+        setEducations(
+          data.educations.length > 0 ? data.educations : educations
+        );
+        setLicenses(data.licenses.length > 0 ? data.licenses : licenses);
+        setHandleCases(
+          data.handleCases.length > 0 ? data.handleCases : handleCases
+        );
+        setPreviewUrl(data.mainImg);
+      }
+    })();
+  }, [state?.id]);
 
   const handleSingleCheck = () => {
     setIsCheck((prev) => !prev);
@@ -247,11 +285,18 @@ export default function PeopleRegister() {
   const onClickSaveButton = async () => {
     try {
       setIsLoading(true);
-      const url = await uploadImage(imageFile);
+      let url;
+      if (imageFile) {
+        url = await uploadImage(imageFile);
+      }
 
       validateRequiredValue(profile);
       validateEmail(profile.email);
       validatePhoneNumber(profile.workNumber);
+      if (!state?.id) {
+        validateImage(imageFile);
+      }
+
       const {
         filteredCareers,
         filteredEducations,
@@ -265,10 +310,14 @@ export default function PeopleRegister() {
         licenses: filteredLicenses,
         handleCases: filteredHandleCases,
         isVisible: !isCheck,
-        mainImg: url,
+        mainImg: imageFile ? url : profile.mainImg,
       };
 
-      await createPeople(combinedData);
+      if (state?.id) {
+        await updatePeople(state?.id, combinedData);
+      } else {
+        await createPeople(combinedData);
+      }
       navigate("/admin/people-management");
     } catch (error) {
       if (error instanceof Error) {
@@ -322,6 +371,7 @@ export default function PeopleRegister() {
               <LabelInput
                 label="이름(한글)"
                 placeholder="홍길동"
+                value={profile.nameKo}
                 type="text"
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   setProfile({ ...profile, nameKo: e.target.value })
@@ -330,6 +380,7 @@ export default function PeopleRegister() {
               <LabelInput
                 label="이름(한문)"
                 placeholder="洪吉童"
+                value={profile.nameCh}
                 type="text"
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   setProfile({ ...profile, nameCh: e.target.value })
@@ -369,6 +420,7 @@ export default function PeopleRegister() {
               <LabelInput
                 label="E-mail"
                 placeholder="hongildong@lawvax.co.kr"
+                value={profile.email}
                 type="text"
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   setProfile({ ...profile, email: e.target.value })
@@ -379,6 +431,7 @@ export default function PeopleRegister() {
               <span>소개</span>
               <textarea
                 placeholder="간단한 소개 글을 작성해주세요."
+                value={profile.introduction}
                 onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
                   setProfile({ ...profile, introduction: e.target.value })
                 }
@@ -388,6 +441,7 @@ export default function PeopleRegister() {
               <LabelInput
                 label="주요경력"
                 placeholder="1순위 입력"
+                value={profile.firstMainCareer}
                 type="text"
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   setProfile({ ...profile, firstMainCareer: e.target.value })
@@ -395,6 +449,7 @@ export default function PeopleRegister() {
               />
               <LabelInput
                 placeholder="2순위 입력"
+                value={profile.secondMainCareer}
                 type="text"
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   setProfile({ ...profile, secondMainCareer: e.target.value })
@@ -409,7 +464,7 @@ export default function PeopleRegister() {
                 <InputWithSelect
                   key={`educations-${index}`}
                   index={index}
-                  value={educations[index]["year"]}
+                  value={educations[index]}
                   handleYearChange={handleYearChange}
                   handleInputChange={handleInputChange}
                   handleAddForm={handleAddForm}
@@ -455,7 +510,7 @@ export default function PeopleRegister() {
                 <InputWithText
                   key={`licenses-${index}`}
                   index={index}
-                  value={licenses}
+                  value={licenses[index]}
                   handleAddForm={handleAddForm}
                   handleRemoveForm={handleRemoveForm}
                   handleInputChange={handleInputChange}

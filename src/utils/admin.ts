@@ -24,6 +24,12 @@ export const validatePhoneNumber = (phoneNumber: string) => {
   }
 };
 
+export const validateImage = (image: File | null) => {
+  if (!image) {
+    throw new Error("이미지를 등록해주세요.");
+  }
+};
+
 export const validateRequiredValue = (profile: any) => {
   const {
     nameKo,

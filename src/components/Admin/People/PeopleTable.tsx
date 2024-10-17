@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { updatePeopleOrder } from "../../../api/admin";
 import { getPeopleList, deletePeople } from "../../../api/admin";
@@ -31,6 +31,7 @@ export default function PeopleTable({
   handleEditMode,
   isEditMode,
 }: Props) {
+  const navigation = useNavigate();
   const [inputValueTemp, setInputValueTemp] = useState("");
   const [draggedIndex, setDraggedIndex] = useState<number | null>(null);
   const [reorderedList, setReorderedList] = useState<any>(peopleList);
@@ -103,6 +104,10 @@ export default function PeopleTable({
     } catch (error) {
       console.error("순서 저장에 실패했습니다:", error);
     }
+  };
+
+  const onClickEditButton = (id: number) => {
+    navigation("/admin/people-register", { state: { id } });
   };
 
   return (
@@ -190,9 +195,12 @@ export default function PeopleTable({
                 <td></td>
                 <td>{item.isVisible ? "공개" : "비공개"}</td>
                 <td>
-                  <Link to={`/admin/people-edit/${item.id}`}>
-                    <button className="admin-table-edit">수정</button>
-                  </Link>
+                  <button
+                    onClick={() => onClickEditButton(item.id)}
+                    className="admin-table-edit"
+                  >
+                    수정
+                  </button>
                 </td>
                 <td>
                   <button
