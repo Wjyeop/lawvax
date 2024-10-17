@@ -19,11 +19,13 @@ export const MANAGEMENT_TAB_CONTENTS = [
     Icon: Box,
     label: "게시글 관리",
     link: "/admin/post-manegement",
+    extraLink: "/admin/post-register",
   },
   {
     Icon: NewsLetter,
     label: "뉴스레터 관리",
     link: "/admin/news-letter-manegement",
+    extraLink: "/admin/news-letter-register",
   },
 ];
 
