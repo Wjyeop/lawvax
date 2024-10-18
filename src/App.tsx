@@ -18,10 +18,20 @@ import IntroPage from "./pages/IntroPage/IntroPage";
 import TechCenterPage from "./pages/TechCenterPage/TechCenterPage";
 import SupportCenterPage from "./pages/SupportCenterPage/SupportCenterPage";
 import Layout from "./components/Layout/Layout";
-import AdminLayout from "./components/Layout/AdminLayout";
-import PeopleManagement from "./pages/admin/People/PeopleManagement";
 import WorkFieldPage from "./pages/WorkFieldPage/WorkFieldPage";
 import WorkFieldDetailPage from "./pages/WorkFieldDetailPage/WorkFieldDetailPage";
+
+// admin
+import AdminLayout from "./components/Layout/AdminLayout";
+import PeopleManagement from "./pages/Admin/People/PeopleManagement";
+import PeopleRegister from "./pages/Admin/People/PeopleRegister";
+import WorkCategoryManagement from "./pages/Admin/WorkCategory/WorkCategoryManagement";
+import NewsLetterManagement from "./pages/Admin/NewsLetter/NewsLetterManagement";
+import NewsLetterRegister from "./pages/Admin/NewsLetter/NewsLetterRegister";
+import PostManagement from "./pages/Admin/Post/PostManagement";
+import PostRegister from "./pages/Admin/Post/PostRegister";
+import Login from "./pages/Admin/Login/Login";
+
 
 function App() {
   return (
@@ -57,10 +67,26 @@ function App() {
             <Route path="/support-center" element={<SupportCenterPage />} />
             <Route path="/tech-center" element={<TechCenterPage />} />
           </Route>
+          <Route path="/admin/login" element={<Login />} />
           <Route element={<AdminLayout />}>
             <Route
               path="/admin/people-management"
               element={<PeopleManagement />}
+            />
+            <Route path="/admin/people-register" element={<PeopleRegister />} />
+            <Route
+              path="/admin/work-category-manegement"
+              element={<WorkCategoryManagement />}
+            />
+            <Route path="/admin/post-manegement" element={<PostManagement />} />
+            <Route path="/admin/post-register" element={<PostRegister />} />
+            <Route
+              path="/admin/news-letter-manegement"
+              element={<NewsLetterManagement />}
+            />
+            <Route
+              path="/admin/news-letter-register"
+              element={<NewsLetterRegister />}
             />
           </Route>
         </Routes>

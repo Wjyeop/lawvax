@@ -1,3 +1,35 @@
+import { useState } from "react";
+
+import PeopleController from "../../../components/Admin/People/PeopleController";
+import PeopleTable from "../../../components/Admin/People/PeopleTable";
+
 export default function PeopleManagement() {
-  return <div>PeopleManagement</div>;
+  const [peopleList, setPeopleList] = useState<any>([]);
+  const [selectPostion, setSelectPostion] = useState("전체");
+  const [isEditMode, setIsEditMode] = useState(false);
+
+  const handlePosition = (postion: string) => {
+    setSelectPostion(postion);
+  };
+
+  const handleEditMode = () => {
+    setIsEditMode((prev) => !prev);
+  };
+
+  return (
+    <section className="admin-common-container">
+      <PeopleController
+        selectPostion={selectPostion}
+        handlePosition={handlePosition}
+        peopleList={peopleList}
+      />
+      <PeopleTable
+        selectPostion={selectPostion}
+        peopleList={peopleList}
+        setPeopleList={setPeopleList}
+        handleEditMode={handleEditMode}
+        isEditMode={isEditMode}
+      />
+    </section>
+  );
 }
