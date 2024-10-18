@@ -2,7 +2,7 @@ import {
   Career,
   Education,
   Licenses,
-} from "../pages/Admin/People/PeopleRegister";
+} from "../pages/admin/People/PeopleRegister";
 
 export const calculateMaxPageNum = (
   totalCount: number,

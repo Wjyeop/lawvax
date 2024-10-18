@@ -23,15 +23,14 @@ import WorkFieldDetailPage from "./pages/WorkFieldDetailPage/WorkFieldDetailPage
 
 // admin
 import AdminLayout from "./components/Layout/AdminLayout";
-import PeopleManagement from "./pages/Admin/People/PeopleManagement";
-import PeopleRegister from "./pages/Admin/People/PeopleRegister";
-import WorkCategoryManagement from "./pages/Admin/WorkCategory/WorkCategoryManagement";
-import NewsLetterManagement from "./pages/Admin/NewsLetter/NewsLetterManagement";
-import NewsLetterRegister from "./pages/Admin/NewsLetter/NewsLetterRegister";
-import PostManagement from "./pages/Admin/Post/PostManagement";
-import PostRegister from "./pages/Admin/Post/PostRegister";
-import Login from "./pages/Admin/Login/Login";
-
+import PeopleManagement from "./pages/admin/People/PeopleManagement";
+import PeopleRegister from "./pages/admin/People/PeopleRegister";
+import WorkCategoryManagement from "./pages/admin/WorkCategory/WorkCategoryManagement";
+import NewsLetterManagement from "./pages/admin/NewsLetter/NewsLetterManagement";
+import NewsLetterRegister from "./pages/admin/NewsLetter/NewsLetterRegister";
+import PostManagement from "./pages/admin/Post/PostManagement";
+import PostRegister from "./pages/admin/Post/PostRegister";
+import Login from "./pages/admin/Login/Login";
 
 function App() {
   return (
