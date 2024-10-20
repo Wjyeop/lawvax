@@ -76,7 +76,7 @@ const NewsLetterPostPage = () => {
         <p dangerouslySetInnerHTML={{ __html: newsLetterDetail.content }}></p>
       </div>
 
-      {relatedNews.length > 0 && (
+      {relatedNews?.length > 0 ? (
         <div>
           <div className="related-news">
             <div className="list">
@@ -103,7 +103,7 @@ const NewsLetterPostPage = () => {
               },
             }}
           >
-            {relatedNews.map((news, index) => (
+            {relatedNews?.map((news, index) => (
               <SwiperSlide key={index}>
                 <div className="content">
                   <img src={news.mainImg} alt={news.title} />
@@ -122,6 +122,19 @@ const NewsLetterPostPage = () => {
               </SwiperSlide>
             ))}
           </Swiper>
+        </div>
+      ) : (
+        <div>
+          <div className="related-news">
+            <div className="list">
+              <Link to="/newsletter">
+                <img src={list} alt="목록보기" />
+                <span>목록보기</span>
+              </Link>
+            </div>
+            <h3>관련된 뉴스레터</h3>
+          </div>
+          <div>관련된 뉴스레터가 없습니다.</div>
         </div>
       )}
     </div>

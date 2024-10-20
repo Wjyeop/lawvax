@@ -124,27 +124,35 @@ const NewsPage = () => {
           인재영입
         </button>
       </div>
-      <div className="news-grid">
-        {newsData.newsList.map((news, index) => (
-          <div className="news-item" key={index}>
-            <img src={`${news.mainImg}`} alt={news.title} />
-            <div className="news-content">
-              <p className="news-title">{news.title}</p>
-              <div className="bottom">
-                <span className="news-date">{news.createdAt.slice(0, 10)}</span>
-                <span className="more">
-                  <Link
-                    to={`/news/post/${news.id}`}
-                    onClick={() => handleSelectNews(news.id)}
-                  >
-                    자세히보기
-                  </Link>{" "}
-                </span>
+      {newsData ? (
+        <div className="news-grid">
+          {newsData?.newsList.map((news, index) => (
+            <div className="news-item" key={index}>
+              <img src={`${news.mainImg}`} alt={news.title} />
+              <div className="news-content">
+                <p className="news-title">{news.title}</p>
+                <div className="bottom">
+                  <span className="news-date">
+                    {news.createdAt.slice(0, 10)}
+                  </span>
+                  <span className="more">
+                    <Link
+                      to={`/news/post/${news.id}`}
+                      onClick={() => handleSelectNews(news.id)}
+                    >
+                      자세히보기
+                    </Link>{" "}
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      ) : (
+        <div className="news-grid">
+          <div>뉴스가 없습니다.</div>
+        </div>
+      )}
       <div className="pagination">
         <img
           src={img.icons.left02}

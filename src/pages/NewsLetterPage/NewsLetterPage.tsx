@@ -91,7 +91,7 @@ const NewsLetterPage = () => {
       {/* 뉴스레터 카드 래퍼 */}
       <div className="card-wrap">
         {newsLetterData.newsletterList.length > 0 ? (
-          newsLetterData.newsletterList.slice(0, 4).map((news, index) => (
+          newsLetterData?.newsletterList.slice(0, 4).map((news, index) => (
             <div className="newsletter-content" key={index}>
               <div className="mark">
                 <span>회계 법률</span>

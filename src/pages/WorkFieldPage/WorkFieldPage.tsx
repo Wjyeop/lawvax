@@ -43,20 +43,30 @@ const WorkFieldPage = () => {
           OF WORK
         </p>
       </div>
-      <div className="content-wrap">
-        {workFieldList.map((item: any, index: number) => (
-          <div
-            className="content01"
-            key={index}
-            onClick={() => handleFieldClick(item)}
-          >
+      {workFieldList ? (
+        <div className="content-wrap">
+          {workFieldList?.map((item: any, index: number) => (
+            <div
+              className="content01"
+              key={index}
+              onClick={() => handleFieldClick(item)}
+            >
+              <div className="title">
+                <span>{item}</span>
+                <img className="fold-img" src={img.icons.arrowGray} alt="" />
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="content-wrap">
+          <div className="content01">
             <div className="title">
-              <span>{item}</span>
-              <img className="fold-img" src={img.icons.arrowGray} alt="" />
+              <span>업무분야가 없습니다.</span>
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      )}
     </div>
   );
 };

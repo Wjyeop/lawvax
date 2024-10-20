@@ -80,7 +80,7 @@ const PostPage = () => {
           },
         }}
       >
-        {relatedNews.map((news) => (
+        {relatedNews?.map((news) => (
           <SwiperSlide>
             <div key={news.id} className="content">
               <img src={news.image} alt={news.title} />

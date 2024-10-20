@@ -81,7 +81,7 @@ const NewsPostPage = () => {
         <p className="sub-title">{newsDetail.title}</p> */}
         <p dangerouslySetInnerHTML={{ __html: newsDetail.content }}></p>
       </div>
-      {relatedNews.length > 0 && (
+      {relatedNews?.length > 0 && (
         <div>
           <div className="related-news">
             <div className="list">
@@ -108,7 +108,7 @@ const NewsPostPage = () => {
               },
             }}
           >
-            {relatedNews.map((news, index) => (
+            {relatedNews?.map((news, index) => (
               <SwiperSlide key={index}>
                 <div className="content">
                   <img src={news.mainImg} alt={news.title} />

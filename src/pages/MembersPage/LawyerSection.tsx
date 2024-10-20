@@ -58,28 +58,34 @@ const Lawyersection = () => {
 
   return (
     <section className="lawyer-section">
-      <div className="grid-wrap">
-        {visibleLawyers.map((lawyer, index) => (
-          <div
-            key={index}
-            className={`lawyer-item ${selectedLawyerIndex === index ? "selected" : ""}`}
-            onClick={() => handleClick(index)}
-          >
-            <Link to={`/members/profile/${lawyer.id}`}>
-              <img src={lawyer.mainImg} alt="" />
-            </Link>
-            <div className="text-wrap">
-              <p className="p1">
-                <span>{lawyer.nameKo}</span>
-                <span> {lawyer.nameCh}</span>
-              </p>
-              <p className="p2">{lawyer.position}</p>
-              <p className="p3">{lawyer.firstMainCareer}</p>
-              <p className="p3">{lawyer.secondMainCareer}</p>
+      {visibleLawyers ? (
+        <div className="grid-wrap">
+          {visibleLawyers?.map((lawyer, index) => (
+            <div
+              key={index}
+              className={`lawyer-item ${selectedLawyerIndex === index ? "selected" : ""}`}
+              onClick={() => handleClick(index)}
+            >
+              <Link to={`/members/profile/${lawyer.id}`}>
+                <img src={lawyer.mainImg} alt="" />
+              </Link>
+              <div className="text-wrap">
+                <p className="p1">
+                  <span>{lawyer.nameKo}</span>
+                  <span> {lawyer.nameCh}</span>
+                </p>
+                <p className="p2">{lawyer.position}</p>
+                <p className="p3">{lawyer.firstMainCareer}</p>
+                <p className="p3">{lawyer.secondMainCareer}</p>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      ) : (
+        <div className="grid-wrap">
+          <div>리스트 없음</div>
+        </div>
+      )}
       {lawyerList.length > 6 && (
         <button className="toggle-button" onClick={handleToggle}>
           {showAll ? "접기" : "더보기"}
