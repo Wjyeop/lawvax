@@ -3,7 +3,7 @@ import axiosInstance from "./axiosInstance";
 export const getNewsLetterData = async (page: number) => {
   try {
     const response = await axiosInstance.get(
-      `/v2/user/newsletter/list/newsletter-list-page`,
+      `/api/v2/user/newsletter/list/newsletter-list-page`,
       {
         params: {
           page: page,

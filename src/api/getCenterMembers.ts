@@ -9,7 +9,7 @@ export const getCenterMembers = async (center: string) => {
     };
 
     const response = await axiosInstance.get(
-      `/v2/user/lawyer/list/center-page`,
+      `/api/v2/user/lawyer/list/center-page`,
       {
         params: params,
       }

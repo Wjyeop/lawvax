@@ -7,7 +7,7 @@ export const getCenterNewsLetter = async (center: string) => {
     };
 
     const response = await axiosInstance.get(
-      `/v2/user/newsletter/list/center-page`,
+      `/api/v2/user/newsletter/list/center-page`,
       {
         params: params,
       }

@@ -5,7 +5,7 @@ import axiosInstance from "./axiosInstance";
 export const getWorkFieldNewsLetter = async (workField: string) => {
   try {
     const response = await axiosInstance.get(
-      `/v2/user/newsletter/list/work-field-page`,
+      `/api/v2/user/newsletter/list/work-field-page`,
       {
         params: {
           work_field: workField,

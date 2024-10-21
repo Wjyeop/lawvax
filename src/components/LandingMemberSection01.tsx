@@ -18,7 +18,7 @@ export const LandingMemberSection01: React.FC = () => {
     const fetChLawyers = async () => {
       try {
         const response = await getMembersLandingPage();
-        console.log(response);
+        // console.log(response);
         setLawyers(response || []); // 데이터를 가져왔을 때도 안전하게 빈 배열로 처리
         setIsLoading(false); // 로딩 완료 후 상태 변경
       } catch (error) {

@@ -3,7 +3,7 @@ import axiosInstance from "./axiosInstance";
 export const getSearchNewsLetter = async (keyword: string, page: number) => {
   try {
     const response = await axiosInstance.get(
-      `/v2/user/newsletter/list/search-page`,
+      `/api/v2/user/newsletter/list/search-page`,
       {
         params: {
           search: keyword,

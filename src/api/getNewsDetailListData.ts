@@ -3,7 +3,7 @@ import axiosInstance from "./axiosInstance";
 export const getNewsDetailListData = async (category: string) => {
   try {
     const response = await axiosInstance.get(
-      `/v2/user/news/list/news-detail-page?category=${category}`
+      `/api/v2/user/news/list/news-detail-page?category=${category}`
     );
     // console.log(response.data);
     return response.data;

@@ -5,7 +5,7 @@ export const getMembersLandingPage = async () => {
     const response = await axiosInstance.get(
       `/api/v2/user/lawyer/list/landing-page`
     );
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
     if (error instanceof Error) {

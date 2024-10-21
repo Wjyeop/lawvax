@@ -17,7 +17,7 @@ export const getMembersList = async (
     }
 
     const response = await axiosInstance.get(
-      `/v2/user/lawyer/list/lawyer-list-page`,
+      `/api/v2/user/lawyer/list/lawyer-list-page`,
       {
         params: params,
       }

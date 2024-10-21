@@ -4,7 +4,7 @@ import axiosInstance from "./axiosInstance";
 
 export const getWorkFieldDetail = async (workField: string) => {
   try {
-    const response = await axiosInstance.get(`/v2/user/work-field/detail`, {
+    const response = await axiosInstance.get(`/api/v2/user/work-field/detail`, {
       params: {
         workField: workField,
       },
