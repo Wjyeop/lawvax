@@ -6,7 +6,7 @@ export const getSearchNews = async (
   tab: string
 ) => {
   try {
-    const response = await axiosInstance.get(`/v2/user/news/list/search-page`, {
+    const response = await axiosInstance.get(`/api/v2/user/news/list/search-page`, {
       params: {
         search: keyword,
         page: page,

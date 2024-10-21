@@ -3,7 +3,7 @@ import axiosInstance from "./axiosInstance";
 export const getNewsLetterDetailListData = async () => {
   try {
     const response = await axiosInstance.get(
-      `/v2/user/newsletter/list/newsletter-detail-page`
+      `/api/v2/user/newsletter/list/newsletter-detail-page`
     );
     // console.log(response.data);
     return response.data;

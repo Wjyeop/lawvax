@@ -3,7 +3,7 @@ import axiosInstance from "./axiosInstance";
 export const getNewsData = async (page: number, category: string) => {
   try {
     const response = await axiosInstance.get(
-      `/v2/user/news/list/news-list-page`,
+      `/api/v2/user/news/list/news-list-page`,
       {
         params: {
           page: page,

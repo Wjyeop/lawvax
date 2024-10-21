@@ -2,7 +2,7 @@ import axiosInstance from "./axiosInstance";
 
 export const getMembersAutoList = async () => {
   try {
-    const response = await axiosInstance.get(`/v2/user/lawyer/auto-complete`);
+    const response = await axiosInstance.get(`/api/v2/user/lawyer/auto-complete`);
     return response.data;
   } catch (error) {
     if (error instanceof Error) {

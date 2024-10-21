@@ -4,7 +4,7 @@ import axiosInstance from "./axiosInstance";
 
 export const getWorkField = async () => {
   try {
-    const response = await axiosInstance.get(`/v2/user/work-field/list`);
+    const response = await axiosInstance.get(`/api/v2/user/work-field/list`);
     return response.data;
   } catch (error) {
     if (error instanceof Error) {

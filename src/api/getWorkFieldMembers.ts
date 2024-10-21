@@ -5,7 +5,7 @@ import axiosInstance from "./axiosInstance";
 export const getWorkFieldMembers = async (workField: string) => {
   try {
     const response = await axiosInstance.get(
-      `/v2/user/lawyer/list/work-field-page`,
+      `/api/v2/user/lawyer/list/work-field-page`,
       {
         params: {
           isFirstPage: false,

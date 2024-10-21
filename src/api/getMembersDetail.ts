@@ -2,7 +2,7 @@ import axiosInstance from "./axiosInstance";
 
 export const getMembersDetail = async (id: number) => {
   try {
-    const response = await axiosInstance.get(`/v2/user/lawyer/${id}`);
+    const response = await axiosInstance.get(`/api/v2/user/lawyer/${id}`);
     // console.log(response.data);
     return response.data;
   } catch (error) {
