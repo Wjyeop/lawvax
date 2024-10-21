@@ -4,7 +4,7 @@ import img from "../../assets/images/img";
 import { getNewsLandingPage } from "../../api/newsLandingPage";
 
 const NewsSection = () => {
-  const [activeTab, setActiveTab] = useState("법인소식");
+  const [activeTab, setActiveTab] = useState("Lawvax소식");
   const [currentIndex, setCurrentIndex] = useState(0); // 초기 index 상태
   const [fadeState, setFadeState] = useState(""); // 페이드 애니메이션 상태
   interface NewsItem {
@@ -73,10 +73,10 @@ const NewsSection = () => {
 
       <div className="theme-select">
         <button
-          className={activeTab === "법인소식" ? "active" : ""}
-          onClick={() => setActiveTab("법인소식")}
+          className={activeTab === "Lawvax소식" ? "active" : ""}
+          onClick={() => setActiveTab("Lawvax소식")}
         >
-          법인소식
+          Lawvax소식
         </button>
         <button
           className={activeTab === "언론보도" ? "active" : ""}
